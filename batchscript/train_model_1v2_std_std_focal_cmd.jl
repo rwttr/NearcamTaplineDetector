@@ -3,7 +3,9 @@ Pkg.activate(".")
 Pkg.instantiate()
 
 """ command line argument parsing section """
+
 using ArgParse
+
 function parse_cmd()
     s = ArgParseSettings()
 
@@ -12,16 +14,21 @@ function parse_cmd()
             help = "specify training datafold"
             arg_type = Int
             default = 0
+        "--gpu_id"
+            help = "specify gpu device id"
+            arg_type = Int
+            default = 0
     end
     return parse_args(s)
 end
 
-parsed_args = parse_cmd()
+p_args = parse_cmd()
 
 ## 
 # Custom Training Loop with NearcamTaplineDataset Framework
 
 """ Dependencies """
+
 # Network core
 using Flux
 using Flux:Data.DataLoader
@@ -31,7 +38,7 @@ using CUDA
 # Utils
 using Dates
 using Statistics
-using ImageView
+#using ImageView
 using Logging
 using TensorBoardLogger
 using BSON:@save
@@ -42,17 +49,18 @@ using ProgressMeter
 using Augmentor
 using Random
 
-LinearAlgebra.BLAS.set_num_threads(4)
+#LinearAlgebra.BLAS.set_num_threads(4)
 include("model.jl")
 
 ##
 """" Config Section """
+
 # datafold selection
-fold_no = parsed_args["fold_no"]
+fold_no = Int(p_args["fold_no"])
 
 ## specify model
-model_name = "model_1v1_std_std_tversky"
-model = model_1v1;
+model_name = "model_1v2_std_std_focal"
+model = model_1v2;
 
 # save / model checkpoint enable
 chkpoint_enable = true
@@ -63,6 +71,7 @@ resume_epoch = 0
 
 # gpu select
 gpu_enable = true
+CUDA.device!(p_args["gpu_id"])
 
 # tensorboard enable
 tensorboard_enable = true
@@ -86,8 +95,10 @@ iou_penalty_threshold = 0.8     # prediction iou to ignore loss calculate (yolo 
 
 
 """ NN Training Section """
+
 target_epoch = no_epoch
-checkpoint_epoch = 1:target_epoch
+#checkpoint_epoch = 1:9:target_epoch
+checkpoint_epoch = [90 99 100]
 
 # scheduler
 schlr = StateScheduler(no_epoch, learning_rate, warmupPeriod)
@@ -148,6 +159,7 @@ max_epoch_iter = max_data_iter - data_dispatch_size + 1
 
 
 """ Training Loop section """
+
 ## Training Loop
 # Optimizer
 opt = Momentum(learning_rate, momentum_term) # SGD w/ Momentum
@@ -171,12 +183,12 @@ b2_objloss = 0f0
     # reset datastore
     NDS.resetDispatchRecord();
     current_data_iter = NDS.getDispatchRecord();
-    progmeter = Progress(max_epoch_iter, showspeed=true)
+    # progmeter = Progress(max_epoch_iter, showspeed=true)
     global epoch_count += 1;
 
     while current_data_iter <= max_epoch_iter
         # update progress bar
-        update!(progmeter, current_data_iter)
+        # update!(progmeter, current_data_iter)
         # update iteration counter
         global iteration_count += 1;
         # update epoch counter
@@ -245,9 +257,9 @@ b2_objloss = 0f0
             lossObj_2 = yoloObjLoss(response_branch2, targetfor_branch2, iou_mask_layer2)
 
             # segmentation loss            
-            lossPxl = pxlLoss_tversky(response_branch3, targetfor_branch3)            
+            # lossPxl = pxlLoss_tversky(response_branch3, targetfor_branch3)            
             # lossPxl = pxlLoss_dice(response_branch3, targetfor_branch3)
-            # lossPxl = pxlLoss_focal(response_branch3, targetfor_branch3)
+            lossPxl = pxlLoss_focal(response_branch3, targetfor_branch3)
             # lossPxl = wbcrossentropy(response_branch3, targetfor_branch3)
 
             loss = lossBox_1 + lossObj_1 + lossBox_2 + lossObj_2 + lossPxl;
@@ -322,4 +334,5 @@ b2_objloss = 0f0
 
 end # epoch
 
+println("$model_name, training done on fold_no:$fold_no")
 exit()

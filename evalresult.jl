@@ -1,5 +1,6 @@
 using BSON:@load
 using BSON:@save
+using Images
 using ImageView
 import Statistics
 import LinearAlgebra
@@ -50,10 +51,17 @@ function taplineHausdorffDist(imgA::Array{T,3}, imgB::Array{T,3}) where T <: Rea
     img_channel = size(imgA)[3]
     dh_array = zeros(img_channel)
     Threads.@threads for i = 1:img_channel
-        dh_array[i] = taplineHausdorffDist(imgA[:,:,i], imgB[:,:,i];)
+        dh_array[i] = taplineHausdorffDist2(imgA[:,:,i], imgB[:,:,i];)
     end
     return dh_array
 end
+
+function taplineHausdorffDist2(imgA::Array{T,2}, imgB::Array{T,2}) where T <: Real
+    # hausdorf distance via Images.hausdorff
+    return Images.hausdorff(Bool.(imgA), Bool.(imgB));
+end
+
+
 
 function endpointErr(imgA::Array{Bool,2}, imgB::Array{Bool,2})
     pt_a = findall(imgA);
@@ -78,7 +86,7 @@ end
 ## Bounding Box
 #result_model_path = "result/model_1_2/customloss_enable2/"
 
-result_model_path = "result/model_2_2/"
+result_model_path = "result/model_1_3/"
 iou_eval = 0.5
 
 ap_box_fold = zeros(Float32, 5)             # average precision for each fold
@@ -96,7 +104,7 @@ Threads.@threads for fold_no = 1:5
 
     @load "$result_model_path" * "dtboxiou_fold$fold_no.bson" dtboxiou
     @load "$result_model_path" * "dttapline_fold$fold_no.bson" dttaplineimg
-    @load "result/model_1_gt/gttapline_fold$fold_no.bson" gttapline
+    @load "result/nearcam_fold_gt/gttapline_fold$fold_no.bson" gttapline
 
     ap_box_fold[fold_no] = count(x -> x >= iou_eval, dtboxiou) / length(dtboxiou)
     dh_fold_vector[fold_no] = taplineHausdorffDist(gttapline, dttaplineimg)
