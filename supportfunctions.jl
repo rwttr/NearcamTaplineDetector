@@ -929,7 +929,6 @@ end
 # mask iouTensor cell with mask_iou_threshold
 function maskPredBoxOverlap(iouTensor::Array{Float32,4}; mask_iou_threshold=0.5)
     iou_mask = ones(Float32, size(iouTensor));
-    # for i = 1:length(iouTensor)
     for i in eachindex(iou_mask)
         if iouTensor[i] >= mask_iou_threshold
             iou_mask[i] = 0f0;
