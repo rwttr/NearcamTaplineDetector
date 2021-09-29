@@ -90,7 +90,7 @@ no_epoch = 100
 learning_rate = 0.008           # base learning rate
 momentum_term = 0.9
 warmupPeriod = 4000             # 2800@45
-iou_penalty_threshold = 0.8     # prediction iou to ignore loss calculate (yolo branch)
+iou_penalty_threshold = 1       # prediction iou to ignore loss calculate (yolo branch)
 
 
 
@@ -238,8 +238,8 @@ b2_objloss = 0f0
                 iou_layer1 = predBoxOverlap(response_branch1 |> cpu, gtbox, yololayer_layer1)
                 iou_layer2 = predBoxOverlap(response_branch2 |> cpu, gtbox, yololayer_layer2)
 
-                iou_mask_layer1 = maskPredBoxOverlap(iou_layer1)
-                iou_mask_layer2 = maskPredBoxOverlap(iou_layer2)
+                iou_mask_layer1 = maskPredBoxOverlap(iou_layer1, mask_iou_threshold=iou_penalty_threshold)
+                iou_mask_layer2 = maskPredBoxOverlap(iou_layer2, mask_iou_threshold=iou_penalty_threshold)
 
                 if gpu_enable
                     iou_mask_layer1 = gpu(iou_mask_layer1)

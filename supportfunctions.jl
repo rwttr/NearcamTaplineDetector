@@ -174,7 +174,9 @@ end
 
 # Intersection Over Union
 function bboxIoU(box1::Vector{Float32}, box2::Vector{Float32})
-    # box1, box2 are in topleft-xywh format
+    # box1, box2 are in topleft-xy wh format
+
+    # zero-center box1 and box2
     b1_x1, b1_x2 = box1[1] - box1[3] / 2, box1[1] + box1[3] / 2
     b1_y1, b1_y2 = box1[2] - box1[4] / 2, box1[2] + box1[4] / 2
     b2_x1, b2_x2 = box2[1] - box2[3] / 2, box2[1] + box2[3] / 2

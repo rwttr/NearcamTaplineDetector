@@ -15,7 +15,7 @@ function parse_cmd()
             arg_type = Int
             default = 0
         "--gpu_id"
-            help = "specify gpu device id"
+            help = "specify gpu id"
             arg_type = Int
             default = 0
     end
@@ -59,8 +59,8 @@ include("model.jl")
 fold_no = Int(p_args["fold_no"])
 
 ## specify model
-model_name = "model_1v2_std_std_focal"
-model = model_1v2;
+model_name = "model_1v1_std_std_focal"
+model = model_1v1;
 
 # save / model checkpoint enable
 chkpoint_enable = true
@@ -90,7 +90,7 @@ no_epoch = 100
 learning_rate = 0.008           # base learning rate
 momentum_term = 0.9
 warmupPeriod = 4000             # 2800@45
-iou_penalty_threshold = 0.8     # prediction iou to ignore loss calculate (yolo branch)
+iou_penalty_threshold = 1       # prediction iou to ignore loss calculate (yolo branch)
 
 
 
@@ -334,5 +334,5 @@ b2_objloss = 0f0
 
 end # epoch
 
-println("$model_name, training done on fold_no:$fold_no")
+println("training done on fold_no:$fold_no")
 exit()

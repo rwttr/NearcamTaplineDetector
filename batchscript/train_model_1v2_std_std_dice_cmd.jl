@@ -238,8 +238,8 @@ b2_objloss = 0f0
                 iou_layer1 = predBoxOverlap(response_branch1 |> cpu, gtbox, yololayer_layer1)
                 iou_layer2 = predBoxOverlap(response_branch2 |> cpu, gtbox, yololayer_layer2)
 
-                iou_mask_layer1 = maskPredBoxOverlap(iou_layer1)
-                iou_mask_layer2 = maskPredBoxOverlap(iou_layer2)
+                iou_mask_layer1 = maskPredBoxOverlap(iou_layer1, mask_iou_threshold=iou_penalty_threshold)
+                iou_mask_layer2 = maskPredBoxOverlap(iou_layer2, mask_iou_threshold=iou_penalty_threshold)
 
                 if gpu_enable
                     iou_mask_layer1 = gpu(iou_mask_layer1)
