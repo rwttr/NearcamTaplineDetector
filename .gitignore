@@ -1,4 +1,3 @@
 *.bson
-*.nillaphat
 remote\ weights/*
 old/*
