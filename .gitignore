@@ -1,2 +1,3 @@
 *.bson
+remote weights/*
 old/*
