@@ -20,7 +20,7 @@ data_dispatch_size = 1;
 nn_inputsize = [224 224];       # network input size
 
 ## Load Model
-model_path = "weights/model_A/fold2/model_A_fold2_epoch100.bson"
+model_path = "weights/model_1v1_std_std_dice/fold1/model_1v1_dice_fold1_epoch100.bson"
 
 @load model_path model_save
 model = model_save;
