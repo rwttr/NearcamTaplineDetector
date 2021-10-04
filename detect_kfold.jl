@@ -67,7 +67,7 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
     
             # model inference
             # nnoutput = model(img)
-            nnoutput = Base.invokelatest(model, img)
+            nnoutput = Base.invokelatest(model, img) # avoid definition from model.jl
             
             # push all results to cpu / all evaluation done on cpu
             nnoutput = nnoutput |> cpu;
@@ -109,7 +109,9 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
         @save joinpath(save_result_path, "dtboxiou_fold$fold_no.bson") dtboxiou
         @save joinpath(save_result_path, "dttapline_fold$fold_no.bson") dttaplineimg
     end
-    CUDA.reclaim()
+    if gpu_enable
+        CUDA.reclaim()
+    end
 end
 
 
