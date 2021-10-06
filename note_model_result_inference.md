@@ -1,5 +1,5 @@
 # Inference Results
-Prediction Result for model_1v1, model_1v2, and model_a (sum output)
+## Prediction Result for model_1v1, model_1v2, and model_a (sum output)
 - Tapping Line inference in all model performs
     1. Box: merge all box predictions from 2 YOLO branches with NMS, then pick one box with the highest score
     2. Tapping Line: argmax row-position on every column in Pxl prediciton branch (column-wise argmax)
@@ -64,7 +64,7 @@ p5_model_a                      | 0 | 1 | 2
 no_model_a                      | 0 | 1 | 2
 ---
 
-Prediction Result for model_a (Voting Output)
+## Prediction Result for model_a (Voting Output)
 - Tapping Line inference in all model performs
     1. Box: merge all box predictions from 2 YOLO branches with NMS, then pick one box with the highest score
     2. Tapping Line: argmax row-position on every column in Pxl prediciton branch (column-wise argmax) ** *separately* **, for model_a is 3 Pxl outputs
