@@ -66,6 +66,7 @@ function evalSingleIOU(result_model_path::String; iou_eval=0.5)
         dh_fold_vector[fold_no] = taplineHausdorffDist(gttapline, dttaplineimg)
         eperr_fold_vector[fold_no] = endpointErr(gttapline, dttaplineimg)
 
+        # mask invalids with NaN
         mask_fold_vector[fold_no] =  map(dtboxiou) do x
             if x >= iou_eval
                 return 1

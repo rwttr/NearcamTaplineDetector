@@ -1,3 +1,4 @@
+# Kfold Detection Run on model_a with majority inference
 ## load dependencies
 using Zygote:Array
 using Flux: batch, Zygote
@@ -72,8 +73,7 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
             nnoutput = nnoutput |> cpu;
             output_branch1 = nnoutput[1];
             output_branch2 = nnoutput[2];
-            output_branch3 = nnoutput[3];
-
+            # output_branch3 = nnoutput[3];
             pxl_branch1 = nnoutput[4];
             pxl_branch2 = nnoutput[5];
             pxl_branch3 = nnoutput[6];
@@ -120,7 +120,6 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
             # update counter
             counter_i += 1
         end
-
         ## Save result
         dtboxiou = dtboxiou_array;
         dttaplineimg = dttapline_array
@@ -138,11 +137,11 @@ end
 # model_a
 load_model_path = "./weights/05_iou_penalty/model_a"
 load_model_name  = "model_a"
-save_result_path = "result/p5_iou_model_a"
+save_result_path = "result/p5_iou_model_a_mi"
 detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
 
 # no bbox iou penalty
 load_model_path = "./weights/no_iou_penalty/model_a"
 load_model_name  = "model_a"
-save_result_path = "result/no_iou_model_a"
+save_result_path = "result/no_iou_model_a_mi"
 detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
