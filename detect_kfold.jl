@@ -12,7 +12,6 @@ using Images
 using CUDA
 
 include("model.jl")
-
 include("NearcamTaplineDataset.jl")
 import .NearcamTaplineDataset as NDS
 NDS.init();

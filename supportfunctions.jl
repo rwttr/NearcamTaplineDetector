@@ -25,7 +25,6 @@ end
 # Input Image Augmentation, Augment: image, bbox, pxlmask 
 function augmentTapline(img::Array{Float32,4}, bbox::Array{Float32,4}, pxlmask::Array{Float32,4})
     max_x, max_y, _, batchsize = size(img)
-
     img_out = similar(img)
     pxl_out = similar(pxlmask)
     box_out = similar(bbox)
@@ -77,7 +76,6 @@ function augmentTapline(img::Array{Float32,4}, bbox::Array{Float32,4}, pxlmask::
         end
 
         warp_pxlmask_bin[active_px[:]] .= 1
-
         pxl_out[:,:,:,batch_no] = Float32.(warp_pxlmask_bin)
 
         # debug
@@ -294,7 +292,6 @@ function transYolohead(nnTensorTp::NTuple{6,Array{Float32,4}}, yololayer::YoloLa
         bx_add = Float32.(bx_add)
         by_add = Float32.(by_add)
     end
-
     bxTensor = (txTensor + bx_add) .* enlarge_factor
     byTensor = (tyTensor + by_add) .* enlarge_factor
 
@@ -311,7 +308,6 @@ function transYolohead(nnTensorTp::NTuple{6,Array{Float32,4}}, yololayer::YoloLa
         tw_mul = Float32.(tw_mul)
         th_mul = Float32.(th_mul)
     end
-
     bwTensor = exp.(twTensor) .* tw_mul .* enlarge_factor
     bhTensor = exp.(thTensor) .* th_mul .* enlarge_factor
 
@@ -329,7 +325,6 @@ function transYolohead(nnTensorTp::NTuple{6,CuArray{Float32,4}}, yololayer::Yolo
         bx_add = Float32.(repeat(yololayer.x_grid_offset, 1, 1, c, batchsize)) |> gpu
         by_add = Float32.(repeat(yololayer.y_grid_offset, 1, 1, c, batchsize)) |> gpu
     end
-
     bxTensor = (txTensor + bx_add) .* enlarge_factor
     byTensor = (tyTensor + by_add) .* enlarge_factor
 
@@ -346,7 +341,6 @@ function transYolohead(nnTensorTp::NTuple{6,CuArray{Float32,4}}, yololayer::Yolo
         tw_mul = Float32.(tw_mul) |> gpu
         th_mul = Float32.(th_mul) |> gpu
     end
-
     bwTensor = exp.(twTensor) .* tw_mul .* enlarge_factor
     bhTensor = exp.(thTensor) .* th_mul .* enlarge_factor
 
@@ -358,7 +352,6 @@ end
 """ Predict(Detect) Box from YOLO head """
 function predictboxYolohead(nnTensorTuple::NTuple{6,Array{Float32,4}}, yololayer::YoloLayer; obj_th=0.5)
     txTensor, tyTensor, twTensor, thTensor, objTensor = nnTensorTuple[1:5]
-
     bxTensor, byTensor = predBxBy(txTensor, tyTensor, yololayer);
     bwTensor, bhTensor = predBwBh(twTensor, thTensor, yololayer);
 
@@ -384,10 +377,7 @@ function predictboxYolohead(nnTensorTuple::NTuple{6,Array{Float32,4}}, yololayer
             # find all possible boxes (high-memory loaded)
             for i = 1:(w * h) # eachindex(pred_bx)
                 # convert to topleft xywh
-                bx, by, bw, bh = boxCenter2topleft(
-                    Float32.([pred_bx[i];pred_by[i];pred_bw[i];pred_bh[i]]));
-
-
+                bx, by, bw, bh = boxCenter2topleft(Float32.([pred_bx[i];pred_by[i];pred_bw[i];pred_bh[i]]));
                 obj_score = pred_obj[i];
 
                 if (obj_score >= obj_th) &&                             # threshold objectness
@@ -455,7 +445,6 @@ function predictBox(nnoutputYolohead, yololayer::YoloLayer; obj_th=0.0, nms_th=0
     yoloTranslated = predictboxYolohead(nnoutputYolohead, yololayer, obj_th=obj_th);
     dtbox = nmsBoxwScore(yoloTranslated, iou_th=nms_th);
     return dtbox
-
 end
 
 # predict tapping line within pred_box (test mode)
@@ -485,14 +474,12 @@ function taplineL2Dist(imgA, imgB)
     # drop singleton dimensions
     imgA_d = dropdims(imgA, dims=(findall(size(imgA) .== 1)...,))
     imgB_d = dropdims(imgB, dims=(findall(size(imgB) .== 1)...,))
-
     px_a = findall(Bool.(imgA_d));
     px_b = findall(Bool.(imgB_d));
 
     if isempty(px_a) || isempty(px_b)
         return -1;
     end
-
     # distance from a to b
     a_b_dist = 0;
     for i = 1:length(px_a)
@@ -506,7 +493,6 @@ function taplineL2Dist(imgA, imgB)
         end
         a_b_dist += findmin(tempdist)[1];
     end
-
     # distance from b to a
     b_a_dist = 0;
     for i = 1:length(px_b)
@@ -520,7 +506,6 @@ function taplineL2Dist(imgA, imgB)
         end
         b_a_dist += findmin(tempdist)[1];
     end
-
     return a_b_dist + b_a_dist;
 end
 
@@ -530,14 +515,12 @@ function taplineL2Dist2(imgA, imgB)
     # drop singleton dimensions
     imgA_d = dropdims(imgA, dims=(findall(size(imgA) .== 1)...,))
     imgB_d = dropdims(imgB, dims=(findall(size(imgB) .== 1)...,))
-
     px_a = findall(Bool.(imgA_d));
     px_b = findall(Bool.(imgB_d));
 
     if isempty(px_a) || isempty(px_b)
         return -1;
     end
-
     # distance from a to b
     a_b_dist = 0
     a_b_min = (max_col + max_row) / 2;
@@ -551,7 +534,6 @@ function taplineL2Dist2(imgA, imgB)
         end
         a_b_dist += a_b_min
     end
-
     # distance from b to a
     b_a_dist = 0
     b_a_min = (max_col + max_row) / 2;
@@ -565,7 +547,6 @@ function taplineL2Dist2(imgA, imgB)
         end
         b_a_dist += a_b_min;
     end
-
     return a_b_dist + b_a_dist;
 end
 
@@ -587,7 +568,6 @@ function taplineL2Dist3(imgA, imgB)
     if isempty(px_a) || isempty(px_b)
         return 0;
     end
-
     # distance from a to b
     a_b_dist = 0
     for i = 1:length(px_a)
@@ -597,7 +577,6 @@ function taplineL2Dist3(imgA, imgB)
         tempdist = LinearAlgebra.norm.(diff_pt)
         a_b_dist += findmin(tempdist)[1]
     end
-
     # distance from b to a
     b_a_dist = 0
     for i = 1:length(px_b)
@@ -607,7 +586,6 @@ function taplineL2Dist3(imgA, imgB)
         tempdist = LinearAlgebra.norm.(diff_pt)
         b_a_dist += findmin(tempdist)[1]
     end
-
     return a_b_dist + b_a_dist;
 end
 
@@ -617,7 +595,6 @@ function taplineHausdorffDist(imgA, imgB)
     # drop singleton dimensions
     imgA_d = dropdims(imgA, dims=(findall(size(imgA) .== 1)...,))
     imgB_d = dropdims(imgB, dims=(findall(size(imgB) .== 1)...,))
-
     px_a = findall(Bool.(imgA_d));
     px_b = findall(Bool.(imgB_d));
 
@@ -661,8 +638,7 @@ end
 """ YOLO Loss Function """
 # Standard YOLO : MSE
 # Bounding Box Loss : compute loss on tx, ty, tw, th
-function yoloBoxLoss(nnTensorTp::NTuple{6,Array{Float32,4}}, 
-    targetTensorTp::NTuple{5,Array{Float32,4}}, maskArray)
+function yoloBoxLoss(nnTensorTp::NTuple{6,Array{Float32,4}}, targetTensorTp::NTuple{5,Array{Float32,4}}, maskArray)
     # tuple format
     nn_tx, nn_ty, nn_tw, nn_th = nnTensorTp[1:4];
     gt_tx, gt_ty, gt_tw, gt_th = targetTensorTp[1:4];
@@ -675,8 +651,7 @@ function yoloBoxLoss(nnTensorTp::NTuple{6,Array{Float32,4}},
 
     return  box_tx_loss + box_ty_loss + box_tw_loss + box_th_loss;
 end
-function yoloBoxLoss(nnTensorTp::NTuple{6,CuArray{Float32,4}}, 
-    targetTensorTp::NTuple{5,CuArray{Float32,4}}, maskArray)
+function yoloBoxLoss(nnTensorTp::NTuple{6,CuArray{Float32,4}}, targetTensorTp::NTuple{5,CuArray{Float32,4}}, maskArray)
     # tuple format
     nn_tx, nn_ty, nn_tw, nn_th = nnTensorTp[1:4];
     gt_tx, gt_ty, gt_tw, gt_th = targetTensorTp[1:4];
@@ -707,37 +682,25 @@ end
 
 
 # Objectness Loss at a YoloLayer
-function yoloObjLoss(nnTensorTp::NTuple{6,Array{Float32,4}}, 
-    targetTensorTp::NTuple{5,Array{Float32,4}}, maskArray=1f0, β=0.8f0)
-
+function yoloObjLoss(nnTensorTp::NTuple{6,Array{Float32,4}}, targetTensorTp::NTuple{5,Array{Float32,4}}, maskArray=1f0, β=0.8f0)
     nnTensor = nnTensorTp[5]
     targetTensor = targetTensorTp[5]
-
     maskedtarget = maskArray .* targetTensor
     maskednn = maskArray .* nnTensor
-
     return Flux.tversky_loss(maskedtarget, maskednn, β=β)
 end
-function yoloObjLoss(nnTensorTp::NTuple{6,CuArray{Float32,4}}, 
-    targetTensorTp::NTuple{5,CuArray{Float32,4}}, maskArray=1f0, β=0.8f0)
-
+function yoloObjLoss(nnTensorTp::NTuple{6,CuArray{Float32,4}}, targetTensorTp::NTuple{5,CuArray{Float32,4}}, maskArray=1f0, β=0.8f0)
     nnTensor = nnTensorTp[5]
     targetTensor = targetTensorTp[5]
-
     maskedtarget = gpu(maskArray) .* targetTensor
     maskednn = gpu(maskArray) .* nnTensor
-
     return Flux.tversky_loss(maskedtarget, maskednn, β=β)
 end
-function yoloObjLossWbCrossentropy(nnTensorTp::NTuple{6,Array{Float32,4}}, 
-    targetTensorTp::NTuple{5,Array{Float32,4}}, maskArray=1f0, β=0.8f0)
-
+function yoloObjLossWbCrossentropy(nnTensorTp::NTuple{6,Array{Float32,4}}, targetTensorTp::NTuple{5,Array{Float32,4}}, maskArray=1f0, β=0.8f0)
     nnTensor = nnTensorTp[5]
     targetTensor = targetTensorTp[5]
-
     maskedtarget = maskArray .* targetTensor
     maskednn = maskArray .* nnTensor
-
     return Flux.tversky_loss(maskedtarget, maskednn, β=β)
 end
 
@@ -788,7 +751,6 @@ function generateYolotarget(gtbox::Array{Float32,4}, yololayer::YoloLayer)
 
     for batch_no = 1:batchsize        
         gtbox_batch = gtbox[:,:,:,batch_no];
-
         # find which anchors is the most overlopped to the ground truth box
         # --normalize box to featuremap size
         gtbox_batch = gtbox_batch ./ (yololayer.featuremap_stride);
@@ -839,8 +801,7 @@ function generateYolotarget(gtbox::Array{Float32,4}, yololayer::YoloLayer)
         target_ty[gt_gridy, gt_gridx, bestAnchorIndex, batch_no] = Float32(gt_ty);
         target_tw[gt_gridy, gt_gridx, bestAnchorIndex, batch_no] = Float32(gt_tw);
         target_th[gt_gridy, gt_gridx, bestAnchorIndex, batch_no] = Float32(gt_th);
-        target_obj[gt_gridy, gt_gridx, bestAnchorIndex, batch_no] = 1f0;             
-
+        target_obj[gt_gridy, gt_gridx, bestAnchorIndex, batch_no] = 1f0;          
     end
     return target_tx, target_ty, target_tw, target_th, target_obj;
 end
@@ -851,7 +812,6 @@ function predBoxOverlap(nnTensorTp::NTuple{6,Array{Float32,4}}, gtbox::Array{Flo
     # output array size : w*h*num_anchors*batchsize 
     nn_tx, nn_ty, nn_tw, nn_th = nnTensorTp[1:4];
     w, h, c, batchsize = size(nn_tx);
-
     @assert c == yololayer.num_anchors
     @assert batchsize == size(gtbox)[4];
 
@@ -868,7 +828,6 @@ function predBoxOverlap(nnTensorTp::NTuple{6,Array{Float32,4}}, gtbox::Array{Flo
             pred_ty = nn_ty[:,:,i,batch_no];   # center shift-y
             pred_tw = nn_tw[:,:,i,batch_no];   # width in log scale related to anchors
             pred_th = nn_th[:,:,i,batch_no];   # height in log scale related to anchors
-
             # convert to spatial domain [bx, by, bw, bh]
             # --Add the grid offsets to the predicted box center cordinates.
             pred_bx = pred_tx + repeat(yololayer.x_grid_offset, 1, 1);
@@ -876,7 +835,6 @@ function predBoxOverlap(nnTensorTp::NTuple{6,Array{Float32,4}}, gtbox::Array{Flo
             # --calculate pred bw, bh from anchor
             pred_bw = anchors_wh[i][1] .* exp.(pred_tw);
             pred_bh = anchors_wh[i][2] .* exp.(pred_th);
-
             # Convert from center-xy coordinate to topleft-xy box.
             pred_bx_tl = pred_bx .- (pred_bw ./ 2);
             pred_by_tl = pred_by .- (pred_bh ./ 2);
@@ -910,10 +868,8 @@ mutable struct StateScheduler
     current_iteration::Int64    # progressed iteration
     current_lr::Float64         # current scheduled learning rate
     current_epoch::Int16        # progressed training epoch
-
     warmup_epoch::Int16         # as the state switch indicator
     steady_epoch::Int16
-
     warmup_iteration::Int32     # 
     decayFn::Any                # pointer to ParameterSchedulers
     steadyFn::Any               # pointer to ParameterSchedulers
@@ -930,7 +886,6 @@ end
 function (x::StateScheduler)(iteration_no, epoch_no)
     x.current_iteration = iteration_no
     x.current_epoch = epoch_no
-
     if x.current_iteration <= x.warmup_iteration
         # warmup
         x.current_lr = x.base_lr * ((x.current_iteration / x.warmup_iteration)^4);
@@ -945,6 +900,5 @@ function (x::StateScheduler)(iteration_no, epoch_no)
         # Decay learning rate
         x.current_lr = x.decayFn(x.current_epoch - x.steady_epoch);
     end
-
     return x.current_lr
 end

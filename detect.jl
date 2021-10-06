@@ -12,7 +12,6 @@ using Images
 using CUDA
 
 include("model.jl")
-
 include("NearcamTaplineDataset.jl")
 import .NearcamTaplineDataset as NDS
 NDS.init();
@@ -20,7 +19,7 @@ data_dispatch_size = 1;
 nn_inputsize = [224 224];       # network input size
 
 ## Load Model
-model_path = "weights/model_1v1_std_std_dice/fold1/model_1v1_dice_fold1_epoch100.bson"
+model_path = "weights/no_iou_penalty/model_a/fold1/model_a_fold1_epoch100.bson"
 
 @load model_path model_save
 model = model_save;
@@ -102,6 +101,77 @@ ImageView.annotate!(
     ImageView.AnnotationBox(xb, yb, xb + wb, yb + hb, linewidth=2, color=Images.RGB(0, 1, 0))
 ); # left top right bottom
 
+
+""" Model_A """
+# detect model_a majority output
+nnoutput = model(img)
+
+nnoutput = nnoutput |> cpu;
+output_branch1 = nnoutput[1];
+output_branch2 = nnoutput[2];
+output_branch3 = nnoutput[3];
+
+pxl_branch1 = nnoutput[4];
+pxl_branch2 = nnoutput[5];
+pxl_branch3 = nnoutput[6];
+
+# predict boxes from yolohead 
+#    output in format Vector{Vector{T} where T} x 1 batchsize, [1] extract to Vector{}
+pred_box1 = predictBox(output_branch1, yololayer_layer1, obj_th=0.0)[1]
+pred_box2 = predictBox(output_branch2, yololayer_layer2, obj_th=0.0)[1]
+
+# gather all box prediction & non-max 
+pred_box = vcat(pred_box1, pred_box2) 
+pred_box = nmsBoxwScore([pred_box])[1]
+
+# pick one box with highest score
+pred_box_score = map(x -> x[5], pred_box)
+pred_box_max_idx = findmax(pred_box_score)[2]
+pred_box = pred_box[pred_box_max_idx]
+
+# argmax position on edgemap -> tapping line within bbox
+
+# taplineimg = predictTapline(output_branch3, [[pred_box]])
+# dttapline = taplineimg[][]
+
+tapline_pxl_1 = Bool.(predictTapline(pxl_branch1, [[pred_box]])[][])
+tapline_pxl_2 = Bool.(predictTapline(pxl_branch2, [[pred_box]])[][])
+tapline_pxl_3 = Bool.(predictTapline(pxl_branch3, [[pred_box]])[][])
+
+tapline_pxl = tapline_pxl_1 + tapline_pxl_2 + tapline_pxl_3
+dttapline = map(tapline_pxl) do x
+    if x >= 2
+        x = 1
+    else
+        x = 0
+    end
+end
+
+dtbox = pred_box
+sourceimg = img[:,:,:,1] |> cpu;
+
+## show detection 
+NDS.showImageSample(dttapline, dtbox);
+NDS.showImageSample(sourceimg, dtbox);
+
+figplot = ImageView.imshow(sourceimg);
+
+taplinepoints = findall(Bool.(dttapline[:,:,1]))
+# convert to Vector{Tuple{x,y)}}
+taplinepoints = map(x -> x.I, taplinepoints)
+# swap coordinate
+taplinepoints = map(x -> (x[2], x[1]), taplinepoints)
+
+ImageView.annotate!(
+    figplot,
+    ImageView.AnnotationPoints(taplinepoints, size=2, shape='.', color=RGB(1, 0.1, 0))
+); # left top right bottom
+
+xb, yb, wb, hb = dtbox[1:4]
+ImageView.annotate!(
+    figplot,
+    ImageView.AnnotationBox(xb, yb, xb + wb, yb + hb, linewidth=2, color=Images.RGB(0, 1, 0))
+); # left top right bottom
 
 
 

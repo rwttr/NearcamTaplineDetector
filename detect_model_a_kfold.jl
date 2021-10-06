@@ -12,7 +12,6 @@ using Images
 using CUDA
 
 include("model.jl")
-
 include("NearcamTaplineDataset.jl")
 import .NearcamTaplineDataset as NDS
 NDS.init();
@@ -75,6 +74,11 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
             output_branch2 = nnoutput[2];
             output_branch3 = nnoutput[3];
 
+            pxl_branch1 = nnoutput[4];
+            pxl_branch2 = nnoutput[5];
+            pxl_branch3 = nnoutput[6];
+
+            # box predition
             pred_box1 = predictBox(output_branch1, yololayer_layer1, obj_th=0.0)[1]
             pred_box2 = predictBox(output_branch2, yololayer_layer2, obj_th=0.0)[1]
 
@@ -87,15 +91,29 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
             pred_box_max_idx = findmax(pred_box_score)[2]
             pred_box = pred_box[pred_box_max_idx]
 
+            # predict tapline
             # argmax position on edgemap -> tapping line within bbox
-            taplineimg = predictTapline(output_branch3, [[pred_box]])
+            # taplineimg = predictTapline(output_branch3, [[pred_box]])
+            # dttapline = taplineimg[][]
 
-            dtbox = pred_box
-            dttapline = taplineimg[][]
+            tapline_pxl_1 = Bool.(predictTapline(pxl_branch1, [[pred_box]])[][])
+            tapline_pxl_2 = Bool.(predictTapline(pxl_branch2, [[pred_box]])[][])
+            tapline_pxl_3 = Bool.(predictTapline(pxl_branch3, [[pred_box]])[][])
+
+            tapline_pxl = tapline_pxl_1 + tapline_pxl_2 + tapline_pxl_3
+            dttapline = map(tapline_pxl) do x
+                if x >= 2
+                    x = 1
+                else
+                    x = 0
+                end
+            end
+
+            dtbox = pred_box            
 
             iou = bboxIoU(dtbox, gtbox[:])
-
             dtboxiou_array[counter_i] = iou
+
             dttapline_array[:,:,counter_i] = Bool.(dttapline)
             gttapline_array[:,:,counter_i] = Bool.(gtpxl)
 
