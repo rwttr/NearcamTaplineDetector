@@ -60,7 +60,7 @@ function evalSingleIOU(result_model_path::String; iou_eval=0.5)
 
         @load joinpath(result_model_path, "dtboxiou_fold$fold_no.bson") dtboxiou
         @load joinpath(result_model_path,"dttapline_fold$fold_no.bson") dttaplineimg
-        @load "result/nearcam_fold_gt/gttapline_fold$fold_no.bson" gttapline
+        @load "./data/nearcam_fold_gt/gttapline_fold$fold_no.bson" gttapline
 
         ap_box_fold[fold_no] = count(x -> x >= iou_eval, dtboxiou) / length(dtboxiou)
         dh_fold_vector[fold_no] = taplineHausdorffDist(gttapline, dttaplineimg)
@@ -101,4 +101,12 @@ function evalSingleIOU(result_model_path::String; iou_eval=0.5)
 
     avg_model_eperr = Statistics.mean(Statistics.mean.(eperr_fold_vector));
     @show avg_model_eperr;
+end
+
+
+##
+res_dir= readdir("./result", join=true)
+for i in res_dir
+    evalSingleIOU(i)
+    println("")
 end

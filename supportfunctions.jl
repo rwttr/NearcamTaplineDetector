@@ -1,7 +1,6 @@
 """ All the Functions that used in this project """
 ###################################################
 
-
 """ Network Input Utils """
 # normalize input image
 function normalizeImg(imgTensor::Array{Float32,4})
@@ -13,8 +12,7 @@ function normalizeImg(imgTensor::Array{Float32,4})
             # rescale UnitRangeTransform
             imgTensor[:,:,chan_no,batch_no] = 
                 StatsBase.standardize(UnitRangeTransform, imgTensor[:,:,chan_no,batch_no]
-            );
-            
+            );            
             # z-score
             imgTensor[:,:,chan_no,batch_no] = 
                 StatsBase.standardize(ZScoreTransform, imgTensor[:,:,chan_no,batch_no]
@@ -88,7 +86,6 @@ function augmentTapline(img::Array{Float32,4}, bbox::Array{Float32,4}, pxlmask::
         # imshow(0.5 * img_out[:,:,1,batch_no] .+ 0.5 * pxl_out[:,:,:,batch_no])
         # imshow(0.5 * img_p[1] .+ 0.5 * img_p[2])
     end
-
     return img_out, box_out, pxl_out
 end
 
@@ -175,7 +172,6 @@ end
 # Intersection Over Union
 function bboxIoU(box1::Vector{Float32}, box2::Vector{Float32})
     # box1, box2 are in topleft-xy wh format
-
     # zero-center box1 and box2
     b1_x1, b1_x2 = box1[1] - box1[3] / 2, box1[1] + box1[3] / 2
     b1_y1, b1_y2 = box1[2] - box1[4] / 2, box1[2] + box1[4] / 2
@@ -200,12 +196,9 @@ function nmsBox(pred_vec; iou_th=0.5)
     # non-max suppression
     # input = box prediction vector [bx by bw bh objscore]
     batchsize = length(pred_vec)
-
-    # box_nms_vec = Array{Vector}(undef, batchsize)
     box_nms_vec = []
 
     for batch_no = 1:batchsize
-
         # initialize
         pred_vec_batch = pred_vec[batch_no]
         b_vec = map(x -> x[1:4], pred_vec_batch)
@@ -213,21 +206,17 @@ function nmsBox(pred_vec; iou_th=0.5)
 
         # selected box
         d_vec = [];
-
         while !isempty(b_vec)
-
             # NMS: select a box with highest score
             # pick from box vector then add to d_vec
             _, pickidx = findmax(b_score);
             pickbox = popat!(b_vec, pickidx);
             popat!(b_score, pickidx);
-
             push!(d_vec, pickbox);
 
             # compare iou of selected box to the remaining
             # remove box above threshold
             remove_count = 0;
-
             for i = 1:length(b_vec)
                 iou = bboxIoU(pickbox, b_vec[i - remove_count])
                 if iou > iou_th
@@ -236,16 +225,11 @@ function nmsBox(pred_vec; iou_th=0.5)
                     remove_count += 1; # index shift
                 end
             end
-
         end
-
         # box_nms_vec[batch_no] = d_vec
         push!(box_nms_vec, d_vec)
-
     end
-
     return box_nms_vec
-
 end
 
 # non-max suppression with score output
@@ -253,11 +237,9 @@ function nmsBoxwScore(pred_vec; iou_th=0.5)
     # non-max suppression with score output (for test mode ) 
     # input = box prediction vector [bx by bw bh objscore]
     batchsize = length(pred_vec)
-
     box_nms_vec = Array{Vector}(undef, batchsize)
 
     for batch_no = 1:batchsize
-
         # initialize
         pred_vec_batch = pred_vec[batch_no]
         b_vec = map(x -> x[1:5], pred_vec_batch)
@@ -267,13 +249,11 @@ function nmsBoxwScore(pred_vec; iou_th=0.5)
         d_vec = []; 
 
         while !isempty(b_vec)
-
             # NMS: select a box with highest score
             # pick from box vector then add to d_vec
             _, pickidx = findmax(b_score);
             pickbox = popat!(b_vec, pickidx);
             popat!(b_score, pickidx);
-
             push!(d_vec, pickbox);
 
             # compare iou of selected box to the remaining
@@ -288,13 +268,9 @@ function nmsBoxwScore(pred_vec; iou_th=0.5)
                     remove_count += 1; # index shift
                 end
             end
-
         end
-
         box_nms_vec[batch_no] = d_vec
-    
     end
-
     return box_nms_vec
 end
 
@@ -428,10 +404,8 @@ function predictboxYolohead(nnTensorTuple::NTuple{6,Array{Float32,4}}, yololayer
                 push!(pred_vec_batch, pred_vec_anchor[maxIdx])
             end          
         end
-
         push!(pred_vec, pred_vec_batch)        
-    end
-    
+    end    
     return pred_vec
 end
 
@@ -455,7 +429,6 @@ function maskBoxTapline(nnTensor, bbox)
 
     mask = mask .* nnTensor
     # add box endpoints
-
     mask[row_1,col_1,:,:] .= 1;
     mask[row_2,col_2,:,:] .= 1;
 
@@ -487,17 +460,14 @@ end
 
 # predict tapping line within pred_box (test mode)
 function predictTapline(nnoutputEdgemap, pred_box)
-
     batchsize = size(nnoutputEdgemap)[4]
     @assert batchsize == length(pred_box)
 
     tapline_img_vec = Array{Vector}(undef, batchsize);
-
     for batch_no = 1:batchsize
         tapline_img_batch = [];
         bbox_batch = pred_box[batch_no]
-        colmax_img = maskColMax(nnoutputEdgemap[:,:,:,batch_no])
-        
+        colmax_img = maskColMax(nnoutputEdgemap[:,:,:,batch_no])        
         for i = 1:length(pred_box[batch_no])
             tapline_img_temp = maskBoxTapline(colmax_img, bbox_batch[i][1:4])
             push!(tapline_img_batch, tapline_img_temp)
@@ -872,9 +842,7 @@ function generateYolotarget(gtbox::Array{Float32,4}, yololayer::YoloLayer)
         target_obj[gt_gridy, gt_gridx, bestAnchorIndex, batch_no] = 1f0;             
 
     end
-
     return target_tx, target_ty, target_tw, target_th, target_obj;
-
 end
 
 # translate output and check predicted box overlap to gtbox at a YoloLayer
@@ -918,13 +886,10 @@ function predBoxOverlap(nnTensorTp::NTuple{6,Array{Float32,4}}, gtbox::Array{Flo
             for j in eachindex(pred_iou_anchor)             
                 pred_box = Float32.([pred_bx_tl[j], pred_by_tl[j], pred_bw[j], pred_bh[j]]);
                 pred_iou_anchor[j] = bboxIoU(vec(gtbox_batch), pred_box);
-            end
-            
+            end            
             global pred_iou[:,:,i,batch_no] = pred_iou_anchor;
-
         end
-    end
-  
+    end  
     return pred_iou;
 end
 
