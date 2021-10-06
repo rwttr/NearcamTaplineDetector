@@ -9,7 +9,7 @@
     - *p5* : predicted box with >=0.5 IoU is ignored in loss calculation
     - *no* : all YOLO receptive cell are in loss calculation
 
-### Threshold detection @ 0.5 IoU
+Threshold detection @ 0.5 IoU
 ---
 Model|AP @0.5 IoU|Avg.Endpoint Dist.Error(pixels)| Avg.Hausdorff Dist.(pixels)
 | :-- | --: | --: | --: |
@@ -35,9 +35,9 @@ no_model_1v2_std_std_all       | 0 | 1 | 2
 p5_model_a                      | 0 | 1 | 2
 no_model_a                      | 0 | 1 | 2
 ---
----
 
-### **Threshold detection @ 0.75 IoU**
+
+**Threshold detection @ 0.75 IoU**
 ---
 Model|AP @0.75 IoU|Avg.Endpoint Dist.Error (pixels)| Avg.Hausdorff Dist. (pixels)
 | :-- | --: | --: | --: |
