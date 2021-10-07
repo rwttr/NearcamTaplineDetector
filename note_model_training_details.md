@@ -21,4 +21,4 @@ model_1v2_std_std_focal     | MSE | Tversky, β=0.8 | Binary Focal
 model_1v2_std_std_tversky   | MSE | Tversky, β=0.8 | Tversky, β=0.8
 model_1v2_std_std_all       | MSE | Tversky, β=0.8 | Add, Dice + Binary Focal + Tversky
 <br> **model_A**
-model_a | MSE | Tversky, β=0.8 | Parallel,<br />  Dice + Binary Focal + Tversky, β=0.8
+model_a | MSE | Tversky, β=0.8 | Parallel, Dice + Binary Focal + Tversky, β=0.8

@@ -1,0 +1,255 @@
+result_model_path = "./result\\no_iou_model_1v1_dice"
+Box desire results
+ap_box_fold = Float32[0.658363, 0.62633455, 0.64768684, 0.5160142, 0.56227756]
+ap_model = 0.60213524f0
+dh_avg_fold = Float32[6.837591, 6.0911126, 7.120985, 6.6560016, 6.280314]
+avg_detected_dh = 6.597201f0
+avg_detected_dh_percent = 2.082556014459904
+eperr_avg_fold = Float32[9.213023, 8.510012, 8.974937, 9.204318, 8.618508]
+avg_detected_eperr = 8.90416f0
+avg_detected_eperr_percent = 2.8107998194963013
+avg_detected_f1score = 0.36147648f0
+Standard Metrics
+model_avg_dh = 9.31943332214107
+modeL_avg_eperr = 12.526718166206546
+model_avg_f1 = 0.34907960363851964
+
+result_model_path = "./result\\no_iou_model_1v1_focal"
+Box desire results
+ap_box_fold = Float32[0.44483986, 0.0, 0.6548043, 0.6014235, 0.60854095]
+ap_model = 0.46192175f0
+dh_avg_fold = Float32[10.411473, NaN, 9.493253, 8.365952, 9.106209]
+avg_detected_dh = NaN32
+avg_detected_dh_percent = NaN
+eperr_avg_fold = Float32[9.9599085, NaN, 8.568294, 9.277962, 9.184762]
+avg_detected_eperr = NaN32
+avg_detected_eperr_percent = NaN
+avg_detected_f1score = NaN32
+Standard Metrics
+model_avg_dh = 23.114292513586168
+modeL_avg_eperr = 32.37818460830582
+model_avg_f1 = 0.2641499827575732
+
+result_model_path = "./result\\no_iou_model_1v1_tversky"
+Box desire results
+ap_box_fold = Float32[0.6939502, 0.46975088, 0.59074736, 0.6227758, 0.66548043]
+ap_model = 0.6085409f0
+dh_avg_fold = Float32[8.723585, 11.30455, 8.330647, 7.3677883, 7.7082458]
+avg_detected_dh = 8.686963f0
+avg_detected_dh_percent = 2.7422368315833685
+eperr_avg_fold = Float32[8.822828, 10.421414, 8.983001, 8.730838, 8.798279]
+avg_detected_eperr = 9.151273f0
+avg_detected_eperr_percent = 2.888806711964854
+avg_detected_f1score = 0.3659884f0
+Standard Metrics
+model_avg_dh = 11.597872602760884
+modeL_avg_eperr = 12.554974604445379
+model_avg_f1 = 0.34913073321221855
+
+result_model_path = "./result\\no_iou_model_1v2_dice"
+Box desire results
+ap_box_fold = Float32[0.66903913, 0.6619217, 0.44483986, 0.63345194, 0.48754448]
+ap_model = 0.5793594f0
+dh_avg_fold = Float32[7.7379756, 6.5123134, 9.226987, 8.374381, 9.081937]
+avg_detected_dh = 8.186719f0
+avg_detected_dh_percent = 2.5843234279740943
+eperr_avg_fold = Float32[8.91197, 8.188155, 10.1245775, 8.814071, 9.9402485]
+avg_detected_eperr = 9.195804f0
+avg_detected_eperr_percent = 2.9028638901389083
+avg_detected_f1score = 0.57435113f0
+Standard Metrics
+model_avg_dh = 11.342743447528239
+modeL_avg_eperr = 12.901065146197727
+model_avg_f1 = 0.5494255617179767
+
+result_model_path = "./result\\no_iou_model_1v2_focal"
+Box desire results
+ap_box_fold = Float32[0.6761566, 0.6761566, 0.4341637, 0.57295376, 0.27046263]
+ap_model = 0.5259787f0
+dh_avg_fold = Float32[11.398551, 11.253335, 13.132337, 10.555027, 9.899428]
+avg_detected_dh = 11.247736f0
+avg_detected_dh_percent = 3.550602849310188
+eperr_avg_fold = Float32[8.821805, 8.239358, 10.69716, 8.618661, 10.457572]
+avg_detected_eperr = 9.366911f0
+avg_detected_eperr_percent = 2.956877785945881
+avg_detected_f1score = 0.4027837f0
+Standard Metrics
+model_avg_dh = 14.278728368327103
+modeL_avg_eperr = 14.466744793303988
+model_avg_f1 = 0.3837098394009412
+
+result_model_path = "./result\\no_iou_model_1v2_tversky"
+Box desire results
+ap_box_fold = Float32[0.74377227, 0.50889677, 0.6548043, 0.6548043, 0.33451957]
+ap_model = 0.5793594f0
+dh_avg_fold = Float32[28.403492, 16.333433, 21.989592, 20.898504, 22.664835]
+avg_detected_dh = 22.057972f0
+avg_detected_dh_percent = 6.963098905419879
+eperr_avg_fold = Float32[8.550427, 9.661423, 8.775377, 8.451156, 10.210304]
+avg_detected_eperr = 9.129737f0
+avg_detected_eperr_percent = 2.882008425300046
+avg_detected_f1score = 0.5843882f0
+Standard Metrics
+model_avg_dh = 24.04015792389726
+modeL_avg_eperr = 13.495570953918763
+model_avg_f1 = 0.5547482403264004
+
+result_model_path = "./result\\no_iou_model_a"
+Box desire results
+ap_box_fold = Float32[0.6725979, 0.7402135, 0.59786475, 0.53736657, 0.56227756]
+ap_model = 0.62206405f0
+dh_avg_fold = Float32[8.934685, 5.9136596, 8.134289, 9.331397, 6.638204]
+avg_detected_dh = 7.7904463f0
+avg_detected_dh_percent = 2.4592309794959246
+eperr_avg_fold = Float32[8.866921, 8.103644, 9.845737, 10.193818, 8.678972]
+avg_detected_eperr = 9.137819f0
+avg_detected_eperr_percent = 2.884559814879545
+avg_detected_f1score = 0.5831764f0
+Standard Metrics
+model_avg_dh = 10.815441285355622
+modeL_avg_eperr = 12.333371281806732
+model_avg_f1 = 0.5636524542446316
+
+result_model_path = "./result\\no_iou_model_a_mi"
+Box desire results
+ap_box_fold = Float32[0.6725979, 0.7402135, 0.59786475, 0.53736657, 0.56227756]
+ap_model = 0.62206405f0
+dh_avg_fold = Float32[6.959314, 5.533871, 7.35251, 8.053815, 5.9822364]
+avg_detected_dh = 6.776349f0
+avg_detected_dh_percent = 2.1391082042184446
+eperr_avg_fold = Float32[8.866921, 8.103644, 9.845737, 10.193818, 8.678972]
+avg_detected_eperr = 9.137819f0
+avg_detected_eperr_percent = 2.884559814879545
+avg_detected_f1score = 0.58511144f0
+Standard Metrics
+model_avg_dh = 9.38869530455354
+modeL_avg_eperr = 12.333371281806732
+model_avg_f1 = 0.5666914417032329
+
+result_model_path = "./result\\p5_iou_model_1v1_dice"
+Box desire results
+ap_box_fold = Float32[0.2455516, 0.6725979, 0.7081851, 0.6192171, 0.5480427]
+ap_model = 0.55871886f0
+dh_avg_fold = Float32[7.724833, 6.0274396, 6.8870864, 6.0307975, 7.7410426]
+avg_detected_dh = 6.8822393f0
+avg_detected_dh_percent = 2.1725348697724347
+eperr_avg_fold = Float32[11.210414, 8.574403, 9.107471, 8.471862, 10.205941]
+avg_detected_eperr = 9.514018f0
+avg_detected_eperr_percent = 3.0033154846841015
+avg_detected_f1score = 0.36397848f0
+Standard Metrics
+model_avg_dh = 10.534998903170255
+modeL_avg_eperr = 14.102398855719127
+model_avg_f1 = 0.34944158447669144
+
+result_model_path = "./result\\p5_iou_model_1v1_focal"
+Box desire results
+ap_box_fold = Float32[0.6014235, 0.6725979, 0.55871886, 0.49466193, 0.52313167]
+ap_model = 0.57010674f0
+dh_avg_fold = Float32[10.771252, 9.403673, 10.962546, 10.118447, 9.955824]
+avg_detected_dh = 10.242348f0
+avg_detected_dh_percent = 3.23322925275129
+eperr_avg_fold = Float32[8.849128, 8.5599165, 9.830242, 10.104179, 9.386294]
+avg_detected_eperr = 9.345953f0
+avg_detected_eperr_percent = 2.950261934925342
+avg_detected_f1score = 0.3454636f0
+Standard Metrics
+model_avg_dh = 12.780797637155787
+modeL_avg_eperr = 13.166297832373766
+model_avg_f1 = 0.33119610548448686
+
+result_model_path = "./result\\p5_iou_model_1v1_tversky"
+Box desire results
+ap_box_fold = Float32[0.59430605, 0.48042706, 0.65124553, 0.5516014, 0.13523132]
+ap_model = 0.48256224f0
+dh_avg_fold = Float32[10.149625, 8.074705, 8.635867, 9.376877, 11.650398]
+avg_detected_dh = 9.577495f0
+avg_detected_dh_percent = 3.0233533006618525
+eperr_avg_fold = Float32[8.903879, 9.925225, 8.538194, 9.532881, 12.740045]
+avg_detected_eperr = 9.928044f0
+avg_detected_eperr_percent = 3.134012259818548
+avg_detected_f1score = 0.3907775f0
+Standard Metrics
+model_avg_dh = 13.276559127773353
+modeL_avg_eperr = 15.577975500427806
+model_avg_f1 = 0.3613071610924342
+
+result_model_path = "./result\\p5_iou_model_1v2_dice"
+Box desire results
+ap_box_fold = Float32[0.6014235, 0.64768684, 0.6868327, 0.52313167, 0.62633455]
+ap_model = 0.6170818f0
+dh_avg_fold = Float32[6.947203, 7.1299047, 7.5982575, 8.054208, 6.6905227]
+avg_detected_dh = 7.2840185f0
+avg_detected_dh_percent = 2.2993655747027604
+eperr_avg_fold = Float32[9.476802, 9.305185, 8.30286, 10.39111, 8.3506155]
+avg_detected_eperr = 9.165315f0
+avg_detected_eperr_percent = 2.8932393562325283
+avg_detected_f1score = 0.5818577f0
+Standard Metrics
+model_avg_dh = 10.144274759710052
+modeL_avg_eperr = 12.20535186490763
+model_avg_f1 = 0.5642284800415875
+
+result_model_path = "./result\\p5_iou_model_1v2_focal"
+Box desire results
+ap_box_fold = Float32[0.66548043, 0.569395, 0.4341637, 0.6049822, 0.59430605]
+ap_model = 0.5736655f0
+dh_avg_fold = Float32[11.8876295, 9.051874, 10.779679, 9.743913, 9.3172035]
+avg_detected_dh = 10.156059f0
+avg_detected_dh_percent = 3.205990346656535
+eperr_avg_fold = Float32[9.425646, 9.492644, 10.363451, 8.934519, 8.522924]
+avg_detected_eperr = 9.3478365f0
+avg_detected_eperr_percent = 2.9508565065382633
+avg_detected_f1score = 0.41582114f0
+Standard Metrics
+model_avg_dh = 12.862303265639317
+modeL_avg_eperr = 13.337025337861752
+model_avg_f1 = 0.3954988907085175
+
+result_model_path = "./result\\p5_iou_model_1v2_tversky"
+Box desire results
+ap_box_fold = Float32[0.7081851, 0.2846975, 0.5516014, 0.5480427, 0.3985765]
+ap_model = 0.49822062f0
+dh_avg_fold = Float32[22.233826, 20.17694, 19.124043, 19.57145, 25.705109]
+avg_detected_dh = 21.362274f0
+avg_detected_dh_percent = 6.743486128177671
+eperr_avg_fold = Float32[8.509763, 10.007144, 9.614729, 9.677619, 10.049881]
+avg_detected_eperr = 9.571827f0
+avg_detected_eperr_percent = 3.021564166942565
+avg_detected_f1score = 0.5746919f0
+Standard Metrics
+model_avg_dh = 23.23365493615528
+modeL_avg_eperr = 14.193154920930303
+model_avg_f1 = 0.5521457146548951
+
+result_model_path = "./result\\p5_iou_model_a"
+Box desire results
+ap_box_fold = Float32[0.76156586, 0.6441281, 0.62633455, 0.66903913, 0.38434163]
+ap_model = 0.61708194f0
+dh_avg_fold = Float32[6.92472, 7.284357, 7.7195168, 7.339234, 8.936156]
+avg_detected_dh = 7.6407967f0
+avg_detected_dh_percent = 2.411990684342489
+eperr_avg_fold = Float32[8.206727, 8.827794, 8.511583, 8.331453, 9.808793]
+avg_detected_eperr = 8.737269f0
+avg_detected_eperr_percent = 2.7581171620044374
+avg_detected_f1score = 0.5810476f0
+Standard Metrics
+model_avg_dh = 10.988599273686349
+modeL_avg_eperr = 12.215638494479927
+model_avg_f1 = 0.5615313306376117
+
+result_model_path = "./result\\p5_iou_model_a_mi"
+Box desire results
+ap_box_fold = Float32[0.76156586, 0.6441281, 0.62633455, 0.66903913, 0.38434163]
+ap_model = 0.61708194f0
+dh_avg_fold = Float32[5.9212027, 6.112788, 6.2535167, 5.979469, 7.099999]
+avg_detected_dh = 6.273395f0
+avg_detected_dh_percent = 1.9803393701088579
+eperr_avg_fold = Float32[8.206727, 8.827794, 8.511583, 8.331453, 9.808793]
+avg_detected_eperr = 8.737269f0
+avg_detected_eperr_percent = 2.7581171620044374
+avg_detected_f1score = 0.5842635f0
+Standard Metrics
+model_avg_dh = 9.210270426310206
+modeL_avg_eperr = 12.215638494479927
+model_avg_f1 = 0.5658407901097677
