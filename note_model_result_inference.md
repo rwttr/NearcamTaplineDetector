@@ -17,7 +17,7 @@ Model|AP @0.5 IoU|Avg.Detected Tapline Endpoint L2 Distance (px)| Avg.Detected T
 p5_model_1v1_std_std_dice      | 0.96 | 13.37 | 10.02 | 0.3528 | 14.10 | 10.53 | 0.3494
 p5_model_1v1_std_std_focal     | 0.98 | 12.65 | 12.44 | 0.3341 | 13.17 | 12.78 | 0.3312
 p5_model_1v1_std_std_tversky   | 0.94 | 14.12 | 12.31 | 0.3672 | 15.58 | 13.28 | 0.3672
-p5_model_1v1_std_std_all       <td colspan=7> NaN 
+p5_model_1v1_std_std_all       <td colspan=6> NaN 
 no_model_1v1_std_std_dice      | 0.98 | 12.08 | 8.94 | 0.3511 | 12.53 | 9.32 | 0.3491
 no_model_1v1_std_std_focal     | 0.96 | 12.68 | 12.31 | 0.3142 | 32.38 | 23.11 | 0.2641
 no_model_1v1_std_std_tversky   | 0.98 | 12.19 | 11.31 | 0.3510 | 12.55 | 11.60 | 0.3491
