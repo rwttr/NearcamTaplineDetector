@@ -11,37 +11,40 @@
 
 \begin{document}
 
-\title[Article Title]{Article Title}
+\title[Article Title]{Nearcam Tapline Detection 2}
 
-\author[1]{\fnm{Rattachai} \sur{Wongtanawijit}}\email{rattachai.gov@gmail.com}
+\author[]{\fnm{Rattachai} \sur{Wongtanawijit}}\email{rattachai.gov@gmail.com}
 \equalcont{These authors contributed equally to this work.}
 
-\author*[1]{\fnm{Thanate} \sur{Khaorapapong}}\email{thanate.khao@gmail.com}
+\author*[*]{\fnm{Thanate} \sur{Khaorapapong}}\email{thanate.khao@gmail.com}
 \equalcont{These authors contributed equally to this work.}
 
 \affil*[1]{\orgdiv{Department of Computer Engineering, Faculty of Engineering}, \orgname{Prince of Songkla University}, \orgaddress{\street{P.O. Box 2 Kohong}, \city{HatYai, Songkhla}, \postcode{90112}, \country{Thailand}}}
 
+\abstract{Current image-task-related convolutional neural network structures lean toward the directed acyclic graph that allows multiple output nodes. This enables a solution for the rubber tapping line detection that various desired output types, such as bounding boxes, pixel points or edges, are necessary. This paper demonstates that such deep networks with their outputs are bounding box and semantic pixel segmenation mask by adopting YOLO and U-Net layer structures. This paper proposes a column-wise argmax function with the technique of redundant mask outputs intended to enhance pixel classification accuracy. Experiments with the networks discover that some novel segmentation loss functions have different characters for tapping line prediction which were observed with geometric distance and F1-score. The redundant mask output can omits their weaknesses and yield higher detection accuracy compare to every single ones. Also, the column-wise argmax well suit to the tapping line detection in place of a thinning algorithm rather than the thresholding on the spatial output neurons.}
 
-\abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
-
-\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+\keywords{\textit{hevea brasiliensis}, Semantic Edge, Rubber Tapping, Tapping Line, YOLO}
 
 \maketitle
 
 %% Section
-\section{Introduction}\label{sec1}
+\section{Introduction}\label{sec-1}
+
+A self-instructed robot that has abilities to detect things and interact with, a sensory device with a detection algorithm is at least required. The vision system of a rubber tapping robot, which introduced in \cite{bib1}, adopted a near-range camera co-operating with specifically designed algorithm to perform tapping line detection. Continuing on the previous work, this paper presents another tapping line detection algoirthm in a whole different way.
+
+Lots of motivation of the proposed algorithm come from recent deep convolutional neural nets, such as box detector, object mask or object segmentation network, edge-aware or semantic edge segmentation networks. Many of them shared some common calculations, layer structures, or the loss functions in the network training phase. 
 
 The Introduction section, of referenced text \cite{bib1} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
 
 Springer Nature does not impose a strict layout as standard however authors are advised to check the individual requirements for the journal they are planning to submit to as there may be journal-level preferences. When preparing your text please also be aware that some stylistic choices are not supported in full text XML (publication version), including coloured font. These will not be replicated in the typeset article if it is accepted. 
 
 %% Section
-\section{Results}\label{sec2}
-
+\section{Review of Literatures}\label{sec-2}
+\subsection{Previous works of Tapping Line Detection}
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
-
+\subsection{Combining Deep-CNN Structure}
 %% Section
-\section{This is an example for first level head---section head}\label{sec3}
+\section{Proposed Method}\label{sec-3}
 
 \subsection{This is an example for second level head---subsection head}\label{subsec2}
 
