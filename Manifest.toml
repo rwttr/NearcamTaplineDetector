@@ -55,9 +55,9 @@ version = "0.6.5"
 
 [[AxisAlgorithms]]
 deps = ["LinearAlgebra", "Random", "SparseArrays", "WoodburyMatrices"]
-git-tree-sha1 = "a4d07a1c313392a77042855df46c5f534076fab9"
+git-tree-sha1 = "66771c8d21c8ff5e3a93379480a2307ac36863f7"
 uuid = "13072b0f-2c55-5437-9ae7-d433b7a33950"
-version = "1.0.0"
+version = "1.0.1"
 
 [[AxisArrays]]
 deps = ["Dates", "IntervalSets", "IterTools", "RangeArrays"]
@@ -72,9 +72,9 @@ uuid = "ab4f0b2a-ad5b-11e8-123f-65d77653426b"
 version = "0.1.0"
 
 [[BSON]]
-git-tree-sha1 = "92b8a8479128367aaab2620b8e73dff632f5ae69"
+git-tree-sha1 = "ebcd6e22d69f21249b7b8668351ebf42d6dc87a1"
 uuid = "fbb218c0-5317-5bc6-957e-2ee96dd4b1f0"
-version = "0.3.3"
+version = "0.3.4"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
@@ -408,9 +408,9 @@ uuid = "559328eb-81f9-559d-9380-de523a88c83c"
 version = "1.0.10+0"
 
 [[Functors]]
-git-tree-sha1 = "e2727f02325451f6b24445cd83bfa9aaac19cbe7"
+git-tree-sha1 = "ee53f5bf9c098161629655b55e1462810f878f4f"
 uuid = "d9f16b24-f501-4c13-a1f2-28368ffc5196"
-version = "0.2.5"
+version = "0.2.6"
 
 [[Future]]
 deps = ["Random"]
@@ -726,9 +726,9 @@ version = "2.1.0+0"
 
 [[JuliaFormatter]]
 deps = ["CSTParser", "CommonMark", "DataStructures", "Pkg", "Tokenize"]
-git-tree-sha1 = "0b3df3d29bbec86b28102f2e3e58a38e782bc099"
+git-tree-sha1 = "d42b5569ccdef89530db611616903af791121ba4"
 uuid = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
-version = "0.17.0"
+version = "0.17.1"
 
 [[Juno]]
 deps = ["Base64", "Logging", "Media", "Profile"]
@@ -1304,10 +1304,10 @@ uuid = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
 version = "1.0.0"
 
 [[StatsBase]]
-deps = ["DataAPI", "DataStructures", "LinearAlgebra", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "8cbbc098554648c84f79a463c9ff0fd277144b6c"
+deps = ["DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
+git-tree-sha1 = "65fb73045d0e9aaa39ea9a29a5e7506d9ef6511f"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.33.10"
+version = "0.33.11"
 
 [[StructArrays]]
 deps = ["Adapt", "DataAPI", "StaticArrays", "Tables"]
@@ -1428,9 +1428,9 @@ version = "1.4.1"
 
 [[WoodburyMatrices]]
 deps = ["LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "59e2ad8fd1591ea019a5259bd012d7aee15f995c"
+git-tree-sha1 = "9398e8fefd83bde121d5127114bd3b6762c764a6"
 uuid = "efce3f68-66dc-5838-9240-27a6d6f5f9b6"
-version = "0.5.3"
+version = "0.5.4"
 
 [[XML2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "Zlib_jll"]

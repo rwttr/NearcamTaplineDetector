@@ -1,3 +1,5 @@
 *.bson
+*.pdf
 weights/*
 old/*
+paper/sn-article-template/*
