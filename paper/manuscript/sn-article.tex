@@ -28,7 +28,7 @@
 \maketitle
 
 %% Section
-\section{Introduction}\label{sec-1}
+\section{Introduction}\label{sec-introduction}
 
 A self-instructed robot that has abilities to detect things and interact with, a sensory device with a detection algorithm is at least required. The vision system of a rubber tapping robot, which introduced in \cite{bib1}, adopted a near-range camera co-operating with specifically designed algorithm to perform tapping line detection. Continuing on the previous work, this paper presents another tapping line detection algoirthm in a whole different way. Given the definition of a tapping line in an image, is a piecewise polynomial where its vertices are at the pixels in the image grid \cite{bib1}. The detection is to precisely locate that pixels.
 
@@ -46,10 +46,17 @@ In order to archieve the higher detection accuracy, this paper also presents a m
 
 The rests of this paper include: the review of literatures in Section 2 \textemdash eg. the previous work of the tapping line detection, relevant applications of muliple output node CNN detectors, etc. The design of tapping line detection network in Section 3. The experiment setup and results in Section 4 and Section 5. Summary with the disscussions are in Section 6.
 
+\section{Background and Motivation}\label{sec-background}
+The purpose of the near-range vision camera is for precisely locate the tapping position for tapping manipulation of the robot arm. Our previous work \cite{bib1} demonstrated the detection algorithm in a form of an image processing algorithm. The method produces accurate results but it was specially designed and required two input images accommodating by artificial lighting patterns for the nighttime farming. Apart from this paper that, the CNN-based detectors can learn what and where is the tapping line under any lighting circumstance depends on the training dataset. Hence, it is a interesting topic to study the capable of CNN-based detectors with the tappline line image dataset, and might be useful as an alternate algorithm for the robot.
+
 %% Section
 \section{Review of Literatures}\label{sec-2}
 \subsection{Tapping Line Detection}
-The purpose of the near-range vision camera is for precisely locate the tapping position for robot arm manipulation. Our previous work \cite{bib1} demonstrate an image processing algorithm. The method produces high precision results but it was specially designed that requires two input images accommodating by artificial lighting patterns for the nighttime farming.
+Rubber tapping is a process of farming the natural rubber latex from a Pará rubber tree (\textit{Hevea brasiliensis}). Tapping is making a cut on the rubber tree bark or the tapping panel letting the latex to flow along. This cut is leaving a gutter that called the tapping path. Refer to the rubber tapping document \cite{bib1}, the cut is recommended to be 30 to 45 degrees angle to the ground axis. Small angle tolerances are acceptable. A robot with a robot arm integrated, which able to do tapping automatically, probably have been installed a close-up camera for fine detail acquisition as in many visual-servoing systems (described in patents \cite{bib1}, \cite{bib2}). Consequently, the appearance of a tapping path is a certain line in the image which named the "tapping line".
+
+The data with labels are necessary for developing a machine learning algorithm by the supervised learning, which many CNN-based object detectors are working on. The paper \cite{bib1} annotates a tapping line by two annotation type. A bounding box can encodes the tapping endpoints that are at the top-left and bottom-right corner of the box. While, the line between two tapping endpoints is defined using the polyline or piecewise polynomial.
+
+
 
 \subsection{Combining Deep-CNN Structure}
 
