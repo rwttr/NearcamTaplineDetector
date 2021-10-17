@@ -57,7 +57,17 @@ Rubber tapping is a process of farming the natural rubber latex from a Pará rub
 The data with labels are necessary for developing a machine learning algorithm by the supervised learning, which many CNN-based object detectors are working on. The paper \cite{bib1} labels a tapping line by two annotations. A bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect two endpoints. As a results, the polyline's vertices can be defined on every columns inside the box in order to simplify the annotations of the dataset.
 
 \subsection{Deep-CNN Detectors}
-The developments of core ideas on deep CNN-based detectors quite become steady in last 5 years. Back then when CNN-based box detectors, Faster-RCNN and YOLO, were established in 2015. Much more recent detectors such as YOLOv3 \cite{bib1} (2018), YOLOv4 \cite{bib1} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locate small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping technique in early stage layers of the network chain which help  
+The developments of core ideas on deep CNN-based detectors quite become steady in last 5 years. Back then when CNN-based box detectors, Faster-RCNN and YOLO, were established in 2015. Much more recent detectors such as YOLOv3 \cite{bib1} (2018), YOLOv4 \cite{bib1} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locate small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
+
+Apart from boxes, there are other networks that can predict examing the image in pixel level as well. Some novel networks such as U-Net \cite{bib1}, V-Net \cite{bib1}, Seg-Net \cite{bib1}, etc., produce a mask from the image as the segmentation task in image processing category. These models separate the areas of the objects (or other interests) from the background. 
+
+Meanwhile, an extension of Faster-RCNN, Mask-RCNN \cite{bib1} simultaneously predict the object's bounding box with segment the object area inside the box.
+
+
+
+
+
+
 
 %% Section
 \section{Proposed Method}\label{sec-3}
