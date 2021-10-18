@@ -1,0 +1,52 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\providecommand{\eprint}[2][]{\url{#2}}
+ \bibcommenthead
+
+\bibitem[{Bochkovskiy et~al(2020)Bochkovskiy, Wang, and Liao}]{alexyyolov4}
+Bochkovskiy A, Wang C, Liao HM (2020) Yolov4: Optimal speed and accuracy of
+  object detection. CoRR abs/2004.10934.
+  {\href{https://arxiv.org/abs/2004.10934}{{https://arxiv.org/abs/2004.10934}}}
+
+\bibitem[{Girshick(2015)}]{fastrcnn}
+Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
+  \urlprefix\url{http://arxiv.org/abs/1504.08083},
+  {\href{https://arxiv.org/abs/1504.08083}{{https://arxiv.org/abs/1504.08083}}}
+
+\bibitem[{Milletari et~al(2016)Milletari, Navab, and Ahmadi}]{vnet}
+Milletari F, Navab N, Ahmadi S (2016) V-net: Fully convolutional neural
+  networks for volumetric medical image segmentation. CoRR abs/1606.04797.
+  {\href{https://arxiv.org/abs/1606.04797}{{https://arxiv.org/abs/1606.04797}}}
+
+\bibitem[{Redmon and Farhadi(2016)}]{redmonyolov2}
+Redmon J, Farhadi A (2016) {YOLO9000:} better, faster, stronger. CoRR
+  abs/1612.08242.
+  {\href{https://arxiv.org/abs/1612.08242}{{https://arxiv.org/abs/1612.08242}}}
+
+\bibitem[{Redmon and Farhadi(2018)}]{redmonyolov3}
+Redmon J, Farhadi A (2018) Yolov3: An incremental improvement. CoRR
+  abs/1804.02767.
+  {\href{https://arxiv.org/abs/1804.02767}{{https://arxiv.org/abs/1804.02767}}}
+
+\bibitem[{Ronneberger et~al(2015)Ronneberger, Fischer, and Brox}]{unet}
+Ronneberger O, Fischer P, Brox T (2015) U-net: Convolutional networks for
+  biomedical image segmentation. In: Navab N, Hornegger J, Wells WM, et~al
+  (eds) Medical Image Computing and Computer-Assisted Intervention -- MICCAI
+  2015. Springer International Publishing, Cham, pp 234--241
+
+\bibitem[{Wongtanawijit and Khaorapapong(2021)}]{Wongtanawijit_2021}
+Wongtanawijit R, Khaorapapong T (2021) Nighttime rubber tapping line detection
+  in near-range images. Multimedia Tools and Applications
+  \doi{10.1007/s11042-021-11140-3},
+  \urlprefix\url{https://doi.org/10.1007%2Fs11042-021-11140-3}
+
+\bibitem[{Yu et~al(2017)Yu, Feng, Liu, and Ramalingam}]{casenet}
+Yu Z, Feng C, Liu M, et~al (2017) Casenet: Deep category-aware semantic edge
+  detection. In: 2017 {IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR} 2017, Honolulu, HI, USA, July 21-26, 2017. {IEEE}
+  Computer Society, pp 1761--1770, \doi{10.1109/CVPR.2017.191}
+
+\end{thebibliography}
