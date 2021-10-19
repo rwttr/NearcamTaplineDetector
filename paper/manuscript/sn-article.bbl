@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -29,6 +29,14 @@ Bochkovskiy A, Wang C, Liao HM (2020) Yolov4: Optimal speed and accuracy of
   object detection. CoRR abs/2004.10934.
   {\href{https://arxiv.org/abs/2004.10934}{{https://arxiv.org/abs/2004.10934}}}
 
+\bibitem[{Chen et~al(2021)Chen, Wang, Wu, Hu, Zhao, Tan, Teng, and
+  Luo}]{chentomato}
+Chen J, Wang Z, Wu J, et~al (2021) An improved yolov3 based on dual path
+  network for cherry tomatoes detection. Journal of Food Process Engineering
+  44(10):e13,803. \doi{https://doi.org/10.1111/jfpe.13803},
+  \urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1111/jfpe.13803},
+  {\href{https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803}{{https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803}}}
+
 \bibitem[{Girshick(2015)}]{fastrcnn}
 Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
   \urlprefix\url{http://arxiv.org/abs/1504.08083},
@@ -38,6 +46,11 @@ Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
 He K, Gkioxari G, Doll{\'{a}}r P, et~al (2017) Mask {R-CNN}. CoRR
   abs/1703.06870.
   {\href{https://arxiv.org/abs/1703.06870}{{https://arxiv.org/abs/1703.06870}}}
+
+\bibitem[{Lawal(2021)}]{Lawal_2021}
+Lawal MO (2021) Tomato detection based on modified {YOLOv}3 framework.
+  Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5},
+  \urlprefix\url{https://doi.org/10.1038%2Fs41598-021-81216-5}
 
 \bibitem[{Lin et~al(2017)Lin, Goyal, Girshick, He, and
   Doll{\'{a}}r}]{focalloss1}

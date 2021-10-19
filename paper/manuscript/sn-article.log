@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.16)  19 OCT 2021 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.16)  20 OCT 2021 02:40
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -756,11 +756,6 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
 LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 30
 .
 
-Underfull \hbox (badness 1635) in paragraph at lines 36--37
-\OT1/cmr/m/n/10 This encour-ages this paper to explore other
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -835,15 +830,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Package natbib Warning: Citation `bib1' on page 4 undefined on input line 72.
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 121--125
-\OT1/cmr/m/n/10 Tables can be inserted via the nor-mal table
- []
+Package natbib Warning: Citation `bib1' on page 4 undefined on input line 75.
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 121--125
-\OT1/cmr/m/n/10 tables you should use [][]\OT1/cmtt/m/n/10 \footnotetext[]{...}
+Package natbib Warning: Citation `bib2' on page 4 undefined on input line 75.
 
- []
+
+Package natbib Warning: Citation `bib1' on page 4 undefined on input line 75.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -854,137 +847,116 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 130.
+Underfull \hbox (badness 1077) in paragraph at lines 124--128
+\OT1/cmr/m/n/10 Tables can be inserted via the nor-mal table
+ []
 
+
+Underfull \hbox (badness 1005) in paragraph at lines 124--128
+\OT1/cmr/m/n/10 tables you should use [][]\OT1/cmtt/m/n/10 \footnotetext[]{...}
+
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 133.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 130.
+(Font)              size <5> substituted on input line 133.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.015> not available
-(Font)              size <5> substituted on input line 130.
+(Font)              size <5> substituted on input line 133.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 130.
+(Font)              size <5> substituted on input line 133.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 130.
+(Font)              size <5> substituted on input line 133.
 
 
-Overfull \hbox (7.4466pt too wide) in paragraph at lines 130--139
+Overfull \hbox (7.4466pt too wide) in paragraph at lines 133--142
 [][] 
  []
 
 
-Overfull \hbox (30.50691pt too wide) in paragraph at lines 177--177
+Overfull \hbox (30.50691pt too wide) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 \caption{<table-caption>}\label{<table-label>}%[] 
  []
 
 
-Overfull \hbox (9.5071pt too wide) in paragraph at lines 177--177
+Overfull \hbox (9.5071pt too wide) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 Column 1 & Column 2 & Column 3 & Column 4\\[] 
  []
 
 
-Overfull \hbox (51.50673pt too wide) in paragraph at lines 177--177
+Overfull \hbox (51.50673pt too wide) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 row 2 & data 4 & data 5\footnotemark[1] & data 6 \\[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 row 3 & data 7 & data 8
  []
 
 
-Overfull \hbox (93.50636pt too wide) in paragraph at lines 177--177
+Overfull \hbox (93.50636pt too wide) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 \footnotetext{Source: This is an example of table footnote.[
 ] 
  []
 
 
-Overfull \hbox (56.75668pt too wide) in paragraph at lines 177--177
+Overfull \hbox (56.75668pt too wide) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 \footnotetext[1]{Example for a first table footnote.[] 
  []
 
 
-Overfull \hbox (62.00664pt too wide) in paragraph at lines 177--177
+Overfull \hbox (62.00664pt too wide) in paragraph at lines 180--180
 []\OT1/cmtt/m/n/10 \footnotetext[2]{Example for a second table footnote.[] 
  []
 
 
-Overfull \hbox (239.00314pt too wide) in paragraph at lines 186--201
+Overfull \hbox (239.00314pt too wide) in paragraph at lines 189--204
  []$ 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 2772) in paragraph at lines 204--205
+Underfull \hbox (badness 2772) in paragraph at lines 207--208
 []\OT1/cmr/m/n/10 In case of dou-ble col-umn lay-out, tables
  []
 
 
-Underfull \hbox (badness 7221) in paragraph at lines 204--205
+Underfull \hbox (badness 7221) in paragraph at lines 207--208
 \OT1/cmr/m/n/10 to use [][]\OT1/cmtt/m/n/10 \begin{table*} []... []\end{table*}
 
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 204--205
+Underfull \hbox (badness 3536) in paragraph at lines 207--208
 []\OT1/cmr/m/n/10 instead of [][]\OT1/cmtt/m/n/10 \begin{table} []... []\end{ta
 ble}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
 []\OT1/cmtt/m/n/10 ... []\end{sidewaystable} []\OT1/cmr/m/n/10 instead of
  []
 
 
-Underfull \hbox (badness 4954) in paragraph at lines 204--205
+Underfull \hbox (badness 4954) in paragraph at lines 207--208
 [][]\OT1/cmtt/m/n/10 \begin{table*} []... []\end{table*} []\OT1/cmr/m/n/10 envi
 -ron-
  []
 
 
-Underfull \hbox (badness 2680) in paragraph at lines 231--232
+Underfull \hbox (badness 2680) in paragraph at lines 234--235
 \OT1/cmr/m/n/10 of the major dif-fer-ence between L[]T[]X and
  []
 
 
-Overfull \hbox (35.75687pt too wide) in paragraph at lines 244--244
+Overfull \hbox (35.75687pt too wide) in paragraph at lines 247--247
 []\OT1/cmtt/m/n/10 \caption{<figure-caption>}\label{<figure-label>}[] 
  []
-
-Package epstopdf Info: Source file: <fig.eps>
-(epstopdf)                    date: 2021-10-11 11:35:38
-(epstopdf)                    size: 91593 bytes
-(epstopdf)             Output file: <fig-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-11 13:14:29
-(epstopdf)                    size: 3136 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=fig-eps-converted-to
-.pdf fig.eps>
-(epstopdf)             \includegraphics on input line 253.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./fig-eps-converted-to.pdf): PDF inclusion: foun
-d PDF version <1.7>, but at most version <1.5> allowed
-<fig-eps-converted-to.pdf, id=186, 505.89pt x 84.315pt>
-File: fig-eps-converted-to.pdf Graphic file (type pdf)
-<use fig-eps-converted-to.pdf>
-Package pdftex.def Info: fig-eps-converted-to.pdf  used on input line 253.
-(pdftex.def)             Requested size: 409.71689pt x 68.28703pt.
-
-Overfull \hbox (193.47595pt too wide) in paragraph at lines 253--254
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -995,39 +967,44 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
+Package epstopdf Info: Source file: <fig.eps>
+(epstopdf)                    date: 2021-10-11 11:35:38
+(epstopdf)                    size: 91593 bytes
+(epstopdf)             Output file: <fig-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-10-11 13:14:29
+(epstopdf)                    size: 3136 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=fig-eps-converted-to
+.pdf fig.eps>
+(epstopdf)             \includegraphics on input line 256.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./fig-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<fig-eps-converted-to.pdf, id=204, 505.89pt x 84.315pt>
+File: fig-eps-converted-to.pdf Graphic file (type pdf)
+<use fig-eps-converted-to.pdf>
+Package pdftex.def Info: fig-eps-converted-to.pdf  used on input line 256.
+(pdftex.def)             Requested size: 409.71689pt x 68.28703pt.
+
+Overfull \hbox (193.47595pt too wide) in paragraph at lines 256--257
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 \OT1/cmr/m/n/10 Packages [][]\OT1/cmtt/m/n/10 algorithm[]\OT1/cmr/m/n/10 , [][]
 \OT1/cmtt/m/n/10 algorithmicx []\OT1/cmr/m/n/10 and
  []
 
 
-Overfull \hbox (4.25714pt too wide) in paragraph at lines 277--277
+Overfull \hbox (4.25714pt too wide) in paragraph at lines 280--280
 []\OT1/cmtt/m/n/10 \caption{<alg-caption>}\label{<alg-label>}[] 
  []
 
 
-Overfull \hbox (66.73177pt too wide) detected at line 290
+Overfull \hbox (66.73177pt too wide) detected at line 293
  [] []
- []
-
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 306.
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
-[]\OT1/cmr/m/n/10 Similarly, for [][]\OT1/cmtt/m/n/10 listings[]\OT1/cmr/m/n/10
- , use the
- []
-
-
-Underfull \hbox (badness 4132) in paragraph at lines 335--336
-[][]\OT1/cmtt/m/n/10 listings []\OT1/cmr/m/n/10 pack-age. [][]\OT1/cmtt/m/n/10 
-\begin{lstlisting} []...
- []
-
-
-Underfull \hbox (badness 1917) in paragraph at lines 335--336
-[][]\OT1/cmtt/m/n/10 lstlisting []\OT1/cmr/m/n/10 pack-age doc-u-men-ta-tion fo
-r more
  []
 
 
@@ -1039,97 +1016,117 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [6 <./fig-eps-converted-to.pdf>]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 309.
+
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
+[]\OT1/cmr/m/n/10 Similarly, for [][]\OT1/cmtt/m/n/10 listings[]\OT1/cmr/m/n/10
+ , use the
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 338--339
+[][]\OT1/cmtt/m/n/10 listings []\OT1/cmr/m/n/10 pack-age. [][]\OT1/cmtt/m/n/10 
+\begin{lstlisting} []...
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 338--339
+[][]\OT1/cmtt/m/n/10 lstlisting []\OT1/cmr/m/n/10 pack-age doc-u-men-ta-tion fo
+r more
+ []
+
 (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
-48.
+51.
 
 (C:\Program Files\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.03749> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 348.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 351.
 
-Overfull \hbox (10.67427pt too wide) in paragraph at lines 342--354
+Overfull \hbox (10.67427pt too wide) in paragraph at lines 345--357
 []$[]$ 
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 357--366
+Underfull \hbox (badness 1762) in paragraph at lines 360--369
 \OT1/cmr/m/n/10 Environments such as figure, table, equation
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 357--366
+Underfull \hbox (badness 5417) in paragraph at lines 360--369
 [][]\OT1/cmtt/m/n/10 \label{#label} []\OT1/cmr/m/n/10 com-mand. For figures and
 
  []
 
 
-Package natbib Warning: Citation `bib1' on page 7 undefined on input line 373.
+Package natbib Warning: Citation `bib1' on page 7 undefined on input line 376.
 
 
-Package natbib Warning: Citation `bib2' on page 7 undefined on input line 373.
+Package natbib Warning: Citation `bib2' on page 7 undefined on input line 376.
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 373--374
+Underfull \hbox (badness 1314) in paragraph at lines 376--377
 \OT1/cmr/m/n/10 Another exam-ple for [][]\OT1/cmtt/m/n/10 \citep{...}[]\OT1/cmr
 /m/n/10 : [\OT1/cmr/bx/n/10 ? \OT1/cmr/m/n/10 ]. For
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 373--374
+Underfull \hbox (badness 1072) in paragraph at lines 376--377
 \OT1/cmr/m/n/10 author-year cita-tion mode, [][]\OT1/cmtt/m/n/10 \cite{...} []\
 OT1/cmr/m/n/10 prints
  []
 
 
-Package natbib Warning: Citation `bib3' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib3' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib4' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib4' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib5' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib5' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib6' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib6' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib7' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib7' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib8' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib8' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib9' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib9' on page 7 undefined on input line 378.
 
 
-Package natbib Warning: Citation `bib10' on page 7 undefined on input line 375.
-
-
-
-Package natbib Warning: Citation `bib11' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib10' on page 7 undefined on input line 378.
 
 
 
-Package natbib Warning: Citation `bib12' on page 7 undefined on input line 375.
+Package natbib Warning: Citation `bib11' on page 7 undefined on input line 378.
 
 
 
-Underfull \hbox (badness 5519) in paragraph at lines 379--380
+Package natbib Warning: Citation `bib12' on page 7 undefined on input line 378.
+
+
+
+Underfull \hbox (badness 5519) in paragraph at lines 382--383
 \OT1/cmr/m/n/10 For theorem like envi-ron-ments, we require
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 379--380
+Underfull \hbox (badness 4531) in paragraph at lines 382--383
 [][]\OT1/cmtt/m/n/10 amsthm []\OT1/cmr/m/n/10 pack-age. There are three types o
 f
  []
 
 
-Overfull \hbox (119.0085pt too wide) in paragraph at lines 386--393
+Overfull \hbox (119.0085pt too wide) in paragraph at lines 389--396
 [][]
  []
 
@@ -1142,69 +1139,69 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 []\OT1/cmr/bx/n/10 Ethical approval dec-la-ra-tions \OT1/cmr/m/n/10 (only
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 407--408
+Underfull \hbox (badness 1466) in paragraph at lines 410--411
 \OT1/cmr/m/n/10 sam-ples must include an unam-bigu-ous state-
  []
 
 
-Underfull \hbox (badness 3713) in paragraph at lines 417--418
+Underfull \hbox (badness 3713) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 ti-fy-ing patien-t/-par-tic-i-pant infor-ma-tion, or if
  []
 
 
-Underfull \hbox (badness 3590) in paragraph at lines 417--418
+Underfull \hbox (badness 3590) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 it describes human trans-plan-ta-tion research,
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 417--418
+Underfull \hbox (badness 1454) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 visit ([][]$https : / / www . nature . com / nature-[]research 
 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 ([][]$https : / / www . springer . com / gp / authors-[]editors
  /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 journal-[]author / journal-[]author-[]helpdesk /
  []
 
 
-Underfull \hbox (badness 5832) in paragraph at lines 417--418
+Underfull \hbox (badness 5832) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 publishing-[]ethics / 14214$[][]) for Springer Nature
  []
 
 
-Underfull \hbox (badness 5175) in paragraph at lines 417--418
+Underfull \hbox (badness 5175) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 jour-nals, or ([][]$https : / / www . biomedcentral . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 \OT1/cmr/m/n/10 getpublished / editorial-[]policies # ethics + and +
  []
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 433.
+(hyperref)                than one, level fixed on input line 436.
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 433--434
+Underfull \hbox (badness 1107) in paragraph at lines 436--437
 \OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 441.
+(hyperref)                than one, level fixed on input line 444.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1255,133 +1252,101 @@ Underfull \hbox (badness 5446) in paragraph at lines 28--31
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 2057) in paragraph at lines 34--39
+\OT1/cmr/m/n/10 Food Pro-cess Engi-neer-ing 44(10):e13,803.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
+[][]$\OT1/cmr/m/n/10 https : / / doi . org / https : / / doi . org / 10 . 1111 
+/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
+\OT1/cmr/m/n/10 jfpe . 13803$[][], URL [][]$https : / / onlinelibrary .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
+\OT1/cmr/m/n/10 wiley . com / doi / abs / 10 . 1111 / jfpe . 13803$[][],
+ []
+
+
+Overfull \hbox (162.64899pt too wide) in paragraph at lines 34--39
+[][]\OT1/cmr/m/n/10 https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/p
+df/10.1111/jfpe.13803[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 []\OT1/cmr/m/n/10 Girshick RB (2015) Fast R-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 \OT1/cmr/m/n/10 CNN. CoRR abs/1504.08083. URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 [][]$\OT1/cmr/m/n/10 http : / / arxiv . org / abs / 1504 . 08083$[][],
  []
 
 
-Underfull \hbox (badness 7704) in paragraph at lines 38--41
+Underfull \hbox (badness 7704) in paragraph at lines 46--49
 []\OT1/cmr/m/n/10 He K, Gkioxari G, Dollar P, et al
  []
 
 
-Underfull \hbox (badness 5388) in paragraph at lines 44--47
+Underfull \hbox (badness 2671) in paragraph at lines 51--54
+\OT1/cmr/m/n/10 on mod-i-fied YOLOv3 frame-work. Sci-en-
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 51--54
+\OT1/cmr/m/n/10 s41598-[]021-[]81216-[]5$[][], URL [][]$https : / / doi . org /
+
+ []
+
+
+Underfull \hbox (badness 5388) in paragraph at lines 57--60
 []\OT1/cmr/m/n/10 Lin T, Goyal P, Gir-shick RB, et al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
 \OT1/cmr/m/n/10 (2017) Focal loss for dense object
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
 \OT1/cmr/m/n/10 detec-tion. CoRR abs/1708.02002.
  []
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 49--53
+Underfull \hbox (badness 5359) in paragraph at lines 62--66
 []\OT1/cmr/m/n/10 Liu G, Nouaze JC, Touko Mbouembe
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 49--53
+Underfull \hbox (badness 1365) in paragraph at lines 62--66
 \OT1/cmr/m/n/10 PL, et al (2020) Yolo-tomato: A robust
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 49--53
+Underfull \hbox (badness 1112) in paragraph at lines 62--66
 \OT1/cmr/m/n/10 algo-rithm for tomato detec-tion based on
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 49--53
+Underfull \hbox (badness 2221) in paragraph at lines 62--66
 \OT1/cmr/m/n/10 yolov3. Sen-sors 20(7). [][]$https : / / doi . org / 10 .
  []
 
 
-Underfull \hbox (badness 4001) in paragraph at lines 49--53
+Underfull \hbox (badness 4001) in paragraph at lines 62--66
 \OT1/cmr/m/n/10 3390 / s20072145$[][], URL [][]$https : / / www . mdpi .
- []
-
-
-Underfull \hbox (badness 1215) in paragraph at lines 55--58
-[]\OT1/cmr/m/n/10 Milletari F, Navab N, Ahmadi S (2016)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--58
-\OT1/cmr/m/n/10 V-net: Fully con-vo-lu-tional neu-ral net-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--58
-\OT1/cmr/m/n/10 works for vol-u-met-ric med-i-cal image
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--58
-\OT1/cmr/m/n/10 seg-men-ta-tion. CoRR abs/1606.04797.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
-[]\OT1/cmr/m/n/10 Redmon J, Farhadi A (2016)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
-\OT1/cmr/m/n/10 YOLO9000: bet-ter, faster,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
-\OT1/cmr/m/n/10 stronger. CoRR abs/1612.08242.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
-[]\OT1/cmr/m/n/10 Redmon J, Farhadi A (2018)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
-\OT1/cmr/m/n/10 Yolov3: An incre-men-tal improve-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
-\OT1/cmr/m/n/10 ment. CoRR abs/1804.02767.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
-[]\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
- []
-
-
-Underfull \hbox (badness 2343) in paragraph at lines 76--79
-\OT1/cmr/m/n/10 (2015) Faster R-CNN: towards real-time
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
-\OT1/cmr/m/n/10 object detec-tion with region pro-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
-\OT1/cmr/m/n/10 posal net-works. CoRR abs/1506.01497.
  []
 
 
@@ -1393,47 +1358,117 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [9]
-Underfull \hbox (badness 6332) in paragraph at lines 88--92
+Underfull \hbox (badness 1215) in paragraph at lines 68--71
+[]\OT1/cmr/m/n/10 Milletari F, Navab N, Ahmadi S (2016)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
+\OT1/cmr/m/n/10 V-net: Fully con-vo-lu-tional neu-ral net-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
+\OT1/cmr/m/n/10 works for vol-u-met-ric med-i-cal image
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
+\OT1/cmr/m/n/10 seg-men-ta-tion. CoRR abs/1606.04797.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
+[]\OT1/cmr/m/n/10 Redmon J, Farhadi A (2016)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
+\OT1/cmr/m/n/10 YOLO9000: bet-ter, faster,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
+\OT1/cmr/m/n/10 stronger. CoRR abs/1612.08242.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+[]\OT1/cmr/m/n/10 Redmon J, Farhadi A (2018)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+\OT1/cmr/m/n/10 Yolov3: An incre-men-tal improve-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+\OT1/cmr/m/n/10 ment. CoRR abs/1804.02767.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
+[]\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 89--92
+\OT1/cmr/m/n/10 (2015) Faster R-CNN: towards real-time
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
+\OT1/cmr/m/n/10 object detec-tion with region pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
+\OT1/cmr/m/n/10 posal net-works. CoRR abs/1506.01497.
+ []
+
+
+Underfull \hbox (badness 6332) in paragraph at lines 101--105
 \OT1/cmr/m/n/10 Design, devel-op-ment and eval-u-a-tion of
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 88--92
+Underfull \hbox (badness 2103) in paragraph at lines 101--105
 \OT1/cmr/m/n/10 latex har-vest-ing robot based on flex-i-ble
  []
 
 
-Underfull \hbox (badness 5696) in paragraph at lines 88--92
+Underfull \hbox (badness 5696) in paragraph at lines 101--105
 \OT1/cmr/m/n/10 tog-gle. Robotics and Autonomous Sys-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--92
+Underfull \hbox (badness 10000) in paragraph at lines 101--105
 \OT1/cmr/m/n/10 tems 147:103,906. [][]$https : / / doi . org / https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--92
+Underfull \hbox (badness 10000) in paragraph at lines 101--105
 [][]$\OT1/cmr/m/n/10 https : / / www . sciencedirect . com / science /
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 94--98
+Underfull \hbox (badness 2837) in paragraph at lines 107--111
 \OT1/cmr/m/n/10 Night-time rub-ber tap-ping line detec-tion
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 94--98
+Underfull \hbox (badness 3536) in paragraph at lines 107--111
 \OT1/cmr/m/n/10 in near-range images. Mul-ti-me-dia Tools
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 94--98
+Underfull \hbox (badness 2689) in paragraph at lines 107--111
 \OT1/cmr/m/n/10 and Appli-ca-tions [][]$https : / / doi . org / 10 . 1007 /
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 94--98
+Underfull \hbox (badness 2181) in paragraph at lines 107--111
 \OT1/cmr/m/n/10 s11042-[]021-[]11140-[]3$[][], URL [][]$https : / / doi . org /
 
  []
@@ -1450,21 +1485,19 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[10
-
-] (sn-article.aux)
+[10] (sn-article.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: 245B8434F6A15782FC41AA44601BF8EE;4281.
+(rerunfilecheck)             Checksum: 88846A9E453429284939AE90EF34E95F;4530.
  ) 
 Here is how much of TeX's memory you used:
- 14251 strings out of 478927
- 199011 string characters out of 2862379
- 726480 words of memory out of 3000000
- 31778 multiletter control sequences out of 15000+600000
+ 14261 strings out of 478927
+ 199179 string characters out of 2862379
+ 725622 words of memory out of 3000000
+ 31785 multiletter control sequences out of 15000+600000
  428930 words of font info for 129 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
  75i,17n,80p,1334b,1498s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1492,9 +1525,9 @@ ts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb>
 
-Output written on sn-article.pdf (10 pages, 392716 bytes).
+Output written on sn-article.pdf (10 pages, 396831 bytes).
 PDF statistics:
- 414 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 431 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
