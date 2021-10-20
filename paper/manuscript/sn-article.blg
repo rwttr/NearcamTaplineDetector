@@ -18,45 +18,45 @@ Warning--I didn't find a database entry for "bib10"
 Warning--I didn't find a database entry for "bib11"
 Warning--I didn't find a database entry for "bib12"
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 21 entries,
+You've used 27 entries,
             3546 wiz_defined-function locations,
-            856 strings with 9240 characters,
-and the built_in function-call counts, 16052 in all, are:
-= -- 1622
-> -- 645
+            904 strings with 11199 characters,
+and the built_in function-call counts, 22805 in all, are:
+= -- 2341
+> -- 923
 < -- 12
-+ -- 279
-- -- 190
-* -- 1214
-:= -- 2268
-add.period$ -- 34
-call.type$ -- 21
-change.case$ -- 174
-chr.to.int$ -- 20
-cite$ -- 21
-duplicate$ -- 1307
-empty$ -- 1120
-format.name$ -- 248
-if$ -- 3316
++ -- 405
+- -- 273
+* -- 1755
+:= -- 3151
+add.period$ -- 45
+call.type$ -- 27
+change.case$ -- 234
+chr.to.int$ -- 26
+cite$ -- 27
+duplicate$ -- 1879
+empty$ -- 1576
+format.name$ -- 349
+if$ -- 4714
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 142
-newline$ -- 72
-num.names$ -- 86
-pop$ -- 504
+missing$ -- 187
+newline$ -- 90
+num.names$ -- 110
+pop$ -- 691
 preamble$ -- 1
-purify$ -- 149
+purify$ -- 203
 quote$ -- 0
-skip$ -- 643
+skip$ -- 895
 stack$ -- 0
-substring$ -- 805
-swap$ -- 614
+substring$ -- 1306
+swap$ -- 884
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 189
+type$ -- 243
 warning$ -- 0
-while$ -- 93
+while$ -- 123
 width$ -- 0
-write$ -- 257
+write$ -- 329
 (There were 12 warnings)

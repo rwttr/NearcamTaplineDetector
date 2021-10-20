@@ -44,6 +44,17 @@ author = {Song Wang and Hang Zhou and Chunlong Zhang and Luzhen Ge and Wei Li an
 keywords = {Agricultural robotics, Natural rubber, Spillage-free harvesting, Latex harvesting, Dynamic model},
 }
 
+@article{zhang2019rubber,
+  title={A Rubber-Tapping Robot Forest Navigation and Information Collection System Based on 2D LiDAR and a Gyroscope},
+  author={Zhang, Chunlong and Yong, Liyun and Chen, Ying and Zhang, Shunlu and Ge, Luzhen and Wang, Song and Li, Wei},
+  journal={Sensors},
+  volume={19},
+  number={9},
+  pages={2136},
+  year={2019},
+  publisher={Multidisciplinary Digital Publishing Institute}
+}
+
 @misc{patent1,
   author        = {An Feng, Lin Weifu},
   title         = "Automatic integrated rubber tapping and collecting method based on image identification and automatic integrated rubber tapping and collecting device based on image identification",
@@ -73,6 +84,9 @@ keywords = {Agricultural robotics, Natural rubber, Spillage-free harvesting, Lat
   month         = dec,
   year          = "2017"
 }
+
+
+%% Deep-CNN detectors
 
 @article{redmonyolov3,
   author    = {Joseph Redmon and Ali Farhadi},
@@ -262,8 +276,8 @@ keywords = {Agricultural robotics, Natural rubber, Spillage-free harvesting, Lat
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
+%% Agricultural Robotics 
 %% Tomatoes
-
 @Article{s20072145,
   AUTHOR = {Liu, Guoxu and Nouaze, Joseph Christian and Touko Mbouembe, Philippe Lyonel and Kim, Jae Ho},
   TITLE = {YOLO-Tomato: A Robust Algorithm for Tomato Detection Based on YOLOv3},
@@ -291,14 +305,83 @@ keywords = {Agricultural robotics, Natural rubber, Spillage-free harvesting, Lat
 }
 
 @article{chentomato,
-author = {Chen, Jiqing and Wang, Zhikui and Wu, Jiahua and Hu, Qiang and Zhao, Chaoyang and Tan, Chengzhi and Teng, Long and Luo, Tian},
-title = {An improved Yolov3 based on dual path network for cherry tomatoes detection},
-journal = {Journal of Food Process Engineering},
-volume = {44},
-number = {10},
-pages = {e13803},
-doi = {https://doi.org/10.1111/jfpe.13803},
-url = {https://onlinelibrary.wiley.com/doi/abs/10.1111/jfpe.13803},
-eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803},
-year = {2021}
+  author = {Chen, Jiqing and Wang, Zhikui and Wu, Jiahua and Hu, Qiang and Zhao, Chaoyang and Tan, Chengzhi and Teng, Long and Luo, Tian},
+  title = {An improved Yolov3 based on dual path network for cherry tomatoes detection},
+  journal = {Journal of Food Process Engineering},
+  volume = {44},
+  number = {10},
+  pages = {e13803},
+  doi = {https://doi.org/10.1111/jfpe.13803},
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1111/jfpe.13803},
+  eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803},
+  year = {2021}
+}
+
+%% Strawberry
+@article{Yu2019strawberry,
+  title = {Fruit detection for strawberry harvesting robot in non-structural environment based on Mask-RCNN},
+  journal = {Computers and Electronics in Agriculture},
+  volume = {163},
+  pages = {104846},
+  year = {2019},
+  issn = {0168-1699},
+  doi = {https://doi.org/10.1016/j.compag.2019.06.001},
+  url = {https://www.sciencedirect.com/science/article/pii/S0168169919301103},
+  author = {Yang Yu and Kailiang Zhang and Li Yang and Dongxing Zhang},
+  keywords = {Mask-RCNN, Non-structural environment, Fruit detection, Instance segmentation, Picking point}
+}
+
+%% Apple 
+@article{Li2021apple,
+  author = {Qianwen Li and Weikuan Jia and Meili Sun and Sujuan Hou and Yuanjie Zheng},
+  doi = {10.1016/j.compag.2020.105900},
+  issn = {01681699},
+  journal = {Computers and Electronics in Agriculture},
+  keywords = {ASPP,Edge structure,Fruit segmentation target,Green apple,U-Net model},
+  month = {1},
+  publisher = {Elsevier B.V.},
+  title = {A novel green apple segmentation algorithm based on ensemble U-Net under complex orchard environment},
+  volume = {180},
+  year = {2021},
+}
+
+@article{Chu2021apple,
+  author = {Pengyu Chu and Zhaojian Li and Kyle Lammers and Renfu Lu and Xiaoming Liu},
+  doi = {10.1016/j.patrec.2021.04.022},
+  issn = {01678655},
+  journal = {Pattern Recognition Letters},
+  keywords = {Deep learning,Fruit detection,Image segmentation,Robotic harvesting,Vision system},
+  month = {7},
+  pages = {206-211},
+  publisher = {Elsevier B.V.},
+  title = {Deep learning-based apple detection using a suppression mask R-CNN},
+  volume = {147},
+  year = {2021},
+}
+
+@article{Jia2020apple,
+  author = {Weikuan Jia and Yuyu Tian and Rong Luo and Zhonghua Zhang and Jian Lian and Yuanjie Zheng},
+  doi = {10.1016/j.compag.2020.105380},
+  issn = {01681699},
+  journal = {Computers and Electronics in Agriculture},
+  keywords = {Image segmentation,Mask R-CNN,Overlapped apples,Target detection},
+  month = {5},
+  publisher = {Elsevier B.V.},
+  title = {Detection and segmentation of overlapped fruits based on optimized mask R-CNN application in apple harvesting robot},
+  volume = {172},
+  year = {2020},
+}
+
+@article{Kuznetsova2020apple,
+  author = {Anna Kuznetsova and Tatiana Maleva and Vladimir Soloviev},
+  doi = {10.3390/agronomy10071016},
+  issn = {20734395},
+  issue = {7},
+  journal = {Agronomy},
+  keywords = {Fruit harvesting robot,Fruit yield counting robot,Machine vision,YOLO},
+  month = {7},
+  publisher = {MDPI AG},
+  title = {Using YOLOv3 algorithm with pre- And post-processing for apple detection in fruit-harvesting robot},
+  volume = {10},
+  year = {2020},
 }

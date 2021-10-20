@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -37,6 +37,11 @@ Chen J, Wang Z, Wu J, et~al (2021) An improved yolov3 based on dual path
   \urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1111/jfpe.13803},
   {\href{https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803}{{https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803}}}
 
+\bibitem[{Chu et~al(2021)Chu, Li, Lammers, Lu, and Liu}]{Chu2021apple}
+Chu P, Li Z, Lammers K, et~al (2021) Deep learning-based apple detection using
+  a suppression mask r-cnn. Pattern Recognition Letters 147:206--211.
+  \doi{10.1016/j.patrec.2021.04.022}
+
 \bibitem[{Girshick(2015)}]{fastrcnn}
 Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
   \urlprefix\url{http://arxiv.org/abs/1504.08083},
@@ -47,10 +52,27 @@ He K, Gkioxari G, Doll{\'{a}}r P, et~al (2017) Mask {R-CNN}. CoRR
   abs/1703.06870.
   {\href{https://arxiv.org/abs/1703.06870}{{https://arxiv.org/abs/1703.06870}}}
 
+\bibitem[{Jia et~al(2020)Jia, Tian, Luo, Zhang, Lian, and Zheng}]{Jia2020apple}
+Jia W, Tian Y, Luo R, et~al (2020) Detection and segmentation of overlapped
+  fruits based on optimized mask r-cnn application in apple harvesting robot.
+  Computers and Electronics in Agriculture 172.
+  \doi{10.1016/j.compag.2020.105380}
+
+\bibitem[{Kuznetsova et~al(2020)Kuznetsova, Maleva, and
+  Soloviev}]{Kuznetsova2020apple}
+Kuznetsova A, Maleva T, Soloviev V (2020) Using yolov3 algorithm with pre- and
+  post-processing for apple detection in fruit-harvesting robot. Agronomy 10.
+  \doi{10.3390/agronomy10071016}
+
 \bibitem[{Lawal(2021)}]{Lawal_2021}
 Lawal MO (2021) Tomato detection based on modified {YOLOv}3 framework.
   Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5},
   \urlprefix\url{https://doi.org/10.1038%2Fs41598-021-81216-5}
+
+\bibitem[{Li et~al(2021)Li, Jia, Sun, Hou, and Zheng}]{Li2021apple}
+Li Q, Jia W, Sun M, et~al (2021) A novel green apple segmentation algorithm
+  based on ensemble u-net under complex orchard environment. Computers and
+  Electronics in Agriculture 180. \doi{10.1016/j.compag.2020.105900}
 
 \bibitem[{Lin et~al(2017)Lin, Goyal, Girshick, He, and
   Doll{\'{a}}r}]{focalloss1}
@@ -109,11 +131,24 @@ Wongtanawijit R, Khaorapapong T (2021) Nighttime rubber tapping line detection
   \doi{10.1007/s11042-021-11140-3},
   \urlprefix\url{https://doi.org/10.1007%2Fs11042-021-11140-3}
 
+\bibitem[{Yu et~al(2019)Yu, Zhang, Yang, and Zhang}]{Yu2019strawberry}
+Yu Y, Zhang K, Yang L, et~al (2019) Fruit detection for strawberry harvesting
+  robot in non-structural environment based on mask-rcnn. Computers and
+  Electronics in Agriculture 163:104,846.
+  \doi{https://doi.org/10.1016/j.compag.2019.06.001},
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0168169919301103}
+
 \bibitem[{Yu et~al(2017)Yu, Feng, Liu, and Ramalingam}]{casenet}
 Yu Z, Feng C, Liu M, et~al (2017) Casenet: Deep category-aware semantic edge
   detection. In: 2017 {IEEE} Conference on Computer Vision and Pattern
   Recognition, {CVPR} 2017, Honolulu, HI, USA, July 21-26, 2017. {IEEE}
   Computer Society, pp 1761--1770, \doi{10.1109/CVPR.2017.191}
+
+\bibitem[{Zhang et~al(2019)Zhang, Yong, Chen, Zhang, Ge, Wang, and
+  Li}]{zhang2019rubber}
+Zhang C, Yong L, Chen Y, et~al (2019) A rubber-tapping robot forest navigation
+  and information collection system based on 2d lidar and a gyroscope. Sensors
+  19(9):2136
 
 \bibitem[{Zhang~Bin(2017)}]{patent3}
 Zhang~Bin WX (2017) One kind rubber tapping robot
