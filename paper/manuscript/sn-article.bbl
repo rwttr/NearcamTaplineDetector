@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -47,10 +47,21 @@ Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
   \urlprefix\url{http://arxiv.org/abs/1504.08083},
   {\href{https://arxiv.org/abs/1504.08083}{{https://arxiv.org/abs/1504.08083}}}
 
+\bibitem[{He et~al(2015)He, Zhang, Ren, and Sun}]{resnet}
+He K, Zhang X, Ren S, et~al (2015) Deep residual learning for image
+  recognition. CoRR abs/1512.03385.
+  \urlprefix\url{http://arxiv.org/abs/1512.03385},
+  {\href{https://arxiv.org/abs/1512.03385}{{https://arxiv.org/abs/1512.03385}}}
+
 \bibitem[{He et~al(2017)He, Gkioxari, Doll{\'{a}}r, and Girshick}]{maskrcnn}
 He K, Gkioxari G, Doll{\'{a}}r P, et~al (2017) Mask {R-CNN}. CoRR
   abs/1703.06870.
   {\href{https://arxiv.org/abs/1703.06870}{{https://arxiv.org/abs/1703.06870}}}
+
+\bibitem[{Huang et~al(2016)Huang, Liu, and Weinberger}]{densenet}
+Huang G, Liu Z, Weinberger KQ (2016) Densely connected convolutional networks.
+  CoRR abs/1608.06993. \urlprefix\url{http://arxiv.org/abs/1608.06993},
+  {\href{https://arxiv.org/abs/1608.06993}{{https://arxiv.org/abs/1608.06993}}}
 
 \bibitem[{Jia et~al(2020)Jia, Tian, Luo, Zhang, Lian, and Zheng}]{Jia2020apple}
 Jia W, Tian Y, Luo R, et~al (2020) Detection and segmentation of overlapped
@@ -64,10 +75,16 @@ Kuznetsova A, Maleva T, Soloviev V (2020) Using yolov3 algorithm with pre- and
   post-processing for apple detection in fruit-harvesting robot. Agronomy 10.
   \doi{10.3390/agronomy10071016}
 
-\bibitem[{Lawal(2021)}]{Lawal_2021}
-Lawal MO (2021) Tomato detection based on modified {YOLOv}3 framework.
-  Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5},
+\bibitem[{Lawal(2021{\natexlab{a}})}]{Lawal_2021}
+Lawal MO (2021{\natexlab{a}}) Tomato detection based on modified {YOLOv}3
+  framework. Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5},
   \urlprefix\url{https://doi.org/10.1038%2Fs41598-021-81216-5}
+
+\bibitem[{Lawal(2021{\natexlab{b}})}]{Lawal2021tomato}
+Lawal OM (2021{\natexlab{b}}) Development of tomato detection model for robotic
+  platform using deep learning. Multimedia Tools and Applications
+  80(17):26,751--26,772. \doi{10.1007/s11042-021-10933-w},
+  \urlprefix\url{https://doi.org/10.1007/s11042-021-10933-w}
 
 \bibitem[{Li et~al(2021)Li, Jia, Sun, Hou, and Zheng}]{Li2021apple}
 Li Q, Jia W, Sun M, et~al (2021) A novel green apple segmentation algorithm
@@ -90,6 +107,20 @@ Liu G, Nouaze JC, Touko~Mbouembe PL, et~al (2020) Yolo-tomato: A robust
 Milletari F, Navab N, Ahmadi S (2016) V-net: Fully convolutional neural
   networks for volumetric medical image segmentation. CoRR abs/1606.04797.
   {\href{https://arxiv.org/abs/1606.04797}{{https://arxiv.org/abs/1606.04797}}}
+
+\bibitem[{Misra(2019)}]{misra2019mish}
+Misra D (2019) Mish: {A} self regularized non-monotonic neural activation
+  function. CoRR abs/1908.08681.
+  \urlprefix\url{http://arxiv.org/abs/1908.08681},
+  {\href{https://arxiv.org/abs/1908.08681}{{https://arxiv.org/abs/1908.08681}}}
+
+\bibitem[{Ng(2004)}]{andrewl1l2}
+Ng AY (2004) Feature selection, <i>l</i><sub>1</sub> vs. <i>l</i><sub>2</sub>
+  regularization, and rotational invariance. In: Proceedings of the
+  Twenty-First International Conference on Machine Learning. Association for
+  Computing Machinery, New York, NY, USA, ICML '04, p~78,
+  \doi{10.1145/1015330.1015435},
+  \urlprefix\url{https://doi.org/10.1145/1015330.1015435}
 
 \bibitem[{Redmon and Farhadi(2016)}]{redmonyolov2}
 Redmon J, Farhadi A (2016) {YOLO9000:} better, faster, stronger. CoRR
@@ -117,6 +148,23 @@ Ronneberger O, Fischer P, Brox T (2015) U-net: Convolutional networks for
   biomedical image segmentation. In: Navab N, Hornegger J, Wells WM, et~al
   (eds) Medical Image Computing and Computer-Assisted Intervention -- MICCAI
   2015. Springer International Publishing, Cham, pp 234--241
+
+\bibitem[{Salehi et~al(2017)Salehi, Erdogmus, and Gholipour}]{tverskyloss}
+Salehi SSM, Erdogmus D, Gholipour A (2017) Tversky loss function for image
+  segmentation using 3d fully convolutional deep networks. CoRR abs/1706.05721.
+  \urlprefix\url{http://arxiv.org/abs/1706.05721},
+  {\href{https://arxiv.org/abs/1706.05721}{{https://arxiv.org/abs/1706.05721}}}
+
+\bibitem[{Sudre et~al(2017)Sudre, Li, Vercauteren, Ourselin, and
+  Cardoso}]{gendice}
+Sudre CH, Li W, Vercauteren T, et~al (2017) Generalised dice overlap as a deep
+  learning loss function for highly unbalanced segmentations. CoRR
+  abs/1707.03237. \urlprefix\url{http://arxiv.org/abs/1707.03237},
+  {\href{https://arxiv.org/abs/1707.03237}{{https://arxiv.org/abs/1707.03237}}}
+
+\bibitem[{Tong et~al(2020)Tong, Wu, and Zhou}]{Tong2020}
+Tong K, Wu Y, Zhou F (2020) Recent advances in small object detection based on
+  deep learning: A review. \doi{10.1016/j.imavis.2020.103910}
 
 \bibitem[{Wang et~al(2022)Wang, Zhou, Zhang, Ge, Li, Yuan, Zhang, and
   Zhang}]{WANG2022103906}

@@ -5,6 +5,8 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 The style file: bst/sn-basic.bst
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 Database file #1: sn-bibliography.bib
+Warning--entry type for "Tong2020" isn't style-file defined
+--line 513 of file sn-bibliography.bib
 Warning--I didn't find a database entry for "bib1"
 Warning--I didn't find a database entry for "bib2"
 Warning--I didn't find a database entry for "bib3"
@@ -18,45 +20,45 @@ Warning--I didn't find a database entry for "bib10"
 Warning--I didn't find a database entry for "bib11"
 Warning--I didn't find a database entry for "bib12"
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 27 entries,
+You've used 35 entries,
             3546 wiz_defined-function locations,
-            904 strings with 11199 characters,
-and the built_in function-call counts, 22805 in all, are:
-= -- 2341
-> -- 923
-< -- 12
-+ -- 405
-- -- 273
-* -- 1755
-:= -- 3151
-add.period$ -- 45
-call.type$ -- 27
-change.case$ -- 234
-chr.to.int$ -- 26
-cite$ -- 27
-duplicate$ -- 1879
-empty$ -- 1576
-format.name$ -- 349
-if$ -- 4714
-int.to.chr$ -- 2
+            964 strings with 12961 characters,
+and the built_in function-call counts, 28573 in all, are:
+= -- 2925
+> -- 1134
+< -- 16
++ -- 498
+- -- 335
+* -- 2207
+:= -- 3968
+add.period$ -- 60
+call.type$ -- 35
+change.case$ -- 297
+chr.to.int$ -- 33
+cite$ -- 35
+duplicate$ -- 2358
+empty$ -- 1992
+format.name$ -- 429
+if$ -- 5907
+int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 187
-newline$ -- 90
-num.names$ -- 110
-pop$ -- 691
+missing$ -- 243
+newline$ -- 114
+num.names$ -- 142
+pop$ -- 884
 preamble$ -- 1
-purify$ -- 203
+purify$ -- 256
 quote$ -- 0
-skip$ -- 895
+skip$ -- 1099
 stack$ -- 0
-substring$ -- 1306
-swap$ -- 884
-text.length$ -- 3
+substring$ -- 1580
+swap$ -- 1114
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 243
+type$ -- 315
 warning$ -- 0
-while$ -- 123
+while$ -- 156
 width$ -- 0
-write$ -- 329
-(There were 12 warnings)
+write$ -- 432
+(There were 13 warnings)
