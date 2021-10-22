@@ -6,7 +6,7 @@ The style file: bst/sn-basic.bst
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 Database file #1: sn-bibliography.bib
 Warning--entry type for "Tong2020" isn't style-file defined
---line 513 of file sn-bibliography.bib
+--line 487 of file sn-bibliography.bib
 Warning--I didn't find a database entry for "bib1"
 Warning--I didn't find a database entry for "bib2"
 Warning--I didn't find a database entry for "bib3"
@@ -20,45 +20,45 @@ Warning--I didn't find a database entry for "bib10"
 Warning--I didn't find a database entry for "bib11"
 Warning--I didn't find a database entry for "bib12"
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 35 entries,
+You've used 34 entries,
             3546 wiz_defined-function locations,
-            964 strings with 12961 characters,
-and the built_in function-call counts, 28573 in all, are:
-= -- 2925
-> -- 1134
-< -- 16
-+ -- 498
-- -- 335
-* -- 2207
-:= -- 3968
-add.period$ -- 60
-call.type$ -- 35
-change.case$ -- 297
-chr.to.int$ -- 33
-cite$ -- 35
-duplicate$ -- 2358
-empty$ -- 1992
-format.name$ -- 429
-if$ -- 5907
+            953 strings with 12628 characters,
+and the built_in function-call counts, 28017 in all, are:
+= -- 2878
+> -- 1124
+< -- 14
++ -- 494
+- -- 332
+* -- 2172
+:= -- 3887
+add.period$ -- 58
+call.type$ -- 34
+change.case$ -- 289
+chr.to.int$ -- 32
+cite$ -- 34
+duplicate$ -- 2305
+empty$ -- 1938
+format.name$ -- 425
+if$ -- 5784
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 243
-newline$ -- 114
-num.names$ -- 142
-pop$ -- 884
+missing$ -- 234
+newline$ -- 111
+num.names$ -- 138
+pop$ -- 866
 preamble$ -- 1
-purify$ -- 256
+purify$ -- 251
 quote$ -- 0
-skip$ -- 1099
+skip$ -- 1079
 stack$ -- 0
-substring$ -- 1580
-swap$ -- 1114
-text.length$ -- 4
+substring$ -- 1565
+swap$ -- 1090
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 315
+type$ -- 306
 warning$ -- 0
-while$ -- 156
+while$ -- 152
 width$ -- 0
-write$ -- 432
+write$ -- 417
 (There were 13 warnings)

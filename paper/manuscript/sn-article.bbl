@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -113,14 +113,6 @@ Misra D (2019) Mish: {A} self regularized non-monotonic neural activation
   function. CoRR abs/1908.08681.
   \urlprefix\url{http://arxiv.org/abs/1908.08681},
   {\href{https://arxiv.org/abs/1908.08681}{{https://arxiv.org/abs/1908.08681}}}
-
-\bibitem[{Ng(2004)}]{andrewl1l2}
-Ng AY (2004) Feature selection, <i>l</i><sub>1</sub> vs. <i>l</i><sub>2</sub>
-  regularization, and rotational invariance. In: Proceedings of the
-  Twenty-First International Conference on Machine Learning. Association for
-  Computing Machinery, New York, NY, USA, ICML '04, p~78,
-  \doi{10.1145/1015330.1015435},
-  \urlprefix\url{https://doi.org/10.1145/1015330.1015435}
 
 \bibitem[{Redmon and Farhadi(2016)}]{redmonyolov2}
 Redmon J, Farhadi A (2016) {YOLO9000:} better, faster, stronger. CoRR
