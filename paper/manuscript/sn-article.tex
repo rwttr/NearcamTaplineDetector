@@ -5,6 +5,8 @@
 
 %%<additional latex packages if required can be included here>
 \usepackage[numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{multirow}
 
 \jyear{2021}
 \raggedbottom
@@ -74,7 +76,7 @@ Meanwhile, the losses of bounding box's coordinates regression in all of the YOL
 \subsection{Deep Learning Computer Vision in Agricultural Robotics}
 Conducting the powerful deep CNN-based computer vision to agricultural robotics becomes popular in following years after mentioned algorithms are established. Lots of them focused on ripe fruit detections in robotized harvesting by adapting detection algorithms to facilitate their objectives. For instance in tomato detections with YOLO, Guoxu Liu et al. \cite{s20072145} changed the bounding box output of YOLOv3 to the ``circular bounding box" with a radius regression equation which agrees with a circular shape of tomatoes, while \cite{Lawal_2021, chentomato} stay on rectangular bounding boxes and add new layer configurations to achieve higher detection accuracy than the standard YOLO Darknet-53. There are also a lot of examples for this category to be reviewed later in the following section such as, apple detection and segmentation with U-Net \cite{Li2021apple}, Mask-RCNN \cite{Chu2021apple, Jia2020apple}, YOLOv3 \cite{Kuznetsova2020apple}, Mask-RCNN on strawberry \cite{Yu2019strawberry}, etc.
 
-Inspecting for details on the mentioned works that how they did the modifications on standard detector networks, a popular mod is to add multi-scale predictions to the network (a.k.a feature-pyramid \cite{Tong2020}) in order to enhance the recognition of object in various sizes, especially for discover small objects. This technique add dedicate paths in the network graph, which are found in such as \cite{chentomato, Lawal_2021, Yu2019strawberry, Li2021apple}. Researches of such as \cite{Jia2020apple, Chu2021apple, Yu2019strawberry, Lawal2021tomato} employ the adventages of feature re-use that presented in densely-convolution backbone \cite{densenet} or the residual-block of ResNet \cite{resnet}, which efficiently increase the network learning capability. Mish activation function is more prefered over ReLu family in order to improve network training dynamics and final accuracy, but this might comes with more computational expense \cite{misra2019mish}.
+Inspecting for details on the mentioned works that how they did the modifications on standard detector networks, a popular mod is to add multi-scale predictions to the network (a.k.a feature-pyramid \cite{Tong2020}) in order to enhance the recognition of object in various sizes, especially for discover small objects. This technique add dedicate paths in the network graph, which are found in such as \cite{chentomato, Lawal_2021, Yu2019strawberry, Li2021apple}. Researches of such as \cite{Jia2020apple, Chu2021apple, Yu2019strawberry, Lawal2021tomato} employ the adventages of feature re-use that presented in densely-convolution backbone \cite{densenet} or the residual-block of ResNet \cite{resnet}, which efficiently increase the network learning capability. Mish activation function is more prefered over ReLU family in order to improve network training dynamics and final accuracy, but this might comes with more computational expense \cite{misra2019mish}.
 
 In segmentation applications, downsampling upsampling path of U-Net already included the feature-pyramid structure. \cite{Li2021apple} tackles bluring problem of input images by add gated-convolution between each spatial resolution changes in U-Net. Suppression Mask-RCNN \cite{Chu2021apple} appends another convolutional network with an additional window sliding operation to the end of Mask-RCNN for filtering unwanted features which causes the overall network becomes a longer chain and requires a separate training scheme.
 
@@ -91,9 +93,42 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 \subsection{Models}\label{subsec-model}
 Designed network layers consist of a downstream backbone network acts as the feature extraction layers, two box detection heads at different spatial resolutions for object size coverages, a upsampling network that enlarges tensors' size to the input's size for the pixel classification. Since, tapping line detection is a one-class object detection problem likely to be deployed on a mobile robot, so that a small and compact network is favourable \textemdash in term of numbers of weights, data's sizes.
 
-The downsampling backbone network borrows Darknet-53 but we trim out the numbers of filters with also shrinking the overall depth, as shown in table \ref{}. Box detection heads conform YOLO boxes' coordinates regression with the objectness scores. This one-stage configuration satisfies the end-to-end training.
+The downsampling backbone network borrows residual block arrangement of Darknet-53. The network is trimmed out the numbers of filters and shrank the overall depth, as shown in table \ref{tab-darknetlight}, while preserving filter's sizes and LeakyReLU activation function. 
 
+\begin{table}[]
+\centering
+\caption{tablebackbone}
+\label{tab-darknetlight}
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{@{}lcccccc@{}}
+\textbf{block}      & $c$ 			  & ops 		& $n$   		& \textbf{filter} 	& $s$ 	& \textbf{output} 	\\ \midrule
+Input                 &                    & -                       			&    		&       				&  	& $224\times224\times3$   \\ \midrule
+                      	&                    & Conv2d                  		& 32 		& $3\times3$   	& 1 	& $224\times224\times32$  \\
+down1               	&                    & Conv2d                  		& 64  	& $3\times3$    	& 2 	& $112\times112\times64$  \\ \midrule
+\multirow{3}{*}{res1} & \multirow{3}{*}{1} & Conv2d            & 32  	& $1\times1$    	& 1 	&             	\\
+                      	&                    & Conv2d                  		& 64  	& $3\times3$    	& 1 	&   \\
+                      	&                    & Residual             			&     		&        			  	&   	& $112\times112\times64$  \\ \midrule
+down2             	&                    & Conv2d                  		& 128 	& $3\times3$    	& 2 	& $56\times56\times128$   \\ \midrule
+\multirow{3}{*}{res2} & \multirow{3}{*}{2} & Conv2d            & 64  	& $1\times1$    	& 1 	&             	\\
+                      	&                    & Conv2d                  		& 128 	& $3\times3$    	& 1 	&   \\
+                      	&                    & Residual             			&     		&        			  	&   	&	$56\times56\times128$   \\ \midrule
+down3               	&                    & Conv2d                  		& 256 	& $3\times3$    	& 2 	& $28\times28\times256$   \\ \midrule
+\multirow{3}{*}{res3} & \multirow{3}{*}{4} & Conv2d            & 128 	& $1\times1$    	& 1 	&             	\\
+                      	&                    & Conv2d                  		& 256 	& $3\times3$    	& 1 	&    \\
+                      	&                    & Residual             			&     		&        				&   	& $28\times28\times256$   \\ \midrule
+down4                &                    & Conv2d                  		& 384 	& $3\times3$    	& 2 	& $14\times14\times384$   \\ \midrule
+\multirow{3}{*}{res4} & \multirow{3}{*}{4} & Conv2d            & 192 	& $1\times1$    	& 1 	&             \\
+                      	&                    & Conv2d                  		& 384 	& $3\times3$    	& 1 	&    \\
+                      	&                    & Residual             			&     		&        				&   	& $14\times14\times384$   \\ \midrule
+down5               	&                    & Conv2d                  		& 512 	& $3\times3$    	& 2 	& $7\times7\times512$     \\ \midrule
+\multirow{3}{*}{res5} & \multirow{3}{*}{1} & Conv2d            & 256 	& $1\times1$    	& 1 	&             \\
+                      	&                    & Conv2d                  		& 512 	& $3\times3$    	& 1 	&      \\
+                      	&                    & Residual             			&     		&        				&   	& $7\times7\times512$     \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
 
+Box detection ends comply the YOLO's method. Two YOLO detection branches connect to the downsampling network at the output of block ``down4" and ``down5", referred to table \ref{tab-darknetlight}. Each branch has private $3\times3$ and $1\times1$ (pointwise convolution) filters that remaps tensor's depth to $5\times$ no.of anchors, where each anchor requires four for coordinates and one for the objectness scores, detailed in table \ref{}.
 
 
 

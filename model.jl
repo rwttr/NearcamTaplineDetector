@@ -424,6 +424,4 @@ end
 
 model_a = NNModel_A1(basenet_darknetlight, (yololayer_layer1, yololayer_layer2))
 
-
-
 println("all model loaded");
