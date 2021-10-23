@@ -93,7 +93,7 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 
 
 \subsection{Models}\label{subsec-model}
-Designed network layers consist of a downstream backbone network acts as the feature extraction layers, two box detection heads at different spatial resolutions for object size coverages, a upsampling network that enlarges tensors' size to the input's size for the pixel classification. Since, tapping line detection is a one-class object detection problem likely to be deployed on a mobile robot, so that a small and compact network is favourable \textemdash in term of numbers of weights, data's sizes.
+Fig.\ref{} illustrates the overview of the tapping line detection network. The network consists of a downsampling backbone network for the feature extraction, two box detection heads at different spatial resolutions for object size coverages, a upsampling network that enlarges tensors' size to the input's size for the pixel classification. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. So that a small compact network is favourable \textemdash in term of numbers of weights, data's sizes.
 
 \subsubsection{Downsampling Network}
 The downsampling backbone network borrows residual block structure of Darknet-53. The modifications are trimmed out the numbers of filters, shrank the overall network depth and reduced the input size to $224 \times 224$, while preserving filter's sizes and LeakyReLU activation function, as shown in Table \ref{tab-darknetlight}.

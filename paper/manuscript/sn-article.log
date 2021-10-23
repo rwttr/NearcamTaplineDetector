@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.22)  23 OCT 2021 20:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.22)  24 OCT 2021 04:56
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -825,6 +825,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 96.
+
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 101.
@@ -1675,10 +1678,10 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: EFBAB431CDD385985921C708B4E5A417;4729.
  ) 
 Here is how much of TeX's memory you used:
- 14508 strings out of 478927
- 202120 string characters out of 2862379
- 738114 words of memory out of 3000000
- 32006 multiletter control sequences out of 15000+600000
+ 14509 strings out of 478927
+ 202122 string characters out of 2862379
+ 739114 words of memory out of 3000000
+ 32007 multiletter control sequences out of 15000+600000
  428930 words of font info for 129 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
  75i,17n,80p,1335b,1498s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1706,7 +1709,7 @@ ts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb>
 
-Output written on sn-article.pdf (13 pages, 433118 bytes).
+Output written on sn-article.pdf (13 pages, 433159 bytes).
 PDF statistics:
  544 PDF objects out of 1000 (max. 8388607)
  100 named destinations out of 1000 (max. 500000)
