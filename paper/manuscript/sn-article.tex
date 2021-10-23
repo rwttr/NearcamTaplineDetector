@@ -7,6 +7,8 @@
 \usepackage[numbers]{natbib}
 \usepackage{graphicx}
 \usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{makecell}
 
 \jyear{2021}
 \raggedbottom
@@ -93,11 +95,11 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 \subsection{Models}\label{subsec-model}
 Designed network layers consist of a downstream backbone network acts as the feature extraction layers, two box detection heads at different spatial resolutions for object size coverages, a upsampling network that enlarges tensors' size to the input's size for the pixel classification. Since, tapping line detection is a one-class object detection problem likely to be deployed on a mobile robot, so that a small and compact network is favourable \textemdash in term of numbers of weights, data's sizes.
 
-The downsampling backbone network borrows residual block arrangement of Darknet-53. The network is trimmed out the numbers of filters and shrank the overall depth, as shown in table \ref{tab-darknetlight}, while preserving filter's sizes and LeakyReLU activation function. 
+The downsampling backbone network borrows residual block structure of Darknet-53. The network is trimmed out the numbers of filters and shrank the overall depth, as shown in Table \ref{tab-darknetlight}, while preserving filter's sizes and LeakyReLU activation function. Table \ref{tab-darknetlight} explains the downsampling network in block structures with given names, and the labels are: layer operation (ops), 2-dimension convolution (Conv2d), shortcut connection with addition (Residual).
 
 \begin{table}[]
 \centering
-\caption{tablebackbone}
+\caption{Downsampling backbone network, where $s$ represents the stride sizes, $n$: the numbers of filters with kernel size (filter), and $c$ is the numbers of block replication}
 \label{tab-darknetlight}
 \resizebox{0.5\textwidth}{!}{%
 \begin{tabular}{@{}lcccccc@{}}
@@ -128,9 +130,28 @@ down5               	&                    & Conv2d                  		& 512 	& $
 }
 \end{table}
 
-Box detection ends comply the YOLO's method. Two YOLO detection branches connect to the downsampling network at the output of block ``down4" and ``down5", referred to table \ref{tab-darknetlight}. Each branch has private $3\times3$ and $1\times1$ (pointwise convolution) filters that remaps tensor's depth to $5\times$ no.of anchors, where each anchor requires four for coordinates and one for the objectness scores, detailed in table \ref{}.
+Box detection ends comply with the YOLO's method. Two YOLO detection branches connect to the downsampling network at the output of block ``res4" and ``res5", referred to table \ref{tab-darknetlight}. Each branch has a private $3\times3$ convolution with 512 filters which useful for the learning capability at particular feature map's size ($w \times w$). Then, their outputs connect to every ends which remaps tensor's depth to the number of anchors by pointwise convolutions. There are five box output ends, where fours are box coordinates ($t_x, t_y, t_w, t_h$) and one is for the objectness scores, detailed in Table \ref{tab-yolohead}. 
 
+According to table \ref{tab-yolohead}, hyperbolic tangent function ($\mathrm{tanh}$) activates anchors' center offsets predictions. Sigmoid is applied for objectness scores. Anchors' dimension offsets are set to un-activated outputs.
 
+\begin{table}[]
+\centering
+\caption{Structure of a YOLO detection branch with the three prior boxes (anchors), where $n$ represents the number of filters, and activation function is denoted by $f(x)$.}
+\label{tab-yolohead}
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
+\textbf{block} 		& ops & $n$ 	& \textbf{filter} 	& $f(x)$ & \textbf{output} 			\\ \midrule
+\multicolumn{2}{l}{\makecell[l]{res4 ($w=14, d=384$),\\ res5 ($w=7, d=512$)}}  	&	&	&	& $w \times w\times d$      \\ \midrule
+convhead1  & Conv2d   & 512			& $3\times3$          & leaky           	& $w \times w\times512$      \\ \midrule
+\multicolumn{6}{c}{Split}                                                                            \\ \midrule
+$t_x$		& Conv2d       & 3          & $1\times1$             & tanh              & $w \times w \times 3$         \\
+$t_y$		& Conv2d       & 3          & $1\times1$             & tanh              & $w \times w \times 3$         \\
+$t_w$		& Conv2d       & 3          & $1\times1$             & -                   & $w \times w \times 3$         \\
+$t_h$		& Conv2d       & 3          & $1\times1$             & -                   & $w \times w \times 3$         \\
+obj		& Conv2d       & 3          & $1\times1$             & $\sigma$        & $w \times w \times 3$         \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
 
 \subsubsection{$argmax$ for tapping line pixels}
 \subsubsection{Single Segmentation Feature-Map}
