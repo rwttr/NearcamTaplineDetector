@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  26 OCT 2021 00:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  26 OCT 2021 02:46
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -866,10 +866,6 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
 (Font)              size <5> substituted on input line 110.
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 146.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -878,6 +874,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [5]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 146.
+
+
 Underfull \hbox (badness 1019) in paragraph at lines 166--167
 \OT1/cmr/m/n/10 low resoul-tion ten-sors are enlarged by trans-
  []
@@ -887,13 +888,13 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 168.
 
 
-LaTeX Warning: Reference `tab-pxlheader' on page 6 undefined on input line 187.
-
-
-
-Underfull \hbox (badness 3343) in paragraph at lines 187--188
+Underfull \hbox (badness 3343) in paragraph at lines 188--189
 \OT1/cmr/m/n/10 Three pixel pre-dic-tion blocks are pro-posed,
  []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 190.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -904,95 +905,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [6 <./fig1.pdf>]
+Underfull \hbox (badness 1308) in paragraph at lines 209--210
+\OT1/cmr/m/n/10 are com-puted on each out-puts of pixel pre-
+ []
 
-LaTeX Warning: Reference `subsubsec2' on page 7 undefined on input line 228.
+
+LaTeX Warning: Reference `subsubsec2' on page 7 undefined on input line 249.
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 233--237
+Underfull \hbox (badness 1077) in paragraph at lines 254--258
 \OT1/cmr/m/n/10 Tables can be inserted via the nor-mal table
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 233--237
+Underfull \hbox (badness 1005) in paragraph at lines 254--258
 \OT1/cmr/m/n/10 tables you should use [][]\OT1/cmtt/m/n/10 \footnotetext[]{...}
 
  []
 
 
-Overfull \hbox (7.4466pt too wide) in paragraph at lines 242--251
+Overfull \hbox (7.4466pt too wide) in paragraph at lines 263--272
 [][] 
- []
-
-
-Overfull \hbox (30.50691pt too wide) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 \caption{<table-caption>}\label{<table-label>}%[] 
- []
-
-
-Overfull \hbox (9.5071pt too wide) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 Column 1 & Column 2 & Column 3 & Column 4\\[] 
- []
-
-
-Overfull \hbox (51.50673pt too wide) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 row 2 & data 4 & data 5\footnotemark[1] & data 6 \\[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 row 3 & data 7 & data 8
- []
-
-
-Overfull \hbox (93.50636pt too wide) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 \footnotetext{Source: This is an example of table footnote.[
-] 
- []
-
-
-Overfull \hbox (56.75668pt too wide) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 \footnotetext[1]{Example for a first table footnote.[] 
- []
-
-
-Overfull \hbox (62.00664pt too wide) in paragraph at lines 289--289
-[]\OT1/cmtt/m/n/10 \footnotetext[2]{Example for a second table footnote.[] 
- []
-
-
-Overfull \hbox (239.00314pt too wide) in paragraph at lines 298--313
- []$ 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 2772) in paragraph at lines 316--317
-[]\OT1/cmr/m/n/10 In case of dou-ble col-umn lay-out, tables
- []
-
-
-Underfull \hbox (badness 7221) in paragraph at lines 316--317
-\OT1/cmr/m/n/10 to use [][]\OT1/cmtt/m/n/10 \begin{table*} []... []\end{table*}
-
- []
-
-
-Underfull \hbox (badness 3536) in paragraph at lines 316--317
-[]\OT1/cmr/m/n/10 instead of [][]\OT1/cmtt/m/n/10 \begin{table} []... []\end{ta
-ble}
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
-[]\OT1/cmtt/m/n/10 ... []\end{sidewaystable} []\OT1/cmr/m/n/10 instead of
- []
-
-
-Underfull \hbox (badness 4954) in paragraph at lines 316--317
-[][]\OT1/cmtt/m/n/10 \begin{table*} []... []\end{table*} []\OT1/cmr/m/n/10 envi
--ron-
  []
 
 
@@ -1004,12 +937,86 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [7]
-Underfull \hbox (badness 2680) in paragraph at lines 343--344
+Overfull \hbox (30.50691pt too wide) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 \caption{<table-caption>}\label{<table-label>}%[] 
+ []
+
+
+Overfull \hbox (9.5071pt too wide) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 Column 1 & Column 2 & Column 3 & Column 4\\[] 
+ []
+
+
+Overfull \hbox (51.50673pt too wide) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 row 2 & data 4 & data 5\footnotemark[1] & data 6 \\[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 row 3 & data 7 & data 8
+ []
+
+
+Overfull \hbox (93.50636pt too wide) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 \footnotetext{Source: This is an example of table footnote.[
+] 
+ []
+
+
+Overfull \hbox (56.75668pt too wide) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 \footnotetext[1]{Example for a first table footnote.[] 
+ []
+
+
+Overfull \hbox (62.00664pt too wide) in paragraph at lines 310--310
+[]\OT1/cmtt/m/n/10 \footnotetext[2]{Example for a second table footnote.[] 
+ []
+
+
+Overfull \hbox (239.00314pt too wide) in paragraph at lines 319--334
+ []$ 
+ []
+
+
+Underfull \hbox (badness 2772) in paragraph at lines 337--338
+[]\OT1/cmr/m/n/10 In case of dou-ble col-umn lay-out, tables
+ []
+
+
+Underfull \hbox (badness 7221) in paragraph at lines 337--338
+\OT1/cmr/m/n/10 to use [][]\OT1/cmtt/m/n/10 \begin{table*} []... []\end{table*}
+
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 337--338
+[]\OT1/cmr/m/n/10 instead of [][]\OT1/cmtt/m/n/10 \begin{table} []... []\end{ta
+ble}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
+[]\OT1/cmtt/m/n/10 ... []\end{sidewaystable} []\OT1/cmr/m/n/10 instead of
+ []
+
+
+Underfull \hbox (badness 4954) in paragraph at lines 337--338
+[][]\OT1/cmtt/m/n/10 \begin{table*} []... []\end{table*} []\OT1/cmr/m/n/10 envi
+-ron-
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 364--365
 \OT1/cmr/m/n/10 of the major dif-fer-ence between L[]T[]X and
  []
 
 
-Overfull \hbox (35.75687pt too wide) in paragraph at lines 356--356
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[8]
+Overfull \hbox (35.75687pt too wide) in paragraph at lines 377--377
 []\OT1/cmtt/m/n/10 \caption{<figure-caption>}\label{<figure-label>}[] 
  []
 
@@ -1021,91 +1028,56 @@ Package epstopdf Info: Source file: <fig.eps>
 (epstopdf)                    size: 3136 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=fig-eps-converted-to
 .pdf fig.eps>
-(epstopdf)             \includegraphics on input line 365.
+(epstopdf)             \includegraphics on input line 386.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./fig-eps-converted-to.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<fig-eps-converted-to.pdf, id=297, 505.89pt x 84.315pt>
+<fig-eps-converted-to.pdf, id=307, 505.89pt x 84.315pt>
 File: fig-eps-converted-to.pdf Graphic file (type pdf)
 <use fig-eps-converted-to.pdf>
-Package pdftex.def Info: fig-eps-converted-to.pdf  used on input line 365.
+Package pdftex.def Info: fig-eps-converted-to.pdf  used on input line 386.
 (pdftex.def)             Requested size: 409.71689pt x 68.28703pt.
 
-Overfull \hbox (193.47595pt too wide) in paragraph at lines 365--366
+Overfull \hbox (193.47595pt too wide) in paragraph at lines 386--387
  [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 \OT1/cmr/m/n/10 Packages [][]\OT1/cmtt/m/n/10 algorithm[]\OT1/cmr/m/n/10 , [][]
 \OT1/cmtt/m/n/10 algorithmicx []\OT1/cmr/m/n/10 and
  []
 
 
-Overfull \hbox (4.25714pt too wide) in paragraph at lines 389--389
+Overfull \hbox (4.25714pt too wide) in paragraph at lines 410--410
 []\OT1/cmtt/m/n/10 \caption{<alg-caption>}\label{<alg-label>}[] 
  []
 
 
-Overfull \hbox (66.73177pt too wide) detected at line 402
+Overfull \hbox (66.73177pt too wide) detected at line 423
  [] []
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 418.
+put line 439.
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 []\OT1/cmr/m/n/10 Similarly, for [][]\OT1/cmtt/m/n/10 listings[]\OT1/cmr/m/n/10
  , use the
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 447--448
+Underfull \hbox (badness 4132) in paragraph at lines 468--469
 [][]\OT1/cmtt/m/n/10 listings []\OT1/cmr/m/n/10 pack-age. [][]\OT1/cmtt/m/n/10 
 \begin{lstlisting} []...
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 447--448
+Underfull \hbox (badness 1917) in paragraph at lines 468--469
 [][]\OT1/cmtt/m/n/10 lstlisting []\OT1/cmr/m/n/10 pack-age doc-u-men-ta-tion fo
 r more
- []
-
-(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-60.
-
-(C:\Program Files\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.03749> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 460.
-
-Overfull \hbox (10.67427pt too wide) in paragraph at lines 454--466
-[]$[]$ 
- []
-
-
-Underfull \hbox (badness 1762) in paragraph at lines 469--478
-\OT1/cmr/m/n/10 Environments such as figure, table, equation
- []
-
-
-Underfull \hbox (badness 5417) in paragraph at lines 469--478
-[][]\OT1/cmtt/m/n/10 \label{#label} []\OT1/cmr/m/n/10 com-mand. For figures and
-
  []
 
 
@@ -1117,132 +1089,117 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [9 <./fig-eps-converted-to.pdf>]
+(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
+81.
 
-Package natbib Warning: Citation `bib1' on page 10 undefined on input line 485.
+(C:\Program Files\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.03749> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 481.
+
+Overfull \hbox (10.67427pt too wide) in paragraph at lines 475--487
+[]$[]$ 
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 490--499
+\OT1/cmr/m/n/10 Environments such as figure, table, equation
+ []
+
+
+Underfull \hbox (badness 5417) in paragraph at lines 490--499
+[][]\OT1/cmtt/m/n/10 \label{#label} []\OT1/cmr/m/n/10 com-mand. For figures and
+
+ []
+
+
+Package natbib Warning: Citation `bib1' on page 10 undefined on input line 506.
 
 
 
-Package natbib Warning: Citation `bib2' on page 10 undefined on input line 485.
+Package natbib Warning: Citation `bib2' on page 10 undefined on input line 506.
 
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 485--486
+Underfull \hbox (badness 1314) in paragraph at lines 506--507
 \OT1/cmr/m/n/10 Another exam-ple for [][]\OT1/cmtt/m/n/10 \citep{...}[]\OT1/cmr
 /m/n/10 : [\OT1/cmr/bx/n/10 ? \OT1/cmr/m/n/10 ]. For
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 485--486
+Underfull \hbox (badness 1072) in paragraph at lines 506--507
 \OT1/cmr/m/n/10 author-year cita-tion mode, [][]\OT1/cmtt/m/n/10 \cite{...} []\
 OT1/cmr/m/n/10 prints
  []
 
 
-Package natbib Warning: Citation `bib3' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib3' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib4' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib4' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib5' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib5' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib6' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib6' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib7' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib7' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib8' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib8' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib9' on page 10 undefined on input line 487.
+Package natbib Warning: Citation `bib9' on page 10 undefined on input line 508.
 
 
 
-Package natbib Warning: Citation `bib10' on page 10 undefined on input line 487
+Package natbib Warning: Citation `bib10' on page 10 undefined on input line 508
 .
 
 
-Package natbib Warning: Citation `bib11' on page 10 undefined on input line 487
+Package natbib Warning: Citation `bib11' on page 10 undefined on input line 508
 .
 
 
-Package natbib Warning: Citation `bib12' on page 10 undefined on input line 487
+Package natbib Warning: Citation `bib12' on page 10 undefined on input line 508
 .
 
 
-Underfull \hbox (badness 5519) in paragraph at lines 491--492
+Underfull \hbox (badness 5519) in paragraph at lines 512--513
 \OT1/cmr/m/n/10 For theorem like envi-ron-ments, we require
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 491--492
+Underfull \hbox (badness 4531) in paragraph at lines 512--513
 [][]\OT1/cmtt/m/n/10 amsthm []\OT1/cmr/m/n/10 pack-age. There are three types o
 f
  []
 
 
-Overfull \hbox (120.20848pt too wide) in paragraph at lines 498--505
+Overfull \hbox (120.20848pt too wide) in paragraph at lines 519--526
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
+Underfull \hbox (badness 10000) in paragraph at lines 540--541
 []\OT1/cmr/bx/n/10 Ethical approval dec-la-ra-tions \OT1/cmr/m/n/10 (only
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 519--520
+Underfull \hbox (badness 1466) in paragraph at lines 540--541
 \OT1/cmr/m/n/10 sam-ples must include an unam-bigu-ous state-
- []
-
-
-Underfull \hbox (badness 3713) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 ti-fy-ing patien-t/-par-tic-i-pant infor-ma-tion, or if
- []
-
-
-Underfull \hbox (badness 3590) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 it describes human trans-plan-ta-tion research,
- []
-
-
-Underfull \hbox (badness 1454) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 visit ([][]$https : / / www . nature . com / nature-[]research 
-/
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 ([][]$https : / / www . springer . com / gp / authors-[]editors
- /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 journal-[]author / journal-[]author-[]helpdesk /
- []
-
-
-Underfull \hbox (badness 5832) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 publishing-[]ethics / 14214$[][]) for Springer Nature
- []
-
-
-Underfull \hbox (badness 5175) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 jour-nals, or ([][]$https : / / www . biomedcentral . com /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 529--530
-\OT1/cmr/m/n/10 getpublished / editorial-[]policies # ethics + and +
  []
 
 
@@ -1254,20 +1211,69 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [10]
+Underfull \hbox (badness 3713) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 ti-fy-ing patien-t/-par-tic-i-pant infor-ma-tion, or if
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 it describes human trans-plan-ta-tion research,
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 visit ([][]$https : / / www . nature . com / nature-[]research 
+/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 ([][]$https : / / www . springer . com / gp / authors-[]editors
+ /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 journal-[]author / journal-[]author-[]helpdesk /
+ []
+
+
+Underfull \hbox (badness 5832) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 publishing-[]ethics / 14214$[][]) for Springer Nature
+ []
+
+
+Underfull \hbox (badness 5175) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 jour-nals, or ([][]$https : / / www . biomedcentral . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+\OT1/cmr/m/n/10 getpublished / editorial-[]policies # ethics + and +
+ []
+
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 545.
+(hyperref)                than one, level fixed on input line 566.
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 545--546
+Underfull \hbox (badness 1107) in paragraph at lines 566--567
 \OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 553.
+(hyperref)                than one, level fixed on input line 574.
 
-(sn-article.bbl
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[11] (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
 []\OT1/cmr/m/n/10 Abraham P (1992) Tap-ping of hevea
  []
@@ -1308,14 +1314,6 @@ Underfull \hbox (badness 5446) in paragraph at lines 28--31
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[11]
 Underfull \hbox (badness 2057) in paragraph at lines 34--39
 \OT1/cmr/m/n/10 Food Pro-cess Engi-neer-ing 44(10):e13,803.
  []
@@ -1430,6 +1428,14 @@ Underfull \hbox (badness 1132) in paragraph at lines 90--93
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[12]
 Underfull \hbox (badness 5388) in paragraph at lines 96--99
 []\OT1/cmr/m/n/10 Lin T, Goyal P, Gir-shick RB, et al
  []
@@ -1540,14 +1546,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--126
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[12]
 Underfull \hbox (badness 10000) in paragraph at lines 134--137
 []\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
  []
@@ -1693,7 +1691,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--180
 \OT1/cmr/m/n/10 URL [][]$https : / / www . sciencedirect . com /
  []
 
-)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[13])
 
 Package natbib Warning: There were undefined citations.
 
@@ -1705,7 +1711,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[13] (sn-article.aux)
+[14
+
+] (sn-article.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1717,11 +1725,11 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: E41BE5B011874395EAB0B4FE432CD9FB;4736.
  ) 
 Here is how much of TeX's memory you used:
- 14574 strings out of 478907
- 203046 string characters out of 2861736
- 741940 words of memory out of 3000000
- 32086 multiletter control sequences out of 15000+600000
- 428930 words of font info for 129 fonts, out of 8000000 for 9000
+ 14585 strings out of 478907
+ 203165 string characters out of 2861736
+ 736561 words of memory out of 3000000
+ 32094 multiletter control sequences out of 15000+600000
+ 430787 words of font info for 137 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
  75i,17n,80p,1335b,1498s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Rattachai\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
@@ -1736,21 +1744,21 @@ mmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/font
 s/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
-/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
-/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program File
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb>
-
-Output written on sn-article.pdf (13 pages, 465287 bytes).
+/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+s10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
+Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on sn-article.pdf (14 pages, 481639 bytes).
 PDF statistics:
- 560 PDF objects out of 1000 (max. 8388607)
- 102 named destinations out of 1000 (max. 500000)
+ 575 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
  243 words of extra memory for PDF output out of 10000 (max. 10000000)
 
