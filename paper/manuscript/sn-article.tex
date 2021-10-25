@@ -9,6 +9,7 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{makecell}
+\usepackage{tabularx}
 
 \jyear{2021}
 \raggedbottom
@@ -41,7 +42,7 @@ Motivations of this paper come from recent deep convolutional neural nets (CNN),
 
 Considering the essences of CNN-based object detectors architectures, many of them shared some common properties such as layer configurations. For example, the downstream convolution path shrinks down the input's spatial dimensions. In any arbitary layer orders, high-level detection which known as "classification" happens in low-resolution tensors, while other lower semantics such as edge detection are performed at higher tensor's resolution. This is because individual parts in CNN play the different roles. Some layers extract the useful information, while others shape that information to the desire outputs which specified by the loss functions. Notable differences are at the network's output or head. A box detector's output is the grid coordinates which represent the location and the dimension of the boxes, while the output of segmentation mask is the probability score at each pixels.
 
-For the tapping line, this paper demonstates a network that composed of multiple different output types. Box outputs roughly determine where the tapping line is in a rectangular area. Pixel classification output answers where the polyline's vertices are wihtin the box. Network's structure are arranged in a directed acyclic graph in order to make the network trainable with gradient-based back-propagation optimizer with the end-to-end training scheme. A pixel classification head obtains the data from the downsampling-upsampling path likewise in U-Net \cite{unet}, V-Net \cite{vnet} or other pixel-level segmentation networks. Co-operating with the proposed column-wise argmax function, the networks can directly produce tapping lines without any post-processings. The network calculates the boxes' coordinates at two prediction heads with the earlier YOLO \cite{redmonyolov2} 's regression form.
+For the tapping line, this paper demonstates a network that composed of multiple different output types. Box outputs roughly determine where the tapping line is in a rectangular area. Pixel classification output answers where the polyline's vertices are wihtin the box. Network's structure are arranged in a directed acyclic computational graph in order to make the network trainable with gradient-based back-propagation optimizer with the end-to-end training scheme. A pixel classification head obtains the data from the downsampling-upsampling path likewise in U-Net \cite{unet}, V-Net \cite{vnet} or other pixel-level segmentation networks. Co-operating with the proposed column-wise argmax function, the networks can directly produce tapping lines without any post-processings. The network calculates the boxes' coordinates at two prediction heads with the earlier YOLO \cite{redmonyolov2} 's regression form.
 
 Training to detect tapping lines, a set of novel loss for pixel classfication on very unbalanced data, Dice-Coefficient, Binary Focal, and Tversky indices are inspected for loss-value convergence and the prediction accuracy. The overall loss for the network is the combination of YOLO's box regression and pixel classification losses. Assessing the network's performance, a set of evaluation metrics are applied to the predictions. The Intersection-Over-Union (IoU) ratios of the box clearify the existence of a tapping line in an image. F1-score and distance errors describe the closeness of the predicted pixels to the actual tapping line inside the box.
 
@@ -93,16 +94,22 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 
 
 \subsection{Models}\label{subsec-model}
-Fig.\ref{} illustrates the overview of the tapping line detection network. The network consists of a downsampling backbone network for the feature extraction, two box detection heads at different spatial resolutions for object size coverages, a upsampling network that enlarges tensors' size to the input's size for the pixel classification. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. So that a small compact network is favourable \textemdash in term of numbers of weights, data's sizes.
+Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network. The computational graph consists of a downsampling backbone network for the feature extraction, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
+
+\begin{figure*}[h]%
+\centering
+\includegraphics[width=0.99\textwidth]{fig1.pdf}
+\caption{The proposed tapping line detection network shown in a directed grpah with blocks. Network compose of four sections, from left-to-right, which are Downsampling network, two YOLO detection branches, Upsampling network, and Pixel classification branch.}\label{fig1-modelA}
+\end{figure*}
 
 \subsubsection{Downsampling Network}
-The downsampling backbone network borrows residual block structure of Darknet-53. The modifications are trimmed out the numbers of filters, shrank the overall network depth and reduced the input size to $224 \times 224$, while preserving filter's sizes and LeakyReLU activation function, as shown in Table \ref{tab-darknetlight}.
+The downsampling network borrows residual block structures of Darknet-53. The modifications are trimmed out the numbers of filters, shrunk the overall network depth and reduced the input size to $224 \times 224 \times 3$, while preserving filter's sizes and LeakyReLU activation function, as shown in Table \ref{tab-darknetlight}. This network path is shared as a feature extractor backbone among two YOLO detection branchs, the upsampling path, and the pixel classification head.
 
 \begin{table}[]
 \centering
 \caption{Downsampling backbone network explained in block structures with given names (\textbf{block}). The denoted labels are layer operation (ops), a 2-dimension convolution (Conv2d), a shortcut connection with addition (Residual), $s$: convolution stride, $n$: numbers of filters, filter kernel's size (\textbf{filter}), and $c$ is the numbers of block replication.}
 \label{tab-darknetlight}
-\resizebox{0.5\textwidth}{!}{%
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{@{}lcccccc@{}}
 \textbf{block}      & $c$ 			  & ops 		& $n$   		& \textbf{filter} 	& $s$ 	& \textbf{output} 	\\ \midrule
 Input                 &                    & -                       			&    		&       				&  	& $224\times224\times3$   \\ \midrule
@@ -112,19 +119,19 @@ down1               	&                    & Conv2d                  		& 64  	& $
                       	&                    & Conv2d                  		& 64  	& $3\times3$    	& 1 	&   \\
                       	&                    & Residual             			&     		&        			  	&   	& $112\times112\times64$  \\ \midrule
 down2             	&                    & Conv2d                  		& 128 	& $3\times3$    	& 2 	& $56\times56\times128$   \\ \midrule
-\multirow{3}{*}{res2} & \multirow{3}{*}{2} & Conv2d            & 64  	& $1\times1$    	& 1 	&             	\\
-                      	&                    & Conv2d                  		& 128 	& $3\times3$    	& 1 	&   \\
+\multirow{3}{*}{res2} & \multirow{3}{*}{2} & Conv2d            & 64  	& $1\times1$    	& 1 	&      \\
+                      	&                    & Conv2d                  		& 128 	& $3\times3$    	& 1 	&   	\\
                       	&                    & Residual             			&     		&        			  	&   	&	$56\times56\times128$   \\ \midrule
-down3               	&                    & Conv2d                  		& 256 	& $3\times3$    	& 2 	& $28\times28\times256$   \\ \midrule
-\multirow{3}{*}{res3} & \multirow{3}{*}{4} & Conv2d            & 128 	& $1\times1$    	& 1 	&             	\\
-                      	&                    & Conv2d                  		& 256 	& $3\times3$    	& 1 	&    \\
+down3               	&                    & Conv2d                  		& 256 	& $3\times3$    	& 2 	&	$28\times28\times256$   \\ \midrule
+\multirow{3}{*}{res3} & \multirow{3}{*}{4} & Conv2d            & 128 	& $1\times1$    	& 1 	&      \\
+                      	&                    & Conv2d                  		& 256 	& $3\times3$    	& 1 	&    	\\
                       	&                    & Residual             			&     		&        				&   	& $28\times28\times256$   \\ \midrule
 down4                &                    & Conv2d                  		& 384 	& $3\times3$    	& 2 	& $14\times14\times384$   \\ \midrule
-\multirow{3}{*}{res4} & \multirow{3}{*}{4} & Conv2d            & 192 	& $1\times1$    	& 1 	&             \\
-                      	&                    & Conv2d                  		& 384 	& $3\times3$    	& 1 	&    \\
+\multirow{3}{*}{res4} & \multirow{3}{*}{4} & Conv2d            & 192 	& $1\times1$    	& 1 	&      \\
+                      	&                    & Conv2d                  		& 384 	& $3\times3$    	& 1 	&    	\\
                       	&                    & Residual             			&     		&        				&   	& $14\times14\times384$   \\ \midrule
 down5               	&                    & Conv2d                  		& 512 	& $3\times3$    	& 2 	& $7\times7\times512$     \\ \midrule
-\multirow{3}{*}{res5} & \multirow{3}{*}{1} & Conv2d            & 256 	& $1\times1$    	& 1 	&             \\
+\multirow{3}{*}{res5} & \multirow{3}{*}{1} & Conv2d            & 256 	& $1\times1$    	& 1 	&      \\
                       	&                    & Conv2d                  		& 512 	& $3\times3$    	& 1 	&      \\
                       	&                    & Residual             			&     		&        				&   	& $7\times7\times512$     \\ \bottomrule
 \end{tabular}%
@@ -132,7 +139,7 @@ down5               	&                    & Conv2d                  		& 512 	& $
 \end{table}
 
 \subsubsection{Box Detection Branches}
-Box detection ends comply with the YOLO's method. Two YOLO detection branches connect to the downsampling network at the output of block ``res4" and ``res5", referred to Table \ref{tab-darknetlight}. Each branch has a private $3\times3$ convolution with 512 filters which useful for the specific-feature learning at the particular feature map's size ($w \times w$, in Table \ref{tab-yolohead}). Then, their outputs connect to every ends which remaps tensor's depth to the number of anchors by pointwise convolutions. There are five box output ends, where fours are box coordinates ($t_x, t_y, t_w, t_h$) and one is for the objectness scores, detailed in Table \ref{tab-yolohead}. 
+Box detection heads comply with the YOLO's method. Two YOLO box detection branches connect to the downsampling network at the output of block ``res4" and ``res5", referred to Table \ref{tab-darknetlight}. Each branch has a private $3\times3$ convolution with 512 filters which useful for learning the spatial-resolution-specific feature at the particular feature map's size ($w \times w$, in Table \ref{tab-yolohead}). Then, their outputs connect to every ends which remaps tensor's depth to the number of anchors by pointwise convolutions for producing the final box predicted values. There are five box output ends, where fours are box coordinates ($t_x, t_y, t_w, t_h$) and one is for the objectness scores, detailed in Table \ref{tab-yolohead}. Three anchors are applied, where anchors' size are calculated on mean of samples of the dataset, and $\pm20\%$ aspect ratio distortions on the mean value.
 
 According to Table \ref{tab-yolohead}, hyperbolic tangent function ($\mathrm{tanh}$) activates anchors' center offsets. Sigmoid is applied for objectness scores. Anchors' dimension offsets are set to un-activated outputs.
 
@@ -140,11 +147,11 @@ According to Table \ref{tab-yolohead}, hyperbolic tangent function ($\mathrm{tan
 \centering
 \caption{Structure of a YOLO detection branch with the three prior boxes or anchors, where $n$ represents the number of filters, and activation function is denoted by $f(x)$. $w$ and $d$ orderly represents input tensor's spatial size and its depth, which may come from ``res4" or ``res5".}
 \label{tab-yolohead}
-\resizebox{0.5\textwidth}{!}{%
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{@{}lccccc@{}}
 \textbf{block} 		& ops & $n$ 	& \textbf{filter} 	& $f(x)$ & \textbf{output} 			\\ \midrule
-\multicolumn{2}{l}{\makecell[l]{res4 ($w=14, d=384$),\\ res5 ($w=7, d=512$)}}  	&	&	&	& $w \times w\times d$      \\ \midrule
-convhead  & Conv2d   & 512			& $3\times3$          & leaky           	& $w \times w\times512$      \\ \midrule
+\multicolumn{4}{l}{\makecell[l]{res4 ($w=14, d=384$),\\ res5 ($w=7, d=512$)}} 	&	& $w \times w\times d$      \\ \midrule
+private  & Conv2d   & 512			& $3\times3$          & leaky           	& $w \times w\times512$      \\ \midrule
 \multicolumn{6}{c}{Split}                                                                            \\ \midrule
 $t_x$		& Conv2d       & 3          & $1\times1$             & tanh              & $w \times w \times 3$         \\
 $t_y$		& Conv2d       & 3          & $1\times1$             & tanh              & $w \times w \times 3$         \\
@@ -156,10 +163,28 @@ obj		& Conv2d       & 3          & $1\times1$             & $\sigma$        & $w
 \end{table}
 
 \subsubsection{Upsampling Path}
+Upsampling path employs U-Net structure that low resoultion tensors are enlarged by transpose convolutions whose inputs are taken from same previous layers, shown in Fig \ref{fig1-modelA}. Following the U-Net convension, tensors in every spatial changes in backbone layers are gathered, by depth-concatenation operation, with one from previous transpose convolution for the next transpose convolution step. Activation functions for all layers of upsampling path are LeakyReLU as well as in the backbone network. Explaination in details is in Table \ref{tab-unetpath}.
 
+\begin{table}[]
+\centering
+\caption{Configuration of U-Net-like Upsampling Path, where ops represent a transpose convolution path in Fig \ref{fig1-modelA}, and $n$ is the number of transpose convolution filters}
+\label{tab-unetpath}
+\begin{minipage}{\linewidth}
+\centering
+\begin{tabular}{p{0.15\linewidth}p{0.15\linewidth}p{0.5\linewidth}}%>%{@{}lcr@{}}
+ops 	& $n$ 	& \textbf{input}  					\\ \midrule
+u1	&128	    & $7 \times 7 \times 512$              	        \\
+u2	&128	    & $14 \times 14 \times (384+128)$    	     \\ 
+u3	&64	    & $28 \times 28 \times (256+128)$    	       \\
+u4	&64	    & $56 \times 56 \times (128+64)$      	        \\
+u5	&32	    & $112 \times 112 \times (64+64)$    	        \\ \bottomrule
+\end{tabular}%
+\footnotetext{Note: All 2D transpose convolution are done with kernel's size $2\times2$ and stride 2 which causes an enlarging factor of 2.}
+\end{minipage}
+\end{table}
 
-\subsubsection{Variations of Mask Output}
-
+\subsubsection{Pixel Classification Branch}
+Three pixel prediction blocks are proposed, named ``Pxl Header1", ``Pxl Header2", and ``Pxl Header3" in Fig \ref{fig1-modelA}. Table \ref{tab-pxlheader} outlines the function layers on each block, where all block has the same compoments. Tensors with size $224 \times 224 \times 64$, which come from the last layer of the upsampling network, are simultaneously fed into all pixel prediction block.
 
 
 \subsection{Training}
