@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  27 OCT 2021 00:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  27 OCT 2021 01:12
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -830,7 +830,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
-<fig1.pdf, id=237, 713.2951pt x 356.94891pt>
+<fig1.pdf, id=233, 713.2951pt x 356.94891pt>
 File: fig1.pdf Graphic file (type pdf)
 <use fig1.pdf>
 Package pdftex.def Info: fig1.pdf  used on input line 101.
@@ -900,7 +900,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 190.
 
-<fig2.pdf, id=281, 190.05997pt x 227.04855pt>
+<fig2.pdf, id=277, 190.05997pt x 227.04855pt>
 File: fig2.pdf Graphic file (type pdf)
 <use fig2.pdf>
 Package pdftex.def Info: fig2.pdf  used on input line 221.
@@ -922,16 +922,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [7 <./fig2.pdf>]
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 258.
+(hyperref)                than one, level fixed on input line 253.
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 258--259
+Underfull \hbox (badness 1107) in paragraph at lines 253--254
 \OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 266.
+(hyperref)                than one, level fixed on input line 261.
 
 (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
@@ -974,6 +974,11 @@ Underfull \hbox (badness 5446) in paragraph at lines 28--31
  []
 
 
+Underfull \hbox (badness 1097) in paragraph at lines 39--42
+[]\OT1/cmr/m/n/10 Chu P, Li Z, Lam-mers K, et al (2021)
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -982,11 +987,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [8]
-Underfull \hbox (badness 1097) in paragraph at lines 39--42
-[]\OT1/cmr/m/n/10 Chu P, Li Z, Lam-mers K, et al (2021)
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 []\OT1/cmr/m/n/10 Girshick RB (2015) Fast R-
  []
@@ -1249,16 +1249,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: 7D0267F3D5B4F678CB434121567C918E;4508.
+(rerunfilecheck)             Checksum: ACDD998CD40450845459AAAE8753DBD0;4420.
  ) 
 Here is how much of TeX's memory you used:
- 14149 strings out of 478907
- 199134 string characters out of 2861736
+ 14147 strings out of 478907
+ 199124 string characters out of 2861736
  548822 words of memory out of 3000000
- 31690 multiletter control sequences out of 15000+600000
+ 31689 multiletter control sequences out of 15000+600000
  430314 words of font info for 135 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 75i,17n,80p,1335b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,17n,80p,1335b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Rattachai\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8
 .pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
@@ -1279,9 +1279,9 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cms
 y7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Pr
 ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on sn-article.pdf (10 pages, 384137 bytes).
+Output written on sn-article.pdf (10 pages, 383612 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 227 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 459 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
+ 219 words of extra memory for PDF output out of 10000 (max. 10000000)
 
