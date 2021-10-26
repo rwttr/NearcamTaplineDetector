@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -33,9 +33,7 @@ Bochkovskiy A, Wang C, Liao HM (2020) Yolov4: Optimal speed and accuracy of
   Luo}]{chentomato}
 Chen J, Wang Z, Wu J, et~al (2021) An improved yolov3 based on dual path
   network for cherry tomatoes detection. Journal of Food Process Engineering
-  44(10):e13,803. \doi{https://doi.org/10.1111/jfpe.13803},
-  \urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1111/jfpe.13803},
-  {\href{https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803}{{https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/jfpe.13803}}}
+  44(10):e13,803. \doi{10.1111/jfpe.13803}
 
 \bibitem[{Chu et~al(2021)Chu, Li, Lammers, Lu, and Liu}]{Chu2021apple}
 Chu P, Li Z, Lammers K, et~al (2021) Deep learning-based apple detection using
@@ -44,13 +42,11 @@ Chu P, Li Z, Lammers K, et~al (2021) Deep learning-based apple detection using
 
 \bibitem[{Girshick(2015)}]{fastrcnn}
 Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
-  \urlprefix\url{http://arxiv.org/abs/1504.08083},
   {\href{https://arxiv.org/abs/1504.08083}{{https://arxiv.org/abs/1504.08083}}}
 
 \bibitem[{He et~al(2015)He, Zhang, Ren, and Sun}]{resnet}
 He K, Zhang X, Ren S, et~al (2015) Deep residual learning for image
   recognition. CoRR abs/1512.03385.
-  \urlprefix\url{http://arxiv.org/abs/1512.03385},
   {\href{https://arxiv.org/abs/1512.03385}{{https://arxiv.org/abs/1512.03385}}}
 
 \bibitem[{He et~al(2017)He, Gkioxari, Doll{\'{a}}r, and Girshick}]{maskrcnn}
@@ -60,7 +56,7 @@ He K, Gkioxari G, Doll{\'{a}}r P, et~al (2017) Mask {R-CNN}. CoRR
 
 \bibitem[{Huang et~al(2016)Huang, Liu, and Weinberger}]{densenet}
 Huang G, Liu Z, Weinberger KQ (2016) Densely connected convolutional networks.
-  CoRR abs/1608.06993. \urlprefix\url{http://arxiv.org/abs/1608.06993},
+  CoRR abs/1608.06993.
   {\href{https://arxiv.org/abs/1608.06993}{{https://arxiv.org/abs/1608.06993}}}
 
 \bibitem[{Jia et~al(2020)Jia, Tian, Luo, Zhang, Lian, and Zheng}]{Jia2020apple}
@@ -77,14 +73,12 @@ Kuznetsova A, Maleva T, Soloviev V (2020) Using yolov3 algorithm with pre- and
 
 \bibitem[{Lawal(2021{\natexlab{a}})}]{Lawal_2021}
 Lawal MO (2021{\natexlab{a}}) Tomato detection based on modified {YOLOv}3
-  framework. Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5},
-  \urlprefix\url{https://doi.org/10.1038%2Fs41598-021-81216-5}
+  framework. Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5}
 
 \bibitem[{Lawal(2021{\natexlab{b}})}]{Lawal2021tomato}
 Lawal OM (2021{\natexlab{b}}) Development of tomato detection model for robotic
   platform using deep learning. Multimedia Tools and Applications
-  80(17):26,751--26,772. \doi{10.1007/s11042-021-10933-w},
-  \urlprefix\url{https://doi.org/10.1007/s11042-021-10933-w}
+  80(17):26,751--26,772. \doi{10.1007/s11042-021-10933-w}
 
 \bibitem[{Li et~al(2021)Li, Jia, Sun, Hou, and Zheng}]{Li2021apple}
 Li Q, Jia W, Sun M, et~al (2021) A novel green apple segmentation algorithm
@@ -111,7 +105,6 @@ Milletari F, Navab N, Ahmadi S (2016) V-net: Fully convolutional neural
 \bibitem[{Misra(2019)}]{misra2019mish}
 Misra D (2019) Mish: {A} self regularized non-monotonic neural activation
   function. CoRR abs/1908.08681.
-  \urlprefix\url{http://arxiv.org/abs/1908.08681},
   {\href{https://arxiv.org/abs/1908.08681}{{https://arxiv.org/abs/1908.08681}}}
 
 \bibitem[{Redmon and Farhadi(2016)}]{redmonyolov2}
@@ -144,14 +137,13 @@ Ronneberger O, Fischer P, Brox T (2015) U-net: Convolutional networks for
 \bibitem[{Salehi et~al(2017)Salehi, Erdogmus, and Gholipour}]{tverskyloss}
 Salehi SSM, Erdogmus D, Gholipour A (2017) Tversky loss function for image
   segmentation using 3d fully convolutional deep networks. CoRR abs/1706.05721.
-  \urlprefix\url{http://arxiv.org/abs/1706.05721},
   {\href{https://arxiv.org/abs/1706.05721}{{https://arxiv.org/abs/1706.05721}}}
 
 \bibitem[{Sudre et~al(2017)Sudre, Li, Vercauteren, Ourselin, and
   Cardoso}]{gendice}
 Sudre CH, Li W, Vercauteren T, et~al (2017) Generalised dice overlap as a deep
   learning loss function for highly unbalanced segmentations. CoRR
-  abs/1707.03237. \urlprefix\url{http://arxiv.org/abs/1707.03237},
+  abs/1707.03237.
   {\href{https://arxiv.org/abs/1707.03237}{{https://arxiv.org/abs/1707.03237}}}
 
 \bibitem[{Tong et~al(2020)Tong, Wu, and Zhou}]{Tong2020}
@@ -162,21 +154,17 @@ Tong K, Wu Y, Zhou F (2020) Recent advances in small object detection based on
   Zhang}]{WANG2022103906}
 Wang S, Zhou H, Zhang C, et~al (2022) Design, development and evaluation of
   latex harvesting robot based on flexible toggle. Robotics and Autonomous
-  Systems 147:103,906. \doi{https://doi.org/10.1016/j.robot.2021.103906},
-  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0921889021001913}
+  Systems 147:103,906. \doi{10.1016/j.robot.2021.103906}
 
 \bibitem[{Wongtanawijit and Khaorapapong(2021)}]{Wongtanawijit_2021}
 Wongtanawijit R, Khaorapapong T (2021) Nighttime rubber tapping line detection
   in near-range images. Multimedia Tools and Applications
-  \doi{10.1007/s11042-021-11140-3},
-  \urlprefix\url{https://doi.org/10.1007%2Fs11042-021-11140-3}
+  \doi{10.1007/s11042-021-11140-3}
 
 \bibitem[{Yu et~al(2019)Yu, Zhang, Yang, and Zhang}]{Yu2019strawberry}
 Yu Y, Zhang K, Yang L, et~al (2019) Fruit detection for strawberry harvesting
   robot in non-structural environment based on mask-rcnn. Computers and
-  Electronics in Agriculture 163:104,846.
-  \doi{https://doi.org/10.1016/j.compag.2019.06.001},
-  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0168169919301103}
+  Electronics in Agriculture 163:104,846. \doi{10.1016/j.compag.2019.06.001}
 
 \bibitem[{Yu et~al(2017)Yu, Feng, Liu, and Ramalingam}]{casenet}
 Yu Z, Feng C, Liu M, et~al (2017) Casenet: Deep category-aware semantic edge
@@ -192,5 +180,11 @@ Zhang C, Yong L, Chen Y, et~al (2019) A rubber-tapping robot forest navigation
 
 \bibitem[{Zhang~Bin(2017)}]{patent3}
 Zhang~Bin WX (2017) One kind rubber tapping robot
+
+\bibitem[{Zhou et~al(????)Zhou, Zhang, Zhang, Zhang, Wang, Zhai, and
+  Li}]{Zhou2021rubber}
+Zhou H, Zhang S, Zhang J, et~al (????) Design, development, and field
+  evaluation of a rubber tapping robot. Journal of Field Robotics
+  \doi{10.1002/rob.22036}
 
 \end{thebibliography}

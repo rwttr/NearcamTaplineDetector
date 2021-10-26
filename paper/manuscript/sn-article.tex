@@ -36,7 +36,7 @@
 %% Section
 \section{Introduction}\label{sec-introduction}
 
-A self-instructed robot that has abilities to detect things and interact with, a sensory device with a detection algorithm is at least required. The detail of a vision system of a rubber tapping robot by a robotic arm, e.g. \cite{patent1, patent2, patent3, WANG2022103906}, which introduced in \cite{Wongtanawijit_2021}, adopted a near-range camera co-operating with specifically designed algorithm to perform tapping line detection. Continuing on the previous work, this paper presents another tapping line detection algoirthm in a whole different way. Given the definition of a tapping line in an image, is a piecewise polynomial where its vertices are at the pixels in the image grid \cite{Wongtanawijit_2021}. The detection is to precisely locate that pixels.
+A self-instructed robot that has abilities to detect things and interact with, a sensory device with a detection algorithm is at least required. The detail of a vision system of a rubber tapping robot using a robotic arm, e.g. \cite{patent1, patent2, patent3, WANG2022103906, Zhou2021rubber}, which introduced in \cite{Wongtanawijit_2021}, adopted a near-range camera co-operating with specifically designed algorithm to perform tapping line detection. Continuing on the previous work, this paper presents another tapping line detection algoirthm in a whole different way. Given the definition of a tapping line in an image, is a piecewise polynomial where its vertices are at the pixels in the image grid \cite{Wongtanawijit_2021}. The detection is to precisely locate that pixels.
 
 Motivations of this paper come from recent deep convolutional neural nets (CNN), such as object bounding-box detector, mask, edge-aware or semantic edge segmentation networks. But, none of them are ready-to-use solution for this problem. Original contributors of those works designed their networks to fit into more generic data than the tapping line images. This encourages this paper to explore other researches that answer how can those generic networks be adopted for some more specific datasets that might be useful for the tapping line detection.
 
@@ -74,7 +74,7 @@ Mapping of values between responses (values returned from a network) with expect
 
 By understanding the nature of the data that they are working on especially in the segmentation problems, many researches did some mathematical adjustments on the exist loss functions, letting their networks produce preferable results. Focal loss \cite{focalloss1} reformulates binary classic binary cross-entropy function by add the extra weight on $\gamma$ term to address the ``hard example" not only foreground-background imbalance, since they foreseen their dataset have included some problematic samples. As well as the increment of $\beta$ term of Tversky index \cite{tverskyloss} preventing the network to over-learn by the false-positive samples (improve recall), because their interested points are very sparse in amount and space compared to the background. So, selecting a loss function for a network in a particular problem is crucial for network's performance not only the layer configuration of the network.
 
-Meanwhile, the losses of bounding box's coordinates regression in all of the YOLOs and R-CNN variants, stay on L-norm functions. Discussion in the performance of L2-norm and L1-norm indicates that the regression with L1 is more robust than L2 in loss dynamics, and L2 tends to cause numerical instable problem so that it should used with a small learning rate \cite{fastrcnn}.
+Meanwhile, the losses of bounding box's coordinates regression in all of the YOLOs and R-CNN variants, stay on L-norm functions. Discussion in the performance of L2-norm and L1-norm indicates that the regression with L1 is more robust than L2 in loss dynamics. And L2 tends to cause more numerical instability issue than L1 does, so that it should used with a small learning rate \cite{fastrcnn}.
 
 \subsection{Deep Learning Computer Vision in Agricultural Robotics}
 Conducting the powerful deep CNN-based computer vision to agricultural robotics becomes popular in following years after mentioned algorithms are established. Lots of them focused on ripe fruit detections in robotized harvesting by adapting detection algorithms to facilitate their objectives. For instance in tomato detections with YOLO, Guoxu Liu et al. \cite{s20072145} changed the bounding box output of YOLOv3 to the ``circular bounding box" with a radius regression equation which agrees with a circular shape of tomatoes, while \cite{Lawal_2021, chentomato} stay on rectangular bounding boxes and add new layer configurations to achieve higher detection accuracy than the standard YOLO Darknet-53. There are also a lot of examples for this category to be reviewed later in the following section such as, apple detection and segmentation with U-Net \cite{Li2021apple}, Mask-RCNN \cite{Chu2021apple, Jia2020apple}, YOLOv3 \cite{Kuznetsova2020apple}, Mask-RCNN on strawberry \cite{Yu2019strawberry}, etc.
@@ -94,16 +94,16 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 
 
 \subsection{Models}\label{subsec-model}
-Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network. The computational graph consists of a downsampling backbone network for the feature extraction, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
+Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a graph of block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
 
 \begin{figure*}[h]%
 \centering
-\includegraphics[width=0.99\textwidth]{fig1.pdf}
-\caption{The proposed tapping line detection network shown in a directed grpah with blocks. Network compose of four sections, from left-to-right, which are Downsampling network, two YOLO detection branches, Upsampling network, and Pixel classification branch.}\label{fig1-modelA}
+\includegraphics[width=\textwidth]{fig1.pdf}
+\caption{The proposed tapping line detection network, visualized in a directed grpah with blocks. Network composes of four parts, from left-to-right are Downsampling network, two YOLO detection branches, Upsampling network, and Pixel classification branch.}\label{fig1-modelA}
 \end{figure*}
 
 \subsubsection{Downsampling Network}
-The downsampling network borrows residual block structures of Darknet-53. The modifications are trimmed out the numbers of filters, shrunk the overall network depth and reduced the input size to $224 \times 224 \times 3$\footnote[1]{tensor's size naming convension given by width $\times$ height $\times$ depth, and also applied across this paper}, while preserving filter's sizes and LeakyReLU activation function, as shown in Table \ref{tab-darknetlight}. This network path is shared as a feature extractor backbone among two YOLO detection branchs, the upsampling path, and the pixel classification head.
+The downsampling network borrows residual block structures of Darknet-53. The modifications are trimmed out the numbers of filters, shrunk the overall network depth and reduced the input size to $224 \times 224 \times 3$\footnote[1]{tensor's size naming convension given by width $\times$ height $\times$ depth, and also applied across this paper}, while preserving filter's sizes and LeakyReLU activation function, as shown in Table \ref{tab-darknetlight}. This network path is shared as a feature extractor backbone among two YOLO detection branchs, the upsampling path, and the pixel classification branch.
 
 \begin{table}[]
 \centering
@@ -139,7 +139,7 @@ down5               	&                    & Conv2d                  		& 512 	& $
 \end{table}
 
 \subsubsection{Box Detection Branches}
-Box detection heads comply with the YOLO's method. Two YOLO box detection branches connect to the downsampling network at the output of block ``res4" and ``res5", referred to Table \ref{tab-darknetlight}. Each branch has a private $3\times3$ convolution with 512 filters which useful for learning the spatial-resolution-specific feature at the particular feature map's size ($w \times w$, in Table \ref{tab-yolohead}). Then, their outputs connect to every ends which remaps tensor's depth to the number of anchors by pointwise convolutions for producing the final box predicted values. There are five box output ends, where fours are box coordinates ($t_x, t_y, t_w, t_h$) and one is for the objectness scores, detailed in Table \ref{tab-yolohead}. Three anchors are applied, where anchors' size are calculated on mean of samples of the dataset, and $\pm20\%$ aspect ratio distortions on the mean value.
+Box detection heads comply with the YOLO's method. Two YOLO box detection branches connect to the downsampling network at the output of block ``res4" and ``res5", referred to Table \ref{tab-darknetlight}. Each branch has a private $3\times3$ convolution with 512 filters which useful for learning the spatial-resolution-specific feature at the particular feature map's size ($w \times w$, in Table \ref{tab-yolohead}). Then, their outputs connect to every ends which remaps tensor's depth to the number of anchors by pointwise convolutions for producing the final box predicted values. There are five box output ends, where fours are box coordinates ($t_x, t_y, t_w, t_h$) and one is for the objectness scores, detailed in Table \ref{tab-yolohead}. Three anchors are applied, where anchors' size are calculated on mean of samples of the dataset, and the rests are fixed at $\pm15\%$ aspect ratio distortions on the mean value.
 
 According to Table \ref{tab-yolohead}, hyperbolic tangent function ($\mathrm{tanh}$) activates the offset values of anchors' centers. Sigmoid is applied for objectness scores. Anchors' dimension offsets are set to un-activated outputs.
 
@@ -185,7 +185,7 @@ u5	&32	    & $112 \times 112 \times (64+64)$    	        \\ \bottomrule
 \end{table}
 
 \subsubsection{Pixel Classification Branch}
-Three pixel prediction blocks are proposed, named ``Pxl Header1", ``Pxl Header2", and ``Pxl Header3" in Fig \ref{fig1-modelA}. Table \ref{tab-pxlheader} outlines the function layers on each block, where all block has the same compoments. A tensor which size $224 \times 224 \times 64$, that comes from the last layer of the upsampling network, is simultaneously fed into every pixel prediction blocks. 
+Three pixel prediction blocks (Pxl Header) are proposed, named ``Pxl Header1", ``Pxl Header2", and ``Pxl Header3" in Fig \ref{fig1-modelA}. Table \ref{tab-pxlheader} outlines the function layers on each Pxl Header, where all block has the same compoments. A tensor which size $224 \times 224 \times 64$, that comes from the last layer of the upsampling network, is simultaneously fed into every pixel prediction blocks. Table \ref{tab-pxlheader} presents the structure of Pxl Header. The results from every pixel prediction blocks are fed to the mapping function $\mathrm{g}(x)$ that produces tapping line pixels in a binary image.
 
 \begin{table}[]
 \centering
@@ -204,356 +204,48 @@ Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footno
 \end{minipage}
 \end{table}
 
-For inferencing a tapping line, the results from every pixel prediction blocks are passd to the function $\mathrm{g}(x)$. The function $\mathrm{g}(x)$ composed of three component. Firstly, it finds the pixel location with the highest probability on each column (columnwise-argmax) of each input, then checks for the majorities (2 of 3), and binarizes the values on every pixels, then finally passes them to the pixel output. 
+Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) and filter's depth of 64 transforms the input tensor to be a size of $224\times 224 \times 1$.  Then Sigmoid activation modifies the useful values to be pass through. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column will contain a tapping line's pixel, applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds a row-position dependency within an image's column, which means that it suppressed others while boosting one another. This process can be compared to the edge thinning algorithm of image-processing category, and also helps the model's training to be more likely converged faster. 
 
-In the network traning phase, network losses are computed on each outputs of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute in loss calculation. ``Pxl Header" combines low-level and high-level features via any mapping function, which can be arbitary specified in network traning phase. This will be explain in detail and discussed in later sections.
+For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three operations. Firstly, it finds the pixel location with the highest probability on each column (columnwise-argmax) of each input, then checks for the majorities (2 of 3) and binarizes the majority values on every pixels, and finally passes them to the pixel output node. 
+
+In the network traning phase, pixel classification losses are computed on each outputs of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute in the calculations. Learnable weights of pointwise convolution in a particular Pxl Header combine low-level and high-level features via any mapping function, which can be arbitary specified in network traning phase. Sigmoid function bounds the values in between 0 and 1, which controls the numerical stability on each neuron and enhances the training convergence.
 
 \subsection{Training}
+Dataset for this paper contains 1,425 tapping line images, only RGB1 version \cite{Wongtanawijit_2021} is used. Complying K-fold cross validation scheme with k=5, image data are divide into five folds. For each fold, there are 285 samples for evaluation and 1,140 samples for training.
 
-\subsection{Tapping Line Inferencing}
-
-
-
-Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. 
-
-%% Section
-\section{Equations}\label{sec4}
-
-Equations in \LaTeX\ can either be inline or on-a-line by itself (``display equations''). For
-inline equations use the \verb+$...$+ commands. E.g.: The equation
-$H\psi = E \psi$ is written via the command \verb+$H \psi = E \psi$+.
-
-For display equations (with auto generated equation numbers)
-one can use the equation or align environments:
-\begin{equation}
-\|\tilde{X}(k)\|^2 \leq\frac{\sum\limits_{i=1}^{p}\left\|\tilde{Y}_i(k)\right\|^2+\sum\limits_{j=1}^{q}\left\|\tilde{Z}_j(k)\right\|^2 }{p+q}.\label{eq1}
-\end{equation}
-where,
-\begin{align}
-D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
-F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu \label{eq2}
-\end{align}
-Notice the use of \verb+\nonumber+ in the align environment at the end
-of each line, except the last, so as not to produce equation numbers on
-lines where no equation numbers are required. The \verb+\label{}+ command
-should only be used at the last line of an align environment where
-\verb+\nonumber+ is not used.
-\begin{equation}
-Y_\infty = \left( \frac{m}{\textrm{GeV}} \right)^{-3}
-    \left[ 1 + \frac{3 \ln(m/\textrm{GeV})}{15}
-    + \frac{\ln(c_2/5)}{15} \right]
-\end{equation}
-The class file also supports the use of \verb+\mathbb{}+, \verb+\mathscr{}+ and
-\verb+\mathcal{}+ commands. As such \verb+\mathbb{R}+, \verb+\mathscr{R}+
-and \verb+\mathcal{R}+ produces $\mathbb{R}$, $\mathscr{R}$ and $\mathcal{R}$
-respectively (refer Subsubsection~\ref{subsubsec2}).
-
-%% Section
-\section{Tables}\label{sec5}
-
-Tables can be inserted via the normal table and tabular environment. To put
-footnotes inside tables you should use \verb+\footnotetext[]{...}+ tag.
-The footnote appears just below the table itself (refer Tables~\ref{tab1} and \ref{tab2}). 
-For the corresponding footnotemark use \verb+\footnotemark[...]+
-
-\begin{table}[h]
-\begin{center}
-\begin{minipage}{174pt}
-\caption{Caption text}\label{tab1}%
-\begin{tabular}{@{}llll@{}}
-\toprule
-Column 1 & Column 2  & Column 3 & Column 4\\
-\midrule
-row 1    & data 1   & data 2  & data 3  \\
-row 2    & data 4   & data 5\footnotemark[1]  & data 6  \\
-row 3    & data 7   & data 8  & data 9\footnotemark[2]  \\
-\botrule
-\end{tabular}
-\footnotetext{Source: This is an example of table footnote. This is an example of table footnote.}
-\footnotetext[1]{Example for a first table footnote. This is an example of table footnote.}
-\footnotetext[2]{Example for a second table footnote. This is an example of table footnote.}
-\end{minipage}
-\end{center}
-\end{table}
-
-\noindent
-The input format for the above table is as follows:
-
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-\bigskip
-\begin{verbatim}
-\begin{table}[<placement-specifier>]
-\begin{center}
-\begin{minipage}{<preferred-table-width>}
-\caption{<table-caption>}\label{<table-label>}%
-\begin{tabular}{@{}llll@{}}
-\toprule
-Column 1 & Column 2 & Column 3 & Column 4\\
-\midrule
-row 1 & data 1 & data 2	 & data 3 \\
-row 2 & data 4 & data 5\footnotemark[1] & data 6 \\
-row 3 & data 7 & data 8	 & data 9\footnotemark[2]\\
-\botrule
-\end{tabular}
-\footnotetext{Source: This is an example of table footnote. 
-This is an example of table footnote.}
-\footnotetext[1]{Example for a first table footnote.
-This is an example of table footnote.}
-\footnotetext[2]{Example for a second table footnote. 
-This is an example of table footnote.}
-\end{minipage}
-\end{center}
-\end{table}
-\end{verbatim}
-\bigskip
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-
-\begin{table}[h]
-\begin{center}
-\begin{minipage}{\textwidth}
-\caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc@{\extracolsep{\fill}}}
-\toprule%
-& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} & \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
-Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
-\midrule
-Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
-Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
-\botrule
-\end{tabular*}
-\footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
-\footnotetext[1]{Example for a first table footnote.}
-\footnotetext[2]{Example for a second table footnote.}
-\end{minipage}
-\end{center}
-\end{table}
-
-In case of double column layout, tables which do not fit in single column width should be set to full text width. For this, you need to use \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ instead of \verb+\begin{table}+ \verb+...+ \verb+\end{table}+ environment. Lengthy tables which do not fit in textwidth should be set as rotated table. For this, you need to use \verb+\begin{sidewaystable}+ \verb+...+ \verb+\end{sidewaystable}+ instead of \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ environment. This environment puts tables rotated to single column width. For tables rotated to double column width, use \verb+\begin{sidewaystable*}+ \verb+...+ \verb+\end{sidewaystable*}+.
-
-\begin{sidewaystable}
-\sidewaystablefn%
-\begin{center}
-\begin{minipage}{\textheight}
-\caption{Tables which are too long to fit, should be written using the ``sidewaystable'' environment as shown here}\label{tab3}
-\begin{tabular*}{\textheight}{@{\extracolsep{\fill}}lcccccc@{\extracolsep{\fill}}}
-\toprule%
-& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]}& \multicolumn{3}{@{}c@{}}{Element\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
-Projectile & Energy	& $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
-\midrule
-Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
-Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
-Element 5 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
-Element 6 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
-\botrule
-\end{tabular*}
-\footnotetext{Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
-\footnotetext[1]{This is an example of table footnote.}
-\end{minipage}
-\end{center}
-\end{sidewaystable}
-
-%% Section
-\section{Figures}\label{sec6}
-
-As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation and \verb+pdf/jpg/png+ images for \verb+PDFLaTeX+ compilation. This is one of the major difference between \LaTeX\ and \verb+PDFLaTeX+. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for \LaTeX\ and \verb+PDFLaTeX+ can be generalized. The package used to insert images in \verb+LaTeX/PDFLaTeX+ is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
-
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-\bigskip
-\begin{verbatim}
-\begin{figure}[<placement-specifier>]
-\centering
-\includegraphics{<eps-file>}
-\caption{<figure-caption>}\label{<figure-label>}
-\end{figure}
-\end{verbatim}
-\bigskip
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
+\subsubsection{Dataset Priors and Statistics}
+All RGB image are resized to network's input size, $224\times224\times3$ pixels with not preserving their original aspect ratios. An averaged size of annotated tapping line bounding boxes, with respected to the resized image, is 59.2 width and 70.6 height. Therefore, the values estimates for anchors' sizes are (59.2, 70.6), (50.2, 79.6), and (66.6, 60.0). These anchors will be constantly used across all the models.
 
 \begin{figure}[h]%
 \centering
-\includegraphics[width=0.9\textwidth]{fig.eps}
-\caption{This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption}\label{fig1}
+\includegraphics[width=0.275\linewidth]{fig2.pdf}
+\caption{Visualization of estimated anchors. All box's aspect ratios are in scale. Dashed line represents the averaged box}\label{fig2-anchors}
 \end{figure}
 
-In case of double column layout, the above format puts figure captions/images to single column width. To get spanned images, we need to provide \verb+\begin{figure*}+ \verb+...+ \verb+\end{figure*}+.
+Estimation of anchors' size also implies the unbalancing between tapping line's pixels and the background pixels. The annotation regulation of the tapping line (single pixel per column) gives the approximation ratio, by the anchor's width to the box's area : $59.2 / 224^2 \approx 0.0012$, which indicates highly imbalanced data between two classes.
 
-For sample purpose, we have included the width of images in the optional argument of \verb+\includegraphics+ tag. Please ignore this. 
+\subsubsection{Branch Loss Function}
+A benifit of one-stage network is that the calculation of losses happens at the output nodes. According to the model, output nodes are two YOLO heads, and three pixel prediction blocks (Pxl Headers). Thus, the total loss is the linear combination of them.
 
-\section{Algorithms, Program codes and Listings}\label{sec7}
+On both YOLO detection heads, MSE loss (L2-loss) is used for box's coordinates regression, and Dice-Coefficient scores the objectness predictions on the feature-map grids. For pixel classification loss, calculation on each pixel predicton block is handled by different loss functions. Dice-Coefficient, Binary Focal, and Tversky index with high $\beta$ are separately used on each Pxl Header, on account of highly imbalance between tapping line's pixels and background's pixels.
 
-Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used for setting algorithms in \LaTeX\ using the format:
+\subsubsection{Training Parameters Settings}
+\subsection{Baseline Model Variants}
+\subsection{Evaluation Method}
 
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-\bigskip
-\begin{verbatim}
-\begin{algorithm}
-\caption{<alg-caption>}\label{<alg-label>}
-\begin{algorithmic}[1]
-. . .
-\end{algorithmic}
-\end{algorithm}
-\end{verbatim}
-\bigskip
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
+\section{Experiment Setup}
+\subsection{Baseline Variants Settings}
 
-You may refer above listed package documentations for more details before setting \verb+algorithm+ environment. For program codes, the ``program'' package is required and the command to be used is \verb+\begin{program}+ \verb+...+ \verb+\end{program}+. A fast exponentiation procedure:
-
-\begin{program}
-\BEGIN \\ %
-  \FOR i:=1 \TO 10 \STEP 1 \DO
-     |expt|(2,i); \\ |newline|() \OD %
-\rcomment{Comments will be set flush to the right margin}
-\WHERE
-\PROC |expt|(x,n) \BODY
-          z:=1;
-          \DO \IF n=0 \THEN \EXIT \FI;
-             \DO \IF |odd|(n) \THEN \EXIT \FI;
-\COMMENT{This is a comment statement};
-                n:=n/2; x:=x*x \OD;
-             \{ n>0 \};
-             n:=n-1; z:=z*x \OD;
-          |print|(z) \ENDPROC
-\END
-\end{program}
+\section{Results}
 
 
-\begin{algorithm}
-\caption{Calculate $y = x^n$}\label{algo1}
-\begin{algorithmic}[1]
-\Require $n \geq 0 \vee x \neq 0$
-\Ensure $y = x^n$ 
-\State $y \Leftarrow 1$
-\If{$n < 0$}\label{algln2}
-        \State $X \Leftarrow 1 / x$
-        \State $N \Leftarrow -n$
-\Else
-        \State $X \Leftarrow x$
-        \State $N \Leftarrow n$
-\EndIf
-\While{$N \neq 0$}
-        \If{$N$ is even}
-            \State $X \Leftarrow X \times X$
-            \State $N \Leftarrow N / 2$
-        \Else[$N$ is odd]
-            \State $y \Leftarrow y \times X$
-            \State $N \Leftarrow N - 1$
-        \EndIf
-\EndWhile
-\end{algorithmic}
-\end{algorithm}
-\bigskip
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
 
-Similarly, for \verb+listings+, use the \verb+listings+ package. \verb+\begin{lstlisting}+ \verb+...+ \verb+\end{lstlisting}+ is used to set environments similar to \verb+verbatim+ environment. Refer to the \verb+lstlisting+ package documentation for more details.
 
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-\bigskip
-\begin{minipage}{\hsize}%
-\lstset{frame=single,framexleftmargin=-1pt,framexrightmargin=-17pt,framesep=12pt,linewidth=0.98\textwidth,language=pascal}% Set your language (you can change the language for each code-block optionally)
-%%% Start your code-block
-\begin{lstlisting}
-for i:=maxint to 0 do
-begin
-{ do nothing }
-end;
-Write('Case insensitive ');
-Write('Pascal keywords.');
-\end{lstlisting}
-\end{minipage}
-
-\section{Cross referencing}\label{sec8}
-
-Environments such as figure, table, equation and align can have a label
-declared via the \verb+\label{#label}+ command. For figures and table
-environments use the \verb+\label{}+ command inside or just
-below the \verb+\caption{}+ command. You can then use the
-\verb+\ref{#label}+ command to cross-reference them. As an example, consider
-the label declared for Figure~\ref{fig1} which is
-\verb+\label{fig1}+. To cross-reference it, use the command 
-\verb+Figure \ref{fig1}+, for which it comes up as
-``Figure~\ref{fig1}''. 
-
-To reference line numbers in an algorithm, consider the label declared for the line number 2 of Algorithm~\ref{algo1} is \verb+\label{algln2}+. To cross-reference it, use the command \verb+\ref{algln2}+ for which it comes up as line~\ref{algln2} of Algorithm~\ref{algo1}.
-
-\subsection{Details on reference citations}\label{subsec7}
-
-Standard \LaTeX\ permits only numerical citations. To support both numerical and author-year citations this template uses \verb+natbib+ \LaTeX\ package. For style guidance please refer to the template user manual.
-
-Here is an example for \verb+\cite{...}+: \cite{bib1}. Another example for \verb+\citep{...}+: \citep{bib2}. For author-year citation mode, \verb+\cite{...}+ prints Jones et al. (1990) and \verb+\citep{...}+ prints (Jones et al., 1990).
-
-All cited bib entries are printed at the end of this article: \cite{bib3}, \cite{bib4}, \cite{bib5}, \cite{bib6}, \cite{bib7}, \cite{bib8}, \cite{bib9}, \cite{bib10}, \cite{bib11} and \cite{bib12}.
-
-\section{Examples for theorem like environments}\label{sec10}
-
-For theorem like environments, we require \verb+amsthm+ package. There are three types of predefined theorem styles exists---\verb+thmstyleone+, \verb+thmstyletwo+ and \verb+thmstylethree+ 
-
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-\bigskip
-\begin{tabular}{|l|p{19pc}|}
-\hline
-\verb+thmstyleone+ & Numbered, theorem head in bold font and theorem text in italic style \\\hline
-\verb+thmstyletwo+ & Numbered, theorem head in roman font and theorem text in italic style \\\hline
-\verb+thmstylethree+ & Numbered, theorem head in bold font and theorem text in roman style \\\hline
-\end{tabular}
-\bigskip
-
-\noindent
-For a quote environment, use \verb+\begin{quote}...\end{quote}+
-\begin{quote}
-Quoted text example. Aliquam porttitor quam a lacus. Praesent vel arcu ut tortor cursus volutpat. In vitae pede quis diam bibendum placerat. Fusce elementum
-convallis neque. Sed dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec dui quis leo sagittis commodo.
-\end{quote}
-
-Sample body text. Sample body text. Sample body text. Sample body text. Sample body text (refer Figure~\ref{fig1}). Sample body text. Sample body text. Sample body text (refer Table~\ref{tab3}). 
-
-\section{Methods}\label{sec11}
-
-Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work. Authors are encouraged to include RIIDs where appropriate. 
-
-\textbf{Ethical approval declarations} (only required where applicable) Any article reporting experiment/s carried out on (i)~live vertebrate (or higher invertebrates), (ii)~humans or (iii)~human samples must include an unambiguous statement within the methods section that meets the following requirements: 
-
-\begin{enumerate}[1.]
-\item Approval: a statement which confirms that all experimental protocols were approved by a named institutional and/or licensing committee. Please identify the approving body in the methods section
-
-\item Accordance: a statement explicitly saying that the methods were carried out in accordance with the relevant guidelines and regulations
-
-\item Informed consent (for experiments involving humans or human tissue samples): include a statement confirming that informed consent was obtained from all participants and/or their legal guardian/s
-\end{enumerate}
-
-If your manuscript includes potentially identifying patient/participant information, or if it describes human transplantation research, or if it reports results of a clinical trial then  additional information will be required. Please visit (\url{https://www.nature.com/nature-research/editorial-policies}) for Nature Portfolio journals, (\url{https://www.springer.com/gp/authors-editors/journal-author/journal-author-helpdesk/publishing-ethics/14214}) for Springer Nature journals, or (\url{https://www.biomedcentral.com/getpublished/editorial-policies\#ethics+and+consent}) for BMC.
-
-\section{Discussion}\label{sec12}
+\section{Discussion}
 
 Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion' is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion' followed by a section `Conclusion'. Please refer to Journal-level guidance for any specific requirements. 
 
-\section{Conclusion}\label{sec13}
+\section{Conclusion}
 
 Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
 
@@ -573,8 +265,6 @@ Please refer to Journal-level guidance for any specific requirements.
 
 Acknowledgments are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
 
-Please refer to Journal-level guidance for any specific requirements.
-
 \section*{Declarations}
 
 Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
@@ -593,62 +283,7 @@ Some journals require declarations to be submitted in a standardised format. Ple
 \noindent
 If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
 
-%%===================================================%%
-%% For presentation purpose, we have included        %%
-%% \bigskip command. please ignore this.             %%
-%%===================================================%%
-\bigskip
-\begin{flushleft}%
-Editorial Policies for:
-
-\bigskip\noindent
-Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
-
-\bigskip\noindent
-Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
-
-\bigskip\noindent
-\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
-
-\bigskip\noindent
-BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
-\end{flushleft}
-
-\begin{appendices}
-
-\section{Section title of first appendix}\label{secA1}
-
-An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
-
-%%=============================================%%
-%% For submissions to Nature Portfolio Journals %%
-%% please use the heading ``Extended Data''.   %%
-%%=============================================%%
-
-%%=============================================================%%
-%% Sample for another appendix section			       %%
-%%=============================================================%%
-
-%% \section{Example of another appendix section}\label{secA2}%
-%% Appendices may be used for helpful, supporting or essential material that would otherwise 
-%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
-%% tables and equations etc.
-
-\end{appendices}
-
-%%===========================================================================================%%
-%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
-%% system, please include the references within the manuscript file itself. You may do this  %%
-%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
-%% file, and delete the associated \verb+\bibliography+ commands.                            %%
-%%===========================================================================================%%
-
 \bibliographystyle{bst/sn-basic}
-\bibliography{sn-bibliography}% common bib file
-%% if required, the content of .bbl file can be included here once bbl is generated
-%%\input sn-article.bbl
-
-%% Default %%
-%%\input sn-sample-bib.tex%
+\bibliography{sn-bibliography}
 
 \end{document}
