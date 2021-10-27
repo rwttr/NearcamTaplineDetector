@@ -230,10 +230,23 @@ A benifit of one-stage network is that the calculation of losses happens at the 
 On both YOLO detection heads, MSE loss (L2-loss) is used for box's coordinates regression, and Dice-Coefficient scores the objectness predictions on the feature-map grids. For pixel classification loss, calculation on each pixel predicton block is handled by different loss functions. Dice-Coefficient, Binary Focal, and Tversky index with high $\beta$ are separately used on each Pxl Header, on account of highly imbalance between tapping line's pixels and background's pixels.
 
 \subsubsection{Parameters Settings}
+Training of the model on every folds shares same training parameters. Mini-batch gradient descent with momentum optimizer is used with mini-batch size of 4, and momentum coefficient constantly at 0.9. Training for a model processes in a range of 90 to 100 epochs, since the early-stopping may be applied in a particular model. Learning rates are scheduled by the WarmUp-Steady-Decay profile with a peak of 0.008, shown in Fig \ref{fig3-LR}. All the weights on the model are newly initialized. 
 
+Unit-rescaling and z-score transform normalize the pixel values of an input image across all its depth dimension (color channel). Batch normalization is also appiled inside the layers that contain learnable weights for the training purpose.
+
+\begin{figure}[h]%
+\centering
+\includegraphics[width=0.65\linewidth]{fig3.pdf}
+\caption{WarmUp-Steady-Decay Learning Rate Profile}\label{fig3-LR}
+\end{figure}
 
 \subsubsection{Regularization}
+To archieve learning regularization or to prevent the model from overfitting, a couple of tools are presented. Traditional L2-regularization is used on the weights of the downsampling network. Random rotations within $\pm20^\circ$ and the magnifications within $\pm20\%$ apply on the input images for the augmentation purpose. Another tool is checking the prediction on YOLO outputs. If the box predictions reach 0.8 IoU with the groundtruth, then the box's loss calculation in that grid cell of YOLO feature maps will be ignored.
+
 \subsection{Evaluation Method}
+Annotating a tapping line with a bounding box and a polyline inside enables the detection in many aspects and levels.  The bounding box can justify the existence of a tapping line which usualy indicates by using box overlapping ratio, IoU. 
+
+
 
 \section{Experiment Setup}
 \subsection{Baseline Model and Variants}
