@@ -70,7 +70,7 @@ Apart from boxes, there are other networks that can predict examining the image 
 Another example is the semantic-aware prediction. The networks not only mark the object into the pixel area but also recognize which classes of each pixels in the mask are associate with. Remarkable examples are CASENet \cite{casenet}, Mask-RCNN \cite{maskrcnn}, etc. However, these networks are build on the purpose of the generic datasets as mentioned earlier. Lots of network architecture are proposed and indicated the powerful of convolutional networks on the computer vision tasks. It remains a challenge to adopt those networks addressing some applications in specific domains.
 
 \subsection{Network Loss Function}\label{review_loss}
-Mapping of values between responses (values returned from a network) with expectations (target values) is the core principle of any neural network. The difference  between targets and responses, which calculated by a function, is a loss, and the such function is named ``loss function". Many researches on CNN-based detectors present loss functions that refined for their particular problems. For examples, Dice-Coefficient index \cite{vnet, gendice}, well robustly handle a segmentation task in the medical imaging. Focal loss \cite{focalloss1}, an extension of cross-entropy function, is appropriate for a class-imbalanced data. Tversky index \cite{tverskyloss} also reduces the effects of unbalanced data to be learned by the segmentation network.
+Mapping of values between responses (values returned from a network) with expectations (target values) is the core principle of any neural network. The difference  between targets and responses, which calculated by a function, is a loss, and the such function is named ``loss function". Many researches on CNN-based detectors present loss functions that refined for their particular problems. For instances, Dice-Coefficient index \cite{vnet, gendice}, well robustly handle a segmentation task in the medical imaging. Focal loss \cite{focalloss1}, an extension of cross-entropy function, is appropriate for a class-imbalanced data. Tversky index \cite{tverskyloss} also reduces the effects of unbalanced data to be learned by the segmentation network.
 
 By understanding the nature of the data that they are working on especially in the segmentation problems, many researches did some mathematical adjustments on the exist loss functions, letting their networks produce preferable results. Focal loss \cite{focalloss1} reformulates binary classic binary cross-entropy function by add the extra weight on $\gamma$ term to address the ``hard example" not only foreground-background imbalance, since they foreseen their dataset have included some problematic samples. As well as the increment of $\beta$ term of Tversky index \cite{tverskyloss} preventing the network to over-learn by the false-positive samples (improve recall), because their interested points are very sparse in amount and space compared to the background. So, selecting a loss function for a network in a particular problem is crucial for network's performance not only the layer configuration of the network.
 
@@ -246,15 +246,24 @@ To archieve learning regularization or to prevent the model from overfitting, a 
 \subsection{Evaluation Method}
 The bounding box can justify the existence of a tapping line in the image, which is usually carried the box overlapping ratio, such as Jaccard Index (a.k.a IoU), Dice's coefficient, etc., between predictions and the annotated data. Box overlapping ratio does not reflect the similarity of the tapping line though \cite{Wongtanawijit_2021}. Pixel-level overlapping ratios or geometry distances function are required to measure the similarity or the error between two polygonal curves that encoded in image's pixels.
 
-The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine average precisions of the detections. And, pixel-level Dice's coefficient (a.k.a F1-score) on the tapping line's pixels verifies the exact overlap between two polygonal's vertices. However, appling the overlapping measurement on the polygonal vertices in the pixel-level over penalizes the small mislocated pixels. As visualized in Fig \ref{fig4-polyline}, the predicted polyline has a small shift in distance to the reference line. This makes the Dice's index approaching to zero, while a geometric distance, Hausdorff distance, indicates strong similarity between them.
+The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine average precisions of the detections. And, pixel-level Dice's coefficient (a.k.a F1-score) on the tapping line's pixels verifies the exact overlap between two polygonal's vertices. However, appling the overlapping measurement on the polygonal vertices in the pixel-level over penalizes the small mislocated pixels. As visualized in Fig \ref{fig4-polyline}, the predicted polyline has a small shift in distance to the reference line. This makes the Dice's index approaching to zero, whereas a 2-D geometric distance, Hausdorff distance, indicates strong similarity between them.
 
 \begin{figure}[h]%
 \centering
 \includegraphics[width=0.5\linewidth]{fig4.pdf}
-\caption{A drawing of two polylines that are locating in a unit grid. Assuming that a intersection on the grid represents a pixel location of an image. A detected tapping line (dashed line) is close to the groundtruth (solid line) with 1 pixel is the exact overlapped.}\label{fig4-polyline}
+\caption{A drawing of two polylines that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}\label{fig4-polyline}
 \end{figure}
 
-Box annotation with a polyline inside enables the evaluations in many ways. This paper presents the evaluation of the tapping line detection in two modes. The exact average calculates all evaluating metrics directly on testing data. And, bounding box detection decides for the existance of the tapping line, then other metrics are performed within the detected results. These different methods can covertly describe the performances of the models, and this topic will be disscussed later in the results section.
+To clearify the calculation of both metrics, let any polygonal lines where thier vertices are on a discrete grid (positive integers, $\mathbb{I^+}$), which named the ``discrete curve". So, let $\textbf{A}$ and $\textbf{B}$ respectively represent the set of vertices of a predicted tapping line and its corresponding groundtruth. Dice's coefficient ($D$) is obtained in equation \ref{eq-dice}
+\begin{equation}
+D = \frac{2 \lvert \textbf{A} \cap \textbf{B} \rvert }{\lvert\textbf{A}\rvert+\lvert\textbf{B}\rvert}\label{eq-dice}
+\end{equation}
+Hausdorff distance ($\mathrm{d_H}$), measures for similarity between two curves, is defined by equation \ref{eq-hausdorff}, where $a \in \textbf{A}$ and $b \in \textbf{B}$.
+\begin{equation}
+\mathrm{d_H} = \max \{ \min ( \{ \| a-b \| \} ) \}\label{eq-hausdorff}
+\end{equation}
+
+Box annotation with a polyline inside enables the evaluations in many ways. This paper presents two modes of tapping line evaluations. The exact average calculates all evaluating metrics on testing data. Second, using the bounding boxes decides for the existance of a tapping line in the image, then calculates other metrics within the detected results. These different methods thoroughly describe the detection performances on each model, and this topic will be continued in Section \ref{sec-results}.
 
 \subsubsection{Averaging Metrics}
 \subsubsection{Dominated by Bounding Box Detection}
@@ -263,7 +272,7 @@ Box annotation with a polyline inside enables the evaluations in many ways. This
 \section{Experiment Setup}
 \subsection{Baseline Model and Variants}
 
-\section{Results and Discussions}
+\section{Results and Discussions}\label{sec-results}
 
 \section{Conclusion}
 
