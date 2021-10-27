@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  28 OCT 2021 03:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  28 OCT 2021 03:41
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -948,22 +948,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 pdfTeX warning: pdflatex (file ./fig4.pdf): PDF inclusion: multiple pdfs with p
 age group included in a single page
 >]
-Underfull \hbox (badness 1661) in paragraph at lines 266--267
+Underfull \hbox (badness 1661) in paragraph at lines 267--268
 \OT1/cmr/m/n/10 ing data. Sec-ond, using the bound-ing boxes
  []
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 287.
+(hyperref)                than one, level fixed on input line 288.
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 287--288
+Underfull \hbox (badness 1107) in paragraph at lines 288--289
 \OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 295.
+(hyperref)                than one, level fixed on input line 296.
 
 (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
@@ -996,6 +996,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--26
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[9]
 Underfull \hbox (badness 2443) in paragraph at lines 28--31
 \OT1/cmr/m/n/10 Yolov4: Opti-mal speed and accu-racy of
  []
@@ -1006,14 +1014,6 @@ Underfull \hbox (badness 5446) in paragraph at lines 28--31
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[9]
 Underfull \hbox (badness 1097) in paragraph at lines 39--42
 []\OT1/cmr/m/n/10 Chu P, Li Z, Lam-mers K, et al (2021)
  []
@@ -1064,144 +1064,124 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 70--73
+Underfull \hbox (badness 3780) in paragraph at lines 75--78
 \OT1/cmr/m/n/10 processing for apple detec-tion in fruit-
  []
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 75--77
+Underfull \hbox (badness 2671) in paragraph at lines 80--82
 \OT1/cmr/m/n/10 on mod-i-fied YOLOv3 frame-work. Sci-en-
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 84--87
+Underfull \hbox (badness 1132) in paragraph at lines 89--92
 \OT1/cmr/m/n/10 Agri-cul-ture 180. [][]$https : / / doi . org / 10 . 1016 / j .
 
  []
 
 
-Underfull \hbox (badness 5388) in paragraph at lines 90--93
+Underfull \hbox (badness 5388) in paragraph at lines 95--98
 []\OT1/cmr/m/n/10 Lin T, Goyal P, Gir-shick RB, et al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--93
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
 \OT1/cmr/m/n/10 (2017) Focal loss for dense object
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--93
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
 \OT1/cmr/m/n/10 detec-tion. CoRR abs/1708.02002.
  []
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 95--99
+Underfull \hbox (badness 5359) in paragraph at lines 100--104
 []\OT1/cmr/m/n/10 Liu G, Nouaze JC, Touko Mbouembe
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 95--99
+Underfull \hbox (badness 1365) in paragraph at lines 100--104
 \OT1/cmr/m/n/10 PL, et al (2020) Yolo-tomato: A robust
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 95--99
+Underfull \hbox (badness 1112) in paragraph at lines 100--104
 \OT1/cmr/m/n/10 algo-rithm for tomato detec-tion based on
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 95--99
+Underfull \hbox (badness 2221) in paragraph at lines 100--104
 \OT1/cmr/m/n/10 yolov3. Sen-sors 20(7). [][]$https : / / doi . org / 10 .
  []
 
 
-Underfull \hbox (badness 4001) in paragraph at lines 95--99
+Underfull \hbox (badness 4001) in paragraph at lines 100--104
 \OT1/cmr/m/n/10 3390 / s20072145$[][], URL [][]$https : / / www . mdpi .
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 101--104
+Underfull \hbox (badness 1215) in paragraph at lines 106--109
 []\OT1/cmr/m/n/10 Milletari F, Navab N, Ahmadi S (2016)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
 \OT1/cmr/m/n/10 V-net: Fully con-vo-lu-tional neu-ral net-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
 \OT1/cmr/m/n/10 works for vol-u-met-ric med-i-cal image
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
 \OT1/cmr/m/n/10 seg-men-ta-tion. CoRR abs/1606.04797.
  []
 
 
-Underfull \hbox (badness 4492) in paragraph at lines 106--109
+Underfull \hbox (badness 4492) in paragraph at lines 111--114
 []\OT1/cmr/m/n/10 Misra D (2019) Mish: A self reg-u-lar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
 \OT1/cmr/m/n/10 ized non-monotonic neu-ral acti-va-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
 \OT1/cmr/m/n/10 func-tion. CoRR abs/1908.08681.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--119
 []\OT1/cmr/m/n/10 Redmon J, Farhadi A (2016)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--119
 \OT1/cmr/m/n/10 YOLO9000: bet-ter, faster,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--119
 \OT1/cmr/m/n/10 stronger. CoRR abs/1612.08242.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
 []\OT1/cmr/m/n/10 Redmon J, Farhadi A (2018)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
 \OT1/cmr/m/n/10 Yolov3: An incre-men-tal improve-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
 \OT1/cmr/m/n/10 ment. CoRR abs/1804.02767.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--130
-[]\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
- []
-
-
-Underfull \hbox (badness 2343) in paragraph at lines 127--130
-\OT1/cmr/m/n/10 (2015) Faster R-CNN: towards real-time
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--130
-\OT1/cmr/m/n/10 object detec-tion with region pro-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--130
-\OT1/cmr/m/n/10 posal net-works. CoRR abs/1506.01497.
  []
 
 
@@ -1213,57 +1193,77 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [10]
-Underfull \hbox (badness 2334) in paragraph at lines 138--141
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
+[]\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 132--135
+\OT1/cmr/m/n/10 (2015) Faster R-CNN: towards real-time
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
+\OT1/cmr/m/n/10 object detec-tion with region pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
+\OT1/cmr/m/n/10 posal net-works. CoRR abs/1506.01497.
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 143--146
 []\OT1/cmr/m/n/10 Salehi SSM, Erdog-mus D, Gholipour A
  []
 
 
-Underfull \hbox (badness 3439) in paragraph at lines 138--141
+Underfull \hbox (badness 3439) in paragraph at lines 143--146
 \OT1/cmr/m/n/10 (2017) Tver-sky loss func-tion for image
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--141
+Underfull \hbox (badness 10000) in paragraph at lines 143--146
 \OT1/cmr/m/n/10 deep net-works. CoRR abs/1706.05721.
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 144--148
+Underfull \hbox (badness 1590) in paragraph at lines 149--153
 []\OT1/cmr/m/n/10 Sudre CH, Li W, Ver-cauteren T, et al
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 144--148
+Underfull \hbox (badness 3058) in paragraph at lines 149--153
 \OT1/cmr/m/n/10 learn-ing loss func-tion for highly unbal-
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 150--152
+Underfull \hbox (badness 1406) in paragraph at lines 155--157
 []\OT1/cmr/m/n/10 Tong K, Wu Y, Zhou F (2020) Recent
  []
 
 
-Underfull \hbox (badness 6332) in paragraph at lines 155--158
+Underfull \hbox (badness 6332) in paragraph at lines 160--163
 \OT1/cmr/m/n/10 Design, devel-op-ment and eval-u-a-tion of
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 155--158
+Underfull \hbox (badness 5893) in paragraph at lines 160--163
 \OT1/cmr/m/n/10 latex har-vest-ing robot based on flex-i-
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 160--163
+Underfull \hbox (badness 2837) in paragraph at lines 165--168
 \OT1/cmr/m/n/10 Night-time rub-ber tap-ping line detec-tion
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 160--163
+Underfull \hbox (badness 3536) in paragraph at lines 165--168
 \OT1/cmr/m/n/10 in near-range images. Mul-ti-me-dia Tools
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 160--163
+Underfull \hbox (badness 2689) in paragraph at lines 165--168
 \OT1/cmr/m/n/10 and Appli-ca-tions [][]$https : / / doi . org / 10 . 1007 /
  []
 
@@ -1284,37 +1284,38 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: 7906E2200DBAF619BD7D65F2B59903FF;4829.
  ) 
 Here is how much of TeX's memory you used:
- 14181 strings out of 478907
- 199610 string characters out of 2861736
- 549317 words of memory out of 3000000
- 31712 multiletter control sequences out of 15000+600000
+ 14185 strings out of 478907
+ 199747 string characters out of 2861736
+ 549394 words of memory out of 3000000
+ 31715 multiletter control sequences out of 15000+600000
  430933 words of font info for 137 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 75i,17n,80p,1335b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,17n,80p,1335b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Rattachai\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8
 .pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
 gram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/P
-rogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cms
-y7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Pr
-ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on sn-article.pdf (11 pages, 417382 bytes).
+iKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/
+Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/
+Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Pr
+ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on sn-article.pdf (11 pages, 427160 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
+ 505 PDF objects out of 1000 (max. 8388607)
+ 90 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

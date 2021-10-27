@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -58,6 +58,11 @@ He K, Gkioxari G, Doll{\'{a}}r P, et~al (2017) Mask {R-CNN}. CoRR
 Huang G, Liu Z, Weinberger KQ (2016) Densely connected convolutional networks.
   CoRR abs/1608.06993.
   {\href{https://arxiv.org/abs/1608.06993}{{https://arxiv.org/abs/1608.06993}}}
+
+\bibitem[{Huttenlocher et~al(1993)Huttenlocher, Klanderman, and
+  Rucklidge}]{Huttenlocher1993ComparingIU}
+Huttenlocher DP, Klanderman GA, Rucklidge W (1993) Comparing images using the
+  hausdorff distance. IEEE Trans Pattern Anal Mach Intell 15:850--863
 
 \bibitem[{Jia et~al(2020)Jia, Tian, Luo, Zhang, Lian, and Zheng}]{Jia2020apple}
 Jia W, Tian Y, Luo R, et~al (2020) Detection and segmentation of overlapped

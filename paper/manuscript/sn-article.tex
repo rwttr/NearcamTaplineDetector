@@ -258,10 +258,11 @@ To clearify the calculation of both metrics, let any polygonal lines where thier
 \begin{equation}
 D = \frac{2 \lvert \textbf{A} \cap \textbf{B} \rvert }{\lvert\textbf{A}\rvert+\lvert\textbf{B}\rvert}\label{eq-dice}
 \end{equation}
-Hausdorff distance ($\mathrm{d_H}$), measures for similarity between two curves, is defined by equation \ref{eq-hausdorff}, where $a \in \textbf{A}$ and $b \in \textbf{B}$.
-\begin{equation}
-\mathrm{d_H} = \max \{ \min ( \{ \| a-b \| \} ) \}\label{eq-hausdorff}
-\end{equation}
+Hausdorff distance ($\mathrm{d_H}$), measures for similarity between two curves, is defined by equation \ref{eq-hausdorff} \cite{Huttenlocher1993ComparingIU}, where $a \in \textbf{A}$ and $b \in \textbf{B}$. Function $\mathrm{d}(\textbf{A},\textbf{B})$ denotes for the directed Hausdorff distance (one-way) from curve \textbf{A} to curve \textbf{B}.
+\begin{align}
+\mathrm{d}(\textbf{A},\textbf{B}) &= \max_{a\in\textbf{A}} \min_{b\in\textbf{B}} \| a-b \|  \nonumber \\
+\mathrm{d_H}(\textbf{A},\textbf{B}) &= \max (\mathrm{d}(\textbf{A},\textbf{B}), \mathrm{d}(\textbf{B},\textbf{A})) \label{eq-hausdorff}
+\end{align}
 
 Box annotation with a polyline inside enables the evaluations in many ways. This paper presents two modes of tapping line evaluations. The exact average calculates all evaluating metrics on testing data. Second, using the bounding boxes decides for the existance of a tapping line in the image, then calculates other metrics within the detected results. These different methods thoroughly describe the detection performances on each model, and this topic will be continued in Section \ref{sec-results}.
 
