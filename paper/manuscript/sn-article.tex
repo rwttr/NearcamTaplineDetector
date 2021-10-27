@@ -241,11 +241,23 @@ Unit-rescaling and z-score transform normalize the pixel values of an input imag
 \end{figure}
 
 \subsubsection{Regularization}
-To archieve learning regularization or to prevent the model from overfitting, a couple of tools are presented. Traditional L2-regularization is used on the weights of the downsampling network. Random rotations within $\pm20^\circ$ and the magnifications within $\pm20\%$ apply on the input images for the augmentation purpose. Another tool is checking the prediction on YOLO outputs. If the box predictions reach 0.8 IoU with the groundtruth, then the box's loss calculation in that grid cell of YOLO feature maps will be ignored.
+To archieve learning regularization or to prevent the model from overfitting, a couple of tools, such as weight regularization, data augmentation, drop-out, are presented. Traditional L2-regularization is used on the weights of the downsampling network. Random rotations within $\pm20^\circ$ and the magnifications within $\pm20\%$ are applied on the input images for the augmentation purpose. Another tool is checking the box predictions of YOLO outputs. If the box predictions reach 0.8 IoU with the groundtruth, then the box's loss calculations in the paricular grid position of YOLO feature maps will be skipped.
 
 \subsection{Evaluation Method}
-Annotating a tapping line with a bounding box and a polyline inside enables the detection in many aspects and levels.  The bounding box can justify the existence of a tapping line which usualy indicates by using box overlapping ratio, IoU. 
+The bounding box can justify the existence of a tapping line in the image, which is usually carried the box overlapping ratio, such as Jaccard Index (a.k.a IoU), Dice's coefficient, etc., between predictions and the annotated data. Box overlapping ratio does not reflect the similarity of the tapping line though \cite{Wongtanawijit_2021}. Pixel-level overlapping ratios or geometry distances function are required to measure the similarity or the error between two polygonal curves that encoded in image's pixels.
 
+The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine average precisions of the detections. And, pixel-level Dice's coefficient (a.k.a F1-score) on the tapping line's pixels verifies the exact overlap between two polygonal's vertices. However, appling the overlapping measurement on the polygonal vertices in the pixel-level over penalizes the small mislocated pixels. As visualized in Fig \ref{fig4-polyline}, the predicted polyline has a small shift in distance to the reference line. This makes the Dice's index approaching to zero, while a geometric distance, Hausdorff distance, indicates strong similarity between them.
+
+\begin{figure}[h]%
+\centering
+\includegraphics[width=0.5\linewidth]{fig4.pdf}
+\caption{A drawing of two polylines that are locating in a unit grid. Assuming that a intersection on the grid represents a pixel location of an image. A detected tapping line (dashed line) is close to the groundtruth (solid line) with 1 pixel is the exact overlapped.}\label{fig4-polyline}
+\end{figure}
+
+Box annotation with a polyline inside enables the evaluations in many ways. This paper presents the evaluation of the tapping line detection in two modes. The exact average calculates all evaluating metrics directly on testing data. And, bounding box detection decides for the existance of the tapping line, then other metrics are performed within the detected results. These different methods can covertly describe the performances of the models, and this topic will be disscussed later in the results section.
+
+\subsubsection{Averaging Metrics}
+\subsubsection{Dominated by Bounding Box Detection}
 
 
 \section{Experiment Setup}

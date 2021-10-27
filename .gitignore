@@ -1,5 +1,6 @@
 *.bson
 *.pdf
+*.svg
 weights/*
 old/*
 paper/sn-article-template/*
