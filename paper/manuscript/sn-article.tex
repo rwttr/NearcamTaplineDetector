@@ -224,7 +224,7 @@ All RGB image are resized to network's input size, $224\times224\times3$ pixels 
 
 Estimation of anchors' size also implies the unbalancing between tapping line's pixels and the background pixels. The annotation regulation of the tapping line (single pixel per column) gives the approximation ratio, by the anchor's width to the box's area : $59.2 / 224^2 \approx 0.0012$, which indicates highly imbalanced data between two classes.
 
-\subsubsection{Branch Loss Function}
+\subsubsection{Branch Loss Function}\label{subsubsec-pxlbranch}
 A benifit of one-stage network is that the calculation of losses happens at the output nodes. According to the model, output nodes are two YOLO heads, and three pixel prediction blocks (Pxl Headers). Thus, the total loss is the linear combination of them.
 
 MSE loss (L2-loss) is used for box's coordinates regression on both YOLO detection heads, and Dice-Coefficient scores the objectness predictions on the feature-map grids. For the pixel classification loss, calculation on each pixel predicton block is handled by different loss functions. Dice-Coefficient, Binary Focal, and Tversky index with high $\beta$  are separately used on each Pxl Header, on account of highly imbalance between tapping line's pixels and background's pixels. Since, adding more weight on $\beta$ in Tversky's formular \cite{tverskyloss} will increase the loss when tapping line pixels are predicted as background, which are the false-negative case.
@@ -272,7 +272,7 @@ In addition to the mentioned box and polyline evaluation metrics, this paper als
 Annotation with a box and a polyline enables the evaluations in many combinations. This paper presents a method by using the bounding boxes to decide for the existance of a tapping line in the image, then calculates other metrics within the detected results.
 
 \section{Experiment and Setup}
-The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three different segmentation loss functions with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's vectices.
+The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three novel segmentation loss functions for highly imbalanced data, Dice's, Focal and Tversky's index, with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's vectices.
 
 \begin{figure}[h]%
 \centering
@@ -287,20 +287,24 @@ The proposed components can be summarized as.
   \item Multiple segmentation loss for training the model.
 \end{itemize}
 
-Those assumptions require reference models or the baseline models in order to observe the components' contributions. The baseline model construction is piecewise removing those components from the chain, such as reducing the amount of Pxl Header, un-used the voting function $\mathrm{g}(x)$, bypassing the column-wise Softmax, etc. 
-
-As a result, the baseline model replaces the proposed model at pixel classification branch by,
+Those assumptions require reference models or the baseline models in order to observe the components' contributions. The baseline model construction is piecewise shuffling those components in the model chain, such as reducing the amount of Pxl Header, bypassing the column-wise Softmax, etc. As a result, the experiment gives the name of the models by,
 \begin{itemize} 
-  \item Remove the parallel structure of Pxl Header, only a single block is used.
-  \item Remove the column-wise Softmax in Pxl Header.
-  \item Only one segmentation loss is used at the pixel classification output for model training at a time.
+\item[] \emph{\textbf{Model A}}: The proposed model, as presented in Section \ref{subsec-model}. \\
+\item[] \emph{\textbf{Model B}}: Made changes on Model A by,
+	\begin{itemize}
+  	\item Remove the parallel structure of Pxl Header, only a single block is used as shown in Fig \ref{fig6-baselinePxlHeader}. Pxl Header's structure is similar to one of the proposed model. 
+  	\item Only one segmentation loss is used at the pixel classification output for training the model at a time.
+  	\item Re-define $\mathrm{g}(x)$ by removing the voting operation from the original (in Section \ref{subsubsec-pxlbranch}), because there is only one incoming signal from Pxl Header.
+	\end{itemize}
+\item[] \emph{\textbf{Model C}}: Similar to Model B, but column-wise Softmax layer is no longer in the Pxl Header.
 \end{itemize}
-The pixel classication branch of all baseline models is shown in Fig \ref{fig6-baselinePxlHeader}. Hence, the training parameters of the proposed models and baseline models use same settings as described in Section \ref{subsubsec-trainingparams}
+
+The structure of pixel classication branch of Model B and Model C is shown in Fig \ref{fig6-baselinePxlHeader}. Eventually, the training parameters of all models use same settings as described in Section \ref{subsubsec-trainingparams}
 
 \begin{figure}[h]%
 \centering
 \includegraphics[width=0.55\linewidth]{fig6.pdf}
-\caption{Pixel classification branch of the baseline model}\label{fig6-baselinePxlHeader}
+\caption{Pixel classification branch of baseline models (Model B and Model C)}\label{fig6-baselinePxlHeader}
 \end{figure}
 
 \section{Results and Discussions}\label{sec-results}
@@ -310,19 +314,19 @@ Table \ref{tab-results-indep} presents the average precision of tapping line bou
 
 \begin{table*}[]
 \centering
-\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on box detected samples at 0.5 IoU}
+\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on box's detected samples at 0.5 IoU}
 \label{tab-results-ap50}
 \begin{minipage}{\linewidth}
 \begin{center}
 \begin{tabular}{clcccc}
-model & Pxl Header loss & box $\mathrm{AP_{50}}$ & avg. $\mathrm{d_{ep}}$(px.)	& avg. $\mathrm{d_{H}}$(px.)	& avg. F1-score	\\ \midrule
-A	& Dice		& 0.98	&	12.08	&	8.94	& 0.3511	\\
-A	& Focal		& 0.96	&	12.68	&	12.31	&	0.3142	\\ 
-A	& Tversky	& 0.98 	&	12.19	&  11.31	&	0.3510   \\ \midrule
-B 	& Dice		& 0.98	&	12.60	&	11.18	&	0.5510	\\
-B 	& Focal		& 0.95	&	13.22	&	13.54	&	0.3890	\\
-B 	& Tversky	& 0.97	&	12.68	&	23.65	&	0.5602	\\ \midrule
-C 	& Dice, Focal, Tversky 	& 0.98	&	12.08		& 	10.60	&	 0.5654 \\
+Model & Pxl Header loss & Box $\mathrm{AP_{50}}$ & Avg. $\mathrm{d_{ep}}$(px.)	& Avg. $\mathrm{d_{H}}$(px.)	& Avg. F1-score	\\ \midrule
+A 	& Dice, Focal, Tversky 	& 0.98	&	12.08		& 	10.60	&	 0.5654 \\ \midrule
+B	& Dice		& 0.98	&	12.08	&	8.94	& 0.3511	\\
+B	& Focal		& 0.96	&	12.68	&	12.31	&	0.3142	\\ 
+B	& Tversky	& 0.98 	&	12.19	&  11.31	&	0.3510   \\ \midrule
+C 	& Dice		& 0.98	&	12.60	&	11.18	&	0.5510	\\
+C 	& Focal		& 0.95	&	13.22	&	13.54	&	0.3890	\\
+C 	& Tversky	& 0.97	&	12.68	&	23.65	&	0.5602	\\ 
 \bottomrule
 \end{tabular}%
 \end{center}
@@ -332,19 +336,19 @@ C 	& Dice, Focal, Tversky 	& 0.98	&	12.08		& 	10.60	&	 0.5654 \\
 
 \begin{table*}[]
 \centering
-\caption{Detection results on the proposed model and baseline model at various settings. All metrics are averaged on box detected samples at 0.75 IoU}
+\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on box's detected samples at 0.75 IoU}
 \label{tab-results-ap75}
 \begin{minipage}{\linewidth}
 \begin{center}
 \begin{tabular}{clccccc}
-model & Pxl Header loss &box $\mathrm{AP_{75}}$ & avg. $\mathrm{d_{ep}}$(px.)	& avg. $\mathrm{d_{H}}$(px.)	& avg. F1-score	\\ \midrule
-A	& Dice		& 0.60		&	8.90	&	6.60	& 0.3640	\\
-A	& Focal		& 0.58 		&	9.25	&	9.34	&	0.3455	\\ 
-A	& Tversky	& 0.61 		&	9.15	&  8.69	&	0.3908   \\ \midrule
-B 	& Dice		& 0.58		&	9.20	&	8.19	&	0.5744	\\
-B 	& Focal		& 0.53		&	9.37	&	11.25	&	0.4028	\\
-B 	& Tversky	& 0.58		&	9.13	&	22.06	&	0.5844	\\ \midrule
-C 	& Dice, Focal, Tversky 	& 0.62 & 9.14 	& 7.79 & 0.5831 \\
+Model & Pxl Header loss & Box $\mathrm{AP_{75}}$ & Avg. $\mathrm{d_{ep}}$(px.)	& Avg. $\mathrm{d_{H}}$(px.)	& Avg. F1-score	\\ \midrule
+A 	& Dice, Focal, Tversky 	& 0.62 & 9.14 	& 7.79 & 0.5831 \\ \midrule
+B	& Dice		& 0.60		&	8.90	&	6.60	& 0.3640	\\
+B	& Focal		& 0.58 		&	9.25	&	9.34	&	0.3455	\\ 
+B	& Tversky	& 0.61 		&	9.15	&  8.69	&	0.3908   \\ \midrule
+C 	& Dice		& 0.58		&	9.20	&	8.19	&	0.5744	\\
+C 	& Focal		& 0.53		&	9.37	&	11.25	&	0.4028	\\
+C 	& Tversky	& 0.58		&	9.13	&	22.06	&	0.5844	\\ 
 \bottomrule
 \end{tabular}%
 \end{center}
