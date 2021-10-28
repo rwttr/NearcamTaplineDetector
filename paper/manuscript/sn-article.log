@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  28 OCT 2021 19:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  29 OCT 2021 00:06
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -879,6 +879,11 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 146.
 
 
+Overfull \hbox (8.62277pt too wide) in paragraph at lines 151--162
+[][] 
+ []
+
+
 Underfull \hbox (badness 1019) in paragraph at lines 166--167
 \OT1/cmr/m/n/10 low resoul-tion ten-sors are enlarged by trans-
  []
@@ -957,26 +962,30 @@ Underfull \hbox (badness 1303) in paragraph at lines 275--276
 \OT1/cmr/m/n/10 The design of the model in section [][]4.1[][] fol-
  []
 
-<fig5.pdf, id=312, 142.64238pt x 137.04709pt>
+<fig5.pdf, id=311, 142.64238pt x 137.04709pt>
 File: fig5.pdf Graphic file (type pdf)
 <use fig5.pdf>
 Package pdftex.def Info: fig5.pdf  used on input line 279.
-(pdftex.def)             Requested size: 108.12047pt x 103.87872pt.
+(pdftex.def)             Requested size: 118.93317pt x 114.26764pt.
 
 Underfull \hbox (badness 4072) in paragraph at lines 293--294
 []\OT1/cmr/m/n/10 Remove the column-wise Soft-max in Pxl
  []
 
-<fig6.pdf, id=315, 142.94495pt x 137.04709pt>
+<fig6.pdf, id=314, 141.74184pt x 137.04709pt>
 File: fig6.pdf Graphic file (type pdf)
 <use fig6.pdf>
 Package pdftex.def Info: fig6.pdf  used on input line 300.
-(pdftex.def)             Requested size: 118.93317pt x 114.03134pt.
+(pdftex.def)             Requested size: 118.93317pt x 114.99956pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: Reference `' on page 9 undefined on input line 305.
+
+
+LaTeX Warning: Reference `tab-results-indep' on page 9 undefined on input line 
+307.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -987,40 +996,26 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [9 <./fig5.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 318--319
-\OT1/cmr/m/n/10 (384 +
- []
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 309.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--320
-\OT1/cmr/m/n/10 (256 +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--321
-[]|$\OT1/cmr/m/n/10 112 \OMS/cmsy/m/n/10 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--321
-\OT1/cmr/m/n/10 112 \OMS/cmsy/m/n/10 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 331.
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 339.
+(hyperref)                than one, level fixed on input line 363.
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 339--340
+Underfull \hbox (badness 1107) in paragraph at lines 363--364
 \OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 347.
+(hyperref)                than one, level fixed on input line 371.
 
 (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
@@ -1063,6 +1058,11 @@ Underfull \hbox (badness 5446) in paragraph at lines 28--31
  []
 
 
+Underfull \hbox (badness 1097) in paragraph at lines 39--42
+[]\OT1/cmr/m/n/10 Chu P, Li Z, Lam-mers K, et al (2021)
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1071,11 +1071,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [10 <./fig6.pdf>]
-Underfull \hbox (badness 1097) in paragraph at lines 39--42
-[]\OT1/cmr/m/n/10 Chu P, Li Z, Lam-mers K, et al (2021)
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 []\OT1/cmr/m/n/10 Girshick RB (2015) Fast R-
  []
@@ -1131,6 +1126,14 @@ Underfull \hbox (badness 2671) in paragraph at lines 80--82
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[11]
 Underfull \hbox (badness 1132) in paragraph at lines 89--92
 \OT1/cmr/m/n/10 Agri-cul-ture 180. [][]$https : / / doi . org / 10 . 1016 / j .
 
@@ -1177,14 +1180,6 @@ Underfull \hbox (badness 4001) in paragraph at lines 100--104
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[11]
 Underfull \hbox (badness 1215) in paragraph at lines 106--109
 []\OT1/cmr/m/n/10 Milletari F, Navab N, Ahmadi S (2016)
  []
@@ -1324,7 +1319,7 @@ Underfull \hbox (badness 2689) in paragraph at lines 165--168
 \OT1/cmr/m/n/10 and Appli-ca-tions [][]$https : / / doi . org / 10 . 1007 /
  []
 
-)
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1332,7 +1327,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[12] (sn-article.aux)
+[12])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[13
+
+] (sn-article.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1344,13 +1349,13 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: 333448C61330F822AA0F476C25203B8F;4242.
  ) 
 Here is how much of TeX's memory you used:
- 14204 strings out of 478907
- 200009 string characters out of 2861736
- 549730 words of memory out of 3000000
- 31730 multiletter control sequences out of 15000+600000
+ 14208 strings out of 478907
+ 200059 string characters out of 2861736
+ 549954 words of memory out of 3000000
+ 31732 multiletter control sequences out of 15000+600000
  430933 words of font info for 137 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 75i,17n,80p,1335b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,18n,80p,1335b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Rattachai\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8
 .pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
@@ -1373,9 +1378,9 @@ ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on sn-article.pdf (12 pages, 468801 bytes).
+Output written on sn-article.pdf (13 pages, 465124 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 94 named destinations out of 1000 (max. 500000)
  231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
