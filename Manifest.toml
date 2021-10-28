@@ -101,9 +101,9 @@ version = "3.2.4"
 
 [[CSV]]
 deps = ["CodecZlib", "Dates", "FilePathsBase", "InlineStrings", "Mmap", "Parsers", "PooledArrays", "SentinelArrays", "Tables", "Unicode", "WeakRefStrings"]
-git-tree-sha1 = "c0a735698d1a0a388c5c7ae9c7fb3da72fd5424e"
+git-tree-sha1 = "74147e877531d7c172f70b492995bc2b5ca3a843"
 uuid = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
-version = "0.9.9"
+version = "0.9.10"
 
 [[CUDA]]
 deps = ["AbstractFFTs", "Adapt", "BFloat16s", "CEnum", "CompilerSupportLibraries_jll", "ExprTools", "GPUArrays", "GPUCompiler", "LLVM", "LazyArtifacts", "Libdl", "LinearAlgebra", "Logging", "Printf", "Random", "Random123", "RandomNumbers", "Reexport", "Requires", "SparseArrays", "SpecialFunctions", "TimerOutputs"]
@@ -349,9 +349,9 @@ version = "1.11.1"
 
 [[FilePathsBase]]
 deps = ["Dates", "Mmap", "Printf", "Test", "UUIDs"]
-git-tree-sha1 = "7fb0eaac190a7a68a56d2407a6beff1142daf844"
+git-tree-sha1 = "d962b5a47b6d191dbcd8ae0db841bc70a05a3f5b"
 uuid = "48062228-2e41-5def-b9a4-89aafe57970f"
-version = "0.9.12"
+version = "0.9.13"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
@@ -880,9 +880,9 @@ version = "2021.1.1+2"
 
 [[MLDataPattern]]
 deps = ["LearnBase", "MLLabelUtils", "Random", "SparseArrays", "StatsBase"]
-git-tree-sha1 = "e99514e96e8b8129bb333c69e063a56ab6402b5b"
+git-tree-sha1 = "2741aabe5ec93c63cc0a5277bb1c2cb819b01bb1"
 uuid = "9920b226-0b2a-5f5f-9153-9aa70a013f8b"
-version = "0.5.4"
+version = "0.5.5"
 
 [[MLLabelUtils]]
 deps = ["LearnBase", "MappedArrays", "StatsBase"]
@@ -1071,9 +1071,9 @@ version = "0.12.3"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "f19e978f81eca5fd7620650d7dbea58f825802ee"
+git-tree-sha1 = "d911b6a12ba974dabe2291c6d450094a7226b372"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.1.0"
+version = "2.1.1"
 
 [[Pixman_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
