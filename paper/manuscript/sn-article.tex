@@ -271,7 +271,7 @@ In addition to the mentioned box and polyline evaluation metrics, this paper als
 
 Annotation with a box and a polyline enables the evaluations in many combinations. This paper presents a method by using the bounding boxes to decide for the existance of a tapping line in the image, then calculates other metrics within the detected results.
 
-\section{Experiment and Setup}
+\section{Experiment and Setup}\label{sec-exp}
 The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three novel segmentation loss functions for highly imbalanced data, Dice's, Focal and Tversky's index, with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's vectices.
 
 \begin{figure}[h]%
@@ -310,7 +310,7 @@ The structure of pixel classication branch of Model B and Model C is shown in Fi
 \section{Results and Discussions}\label{sec-results}
 Fig \ref{} presents some detection results with the original images overlayed by boxes and polylines. The following values in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion.
 
-Table \ref{tab-results-indep} presents the average precision of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside the F1-scores and discrete Hausdorff distances that averaged from all predictions.
+Table \ref{tab-results-ap50} and \ref{tab-results-ap50} present average precisions of tapping line bounding box detections with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances that are averaged from the box detected samples.
 
 \begin{table*}[]
 \centering
@@ -330,7 +330,7 @@ C 	& Tversky	& 0.97	&	12.68	&	23.65	&	0.5602	\\
 \bottomrule
 \end{tabular}%
 \end{center}
-%\footnotetext{Note: }
+\footnotetext{Note: Model code A, B, C refer to experiment setup Section \ref{sec-exp}}
 \end{minipage}
 \end{table*}
 

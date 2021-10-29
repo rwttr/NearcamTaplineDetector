@@ -902,3 +902,7 @@ function (x::StateScheduler)(iteration_no, epoch_no)
     end
     return x.current_lr
 end
+
+# L2 Regularisation on Generic model m
+L2reg(m) = sum(sum(p.^2) for p in Flux.params(m))
+L2reg(m::Flux.Params) = sum(sum(p.^2) for p in m)
