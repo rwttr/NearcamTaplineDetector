@@ -906,3 +906,13 @@ end
 # L2 Regularisation on Generic model m
 L2reg(m) = sum(sum(p.^2) for p in Flux.params(m))
 L2reg(m::Flux.Params) = sum(sum(p.^2) for p in m)
+
+# Image Visualizer
+function convert2RGB(x::Arrya{Float32,3})
+    # data in x ∈ [0,1]
+    # remap value to Normed(UInt8)
+
+    x_uint= convert(Array{N0f8,3},x) #
+
+    return colorview(RGB,x_uint[:,:,1], x_uint[:,:,2], x_uint[:,:,3])
+end
