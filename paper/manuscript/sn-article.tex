@@ -204,14 +204,19 @@ Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footno
 \end{minipage}
 \end{table}
 
-Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) and filter's depth of 64 transforms the input tensor to be a size of $224\times 224 \times 1$.  Then Sigmoid activation modifies the useful values to be pass through. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column will contain a tapping line's pixel, applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds a row-position dependency within an image's column, which means that it suppressed others while boosting one another. This process can be compared to the edge thinning algorithm of image-processing category, and also helps the model's training to be more likely converged faster. 
+Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then Sigmoid activation modifies the useful values to be pass through. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position dependency within the image's columns, which means it suppressed others while boosting one another. This process can be compared to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
 
-For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three operations. Firstly, it finds the pixel location with the highest probability on each column (columnwise-argmax) of each input, then checks for the majorities (2 of 3) and binarizes the majority values on every pixels, and finally passes them to the pixel output node. 
+For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three operations, that run in the order by,
+\begin{enumerate}
+\item finds the pixel locations which have the highest probability on each column (columnwise-argmax) of each input.
+\item checks for the majorities, 2 of 3, on pixel location from step 1.'s results. (Voting Operation)
+\item binarizes the majority locations (set one for majority pixels, otherwise set to zeros)
+\end{enumerate}
 
-In the network traning phase, pixel classification losses are computed on each outputs of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute in the calculations. Learnable weights of pointwise convolution in a particular Pxl Header combine low-level and high-level features via any mapping function, which can be arbitary specified in network traning phase. Sigmoid function bounds the values in between 0 and 1, which controls the numerical stability on each neuron and enhances the training convergence.
+In the network traning phase, pixel classification losses are computed on each outputs of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute in the calculations. Learnable weights of pointwise convolution in a particular Pxl Header combine low-level and high-level features via any mapping function, which can be arbitary specified in network traning phase. Sigmoid function bounds the values in between 0 and 1, which controls the numerical stability on the neurons and enhances the training convergence.
 
 \subsection{Training}
-Dataset for this paper contains 1,425 tapping line images, only RGB1 version \cite{Wongtanawijit_2021} is used. Complying K-fold cross validation scheme with k=5, image data are divide into five folds. For each fold, there are 285 samples for evaluation and 1,140 samples for training.
+Dataset for this paper contains 1,425 tapping line images, only RGB1 version \cite{Wongtanawijit_2021} is used. Complying K-fold cross validation scheme with k=5, image data are divided into five clusters (folds). There are 285 samples for evaluation and 1,140 samples for training in each fold.
 
 \subsubsection{Dataset Priors and Statistics}
 All RGB image are resized to network's input size, $224\times224\times3$ pixels with not preserving their original aspect ratios. An averaged size of annotated tapping line bounding boxes, with respected to the resized image, is 59.2 width and 70.6 height. Therefore, the values estimates for anchors' sizes are (59.2, 70.6), (50.2, 79.6), and (66.6, 60.0). These anchors will be constantly used across all the models.
@@ -240,11 +245,11 @@ Unit-rescaling and z-score transform normalize the pixel values of an input imag
 \caption{WarmUp-Steady-Decay Learning Rate Profile}\label{fig3-LR}
 \end{figure}
 
-\subsubsection{Regularization}
-To archieve learning regularization or to prevent the model from overfitting, a couple of tools, such as weight regularization, data augmentation, drop-out, are presented. Traditional L2-regularization is used on the weights of the downsampling network. Random rotations within $\pm20^\circ$ and the magnifications within $\pm20\%$ are applied on the input images for the augmentation purpose. Another tool is checking the box predictions of YOLO outputs. If the box predictions reach 0.8 IoU with the groundtruth, then the box's loss calculations in the paricular grid position of YOLO feature maps will be skipped.
+\subsubsection{Generalization}
+Training the model adopts a couple of tools, such as weight regularization, image augmentation, weight drop-out, etc., to prevent the model from overfitting. L2 regularization\footnote[2]{In order to stabilze the training dynamics with single precision unit (fp32), the regularization factor is set to $2/m$ where $m$ is the number of learnable weights} is used on the learnable weights in all network's layers. Random rotations within $\pm20^\circ$ and the magnifications within $\pm20\%$ are applied on the input images for the augmentation purpose. Another tool is checking the box predictions of YOLO outputs. If the box predictions reach 0.75 IoU or highers with the groundtruth, then the box's loss calculations in that paricular spatial position on YOLO feature maps will be skipped.
 
 \subsection{Evaluation Method}
-The bounding box can justify the existence of a tapping line in the image, which is usually carried the box overlapping ratio, such as Jaccard Index (a.k.a IoU), Dice's coefficient, etc., between predictions and the annotated data. Box overlapping ratio does not reflect the similarity of the tapping line though \cite{Wongtanawijit_2021}. Pixel-level overlapping ratios or geometry distances function are required to measure the similarity or the error between two polygonal curves that encoded in image's pixels.
+The bounding box can justify the existence of a tapping line in an image, using the boxes overlapping ratios between predictions and priors such as Jaccard Index (a.k.a IoU), Dice's coefficient, etc. Box overlapping ratios nonetheless do not reflect the similarity of the tapping line \cite{Wongtanawijit_2021}. Pixel-level overlapping ratios or geometry distances can measure for similarities or distance errors between two polygonal curves that encoded in image's pixels.
 
 The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine average precisions of the detections. And, pixel-level Dice's coefficient (a.k.a F1-score) on the tapping line's pixels verifies the exact overlap between two polygonal's vertices. However, appling the overlapping measurement on the polygonal vertices in the pixel-level over penalizes the small mislocated pixels. As visualized in Fig \ref{fig4-polyline}, the predicted polyline has a small shift in distance to the reference line. This makes the Dice's index approaching to zero, whereas a 2-D geometric distance, Hausdorff distance, indicates strong similarity between them.
 
@@ -272,7 +277,7 @@ In addition to the mentioned box and polyline evaluation metrics, this paper als
 Annotation with a box and a polyline enables the evaluations in many combinations. This paper presents a method by using the bounding boxes to decide for the existance of a tapping line in the image, then calculates other metrics within the detected results.
 
 \section{Experiment and Setup}\label{sec-exp}
-The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three novel segmentation loss functions for highly imbalanced data, Dice's, Focal and Tversky's index, with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's vectices.
+The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three novel segmentation loss functions for highly imbalanced data, Dice's, Focal and Tversky's index, with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's pixels.
 
 \begin{figure}[h]%
 \centering
@@ -310,11 +315,11 @@ The structure of pixel classication branch of Model B and Model C is shown in Fi
 \section{Results and Discussions}\label{sec-results}
 Fig \ref{} presents some detection results with the original images overlayed by boxes and polylines. The following values in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion.
 
-Table \ref{tab-results-ap50} and \ref{tab-results-ap50} present average precisions of tapping line bounding box detections with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances that are averaged from the box detected samples.
+Table \ref{tab-results-ap50} and \ref{tab-results-ap50} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
 
 \begin{table*}[]
 \centering
-\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on box's detected samples at 0.5 IoU}
+\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}
 \label{tab-results-ap50}
 \begin{minipage}{\linewidth}
 \begin{center}
@@ -336,13 +341,13 @@ C 	& Tversky	& 0.97	&	12.68	&	23.65	&	0.5602	\\
 
 \begin{table*}[]
 \centering
-\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on box's detected samples at 0.75 IoU}
+\caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}
 \label{tab-results-ap75}
 \begin{minipage}{\linewidth}
 \begin{center}
 \begin{tabular}{clccccc}
 Model & Pxl Header loss & Box $\mathrm{AP_{75}}$ & Avg. $\mathrm{d_{ep}}$(px.)	& Avg. $\mathrm{d_{H}}$(px.)	& Avg. F1-score	\\ \midrule
-A 	& Dice, Focal, Tversky 	& 0.62 & 9.14 	& 7.79 & 0.5831 \\ \midrule
+A 	& Dice, Focal, Tversky 	& 0.62 & 9.14 	& 6.99 & 0.5831 \\ \midrule
 B	& Dice		& 0.60		&	8.90	&	6.60	& 0.3640	\\
 B	& Focal		& 0.58 		&	9.25	&	9.34	&	0.3455	\\ 
 B	& Tversky	& 0.61 		&	9.15	&  8.69	&	0.3908   \\ \midrule
@@ -355,6 +360,8 @@ C 	& Tversky	& 0.58		&	9.13	&	22.06	&	0.5844	\\
 %\footnotetext{Note: }
 \end{minipage}
 \end{table*}
+
+\subsection{Overlapping and Distances}
 
 \section{Conclusion}
 

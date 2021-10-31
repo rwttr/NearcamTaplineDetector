@@ -101,6 +101,8 @@ function detect_kfold(load_model_path::String, load_model_name::String, save_res
             tapline_pxl_3 = Bool.(predictTapline(pxl_branch3, [[pred_box]])[][])
 
             tapline_pxl = tapline_pxl_1 + tapline_pxl_2 + tapline_pxl_3
+
+            # Majority Voting
             dttapline = map(tapline_pxl) do x
                 if x >= 2
                     x = 1
@@ -144,4 +146,12 @@ detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
 load_model_path = "./weights/no_iou_penalty/model_a"
 load_model_name  = "model_a"
 save_result_path = "result/no_iou_model_a_mi"
+detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+## run detection2 ( Paper version )
+
+# model_A 
+load_model_path = "./weights/model_a_reg"
+load_model_name  = "model_a_reg"
+save_result_path = "result/model_a"
 detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)

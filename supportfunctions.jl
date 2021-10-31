@@ -908,7 +908,7 @@ L2reg(m) = sum(sum(p.^2) for p in Flux.params(m))
 L2reg(m::Flux.Params) = sum(sum(p.^2) for p in m)
 
 # Image Visualizer
-function convert2RGB(x::Arrya{Float32,3})
+function convert2RGB(x::Array{Float32,3})
     # data in x ∈ [0,1]
     # remap value to Normed(UInt8)
 

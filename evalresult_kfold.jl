@@ -141,9 +141,12 @@ function evalSingleIOU(result_model_path::String; iou_eval=0.5, kfold=5)
 end
 
 
-##
+## eval all model in ./result
 res_dir = readdir("./result", join=true)
 for i in res_dir
     evalSingleIOU(i, iou_eval=0.75)
     println("")
 end
+
+##
+evalSingleIOU("./result\\model_a", iou_eval=0.75)

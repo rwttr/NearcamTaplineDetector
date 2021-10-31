@@ -19,21 +19,19 @@ data_dispatch_size = 1;
 nn_inputsize = [224 224];       # network input size
 
 ## Load Model
-model_path = "weights/no_iou_penalty/model_a/fold1/model_a_fold1_epoch100.bson"
+model_path = "weights/no_iou_penalty/model_a/fold1/model_a_fold1_epoch99.bson"
+model_path = "weights/no_iou_penalty/model_1v1_std_std_dice/fold1/model_1v1_std_std_dice_fold1_epoch100.bson"
 
 @load model_path model_save
 model = model_save;
 
-gpu_enable = true;
-if gpu_enable
-    model = gpu(model);
-end
+
 
 """ Sample Detection """
 ## Show sample image
 testdata = NDS.dataFold_1.test_data;
 NDS.resetDispatchRecord();
-
+##
 testDL = NDS.dispatchData(testdata;
     dispatch_size=data_dispatch_size,
     shuffle_enable=false,
@@ -41,16 +39,20 @@ testDL = NDS.dispatchData(testdata;
 );
 
 img = Float32.(testDL.data[1]) |> normalizeImg;
+img_ = Float32.(testDL.data[1]) # non-normalized image for visualizing
+
 gtbox = Float32.(testDL.data[2]);
 gtpxl = Float32.(testDL.data[3]);
 NDS.showImageSample(img[:,:,:,1],gtbox[:,:,1,1]);
 
+gpu_enable = true;
 if gpu_enable
+    model = gpu(model);
     img = gpu(img);
 end;
 
 ## run single detection
-nnoutput = model(img)
+nnoutput = model(img);
 
 nnoutput = nnoutput |> cpu;
 output_branch1 = nnoutput[1];
@@ -81,6 +83,7 @@ sourceimg = img[:,:,:,1] |> cpu;
 ## show detection 
 NDS.showImageSample(dttapline, dtbox);
 NDS.showImageSample(sourceimg, dtbox);
+NDS.showImageSample(gtpxl[:,:,:,1],gtbox[:,:,1,1])
 
 figplot = ImageView.imshow(sourceimg);
 
