@@ -60,9 +60,13 @@ The purpose of the near-range vision camera is for precisely locate the tapping 
 \subsection{Tapping Line Detection}
 Rubber tapping is a process of farming the natural rubber latex from a Pará rubber tree (\textit{Hevea brasiliensis}). Tapping is making a cut on the rubber tree bark or the tapping panel letting the latex to flow along. This cut is leaving a gutter that called the tapping path. Refer to the rubber tapping document \cite{abraham1992tapping}, the cut is recommended to be 30 to 45 degrees angle to the ground axis. Likewise, small angle tolerances are acceptable. A robot with a robot arm integrated, which able to do tapping automatically, probably have been installed a close-up camera for fine detail acquisition as in many visual-servoing systems (patents \cite{patent1, patent2, patent3}). Consequently, the appearance of a tapping path is a certain line in the image which named the "tapping line".
 
-The image data with labels are necessary for developing a machine learning algorithm by the supervised learning. The previous work \cite{Wongtanawijit_2021} labels a tapping line by two annotations. As shown in Fig \ref , a bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect to its corners as the tapping line endpoints. As a results, the polyline's vertices can be defined on every columns inside the box in order to simplify the annotations.
+The image data with labels are necessary for developing a machine learning algorithm by the supervised learning. The previous work \cite{Wongtanawijit_2021} labels a tapping line by two annotations. As shown in Fig \ref{fig-sampleannotation}, a bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect to its corners as the tapping line endpoints. As a results, the polyline's vertices can be defined on every columns inside the box for annotation convenience.
 
-
+\begin{figure}[h]%
+\centering
+\includegraphics[width=\linewidth]{sample_annotation.pdf}
+\caption{A near-range tapping panel image (left) and the magnified cropped (right). The tapping line is annotated by a bounding box (dotted green rectangle) and a polyline ( multiple segments in red along the box's diagonal).}\label{fig-sampleannotation}
+\end{figure}
 
 \subsection{Overview of Deep Convolutional Neural Networks}
 The developments of core ideas on deep CNN-based detectors quite become settled in last 5 years. Back then when CNN-based box detectors, Faster-RCNN \cite{fasterrcnn} and YOLO \cite{redmonyolov1}, were established in 2015. Much more recent detectors such as YOLOv3 \cite{redmonyolov3} (2018), YOLOv4 \cite{alexyyolov4} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locates small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
@@ -96,7 +100,7 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 
 
 \subsection{Models}\label{subsec-model}
-Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a graph of block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
+Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
 
 \begin{figure*}[h]%
 \centering
@@ -216,6 +220,12 @@ For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three opera
 \end{enumerate}
 
 In the network traning phase, pixel classification losses are computed on each outputs of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute in the calculations. Learnable weights of pointwise convolution in a particular Pxl Header combine low-level and high-level features via any mapping function, which can be arbitary specified in network traning phase. Sigmoid function bounds the values in between 0 and 1, which controls the numerical stability on the neurons and enhances the training convergence.
+
+\subsubsection{Inference for a tapping line}
+Box detection branches and pixel classification branch separately produce the outputs. To connect them up, 
+
+
+
 
 \subsection{Training}
 Dataset for this paper contains 1,425 tapping line images, only RGB1 version \cite{Wongtanawijit_2021} is used. Complying K-fold cross validation scheme with k=5, image data are divided into five clusters (folds). There are 285 samples for evaluation and 1,140 samples for training in each fold.
