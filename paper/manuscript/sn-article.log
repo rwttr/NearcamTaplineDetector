@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  31 OCT 2021 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  1 NOV 2021 02:45
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -997,32 +997,40 @@ Package pdftex.def Info: fig6.pdf  used on input line 311.
 
 LaTeX Warning: Reference `' on page 10 undefined on input line 316.
 
+<sample_detection.pdf, id=348, 1099.10625pt x 767.86874pt>
+File: sample_detection.pdf Graphic file (type pdf)
+<use sample_detection.pdf>
+Package pdftex.def Info: sample_detection.pdf  used on input line 320.
+(pdftex.def)             Requested size: 455.24408pt x 318.0386pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 320.
+               Default added (so using `tbp') on input line 326.
 
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.338 ...refer to naming in Section \ref{sec-exp}}
+l.344 ...refer to naming in Section \ref{sec-exp}}
                                                   
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 342.
+               Default added (so using `tbp') on input line 348.
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 376.
+(hyperref)                than one, level fixed on input line 382.
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 376--377
+Underfull \hbox (badness 1107) in paragraph at lines 382--383
 \OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 384.
+(hyperref)                than one, level fixed on input line 390.
 
 (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
@@ -1115,7 +1123,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[11]
+[11 <./sample_detection.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 58--61
 []\OT1/cmr/m/n/10 Huang G, Liu Z, Wein-berger KQ
  []
@@ -1147,6 +1155,14 @@ Underfull \hbox (badness 1132) in paragraph at lines 89--92
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[12]
 Underfull \hbox (badness 5388) in paragraph at lines 95--98
 []\OT1/cmr/m/n/10 Lin T, Goyal P, Gir-shick RB, et al
  []
@@ -1297,14 +1313,6 @@ Underfull \hbox (badness 3058) in paragraph at lines 149--153
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[12]
 Underfull \hbox (badness 1406) in paragraph at lines 155--157
 []\OT1/cmr/m/n/10 Tong K, Wu Y, Zhou F (2020) Recent
  []
@@ -1334,7 +1342,7 @@ Underfull \hbox (badness 2689) in paragraph at lines 165--168
 \OT1/cmr/m/n/10 and Appli-ca-tions [][]$https : / / doi . org / 10 . 1007 /
  []
 
-)
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1342,7 +1350,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[13
+[13])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[14
 
 ] (sn-article.aux)
 
@@ -1356,10 +1372,10 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: E16B2E7A6E489937DD82B4D105AFD144;4430.
  ) 
 Here is how much of TeX's memory you used:
- 14220 strings out of 478907
- 200194 string characters out of 2861736
- 550086 words of memory out of 3000000
- 31737 multiletter control sequences out of 15000+600000
+ 14230 strings out of 478907
+ 200425 string characters out of 2861736
+ 550397 words of memory out of 3000000
+ 31744 multiletter control sequences out of 15000+600000
  431641 words of font info for 139 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
  75i,18n,80p,1335b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1386,9 +1402,9 @@ s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/s
 ymbols/msbm10.pfb>
-Output written on sn-article.pdf (13 pages, 483662 bytes).
+Output written on sn-article.pdf (14 pages, 1750539 bytes).
 PDF statistics:
- 552 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 239 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 635 PDF objects out of 1000 (max. 8388607)
+ 101 named destinations out of 1000 (max. 500000)
+ 244 words of extra memory for PDF output out of 10000 (max. 10000000)
 

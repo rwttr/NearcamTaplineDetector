@@ -60,7 +60,9 @@ The purpose of the near-range vision camera is for precisely locate the tapping 
 \subsection{Tapping Line Detection}
 Rubber tapping is a process of farming the natural rubber latex from a Pará rubber tree (\textit{Hevea brasiliensis}). Tapping is making a cut on the rubber tree bark or the tapping panel letting the latex to flow along. This cut is leaving a gutter that called the tapping path. Refer to the rubber tapping document \cite{abraham1992tapping}, the cut is recommended to be 30 to 45 degrees angle to the ground axis. Likewise, small angle tolerances are acceptable. A robot with a robot arm integrated, which able to do tapping automatically, probably have been installed a close-up camera for fine detail acquisition as in many visual-servoing systems (patents \cite{patent1, patent2, patent3}). Consequently, the appearance of a tapping path is a certain line in the image which named the "tapping line".
 
-The image data with labels are necessary for developing a machine learning algorithm by the supervised learning. Previous tapping line detection work \cite{Wongtanawijit_2021} labels a tapping line by two annotations. A bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect two endpoints. As a results, the polyline's vertices can be defined on every columns inside the box in order to simplify the annotations.
+The image data with labels are necessary for developing a machine learning algorithm by the supervised learning. The previous work \cite{Wongtanawijit_2021} labels a tapping line by two annotations. As shown in Fig \ref , a bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect to its corners as the tapping line endpoints. As a results, the polyline's vertices can be defined on every columns inside the box in order to simplify the annotations.
+
+
 
 \subsection{Overview of Deep Convolutional Neural Networks}
 The developments of core ideas on deep CNN-based detectors quite become settled in last 5 years. Back then when CNN-based box detectors, Faster-RCNN \cite{fasterrcnn} and YOLO \cite{redmonyolov1}, were established in 2015. Much more recent detectors such as YOLOv3 \cite{redmonyolov3} (2018), YOLOv4 \cite{alexyyolov4} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locates small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
@@ -313,9 +315,15 @@ The structure of pixel classication branch of Model B and Model C is shown in Fi
 \end{figure}
 
 \section{Results and Discussions}\label{sec-results}
-Fig \ref{} presents some detection results with the original images overlayed by boxes and polylines. The following values in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion.
+Fig \ref{} presents some detection results, by the original images are overlayed by boxes and polylines of groundtruths and predictions. 
 
-Table \ref{tab-results-ap50} and \ref{tab-results-ap50} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
+\begin{figure*}[h]%
+\centering
+\includegraphics[width=\linewidth]{sample_detection.pdf}
+\caption{Some detection samples from various models. A pair of two images presents the tapping panel image with original size to scale beside its magnified view. Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}\label{fig-sampledetection}
+\end{figure*}
+
+These following values in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion. Table \ref{tab-results-ap50} and \ref{tab-results-ap50} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
 
 \begin{table*}[]
 \centering
