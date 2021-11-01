@@ -74,8 +74,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Computer Vision for Rubber Latex Harvesting}{5}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{5}{section.4}\protected@file@percent }
 \newlabel{sec-methodology}{{4}{5}{Methodology}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Models}{5}{subsection.4.1}\protected@file@percent }
-\newlabel{subsec-model}{{4.1}{5}{Models}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Model}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{subsec-model}{{4.1}{5}{Model}{subsection.4.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Downsampling backbone network explained in block structures with given names (\textbf  {block}). The denoted labels are layer operation (ops), a 2-dimension convolution (Conv2d), a shortcut connection with addition (Residual), $s$: convolution stride, $n$: numbers of filters, filter kernel's size (\textbf  {filter}), and $c$ is the numbers of block replication.}}{5}{table.1}\protected@file@percent }
 \newlabel{tab-darknetlight}{{1}{5}{Downsampling backbone network explained in block structures with given names (\textbf {block}). The denoted labels are layer operation (ops), a 2-dimension convolution (Conv2d), a shortcut connection with addition (Residual), $s$: convolution stride, $n$: numbers of filters, filter kernel's size (\textbf {filter}), and $c$ is the numbers of block replication}{table.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Downsampling Network}{5}{subsubsection.4.1.1}\protected@file@percent }
@@ -91,39 +91,35 @@
 \newlabel{tab-unetpath}{{3}{7}{Configuration of U-Net-like Upsampling Path, where ops represent a transpose convolution path in Fig \ref {fig1-modelA}, and $n$ is the number of filters}{table.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Components inside a pixel prediction block (Pxl Header), the executions of ops perform in the order}}{7}{table.4}\protected@file@percent }
 \newlabel{tab-pxlheader}{{4}{7}{Components inside a pixel prediction block (Pxl Header), the executions of ops perform in the order}{table.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Inference for a tapping line}{7}{subsubsection.4.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Training}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Model Training}{7}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Dataset Priors and Statistics}{7}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Visualization of estimated anchors. All box's aspect ratios are in scale. Dashed line represents the averaged box}}{7}{figure.3}\protected@file@percent }
-\newlabel{fig2-anchors}{{3}{7}{Visualization of estimated anchors. All box's aspect ratios are in scale. Dashed line represents the averaged box}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Visualization of the estimated anchors. All box's aspect ratios are in scale. Dashed line represents the averaged box}}{7}{figure.3}\protected@file@percent }
+\newlabel{fig2-anchors}{{3}{7}{Visualization of the estimated anchors. All box's aspect ratios are in scale. Dashed line represents the averaged box}{figure.3}{}}
 \citation{tverskyloss}
-\citation{Wongtanawijit_2021}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Branch Loss Function}{8}{subsubsection.4.2.2}\protected@file@percent }
 \newlabel{subsubsec-pxlbranch}{{4.2.2}{8}{Branch Loss Function}{subsubsection.4.2.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Parameters Settings}{8}{subsubsection.4.2.3}\protected@file@percent }
 \newlabel{subsubsec-trainingparams}{{4.2.3}{8}{Parameters Settings}{subsubsection.4.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces WarmUp-Steady-Decay Learning Rate Profile}}{8}{figure.4}\protected@file@percent }
-\newlabel{fig3-LR}{{4}{8}{WarmUp-Steady-Decay Learning Rate Profile}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces WarmUp-Steady-Decay Learning Rate Profile. Learning rate grows and drops in exponential rates in the warm-up and the decay periods.}}{8}{figure.4}\protected@file@percent }
+\newlabel{fig3-LR}{{4}{8}{WarmUp-Steady-Decay Learning Rate Profile. Learning rate grows and drops in exponential rates in the warm-up and the decay periods}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Generalization}{8}{subsubsection.4.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Evaluation Method}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Model Inferencing}{8}{subsection.4.3}\protected@file@percent }
+\citation{Wongtanawijit_2021}
 \citation{Huttenlocher1993ComparingIU}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A drawing of two polylines that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}}{9}{figure.5}\protected@file@percent }
-\newlabel{fig4-polyline}{{5}{9}{A drawing of two polylines that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A drawing of a polyline and a box that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. The red box represents the NMS-processed box with a plolyline (top). The result that the polyline are cropped and re-locate vectices to the box's corners is in bottom. }}{9}{figure.5}\protected@file@percent }
+\newlabel{fig4-sampleagreement}{{5}{9}{A drawing of a polyline and a box that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. The red box represents the NMS-processed box with a plolyline (top). The result that the polyline are cropped and re-locate vectices to the box's corners is in bottom}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evaluation Method}{9}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A drawing of two polylines that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}}{9}{figure.6}\protected@file@percent }
+\newlabel{fig4-polyline}{{6}{9}{A drawing of two polylines that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped}{figure.6}{}}
 \newlabel{eq-dice}{{1}{9}{Evaluation Method}{equation.4.1}{}}
 \newlabel{eq-hausdorff}{{2}{9}{Evaluation Method}{equation.4.2}{}}
-\newlabel{eq-endpoint}{{3}{9}{Evaluation Method}{equation.4.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Experiment and Setup}{9}{section.5}\protected@file@percent }
-\newlabel{sec-exp}{{5}{9}{Experiment and Setup}{section.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Pixel classification branch of the proposed model}}{9}{figure.6}\protected@file@percent }
-\newlabel{fig5-proposedPxlHeader}{{6}{9}{Pixel classification branch of the proposed model}{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pixel classification branch of baseline models (Model B and Model C)}}{10}{figure.7}\protected@file@percent }
-\newlabel{fig6-baselinePxlHeader}{{7}{10}{Pixel classification branch of baseline models (Model B and Model C)}{figure.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussions}{10}{section.6}\protected@file@percent }
-\newlabel{sec-results}{{6}{10}{Results and Discussions}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Overlapping and Distances}{10}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Supplementary information}{10}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Acknowledgments}{10}{section*.3}\protected@file@percent }
+\newlabel{eq-endpoint}{{3}{10}{Evaluation Method}{equation.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiment Setup}{10}{section.5}\protected@file@percent }
+\newlabel{sec-exp}{{5}{10}{Experiment Setup}{section.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pixel classification branch of the proposed model}}{10}{figure.7}\protected@file@percent }
+\newlabel{fig5-proposedPxlHeader}{{7}{10}{Pixel classification branch of the proposed model}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Pixel classification branch of baseline models (Model B and Model C)}}{10}{figure.8}\protected@file@percent }
+\newlabel{fig6-baselinePxlHeader}{{8}{10}{Pixel classification branch of baseline models (Model B and Model C)}{figure.8}{}}
 \bibstyle{bst/sn-basic}
 \bibdata{sn-bibliography}
 \bibcite{abraham1992tapping}{{1}{1992}{{Abraham}}{{}}}
@@ -132,8 +128,12 @@
 \bibcite{segnet}{{4}{2015}{{Badrinarayanan et~al}}{{Badrinarayanan, Kendall, and Cipolla}}}
 \bibcite{alexyyolov4}{{5}{2020}{{Bochkovskiy et~al}}{{Bochkovskiy, Wang, and Liao}}}
 \bibcite{chentomato}{{6}{2021}{{Chen et~al}}{{Chen, Wang, Wu, Hu, Zhao, Tan, Teng, and Luo}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Some detection samples from various models. A pair of two images presents the tapping panel image with original size to scale beside its magnified view. Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}}{11}{figure.8}\protected@file@percent }
-\newlabel{fig-sampledetection}{{8}{11}{Some detection samples from various models. A pair of two images presents the tapping panel image with original size to scale beside its magnified view. Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}{figure.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussions}{11}{section.6}\protected@file@percent }
+\newlabel{sec-results}{{6}{11}{Results and Discussions}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Overlapping and Distances}{11}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{11}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Supplementary information}{11}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Acknowledgments}{11}{section*.3}\protected@file@percent }
 \bibcite{Chu2021apple}{{7}{2021}{{Chu et~al}}{{Chu, Li, Lammers, Lu, and Liu}}}
 \bibcite{fastrcnn}{{8}{2015}{{Girshick}}{{}}}
 \bibcite{resnet}{{9}{2015}{{He et~al}}{{He, Zhang, Ren, and Sun}}}
@@ -142,10 +142,8 @@
 \bibcite{Huttenlocher1993ComparingIU}{{12}{1993}{{Huttenlocher et~al}}{{Huttenlocher, Klanderman, and Rucklidge}}}
 \bibcite{Jia2020apple}{{13}{2020}{{Jia et~al}}{{Jia, Tian, Luo, Zhang, Lian, and Zheng}}}
 \bibcite{Kuznetsova2020apple}{{14}{2020}{{Kuznetsova et~al}}{{Kuznetsova, Maleva, and Soloviev}}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}}{12}{table.5}\protected@file@percent }
-\newlabel{tab-results-ap50}{{5}{12}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}{table.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}}{12}{table.6}\protected@file@percent }
-\newlabel{tab-results-ap75}{{6}{12}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}}{12}{figure.9}\protected@file@percent }
+\newlabel{fig-sampledetection}{{9}{12}{Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}{figure.9}{}}
 \bibcite{Lawal_2021}{{15}{2021{}}{{Lawal}}{{}}}
 \bibcite{Lawal2021tomato}{{16}{2021{}}{{Lawal}}{{}}}
 \bibcite{Li2021apple}{{17}{2021}{{Li et~al}}{{Li, Jia, Sun, Hou, and Zheng}}}
@@ -153,6 +151,10 @@
 \bibcite{s20072145}{{19}{2020}{{Liu et~al}}{{Liu, Nouaze, Touko~Mbouembe, and Kim}}}
 \bibcite{vnet}{{20}{2016}{{Milletari et~al}}{{Milletari, Navab, and Ahmadi}}}
 \bibcite{misra2019mish}{{21}{2019}{{Misra}}{{}}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}}{13}{table.5}\protected@file@percent }
+\newlabel{tab-results-ap50}{{5}{13}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}}{13}{table.6}\protected@file@percent }
+\newlabel{tab-results-ap75}{{6}{13}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}{table.6}{}}
 \bibcite{redmonyolov2}{{22}{2016}{{Redmon and Farhadi}}{{}}}
 \bibcite{redmonyolov3}{{23}{2018}{{Redmon and Farhadi}}{{}}}
 \bibcite{redmonyolov1}{{24}{2015}{{Redmon et~al}}{{Redmon, Divvala, Girshick, and Farhadi}}}
