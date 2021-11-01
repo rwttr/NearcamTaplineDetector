@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.25)  1 NOV 2021 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.11.1)  2 NOV 2021 02:33
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -610,49 +610,42 @@ Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
 \c@nlinenum=\count320
 \TeXr@lab=\toks36
 )
-(C:\Program Files\MiKTeX\tex/latex/tools\tabularx.sty
-Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen306
-\TX@old@table=\dimen307
-\TX@old@col=\dimen308
-\TX@target=\dimen309
-\TX@delta=\dimen310
-\TX@cols=\count321
-\TX@ftn=\toks37
+(C:\Program Files\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
 )
 (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count322
+\l__color_backend_stack_int=\count321
 \l__pdf_internal_box=\box70
 )
 (sn-article.aux)
 \openout1 = `sn-article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 \footinsA=\insert252
-\c@footnoteA=\count323
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 18.
+\c@footnoteA=\count322
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 19.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 18.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 19.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 18.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 19.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -691,17 +684,17 @@ LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
 
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
-\scratchdimen=\dimen311
+\scratchcounter=\count323
+\scratchdimen=\dimen306
 \scratchbox=\box71
-\nofMPsegments=\count325
-\nofMParguments=\count326
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count327
-\MPscratchDim=\dimen312
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
-\everyMPtoPDFconversion=\toks39
+\nofMPsegments=\count324
+\nofMParguments=\count325
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count326
+\MPscratchDim=\dimen307
+\MPnumerator=\count327
+\makeMPintoPDFobject=\count328
+\everyMPtoPDFconversion=\toks38
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -710,8 +703,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count330
-Package hyperref Info: Link coloring ON on input line 18.
+\c@lstlisting=\count329
+Package hyperref Info: Link coloring ON on input line 19.
 
 (C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -722,57 +715,57 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count331
+\c@section@level=\count330
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
 
 (sn-article.out) (sn-article.out)
 \@outlinefile=\write3
 \openout3 = `sn-article.out'.
 
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 35.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 36.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 35.
+(Font)              size <8> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <8.43146> not available
-(Font)              size <8> substituted on input line 35.
+(Font)              size <8> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 35.
+(Font)              size <8> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 35.
+(Font)              size <8> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 35.
+(Font)              size <8> substituted on input line 36.
 
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 35
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 36
 .
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 35.
+(Font)              size <6> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.52061> not available
-(Font)              size <6> substituted on input line 35.
+(Font)              size <6> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 35.
+(Font)              size <6> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 35.
+(Font)              size <6> substituted on input line 36.
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 35
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 36
 .
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -799,16 +792,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [2]
-<sample_annotation.pdf, id=160, 521.69907pt x 233.37187pt>
+<sample_annotation.pdf, id=156, 521.69907pt x 233.37187pt>
 File: sample_annotation.pdf Graphic file (type pdf)
 <use sample_annotation.pdf>
-Package pdftex.def Info: sample_annotation.pdf  used on input line 67.
+Package pdftex.def Info: sample_annotation.pdf  used on input line 68.
 (pdftex.def)             Requested size: 216.24094pt x 96.73pt.
-
-Underfull \hbox (badness 1342) in paragraph at lines 79--80
-\OT1/cmr/m/n/10 Mapping of val-ues between responses (val-ues
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -818,12 +806,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [3 <./sample_annotation.pdf>]
-Underfull \hbox (badness 1043) in paragraph at lines 90--91
+Underfull \hbox (badness 1342) in paragraph at lines 80--81
+\OT1/cmr/m/n/10 Mapping of val-ues between responses (val-ues
+ []
+
+
+Underfull \hbox (badness 1043) in paragraph at lines 91--92
 \OT1/cmr/m/n/10 feature-pyramid struc-ture. [[]] tack-les blur-ing
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 90--91
+Underfull \hbox (badness 1199) in paragraph at lines 91--92
 \OT1/cmr/m/n/10 Sup-pres-sion Mask-RCNN [[]] appends another
  []
 
@@ -836,40 +829,40 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
-<fig1.pdf, id=257, 713.2951pt x 356.94891pt>
+<fig1.pdf, id=253, 713.2951pt x 356.94891pt>
 File: fig1.pdf Graphic file (type pdf)
 <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf  used on input line 107.
+Package pdftex.def Info: fig1.pdf  used on input line 108.
 (pdftex.def)             Requested size: 455.24408pt x 227.81471pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 112--113
+Underfull \hbox (badness 2865) in paragraph at lines 113--114
 \OT1/cmr/m/n/10 The down-sam-pling net-work bor-rows resid-ual
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 114.
+               Default added (so using `tbp') on input line 115.
 
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 116.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 117.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 116.
+(Font)              size <5> substituted on input line 117.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.015> not available
-(Font)              size <5> substituted on input line 116.
+(Font)              size <5> substituted on input line 117.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 116.
+(Font)              size <5> substituted on input line 117.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 116.
+(Font)              size <5> substituted on input line 117.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -882,21 +875,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [5]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 152.
+               Default added (so using `tbp') on input line 153.
 
 
-Overfull \hbox (8.62277pt too wide) in paragraph at lines 157--168
+Overfull \hbox (8.62277pt too wide) in paragraph at lines 158--169
 [][] 
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 172--173
+Underfull \hbox (badness 1019) in paragraph at lines 173--174
 \OT1/cmr/m/n/10 low resoul-tion ten-sors are enlarged by trans-
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 174.
+               Default added (so using `tbp') on input line 175.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -909,13 +902,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [6 <./fig1.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 196.
+               Default added (so using `tbp') on input line 197.
 
-<fig2.pdf, id=301, 190.05997pt x 227.04855pt>
+<fig2.pdf, id=296, 190.05997pt x 227.04855pt>
 File: fig2.pdf Graphic file (type pdf)
 <use fig2.pdf>
-Package pdftex.def Info: fig2.pdf  used on input line 232.
+Package pdftex.def Info: fig2.pdf  used on input line 235.
 (pdftex.def)             Requested size: 54.06023pt x 64.58131pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -924,27 +920,24 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[7 <./fig2.pdf>]
-Underfull \hbox (badness 1043) in paragraph at lines 241--242
+[7]
+Underfull \hbox (badness 1043) in paragraph at lines 244--245
 \OT1/cmr/m/n/10 tap-ping line's pix-els and back-ground's pix-els.
  []
 
-<fig3.pdf, id=317, 139.27534pt x 96.10123pt>
+<fig3.pdf, id=310, 139.27534pt x 96.10123pt>
 File: fig3.pdf Graphic file (type pdf)
 <use fig3.pdf>
-Package pdftex.def Info: fig3.pdf  used on input line 250.
+Package pdftex.def Info: fig3.pdf  used on input line 253.
 (pdftex.def)             Requested size: 142.7198pt x 98.48386pt.
 
-Underfull \hbox (badness 1082) in paragraph at lines 251--251
+Underfull \hbox (badness 1082) in paragraph at lines 254--254
 []\OT1/cmr/bx/n/8 Fig. 4 []\OT1/cmr/m/n/8 WarmUp-Steady-Decay Learn-ing Rate Pr
 o-file.
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \vbox (0.6264pt too high) has occurred while \output is active []
+Overfull \vbox (5.98459pt too high) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -954,26 +947,30 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[8 <./fig3.pdf>]
+[8 <./fig2.pdf> <./fig3.pdf
+
+pdfTeX warning: pdflatex (file ./fig3.pdf): PDF inclusion: multiple pdfs with p
+age group included in a single page
+>]
 
 LaTeX Warning: Reference `sampleagreement' on page 9 undefined on input line 26
-4.
+7.
 
-<sample_tapline_box_agreement.pdf, id=333, 191.85915pt x 210.8438pt>
+<sample_tapline_box_agreement.pdf, id=328, 191.85915pt x 210.8438pt>
 File: sample_tapline_box_agreement.pdf Graphic file (type pdf)
 <use sample_tapline_box_agreement.pdf>
 Package pdftex.def Info: sample_tapline_box_agreement.pdf  used on input line 2
-68.
+71.
 (pdftex.def)             Requested size: 112.4462pt x 123.57637pt.
 
-Underfull \hbox (badness 1789) in paragraph at lines 264--272
+Underfull \hbox (badness 1789) in paragraph at lines 267--275
 []\OT1/cmr/m/n/10 Accomplishing the mean-ing-ful result from
  []
 
-<fig4.pdf, id=336, 130.21483pt x 99.28758pt>
+<fig4.pdf, id=331, 130.21483pt x 99.28758pt>
 File: fig4.pdf Graphic file (type pdf)
 <use fig4.pdf>
-Package pdftex.def Info: fig4.pdf  used on input line 280.
+Package pdftex.def Info: fig4.pdf  used on input line 283.
 (pdftex.def)             Requested size: 86.49504pt x 65.95268pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -988,35 +985,41 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 pdfTeX warning: pdflatex (file ./fig4.pdf): PDF inclusion: multiple pdfs with p
 age group included in a single page
 >]
-Underfull \hbox (badness 1303) in paragraph at lines 302--303
+Underfull \hbox (badness 1303) in paragraph at lines 305--306
 \OT1/cmr/m/n/10 The design of the model in section [][]4.1[][] fol-
  []
 
-<fig5.pdf, id=357, 142.64238pt x 137.04709pt>
+<fig5.pdf, id=352, 142.64238pt x 137.04709pt>
 File: fig5.pdf Graphic file (type pdf)
 <use fig5.pdf>
-Package pdftex.def Info: fig5.pdf  used on input line 306.
+Package pdftex.def Info: fig5.pdf  used on input line 309.
 (pdftex.def)             Requested size: 118.93317pt x 114.26764pt.
 
-Underfull \hbox (badness 1194) in paragraph at lines 314--315
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 1194) in paragraph at lines 317--318
 []\OT1/cmr/m/n/10 Multiple seg-men-ta-tion loss for train-ing the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--320
+Underfull \hbox (badness 10000) in paragraph at lines 322--323
 
  []
 
-<fig6.pdf, id=363, 141.74184pt x 137.04709pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
+
+ []
+
+<fig6.pdf, id=358, 141.74184pt x 137.04709pt>
 File: fig6.pdf Graphic file (type pdf)
 <use fig6.pdf>
-Package pdftex.def Info: fig6.pdf  used on input line 333.
+Package pdftex.def Info: fig6.pdf  used on input line 337.
 (pdftex.def)             Requested size: 118.93317pt x 114.99956pt.
-<sample_detection.pdf, id=365, 1099.10625pt x 767.86874pt>
-File: sample_detection.pdf Graphic file (type pdf)
-<use sample_detection.pdf>
-Package pdftex.def Info: sample_detection.pdf  used on input line 342.
-(pdftex.def)             Requested size: 455.24408pt x 318.0386pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1025,40 +1028,25 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[10 <./fig5.pdf> <./fig6.pdf
+[10 <./fig5.pdf>]
+<sample_detection.pdf, id=377, 1099.10625pt x 767.86874pt>
+File: sample_detection.pdf Graphic file (type pdf)
+<use sample_detection.pdf>
+Package pdftex.def Info: sample_detection.pdf  used on input line 347.
+(pdftex.def)             Requested size: 455.24408pt x 318.0386pt.
 
-pdfTeX warning: pdflatex (file ./fig6.pdf): PDF inclusion: multiple pdfs with p
-age group included in a single page
->]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 348.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.2})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.366 ...refer to naming in Section \ref{sec-exp}}
-                                                  
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 370.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 404.
-
-
-Underfull \hbox (badness 1107) in paragraph at lines 404--405
-\OT1/cmr/m/n/10 has accom-pa-ny-ing sup-ple-men-tary file/s please
- []
-
-
-Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 412.
+(hyperref)                than one, level fixed on input line 417.
 
 (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
@@ -1108,12 +1096,20 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[11]
+[11 <./fig6.pdf>]
 Underfull \hbox (badness 1097) in paragraph at lines 39--42
 []\OT1/cmr/m/n/10 Chu P, Li Z, Lam-mers K, et al (2021)
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[12 <./sample_detection.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 []\OT1/cmr/m/n/10 Girshick RB (2015) Fast R-
  []
@@ -1164,14 +1160,6 @@ Underfull \hbox (badness 3780) in paragraph at lines 75--78
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[12 <./sample_detection.pdf>]
 Underfull \hbox (badness 2671) in paragraph at lines 80--82
 \OT1/cmr/m/n/10 on mod-i-fied YOLOv3 frame-work. Sci-en-
  []
@@ -1243,6 +1231,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--109
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[13]
 Underfull \hbox (badness 4492) in paragraph at lines 111--114
 []\OT1/cmr/m/n/10 Misra D (2019) Mish: A self reg-u-lar-
  []
@@ -1258,14 +1254,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--114
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[13]
 Underfull \hbox (badness 10000) in paragraph at lines 116--119
 []\OT1/cmr/m/n/10 Redmon J, Farhadi A (2016)
  []
@@ -1387,16 +1375,16 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: 9F3DE1EAAFDF6EFAD22B85B868BF3863;4580.
+(rerunfilecheck)             Checksum: CC4803378F726338AFB77CE95DEEE68A;4398.
  ) 
 Here is how much of TeX's memory you used:
- 14250 strings out of 478907
- 201011 string characters out of 2861736
- 552089 words of memory out of 3000000
- 31759 multiletter control sequences out of 15000+600000
- 431641 words of font info for 139 fonts, out of 8000000 for 9000
+ 14214 strings out of 478907
+ 200708 string characters out of 2861737
+ 551100 words of memory out of 3000000
+ 31724 multiletter control sequences out of 15000+600000
+ 431292 words of font info for 138 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 75i,18n,80p,1335b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,18n,80p,1346b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Rattachai\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8
 .pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
@@ -1419,10 +1407,11 @@ cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb>
-Output written on sn-article.pdf (14 pages, 1961638 bytes).
+ymbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb>
+Output written on sn-article.pdf (14 pages, 1968467 bytes).
 PDF statistics:
  670 PDF objects out of 1000 (max. 8388607)
- 104 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 named destinations out of 1000 (max. 500000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -424,4 +424,83 @@ end
 
 model_a = NNModel_A1(basenet_darknetlight, (yololayer_layer1, yololayer_layer2))
 
+
+
+""" Model A2 - Col-wise softmax attached to pxl head """
+
+function NNModel_A2(basenet, yololayer)
+    basenet_block = (
+        # basenet_1x 224 224 32
+        basenet[1:2],
+        # basenet_2x 112 112 64
+        basenet[3:5],
+        # basenet_4x 56 56 128
+        basenet[6:8],
+        # basenet_8x 28 28 256
+        basenet[9:11],
+        # basenet_16x 14 14 384
+        basenet[12:14],
+        # basenet_32x 7 7 512
+        basenet[15:17]
+    );
+    
+    # upsample block
+    up_32x16 = UpBlock(512, 128)        # from basenet_32x 7 7 512
+    up_16x8 = UpBlock(384 + 128, 128)   # from basenet_16x 14 14 384
+    up_8x4 = UpBlock(256 + 128, 64)     # from basenet_8x 28 28 256
+    up_4x2 = UpBlock(128 + 64, 64)      # from basenet_4x 56 56 128
+    up_2x1 = UpBlock(64 + 64, 32)       # from basenet_2x 112 112 64
+
+    upsample_block = (
+        up_2x1,
+        up_4x2,
+        up_8x4,
+        up_16x8,
+        up_32x16        
+    )
+
+    # yolo-block
+    yoloBranch_1 = Chain(
+        Conv((3, 3), 384 => 512, pad=SamePad()),
+        BatchNorm(512, leakyrelu),
+        Split(yoloHeadBlock(512, yololayer[1])...)  # output  
+    )
+
+    yoloBranch_2 = Chain(
+        Conv((3, 3), 512 => 512, pad=SamePad()), 
+        BatchNorm(512, leakyrelu),
+        Split(yoloHeadBlock(512, yololayer[2])...)  # output
+    )
+
+    yolohead_block = yoloBranch_1, yoloBranch_2
+
+    # pxl supervising block
+    pxlsup_1 = Chain(
+        Conv((1, 1), 64 => 1, pad=SamePad(), tanh),
+        x->softmax(x,dims=1)
+    );
+
+    pxlsup_2 = Chain(
+        Conv((1, 1), 64 => 1, pad=SamePad(), tanh),
+        x->softmax(x,dims=1)
+    );
+    
+    pxlsup_3 = Chain(
+        Conv((1, 1), 64 => 1, pad=SamePad(), tanh),
+        x->softmax(x,dims=1)
+    );
+    
+    pxpredhead_block = pxlsup_1, pxlsup_2, pxlsup_3
+
+    NNModelA(
+        basenet_block, 
+        upsample_block, 
+        yolohead_block, 
+        pxpredhead_block
+    )
+end
+
+model_a2 = NNModel_A2(basenet_darknetlight, (yololayer_layer1, yololayer_layer2))
+
+
 println("all model loaded");

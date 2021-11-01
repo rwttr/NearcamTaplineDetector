@@ -9,7 +9,8 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{makecell}
-\usepackage{tabularx}
+\usepackage{placeins}
+\usepackage{amssymb}
 
 \jyear{2021}
 \raggedbottom
@@ -53,14 +54,14 @@ In order to archieve the higher detection accuracy, this paper also presents a m
 The rests of this paper include: the review of literatures in Section \ref{sec-review} \textemdash e.g. the previous work of the tapping line detection, relevant applications of muliple output node CNN detectors, etc. The design of tapping line detection network in Section 3. The experiment setup and results in Section 4 and Section 5. Summary with the disscussions are in Section 6.
 
 \section{Background and Motivation}\label{sec-background}
-The purpose of the near-range vision camera is for precisely locate the tapping position for tapping manipulation of the robot arm. Our previous work \cite{Wongtanawijit_2021} demonstrated the detection algorithm in a form of an image processing algorithm. The method produces accurate results but it was specially designed and required two input images accommodating by artificial lighting patterns for the nighttime farming. Apart from this paper that, the CNN-based detectors can learn what and where is the tapping line under any lighting circumstance depends on the training dataset. Moreover, tappling line detection by modern computer vision algorithms is not yet explored at this time. Hence, it is a interesting topic to study the capable of CNN-based detectors with the tappline line image dataset, and might be useful as an alternate algorithm for the robot.
+The purpose of the near-range vision camera is for precisely locate the tapping position for tapping manipulation of the robot arm. Our previous work \cite{Wongtanawijit_2021} demonstrated the detection algorithm in a form of an image processing algorithm. The method produces accurate results but it was specially designed and required two input images accommodating by artificial lighting patterns for the nighttime farming. Apart from this paper that, the CNN-based detectors can learn what and where is the tapping line under any lighting circumstance depends on the training dataset. Moreover, tappling line detection by modern computer vision algorithms is not yet explored at this time. Hence, it is a interesting topic to study the capable of CNN-based detectors with the tappline line image dataset, and might be useful as an alternative algorithm for the robot.
 
 %% Section
 \section{Review of Literatures}\label{sec-review}
 \subsection{Tapping Line Detection}
 Rubber tapping is a process of farming the natural rubber latex from a Pará rubber tree (\textit{Hevea brasiliensis}). Tapping is making a cut on the rubber tree bark or the tapping panel letting the latex to flow along. This cut is leaving a gutter that called the tapping path. Refer to the rubber tapping document \cite{abraham1992tapping}, the cut is recommended to be 30 to 45 degrees angle to the ground axis. Likewise, small angle tolerances are acceptable. A robot with a robot arm integrated, which able to do tapping automatically, probably have been installed a close-up camera for fine detail acquisition as in many visual-servoing systems (patents \cite{patent1, patent2, patent3}). Consequently, the appearance of a tapping path is a certain line in the image which named the "tapping line".
 
-The image data with labels are necessary for developing a machine learning algorithm by the supervised learning. The previous work \cite{Wongtanawijit_2021} labels a tapping line by two annotations. As shown in Fig \ref{fig-sampleannotation}, a bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect to its corners as the tapping line endpoints. As a results, the polyline's vertices can be defined on every columns inside the box for annotation convenience.
+The image data with labels are necessary for developing a machine learning algorithm by the supervised learning. The previous work \cite{Wongtanawijit_2021} labels a tapping line by two annotations. As shown in Fig \ref{fig-sampleannotation}, a bounding box encodes the tapping endpoints that to be at the top-left and the bottom-right corner of the box. Then, a polyline or a piecewise polynomial connect to its corners as the tapping line endpoints. As a results, the polyline's vertices can be defined on every columns inside the box for the annotation convenience and satisfying the spiral downward tapping system.
 
 \begin{figure}[h]%
 \centering
@@ -69,7 +70,7 @@ The image data with labels are necessary for developing a machine learning algor
 \end{figure}
 
 \subsection{Overview of Deep Convolutional Neural Networks}
-The developments of core ideas on deep CNN-based detectors quite become settled in last 5 years. Back then when CNN-based box detectors, Faster-RCNN \cite{fasterrcnn} and YOLO \cite{redmonyolov1}, were established in 2015. Much more recent detectors such as YOLOv3 \cite{redmonyolov3} (2018), YOLOv4 \cite{alexyyolov4} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locates small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
+The development of new substantial ideas on deep CNN-based detectors quite becomes settled in recent years. Back then when CNN-based box detectors, Faster-RCNN \cite{fasterrcnn} and YOLO \cite{redmonyolov1}, were established in 2015. Much more recent detectors such as YOLOv3 \cite{redmonyolov3} (2018), YOLOv4 \cite{alexyyolov4} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locates small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
 
 Apart from boxes, there are other networks that can predict examining the image in pixel level as well. Some novel networks such as U-Net \cite{unet}, V-Net \cite{vnet}, SegNet \cite{segnet}, etc., produce a mask from the image as the segmentation task in image processing category. These models separate the areas of the objects (or other interests) from the background. These models employ a chain of upsampling or transposed convolution layers to enlarge the spatial size of the data back to input's size, which are suitable for fine pixel detection application.
 
@@ -202,7 +203,7 @@ Three pixel prediction blocks (Pxl Header) are proposed, named ``Pxl Header1", `
 \begin{tabular}{@{}clcc@{}}%{p{0.1\linewidth}p{0.2\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
 Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footnotemark[1]	\\ \midrule
 1	& Pointwise Conv2d	& 64  & 1 \\
-2	& Sigmoid Activation	& 1  & 1 \\
+2	& Tanh Activation	& 1  & 1 \\
 3	& Column-wise Softmax   & 1 & 1 \\ \bottomrule
 \end{tabular}%
 \end{center}
@@ -210,7 +211,7 @@ Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footno
 \end{minipage}
 \end{table}
 
-Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then Sigmoid activation modifies the useful values to be pass through. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position dependency within the image's columns, which means it suppressed others while boosting one another. This process can be compared to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
+Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then the hyperbolic tangent (tanh) activation modifies the values. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position dependency within the image's columns, which means it suppressed others while boosting one another. This process can be compared to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
 
 For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three operations, that run in the order by,
 \begin{enumerate}
@@ -225,6 +226,8 @@ In the network traning phase, pixel classification losses are computed on each o
 Dataset for this paper contains 1,425 tapping line images, only RGB1 version \cite{Wongtanawijit_2021} is used. Complying K-fold cross validation scheme with k=5, image data are divided into five clusters (folds). In each fold, there are 285 samples for evaluation and 1,140 samples for training the model.
 
 \subsubsection{Dataset Priors and Statistics}
+All images in the dataset is collected within the nighttimes using artificial light souces. The camera produces tapping panel images with the dark background. And, an tapping panel image contains only one tapping line.
+
 All RGB image are resized to network's input size, $224\times224\times3$ pixels with not preserving their original aspect ratios. An averaged size of annotated tapping line bounding boxes, with respected to the resized image, is 59.2 width and 70.6 height. Therefore, the values estimates for anchors' sizes are (59.2, 70.6), (50.2, 79.6), and (66.6, 60.0). These anchors will be constantly used across all the models.
 
 \begin{figure}[h]%
@@ -259,14 +262,14 @@ Box detection branches and the pixel classification branch separately produce th
 
 For producing bounding box prediction, the network selects only one strongest prediction for an anchor size per YOLO branches, which means there are 3 predictions at a YOLO branch. Six predictions from 2 YOLO branches are therefore reduced to one final result by Non-maximal suppression (NMS).
 
-At the pixel classication branch, function $\mathrm{g}(x)$ creates a binary image that contains one valid pixel (1's) per column. Some valid pixels may inlined with the tapping line while some are not. So, the prediction is to crop the binary image by the mentioned bounding box from NMS to filter out the unwanted pixels (boundary condition dominated by the box, valid pixels on the box's boderline are removed).
+At the pixel classication branch, function $\mathrm{g}(x)$ creates a binary image that contains one valid pixel (1's) per column. Some valid pixels may aligned with the tapping line while some are not. So, the prediction is to crop the binary image by the mentioned bounding box from NMS to filter out the unwanted pixels (boundary condition dominated by the box, valid pixels on the box's boderline are removed).
 
-Accomplishing the meaningful result from both annotations, the final polyline will have the first vertex at box's top-left corner as a tapping line starting point, and the terminate vertex at box's bottom-right corner. Fig \ref{sampleagreement} illustrates an example of the process. This agreement is for determining or inferencing a tapping line.
+Accomplishing the meaningful result from both annotations, the final polyline will have the first vertex at box's top-left corner as a tapping line starting point, and the terminate vertex at box's bottom-right corner. Fig \ref{sampleagreement} illustrates an example of the process. This agreement is for inferencing a tapping line from the model.
 % sample_tapline_box_agreement
 \begin{figure}[h]%
 \centering
 \includegraphics[width=0.52\linewidth]{sample_tapline_box_agreement.pdf}
-\caption{A drawing of a polyline and a box that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. The red box represents the NMS-processed box with a plolyline (top). The result that the polyline are cropped and re-locate vectices to the box's corners is in bottom.
+\caption{A drawing shows a polyline and a box that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. The red box represents the NMS-processed box with a plolyline (top). The result that the polyline are cropped and re-locate vectices to the box's corners is in bottom.
 }\label{fig4-sampleagreement}
 \end{figure}
 
@@ -278,7 +281,7 @@ The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine avera
 \begin{figure}[h]%
 \centering
 \includegraphics[width=0.4\linewidth]{fig4.pdf}
-\caption{A drawing of two polylines that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}\label{fig4-polyline}
+\caption{A drawing of two polylines in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}\label{fig4-polyline}
 \end{figure}
 
 To clearify the calculation of both metrics, let any polygonal lines where thier vertices are on a discrete grid (positive integers grid, $\mathbb{I^+}\times \mathbb{I^+}$), which also known as the ``discrete curve". So, let $\textbf{A}$ and $\textbf{B}$ respectively represent the set of vertices of a predicted tapping line and its corresponding groundtruth. Dice's coefficient ($D$) is obtained in equation \ref{eq-dice}
@@ -317,23 +320,25 @@ The proposed components can be summarized as.
 Those assumptions require reference models or the baseline models in order to observe the components' contributions. The baseline model construction is piecewise shuffling those components in the model chain, such as reducing the amount of Pxl Header, bypassing the column-wise Softmax, etc. As a result, the experiment gives the name of the models by,
 \begin{itemize} 
 \item[] \emph{\textbf{Model A}}: The proposed model, as presented in Section \ref{subsec-model}. \\
-\item[] \emph{\textbf{Model B}}: Made changes on Model A by,
+\item[] \emph{\textbf{Model B}}: Similar to Model A but column-wise softmax functions are removed from all Pxl Headers. \\
+\item[] \emph{\textbf{Model C}}: Made changes on Model A by,
 	\begin{itemize}
   	\item Remove the parallel structure of Pxl Header, only a single block is used as shown in Fig \ref{fig6-baselinePxlHeader}. Pxl Header's structure is similar to one of the proposed model. 
   	\item Only one segmentation loss is used at the pixel classification output for training the model at a time.
   	\item Re-define $\mathrm{g}(x)$ by removing the voting operation from the original (in Section \ref{subsubsec-pxlbranch}), because there is only one incoming signal from Pxl Header.
 	\end{itemize}
-\item[] \emph{\textbf{Model C}}: Similar to Model B, but column-wise Softmax layer is no longer in the Pxl Header.
+\item[] \emph{\textbf{Model D}}: Similar to Model C, but column-wise Softmax layer is no longer in the Pxl Header.
 \end{itemize}
 
-The structure of pixel classication branch of Model B and Model C is shown in Fig \ref{fig6-baselinePxlHeader}. Eventually, the training parameters of all models use same settings as described in Section \ref{subsubsec-trainingparams}
+The structure of pixel classication branch of Model C and Model D is shown in Fig \ref{fig6-baselinePxlHeader}. Eventually, the training parameters of all models use same settings as described in Section \ref{subsubsec-trainingparams}
 
 \begin{figure}[h]%
 \centering
 \includegraphics[width=0.55\linewidth]{fig6.pdf}
-\caption{Pixel classification branch of baseline models (Model B and Model C)}\label{fig6-baselinePxlHeader}
+\caption{Pixel classification branch of baseline models (Model C and Model D)}\label{fig6-baselinePxlHeader}
 \end{figure}
 
+\FloatBarrier
 \section{Results and Discussions}\label{sec-results}
 Fig \ref{fig-sampledetection} presents some detection results that the original images are overlayed by boxes and polylines of groundtruths and predictions. 
 
@@ -343,51 +348,59 @@ Fig \ref{fig-sampledetection} presents some detection results that the original 
 \caption{Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}\label{fig-sampledetection}
 \end{figure*}
 
-The following results in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion. Table \ref{tab-results-ap50} and \ref{tab-results-ap50} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
+The following results in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion. Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
 
-\begin{table*}[]
+\begin{table*}[!h]
 \centering
 \caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}
 \label{tab-results-ap50}
 \begin{minipage}{\linewidth}
 \begin{center}
-\begin{tabular}{clcccc}
-Model & Pxl Header loss & Box $\mathrm{AP_{50}}$ & Avg. $\mathrm{d_{ep}}$(px.)	& Avg. $\mathrm{d_{H}}$(px.)	& Avg. F1-score	\\ \midrule
-A 	& Dice, Focal, Tversky 	& 0.98	&	12.08		& 	10.60	&	 0.5654 \\ \midrule
-B	& Dice		& 0.98	&	12.08	&	8.94	& 0.3511	\\
-B	& Focal		& 0.96	&	12.68	&	12.31	&	0.3142	\\ 
-B	& Tversky	& 0.98 	&	12.19	&  11.31	&	0.3510   \\ \midrule
-C 	& Dice		& 0.98	&	12.60	&	11.18	&	0.5510	\\
-C 	& Focal		& 0.95	&	13.22	&	13.54	&	0.3890	\\
-C 	& Tversky	& 0.97	&	12.68	&	23.65	&	0.5602	\\ 
+\begin{tabular}{clccccc}
+\toprule
+Model & Pxl Header loss & \makecell[c]{Col-wise Softmax} & $\mathrm{AP_{75}}$ &$\mathrm{d_{ep}}$(px.) & $\mathrm{d_{H}}$(px.)& F1-score	\\ \midrule
+A 	& Dice, Focal, Tversky 	& \checkmark & 0.98	&	12.08		& 	10.60	&	 0.5654 \\ \midrule
+B 	& Dice, Focal, Tversky 	& - & 0.98	&	12.08		& 	10.60	&	 0.5654 \\ \midrule
+C	& Dice		& \checkmark & 0.98	&	12.08	&	8.94	& 0.3511	\\
+C	& Focal		& \checkmark & 0.96	&	12.68	&	12.31	&	0.3142	\\ 
+C	& Tversky	& \checkmark& 0.98 	&	12.19	&  11.31	&	0.3510   \\ \midrule
+D 	& Dice		& - & 0.98	&	12.60	&	11.18	&	0.5510	\\
+D 	& Focal		& - & 0.95	&	13.22	&	13.54	&	0.3890	\\
+D 	& Tversky	& - & 0.97	&	12.68	&	23.65	&	0.5602	\\ 
 \bottomrule
 \end{tabular}%
 \end{center}
-\footnotetext{Note: Model code A, B, C refer to naming in Section \ref{sec-exp}}
+%\footnotetext{Note: Model code A, B, C refer to naming in Section \ref{sec-exp}}
 \end{minipage}
 \end{table*}
 
-\begin{table*}[]
+\begin{table*}[!h]
 \centering
 \caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}
 \label{tab-results-ap75}
 \begin{minipage}{\linewidth}
 \begin{center}
 \begin{tabular}{clccccc}
-Model & Pxl Header loss & Box $\mathrm{AP_{75}}$ & Avg. $\mathrm{d_{ep}}$(px.)	& Avg. $\mathrm{d_{H}}$(px.)	& Avg. F1-score	\\ \midrule
-A 	& Dice, Focal, Tversky 	& 0.62 & 9.14 	& 6.99 & 0.5831 \\ \midrule
-B	& Dice		& 0.60		&	8.90	&	6.60	& 0.3640	\\
-B	& Focal		& 0.58 		&	9.25	&	9.34	&	0.3455	\\ 
-B	& Tversky	& 0.61 		&	9.15	&  8.69	&	0.3908   \\ \midrule
-C 	& Dice		& 0.58		&	9.20	&	8.19	&	0.5744	\\
-C 	& Focal		& 0.53		&	9.37	&	11.25	&	0.4028	\\
-C 	& Tversky	& 0.58		&	9.13	&	22.06	&	0.5844	\\ 
+\toprule
+Model & Pxl Header loss & \makecell[c]{Col-wise Softmax} & $\mathrm{AP_{75}}$ &$\mathrm{d_{ep}}$(px.) & $\mathrm{d_{H}}$(px.)& F1-score	\\ \midrule
+A 	& Dice, Focal, Tversky 	& \checkmark & 0.62 & 9.14 	& 6.99 & 0.5831 \\ \midrule
+B 	& Dice, Focal, Tversky 	& - & 0.62 & 9.14 	& 6.99 & 0.5831 \\ \midrule
+C	& Dice		& \checkmark  & 0.60	&	8.90	&	6.60	& 0.3640	\\
+C	& Focal		&\checkmark & 0.58 	& 9.25	&	9.34	&	0.3455	\\ 
+C	& Tversky	& \checkmark &  0.61 		 & 9.15	&  8.69	&	0.3908   \\ \midrule
+D 	& Dice		& - & 0.58 &	9.20	&	8.19	&	0.5744	\\
+D 	& Focal		& - & 0.53 &	9.37	&	11.25	&	0.4028	\\
+D 	& Tversky	& - & 0.58 & 9.13	&	22.06	&	0.5844 \\ 
 \bottomrule
 \end{tabular}%
 \end{center}
 %\footnotetext{Note: }
 \end{minipage}
 \end{table*}
+
+Results in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} clearly show that all models can detect tapping line boxes with high average precisions of 0.95 and aboves at 0.5 box IoU ($\mathrm{AP_{50}}$). Even in the more precise localization criterion, results with 0.75 box IoU ($\mathrm{AP_{75}}$) also confirm that all models also consistently produce tapping line bounding box at similar rates about 0.55 to 0.6 average precision. These IoU-based results are agreeable to tapping endpoints errors that measure the distance between boxes' corners. 
+
+Difference between models are
 
 \subsection{Overlapping and Distances}
 
@@ -399,14 +412,6 @@ In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is 
 
 \backmatter
 
-\bmhead{Supplementary information}
-
-If your article has accompanying supplementary file/s please state so here. 
-
-Authors reporting data from electrophoretic gels and blots should supply the full unprocessed scans for key as part of their Supplementary information. This may be requested by the editorial team/s if it is missing.
-
-Please refer to Journal-level guidance for any specific requirements.
-
 \bmhead{Acknowledgments}
 
 Acknowledgments are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
@@ -416,20 +421,10 @@ Acknowledgments are not compulsory. Where included they should be brief. Grant o
 Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
 
 \begin{itemize}
-\item Funding
-\item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
-\item Ethics approval 
-\item Consent to participate
-\item Consent for publication
 \item Availability of data and materials
 \item Code availability 
-\item Authors' contributions
 \end{itemize}
-
-\noindent
-If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
 
 \bibliographystyle{bst/sn-basic}
 \bibliography{sn-bibliography}
-
 \end{document}
