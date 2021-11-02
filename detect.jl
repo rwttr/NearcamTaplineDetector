@@ -19,8 +19,9 @@ data_dispatch_size = 1;
 nn_inputsize = [224 224];       # network input size
 
 ## Load Model
-model_path = "weights/no_iou_penalty/model_a/fold1/model_a_fold1_epoch99.bson"
-model_path = "weights/no_iou_penalty/model_1v1_std_std_dice/fold1/model_1v1_std_std_dice_fold1_epoch100.bson"
+#model_path = "weights/no_iou_penalty/model_a/fold1/model_a_fold1_epoch99.bson"
+# model_path = "weights/model_a_reg/fold1/model_a_reg_fold1_epoch100.bson"
+model_path = "weights/model_a2_reg/fold1/model_a2_reg_fold1_epoch100.bson"
 
 @load model_path model_save
 model = model_save;

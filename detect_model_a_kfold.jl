@@ -154,10 +154,10 @@ detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
 load_model_path = "./weights/model_a_reg"
 load_model_name  = "model_a_reg"
 save_result_path = "result/model_a"
-detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+@time detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
 
 # model_A2 
 load_model_path = "./weights/model_a2_reg"
 load_model_name  = "model_a2_reg"
 save_result_path = "result/model_a2"
-detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+@time detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)

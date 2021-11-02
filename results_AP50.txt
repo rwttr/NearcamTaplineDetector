@@ -1,0 +1,103 @@
+result_model_path = "./result\\model_a"
+Box desire results
+ap_box_fold = Float32[0.98932385, 0.99288255, 0.9786477, 0.9679715, 0.9822064]
+ap_model = 0.98220646f0
+dh_avg_fold = Float32[8.330058, 8.280496, 9.524884, 11.505626, 8.136902]
+avg_detected_dh = 9.155593f0
+eperr_avg_fold = Float32[11.069853, 10.286107, 13.090004, 14.712975, 11.473748]
+avg_detected_eperr = 12.126537f0
+f1_avg_fold = Float32[0.5694944, 0.61713046, 0.5601924, 0.5514757, 0.57051563]
+avg_detected_f1score = 0.57376176f0
+l2_avg_fold = Float32[80.25174, 71.20612, 87.90973, 104.31298, 83.38564]
+avg_detected_l2 = 85.413246f0
+
+result_model_path = "./result\\model_a2"
+Box desire results
+ap_box_fold = Float32[0.97153026, 0.9608541, 0.9608541, 0.83985764, 0.9857651]
+ap_model = 0.9437722f0
+dh_avg_fold = Float32[10.515126, 11.038977, 9.260797, 14.501483, 9.808728]
+avg_detected_dh = 11.0250225f0
+eperr_avg_fold = Float32[13.961395, 13.796327, 11.550443, 17.1946, 11.2975235]
+avg_detected_eperr = 13.560057f0
+f1_avg_fold = Float32[0.41917586, 0.37368563, 0.41833243, 0.39932436, 0.4250568]
+avg_detected_f1score = 0.40711498f0
+l2_avg_fold = Float32[133.61159, 137.04768, 118.46674, 157.85535, 120.98658]
+avg_detected_l2 = 133.59358f0
+
+result_model_path = "./result\\model_b_dice"
+Box desire results
+ap_box_fold = Float32[0.9857651, 0.98932385, 0.83985764, 0.9822064, 0.97508895]
+ap_model = 0.9544484f0
+dh_avg_fold = Float32[8.578243, 8.904732, 14.661468, 11.438658, 10.399216]
+avg_detected_dh = 10.796463f0
+eperr_avg_fold = Float32[11.057268, 11.643838, 17.795761, 14.910608, 12.106501]
+avg_detected_eperr = 13.502795f0
+f1_avg_fold = Float32[0.3823141, 0.42637426, 0.33109635, 0.3913606, 0.38672876]
+avg_detected_f1score = 0.3835748f0
+l2_avg_fold = Float32[115.03068, 108.89765, 156.52567, 133.53932, 123.01157]
+avg_detected_l2 = 127.40098f0
+
+result_model_path = "./result\\model_b_focal"
+Box desire results
+ap_box_fold = Float32[0.97153026, 0.97153026, 0.9857651, 0.98932385, 0.9786477]
+ap_model = 0.97935945f0
+dh_avg_fold = Float32[12.373426, 13.448524, 13.391389, 14.030003, 12.75157]
+avg_detected_dh = 13.198982f0
+eperr_avg_fold = Float32[11.488291, 14.004001, 11.909313, 13.205781, 11.820121]
+avg_detected_eperr = 12.485501f0
+f1_avg_fold = Float32[0.3694393, 0.3637155, 0.37130255, 0.37383145, 0.38506377]
+avg_detected_f1score = 0.37267053f0
+l2_avg_fold = Float32[152.8096, 162.3327, 140.41139, 166.53494, 157.69151]
+avg_detected_l2 = 155.95602f0
+
+result_model_path = "./result\\model_b_tver"
+Box desire results
+ap_box_fold = Float32[0.97508895, 0.9288256, 0.93594307, 0.9501779, 0.7259787]
+ap_model = 0.90320283f0
+dh_avg_fold = Float32[10.379245, 14.032291, 13.6047535, 13.43052, 17.124743]
+avg_detected_dh = 13.71431f0
+eperr_avg_fold = Float32[11.56299, 14.784001, 15.664458, 14.4518175, 20.818388]
+avg_detected_eperr = 15.456331f0
+f1_avg_fold = Float32[0.3924715, 0.41540852, 0.38068736, 0.40181538, 0.39187682]
+avg_detected_f1score = 0.39645192f0
+l2_avg_fold = Float32[137.50551, 149.47809, 154.70143, 151.01273, 194.64548]
+avg_detected_l2 = 157.46866f0
+
+result_model_path = "./result\\model_c_dice"
+Box desire results
+ap_box_fold = Float32[0.8149466, 0.9964413, 0.9323843, 0.9644128, 0.97153026]
+ap_model = 0.9359431f0
+dh_avg_fold = Float32[17.217724, 8.863015, 15.082195, 13.218985, 11.63892]
+avg_detected_dh = 13.204168f0
+eperr_avg_fold = Float32[18.541525, 10.278376, 15.819164, 14.704087, 14.090916]
+avg_detected_eperr = 14.686813f0
+f1_avg_fold = Float32[0.50381094, 0.5996914, 0.5365687, 0.5314987, 0.5554166]
+avg_detected_f1score = 0.5453972f0
+l2_avg_fold = Float32[145.33427, 76.157616, 119.57009, 109.49647, 102.016136]
+avg_detected_l2 = 110.514915f0
+
+result_model_path = "./result\\model_c_focal"
+Box desire results
+ap_box_fold = Float32[0.9288256, 0.9608541, 0.95373666, 0.9857651, 0.9288256]
+ap_model = 0.9516014f0
+dh_avg_fold = Float32[14.500171, 12.040554, 14.040368, 11.857484, 13.761155]
+avg_detected_dh = 13.239946f0
+eperr_avg_fold = Float32[16.494843, 13.448405, 13.713436, 11.894425, 15.80215]
+avg_detected_eperr = 14.270651f0
+f1_avg_fold = Float32[0.41053382, 0.4206002, 0.39606518, 0.4167834, 0.3964944]
+avg_detected_f1score = 0.40809542f0
+l2_avg_fold = Float32[158.85007, 135.38223, 146.75055, 139.44449, 166.98605]
+avg_detected_l2 = 149.4827f0
+
+result_model_path = "./result\\model_c_tver"
+Box desire results
+ap_box_fold = Float32[0.9822064, 0.9323843, 0.9679715, 0.16014235, 0.98932385]
+ap_model = 0.80640566f0
+dh_avg_fold = Float32[20.956123, 23.357204, 22.124609, 29.984646, 18.669086]
+avg_detected_dh = 23.018332f0
+eperr_avg_fold = Float32[13.465317, 13.585718, 11.270707, 29.108397, 9.94641]
+avg_detected_eperr = 15.475309f0
+f1_avg_fold = Float32[0.5827445, 0.55828124, 0.57641065, 0.519188, 0.5964323]
+avg_detected_f1score = 0.5666114f0
+l2_avg_fold = Float32[130.55324, 146.99771, 126.51854, 302.37894, 104.316864]
+avg_detected_l2 = 162.15308f0

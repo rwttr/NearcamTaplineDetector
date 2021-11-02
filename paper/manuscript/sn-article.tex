@@ -66,7 +66,7 @@ The image data with labels are necessary for developing a machine learning algor
 \begin{figure}[h]%
 \centering
 \includegraphics[width=\linewidth]{sample_annotation.pdf}
-\caption{A near-range tapping panel image (left) and the magnified cropped (right). The tapping line is annotated by a bounding box (dotted green rectangle) and a polyline ( multiple segments in red along the box's diagonal).}\label{fig-sampleannotation}
+\caption{A near-range tapping panel image (left) and the magnified cropped (right). The tapping line is annotated by a bounding box (dotted green rectangle) and a polyline (multiple connected red segments along the box's diagonal).}\label{fig-sampleannotation}
 \end{figure}
 
 \subsection{Overview of Deep Convolutional Neural Networks}
@@ -114,10 +114,11 @@ The downsampling network borrows residual block structures of Darknet-53. The mo
 
 \begin{table}[]
 \centering
-\caption{Downsampling backbone network explained in block structures with given names (\textbf{block}). The denoted labels are layer operation (ops), a 2-dimension convolution (Conv2d), a shortcut connection with addition (Residual), $s$: convolution stride, $n$: numbers of filters, filter kernel's size (\textbf{filter}), and $c$ is the numbers of block replication.}
+\caption{Downsampling backbone network explained in block structures with given names (\textbf{block}). The denoted labels are layer operation (ops), a 2-dimension convolution (Conv2d), a shortcut connection with addition (Residual), $s$: convolution stride, $n$: numbers of filters, filter kernel's size (\textbf{filter}), and $c$ is the numbers of block replication in a serial chain.}
 \label{tab-darknetlight}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lcccccc}
+\toprule
 \textbf{block}      & $c$ 			  & ops 		& $n$   		& \textbf{filter} 	& $s$ 	& \textbf{output} 	\\ \midrule
 Input                 &                    & -                       			&    		&       				&  	& $224\times224\times3$   \\ \midrule
                       	&                    & Conv2d                  		& 32 		& $3\times3$   	& 1 	& $224\times224\times32$  \\
@@ -156,6 +157,7 @@ According to Table \ref{tab-yolohead}, hyperbolic tangent function ($\mathrm{tan
 \label{tab-yolohead}
 \begin{minipage}{\linewidth}
 \begin{tabular}{lccccc}
+\toprule
 \textbf{block} 		& ops & $n$ 	& \textbf{filter} 	& $f(x)$ & \textbf{output} 			\\ \midrule
 \multicolumn{4}{l}{\makecell[l]{res4 ($w=14, d=384$),\\ res5 ($w=7, d=512$)}} 	&	& $w \times w\times d$      \\ \midrule
 private  & Conv2d   & 512			& $3\times3$          & leaky           	& $w \times w\times512$      \\ \midrule
@@ -179,12 +181,14 @@ Upsampling path employs U-Net structure that low resoultion tensors are enlarged
 \begin{minipage}{\linewidth}
 \begin{center}
 \begin{tabular}{p{0.15\linewidth}p{0.15\linewidth}p{0.5\linewidth}}%>%{@{}lcr@{}}
+\toprule
 ops 	& $n$ 	& \textbf{input}  					\\ \midrule
 u1	&128	    & $7 \times 7 \times 512$              	        \\
 u2	&128	    & $14 \times 14 \times (384+128)$    	     \\ 
 u3	&64	    & $28 \times 28 \times (256+128)$    	       \\
 u4	&64	    & $56 \times 56 \times (128+64)$      	        \\
-u5	&32	    & $112 \times 112 \times (64+64)$    	        \\ \bottomrule
+u5	&32	    & $112 \times 112 \times (64+64)$    	        \\ 
+\bottomrule
 \end{tabular}%
 \end{center}
 \footnotetext{Note: All 2D transpose convolution are done with kernel's size $2\times2$ and stride 2, causing the enlarging factor of 2.}
@@ -201,9 +205,10 @@ Three pixel prediction blocks (Pxl Header) are proposed, named ``Pxl Header1", `
 \begin{minipage}{\linewidth}
 \begin{center}
 \begin{tabular}{@{}clcc@{}}%{p{0.1\linewidth}p{0.2\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
+\toprule
 Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footnotemark[1]	\\ \midrule
 1	& Pointwise Conv2d	& 64  & 1 \\
-2	& Tanh Activation	& 1  & 1 \\
+2	& Sigmoid Activation	& 1  & 1 \\
 3	& Column-wise Softmax   & 1 & 1 \\ \bottomrule
 \end{tabular}%
 \end{center}
@@ -211,7 +216,7 @@ Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footno
 \end{minipage}
 \end{table}
 
-Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then the hyperbolic tangent (tanh) activation modifies the values. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position dependency within the image's columns, which means it suppressed others while boosting one another. This process can be compared to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
+Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then let the Sigmoid activation modifies the values. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position correlation within the image's columns, which means it suppressed others while boosting one another. This process can be compared to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
 
 For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three operations, that run in the order by,
 \begin{enumerate}
@@ -241,12 +246,12 @@ Estimation of anchors' size also implies the unbalancing between tapping line's 
 \subsubsection{Branch Loss Function}\label{subsubsec-pxlbranch}
 A benifit of one-stage network is that the calculation of losses happens at the output nodes. According to the model, output nodes are two YOLO heads, and three pixel prediction blocks (Pxl Headers). Thus, the total loss is the linear combination of them.
 
-MSE loss (L2-loss) is used for box's coordinates regression on both YOLO detection heads, and Dice-Coefficient scores the objectness predictions on the feature-map grids. For the pixel classification loss, calculation on each pixel predicton block is handled by different loss functions. Dice-Coefficient, Binary Focal, and Tversky index with high $\beta$  are separately used on each Pxl Header, on account of highly imbalance between tapping line's pixels and background's pixels. Since, adding more weight on $\beta$ in Tversky's formular \cite{tverskyloss} will increase the loss when tapping line pixels are predicted as background, which are the false-negative case.
+MSE loss (L2-loss) is used for box's coordinates regression on both YOLO detection heads, and Dice-Coefficient scores the objectness predictions on the feature-map grids. For the pixel classification loss, calculation on each pixel predicton block is handled by different loss functions. Dice-Coefficient, Binary Focal, and Tversky index with an emphasize on $\beta$ are separately used on each Pxl Header, on account of highly imbalance between tapping line's pixels and background's pixels. Since, adding more weight on $\beta$ in Tversky's formular \cite{tverskyloss} will increase the loss when tapping line pixels are predicted as background, which are the false-negative case.
 
 \subsubsection{Parameters Settings}\label{subsubsec-trainingparams}
 Training of the model on every folds shares same training parameters. Mini-batch gradient descent with momentum optimizer is used with mini-batch size of 4, and momentum coefficient constantly at 0.9. Training for a model processes in a range of 90 to 100 epochs, since the early-stopping may be applied in a particular model. Learning rates are scheduled by the WarmUp-Steady-Decay profile with a peak of 0.008, shown in Fig \ref{fig3-LR}. All the weights on the model are newly initialized. 
 
-Unit-rescaling and z-score transform normalize the pixel values of an input image across all its depth dimension (color channel). Batch normalization is also appiled inside the layers that contain learnable weights for the training purpose.
+Unit-rescaling and z-score transformation normalize the pixel values of an input image across all its depth dimension (color channel). Batch normalization is also appiled inside the layers that contain learnable weights for the training purpose.
 
 \begin{figure}[h]%
 \centering
@@ -302,7 +307,7 @@ In addition to the mentioned box and polyline evaluation metrics, this paper als
 Annotation with a box and a polyline enables the evaluations in many combinations. This paper presents a method by using the bounding boxes to decide for the existance of a tapping line in the image, then calculates other metrics within the detected results.
 
 \section{Experiment Setup}\label{sec-exp}
-The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three novel segmentation loss functions for highly imbalanced data, Dice's, Focal and Tversky's index, with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's pixels.
+The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net architectures, whereas the proposed modifications are made at output branches on the assumption that the modfications contribute to the model's prediction accuracy. Briefly, the proposed pixel classification branch, Fig \ref{fig5-proposedPxlHeader}, employs three parallel blocks (Pxl Header) for mapping between prediction and data by three different segmentation loss functions designed for highly imbalanced data, Dice's, Focal and Tversky's index, with the auxiliary column-wise Softmax. Lastly, function $\mathrm{g}(x)$ attains incoming data from those blocks, producing the final binary mask. These components are critical for producing tapping line's pixels.
 
 \begin{figure}[h]%
 \centering
@@ -310,7 +315,7 @@ The design of the model in section \ref{subsec-model} follows YOLOv3 and U-Net a
 \caption{Pixel classification branch of the proposed model}\label{fig5-proposedPxlHeader}
 \end{figure}
 
-The proposed components can be summarized as.
+The proposed model's components can be summarized as.
 \begin{itemize}
   \item Column-wise Softmax in Pxl Header.
   \item Parallel Pxl Headers with function $\mathrm{g}(x)$.
@@ -324,7 +329,7 @@ Those assumptions require reference models or the baseline models in order to ob
 \item[] \emph{\textbf{Model C}}: Made changes on Model A by,
 	\begin{itemize}
   	\item Remove the parallel structure of Pxl Header, only a single block is used as shown in Fig \ref{fig6-baselinePxlHeader}. Pxl Header's structure is similar to one of the proposed model. 
-  	\item Only one segmentation loss is used at the pixel classification output for training the model at a time.
+  	\item Only one segmentation loss is used for training the pixel classification output at a time.
   	\item Re-define $\mathrm{g}(x)$ by removing the voting operation from the original (in Section \ref{subsubsec-pxlbranch}), because there is only one incoming signal from Pxl Header.
 	\end{itemize}
 \item[] \emph{\textbf{Model D}}: Similar to Model C, but column-wise Softmax layer is no longer in the Pxl Header.
@@ -338,15 +343,14 @@ The structure of pixel classication branch of Model C and Model D is shown in Fi
 \caption{Pixel classification branch of baseline models (Model C and Model D)}\label{fig6-baselinePxlHeader}
 \end{figure}
 
-\FloatBarrier
-\section{Results and Discussions}\label{sec-results}
-Fig \ref{fig-sampledetection} presents some detection results that the original images are overlayed by boxes and polylines of groundtruths and predictions. 
-
-\begin{figure*}[h]%
+\begin{figure*}[!h]%
 \centering
 \includegraphics[width=\linewidth]{sample_detection.pdf}
 \caption{Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}\label{fig-sampledetection}
 \end{figure*}
+
+\section{Results and Discussions}\label{sec-results}
+Fig \ref{fig-sampledetection} presents some detection results that the original images are overlayed by boxes and polylines of groundtruths and predictions. 
 
 The following results in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion. Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
 
@@ -358,15 +362,15 @@ The following results in this section are averaged from the models that tests wi
 \begin{center}
 \begin{tabular}{clccccc}
 \toprule
-Model & Pxl Header loss & \makecell[c]{Col-wise Softmax} & $\mathrm{AP_{75}}$ &$\mathrm{d_{ep}}$(px.) & $\mathrm{d_{H}}$(px.)& F1-score	\\ \midrule
-A 	& Dice, Focal, Tversky 	& \checkmark & 0.98	&	12.08		& 	10.60	&	 0.5654 \\ \midrule
-B 	& Dice, Focal, Tversky 	& - & 0.98	&	12.08		& 	10.60	&	 0.5654 \\ \midrule
-C	& Dice		& \checkmark & 0.98	&	12.08	&	8.94	& 0.3511	\\
-C	& Focal		& \checkmark & 0.96	&	12.68	&	12.31	&	0.3142	\\ 
-C	& Tversky	& \checkmark& 0.98 	&	12.19	&  11.31	&	0.3510   \\ \midrule
-D 	& Dice		& - & 0.98	&	12.60	&	11.18	&	0.5510	\\
-D 	& Focal		& - & 0.95	&	13.22	&	13.54	&	0.3890	\\
-D 	& Tversky	& - & 0.97	&	12.68	&	23.65	&	0.5602	\\ 
+Model & Pxl Header loss & \makecell[c]{Col-wise Softmax} & $\mathrm{AP_{50}}$ &$\mathrm{d_{ep}}$(px.) & $\mathrm{d_{H}}$(px.)& F1-score	\\ \midrule
+A 	& Dice, Focal, Tversky 	& \checkmark	& 0.9697	&	12.65		& 	9.56		&	0.4226	\\ \midrule
+B 	& Dice, Focal, Tversky 	& -				& 0.9822	&	12.13		& 	9.16		&	0.5738	\\ \midrule
+C	& Dice						& \checkmark	& 0.9544	&	13.50		&	10.80		& 	0.3836	\\
+C	& Focal						& \checkmark 	& 0.9794	&	12.49		&	13.20		&	0.3727	\\ 
+C	& Tversky					& \checkmark	& 0.9475	&	15.46		&  13.71		&	0.3964   \\ \midrule
+D 	& Dice						& - 				& 0.9359	&	14.69		&	13.20		&	0.5454	\\
+D 	& Focal						& - 				& 0.9516	&	14.27		&	13.24		&	0.4081	\\
+D 	& Tversky					& - 				& 0.9679	&	12.06		&	21.28		&	0.5666	\\ 
 \bottomrule
 \end{tabular}%
 \end{center}
@@ -383,27 +387,34 @@ D 	& Tversky	& - & 0.97	&	12.68	&	23.65	&	0.5602	\\
 \begin{tabular}{clccccc}
 \toprule
 Model & Pxl Header loss & \makecell[c]{Col-wise Softmax} & $\mathrm{AP_{75}}$ &$\mathrm{d_{ep}}$(px.) & $\mathrm{d_{H}}$(px.)& F1-score	\\ \midrule
-A 	& Dice, Focal, Tversky 	& \checkmark & 0.62 & 9.14 	& 6.99 & 0.5831 \\ \midrule
-B 	& Dice, Focal, Tversky 	& - & 0.62 & 9.14 	& 6.99 & 0.5831 \\ \midrule
-C	& Dice		& \checkmark  & 0.60	&	8.90	&	6.60	& 0.3640	\\
-C	& Focal		&\checkmark & 0.58 	& 9.25	&	9.34	&	0.3455	\\ 
-C	& Tversky	& \checkmark &  0.61 		 & 9.15	&  8.69	&	0.3908   \\ \midrule
-D 	& Dice		& - & 0.58 &	9.20	&	8.19	&	0.5744	\\
-D 	& Focal		& - & 0.53 &	9.37	&	11.25	&	0.4028	\\
-D 	& Tversky	& - & 0.58 & 9.13	&	22.06	&	0.5844 \\ 
+A 	& Dice, Focal, Tversky 	& \checkmark	& 0.5801	&	9.32		& 	7.20		&	0.4277	\\ \midrule
+B 	& Dice, Focal, Tversky 	& -				& 0.6157	&	9.19		& 	6.99		&	0.5915	\\ \midrule
+C	& Dice						& \checkmark	& 0.5160	&	9.71		&	7.73		& 	0.4009	\\
+C	& Focal						& \checkmark 	& 0.5829	&	9.32		&	11.07		&	0.3884	\\ 
+C	& Tversky					& \checkmark	& 0.4043	&	10.57		&  9.87		&	0.4219   \\ \midrule
+D 	& Dice						& - 				& 0.4520	&	10.00		&	9.68		&	0.5664	\\
+D 	& Focal						& - 				& 0.4698	&	9.76		&	10.09		&	0.4293	\\
+D 	& Tversky					& - 				& 0.6059	&	9.22		&	19.60		&	0.5876	\\ 
 \bottomrule
 \end{tabular}%
 \end{center}
 %\footnotetext{Note: }
 \end{minipage}
 \end{table*}
+\subsection{Box Detection}
+Results in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} clearly show that all models can detect tapping line boxes with high average precisions of 0.95 and aboves for 0.5 box IoU ($\mathrm{AP_{50}}$). Even in the more precise localization criterion, results with 0.75 box IoU ($\mathrm{AP_{75}}$) also confirm that all models also consistently produce tapping line bounding box at similar rates about 0.4 to 0.6 average precision. These IoU-based results correlate to tapping endpoints errors that measure the distance between boxes' corners. 
+\subsection{Pixel Detection}
+As shown in Fig \ref{fig-sampledetection}, all model produces closely results on the visual. The fact that there are some differences in pixel level that can be expressed by Hausdorff distance and F1-scores in the result tables. Among proposed model variants, model B achieves highest averaged F1-scores, 0.57$@$0.5 box IoU and 0.59$@$0.75 box IoU, with small averaged Hausdorff distances, 9.16 pixels$@$0.5 box IoU and 6.99$@$0.75 box IoU within the $224 \times 224$ image resolution. These values indicate the predicted tapping line is in a very close proximity and the strong similarity to the groundtruth.
 
-Results in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} clearly show that all models can detect tapping line boxes with high average precisions of 0.95 and aboves at 0.5 box IoU ($\mathrm{AP_{50}}$). Even in the more precise localization criterion, results with 0.75 box IoU ($\mathrm{AP_{75}}$) also confirm that all models also consistently produce tapping line bounding box at similar rates about 0.55 to 0.6 average precision. These IoU-based results are agreeable to tapping endpoints errors that measure the distance between boxes' corners. 
+\subsection{Effects of Column-wise Softmax on Tapping Line's Vectices Detection}
+Results from single Pxl Header networks, model C and model D, show the effects of column-wise softmax in the pixel classification. Comparing two models with one Pxl Header that using the same pixel classificaion loss, the model with no columnwise softmax produce tapping lines with higher F1-scores but also slightly raise Hausdorff distances. Inversely, models with column-wise softmax can predict tapping lines with lower Hausdorff distances but slightly decline the F1-scores. This is clearly noticeable in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75}, in the cases of model C and model D that using Dice's cofficient and Tversky's index as their pixel classification loss function.
 
-Difference between models are
+Eventually, this effect is invalid in the models with three Pxl Headers (model A and B), because the output data from Pxl Heaers are further processed by $\mathrm{g}(x)$ with voting operation unlike the direct output of the single Pxl Header networks.
 
-\subsection{Overlapping and Distances}
+\subsection{Pixel Overlapping and Distances}
+What does the tapping line detection that result in a high Hausdorff distance with also high F1-scores imply? An actual example is in Fig \ref{}, the results come from model B and model C that trained with Focal pixel clasification loss, perform on the same test image. 
 
+\subsection{Multiple Pixel Prediction Heads with non-linear function $\mathrm{g}(x)$}
 \section{Conclusion}
 
 Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 

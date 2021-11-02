@@ -204,3 +204,40 @@ load_model_path = "./weights/no_iou_penalty/model_a"
 load_model_name  = "model_a"
 save_result_path = "result/no_iou_model_a"
 detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+# detection2
+# model_b_dice
+load_model_path = "./weights/model_b_dice"
+load_model_name  = "model_b_dice"
+save_result_path = "result/model_b_dice"
+detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+# model_b_focal
+load_model_path = "./weights/model_b_focal"
+load_model_name  = "model_b_focal"
+save_result_path = "result/model_b_focal"
+detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+# model_b_focal
+load_model_path = "./weights/model_b_tver"
+load_model_name  = "model_b_tver"
+save_result_path = "result/model_b_tver"
+detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+# model_c_dice
+load_model_path = "./weights/model_c_dice"
+load_model_name  = "model_c_dice"
+save_result_path = "result/model_c_dice"
+@time detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+# model_c_focal
+load_model_path = "./weights/model_c_focal"
+load_model_name  = "model_c_focal"
+save_result_path = "result/model_c_focal"
+@time detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
+
+# model_c_tver
+load_model_path = "./weights/model_c_tver"
+load_model_name  = "model_c_tver"
+save_result_path = "result/model_c_tver"
+@time detect_kfold(load_model_path, load_model_name, save_result_path, _testdata)
