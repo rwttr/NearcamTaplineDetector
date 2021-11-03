@@ -411,12 +411,18 @@ Results from single Pxl Header networks, model C and model D, show the effects o
 
 Eventually, this effect is invalid in the models with three Pxl Headers (model A and B), because the output data from Pxl Heaers are further processed by $\mathrm{g}(x)$ with voting operation unlike the direct output of the single Pxl Header networks.
 
-\subsection{Pixel Overlapping and Distances}
-What does the tapping line detection that result in a high Hausdorff distance with also high F1-scores imply? An actual example is in Fig \ref{}, the results come from model B and model C that trained with Focal pixel clasification loss, perform on the same test image. 
+\begin{figure}[!h]%
+\centering
+\includegraphics[width=\linewidth]{sampleHausdorffDice.pdf}
+\caption{Detection samples from model C (top) and model D (bottom) from same test image. The predicted polyline is in the blue box, and the polyline within the red dashed box is the groundtruth. The magnified views in the right side are for better visualization. The upper predicted tapping line has $\mathrm{d_{H}}=4.47$ and $D=0.5203$, and the lower predicted tapping line has $\mathrm{d_{H}}=48.7$ and $D=0.5230$.}\label{fig-sampleHausdorffDice}
+\end{figure}
 
-\subsection{Multiple Pixel Prediction Heads with non-linear function $\mathrm{g}(x)$}
+What does the tapping line detection that result in a high Hausdorff distance with also high F1-scores of Model D imply? An example in Fig \ref{fig-sampleHausdorffDice} displays the actual results on a test image that come from Model C and Model D trained by the Focal pixel clasification loss. Model C gives a tapping line with $\mathrm{d_{H}}=4.47$ and $D=0.5203$. And, the tapping line from Model D has $\mathrm{d_{H}}=48.7$ and $D=0.5230$. The example informs the posibility that the predicted tapping line with high F1-scores and also high Hausdorff distance may have small fraction of sorely mis-positioned pixels, while the pixels in large fraction are aligned to the groundtruth. The uses of column-wise softmax could cope this issue but also results in sacrifying the F1-score, which is the distinguishable difference between Model C and Model D. However, by the tapping line inference using box cropping, Hausdorff distance and F1-scores cannot catch the irregular predicted pixels that are outside the predicted box, which the final result may yield a small Hausdorff distance by the pixels inside the box.
+
+\subsection{Multiple Pixel Prediction Heads with activation function $\mathrm{g}(x)$}
+Adding the pixel prediction reslience to the model by parallel multiple pixel prediction branches as in Model A and Model B, the redundant top-level learnable layers are freely mapped their weights to the satisfy values that specified by individual loss function.
+
 \section{Conclusion}
-
 Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
 
 In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
