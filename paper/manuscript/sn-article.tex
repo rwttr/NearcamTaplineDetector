@@ -28,7 +28,7 @@
 
 \affil*[1]{\orgdiv{Department of Computer Engineering, Faculty of Engineering}, \orgname{Prince of Songkla University}, \orgaddress{\street{P.O. Box 2 Kohong}, \city{HatYai, Songkhla}, \postcode{90112}, \country{Thailand}}}
 
-\abstract{Current image-task-related convolutional neural network structures lean toward the directed acyclic graph that allows multiple output nodes. This enables a solution for the rubber tapping line detection that various desired output types, such as bounding boxes, pixel points or edges, are necessary. This paper demonstates that such deep networks with their outputs are bounding box and semantic pixel segmenation mask by adopting YOLO and U-Net layer structures. This paper proposes a column-wise argmax function with the technique of redundant mask outputs intended to enhance pixel classification accuracy. Experiments with the networks discover that some novel segmentation loss functions have different characters for tapping line prediction which were observed with geometric distance and F1-score. The redundant mask output can omits their weaknesses and yield higher detection accuracy compare to every single ones. Also, the column-wise argmax well suit to the tapping line detection in place of a thinning algorithm rather than the thresholding on the spatial output neurons.}
+\abstract{Current image-task-related convolutional neural network structures lean toward the directed acyclic graph that allows multiple output nodes. This enables a solution for the rubber tapping line detection that various desired output types, such as bounding boxes, pixel points or edges, are necessary. This paper demonstates that such deep networks with their outputs are bounding box and semantic pixel segmenation mask by adopting YOLO and U-Net layer structures. This paper proposes a column-wise argmax function with the technique of redundant mask outputs intended to enhance pixel classification accuracy. Experiments with the networks discover that some novel segmentation loss functions have different characters for tapping line prediction which were observed with geometric distance and F1-score. The multiple output mask can omits their weaknesses and yield higher detection accuracy compare to every single ones. Also, the column-wise softmax and argmax operations well suit to the tapping line detection in place of a thinning algorithm rather than the thresholding on the spatial output neurons.}
 
 \keywords{\textit{hevea brasiliensis}, Semantic Edge, Rubber Tapping, Tapping Line, YOLO}
 
@@ -51,7 +51,7 @@ Detection results appear to be diverse when the network are trained with differe
 
 In order to archieve the higher detection accuracy, this paper also presents a modification in top layers of pixel classification head for separately predict multiple loss or deep supervising, then gather all of them by voting for the pixel majorities with the use of column-wise Softmax function. The proposed method can generate the results in higher F1-score with also diminishes the distance between two polylines.
 
-The rests of this paper include: the review of literatures in Section \ref{sec-review} \textemdash e.g. the previous work of the tapping line detection, relevant applications of muliple output node CNN detectors, etc. The design of tapping line detection network in Section 3. The experiment setup and results in Section 4 and Section 5. Summary with the disscussions are in Section 6.
+The rests of this paper include: the review of literatures in Section \ref{sec-review} \textemdash consists of the previous work of the tapping line detection, relevant applications of muli-output CNN detectors, loss function and its concern etc. The design of tapping line detection network with evaluation methods are in Section \ref{sec-methodology}. The experiment setup and results are discussed in Section \ref{sec-exp} and Section \ref{sec-results}. Conclusion is summarized in Section \ref{sec-conclude}.
 
 \section{Background and Motivation}\label{sec-background}
 The purpose of the near-range vision camera is for precisely locate the tapping position for tapping manipulation of the robot arm. Our previous work \cite{Wongtanawijit_2021} demonstrated the detection algorithm in a form of an image processing algorithm. The method produces accurate results but it was specially designed and required two input images accommodating by artificial lighting patterns for the nighttime farming. Apart from this paper that, the CNN-based detectors can learn what and where is the tapping line under any lighting circumstance depends on the training dataset. Moreover, tappling line detection by modern computer vision algorithms is not yet explored at this time. Hence, it is a interesting topic to study the capable of CNN-based detectors with the tappline line image dataset, and might be useful as an alternative algorithm for the robot.
@@ -70,7 +70,7 @@ The image data with labels are necessary for developing a machine learning algor
 \end{figure}
 
 \subsection{Overview of Deep Convolutional Neural Networks}
-The development of new substantial ideas on deep CNN-based detectors quite becomes settled in recent years. Back then when CNN-based box detectors, Faster-RCNN \cite{fasterrcnn} and YOLO \cite{redmonyolov1}, were established in 2015. Much more recent detectors such as YOLOv3 \cite{redmonyolov3} (2018), YOLOv4 \cite{alexyyolov4} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locates small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
+Cutting-edge ideas on deep CNN-based detectors quite becomes settled in recent years. Back then when CNN-based box detectors, Faster-RCNN \cite{fasterrcnn} and YOLO \cite{redmonyolov1}, were established in 2015. Much more recent detectors such as YOLOv3 \cite{redmonyolov3} (2018), YOLOv4 \cite{alexyyolov4} (2020) able to detect any objects in the images with such very high rates than their predecessors. Later researches put lots of improvements on the modern networks. For some details, YOLOv3 and v4 have multiple prediction head that works on different spatial resolution so that the detector better locates small objects in previous YOLO and even better than the Faster-RCNN. In the later version, YOLOv4, exploits the path skipping in various stages with dense and sparse prediction layers. This make YOLOv4 push the network produce the better results. But, the mechanism of bounding box's coordinate prediction in YOLOv3 and YOLOv4 still the same. Nonetheless, the aim of the improvements is to make the network to learn or to discover the features of the data as much as possible. Since the datasets that used in those detector development can be seen as a generic dataset \textemdash a dataset that an image may contain various numbers of object instances and object classes. 
 
 Apart from boxes, there are other networks that can predict examining the image in pixel level as well. Some novel networks such as U-Net \cite{unet}, V-Net \cite{vnet}, SegNet \cite{segnet}, etc., produce a mask from the image as the segmentation task in image processing category. These models separate the areas of the objects (or other interests) from the background. These models employ a chain of upsampling or transposed convolution layers to enlarge the spatial size of the data back to input's size, which are suitable for fine pixel detection application.
 
@@ -100,7 +100,7 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 \section{Methodology}\label{sec-methodology}
 
 
-\subsection{Model}\label{subsec-model}
+\subsection{Model Design}\label{subsec-model}
 Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
 
 \begin{figure*}[h]%
@@ -278,7 +278,7 @@ Accomplishing the meaningful result from both annotations, the final polyline wi
 }\label{fig4-sampleagreement}
 \end{figure}
 
-\subsection{Evaluation Method}
+\subsection{Taping Line Evaluation Method}
 The bounding box can justify the existence of a tapping line in an image, using the boxes overlapping ratios between predictions and priors such as Jaccard Index (a.k.a IoU), Dice's coefficient, etc. Box overlapping ratios nonetheless do not reflect the similarity of the tapping line \cite{Wongtanawijit_2021}. Pixel-level overlapping ratios or geometry distances can measure for similarities or distance errors between two polygonal curves that encoded in image's pixels.
 
 The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine average precisions of the detections. And, pixel-level Dice's coefficient (a.k.a F1-score) on the tapping line's pixels verifies the exact overlap between two polygonal's vertices. However, appling the overlapping measurement on the polygonal vertices in the pixel-level over penalizes the small mislocated pixels. As visualized in Fig \ref{fig4-polyline}, the predicted polyline has a small shift in distance to the reference line. This makes the Dice's index approaching to zero, whereas a 2-D geometric distance, Hausdorff distance, indicates strong similarity between them.
@@ -343,18 +343,18 @@ The structure of pixel classication branch of Model C and Model D is shown in Fi
 \caption{Pixel classification branch of baseline models (Model C and Model D)}\label{fig6-baselinePxlHeader}
 \end{figure}
 
-\begin{figure*}[!h]%
+\section{Results and Discussions}\label{sec-results}
+Fig \ref{fig-sampledetection} presents some detection results that the original images are overlayed by boxes and polylines of groundtruths and predictions. 
+
+\begin{figure*}[]%
 \centering
 \includegraphics[width=\linewidth]{sample_detection.pdf}
 \caption{Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}\label{fig-sampledetection}
 \end{figure*}
 
-\section{Results and Discussions}\label{sec-results}
-Fig \ref{fig-sampledetection} presents some detection results that the original images are overlayed by boxes and polylines of groundtruths and predictions. 
-
 The following results in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion. Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
 
-\begin{table*}[!h]
+\begin{table*}[!ht]
 \centering
 \caption{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}
 \label{tab-results-ap50}
@@ -401,15 +401,20 @@ D 	& Tversky					& - 				& 0.6059	&	9.22		&	19.60		&	0.5876	\\
 %\footnotetext{Note: }
 \end{minipage}
 \end{table*}
+
 \subsection{Box Detection}
 Results in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} clearly show that all models can detect tapping line boxes with high average precisions of 0.95 and aboves for 0.5 box IoU ($\mathrm{AP_{50}}$). Even in the more precise localization criterion, results with 0.75 box IoU ($\mathrm{AP_{75}}$) also confirm that all models also consistently produce tapping line bounding box at similar rates about 0.4 to 0.6 average precision. These IoU-based results correlate to tapping endpoints errors that measure the distance between boxes' corners. 
 \subsection{Pixel Detection}
-As shown in Fig \ref{fig-sampledetection}, all model produces closely results on the visual. The fact that there are some differences in pixel level that can be expressed by Hausdorff distance and F1-scores in the result tables. Among proposed model variants, model B achieves highest averaged F1-scores, 0.57$@$0.5 box IoU and 0.59$@$0.75 box IoU, with small averaged Hausdorff distances, 9.16 pixels$@$0.5 box IoU and 6.99$@$0.75 box IoU within the $224 \times 224$ image resolution. These values indicate the predicted tapping line is in a very close proximity and the strong similarity to the groundtruth.
+Results in Fig \ref{fig-sampledetection}, all model produces closely results on the visual. The fact that there are some differences in pixel level that can be expressed by Hausdorff distance and F1-scores in the result tables. Among proposed model variants, model B achieves highest averaged F1-scores, 0.57$@$0.5 box IoU and 0.59$@$0.75 box IoU, with small averaged Hausdorff distances, 9.16 pixels$@$0.5 box IoU and 6.99$@$0.75 box IoU within the $224 \times 224$ image resolution. These values indicate the predicted tapping line is in a very close proximity and the strong similarity to the groundtruth.
+
+The key operation of tapping line's pixel prediction is in the function $\mathrm{g}(x)$. Checking on every column where is the highest probability pixel location (mathematical equivalence is the argmax for the row position on every column in an image) agrees to the tapping line pixel-level annotation and it is helpful to produce the final pixel classification output in a binary mask. 
 
 \subsection{Effects of Column-wise Softmax on Tapping Line's Vectices Detection}
 Results from single Pxl Header networks, model C and model D, show the effects of column-wise softmax in the pixel classification. Comparing two models with one Pxl Header that using the same pixel classificaion loss, the model with no columnwise softmax produce tapping lines with higher F1-scores but also slightly raise Hausdorff distances. Inversely, models with column-wise softmax can predict tapping lines with lower Hausdorff distances but slightly decline the F1-scores. This is clearly noticeable in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75}, in the cases of model C and model D that using Dice's cofficient and Tversky's index as their pixel classification loss function.
 
 Eventually, this effect is invalid in the models with three Pxl Headers (model A and B), because the output data from Pxl Heaers are further processed by $\mathrm{g}(x)$ with voting operation unlike the direct output of the single Pxl Header networks.
+
+What does the tapping line detection that result in a high Hausdorff distance with also high F1-scores especially on Model D imply? An example in Fig \ref{fig-sampleHausdorffDice} displays the actual results on a test image that come from Model C and Model D trained by the Focal pixel clasification loss. Model C gives a tapping line with $\mathrm{d_{H}}=4.47$ and $D=0.5203$. And, the tapping line from Model D has $\mathrm{d_{H}}=48.7$ and $D=0.5230$. The example informs the posibility that the predicted tapping line with high F1-scores and also high Hausdorff distance may have small fraction of sorely mis-positioned pixels, while the pixels in large fraction are aligned to the groundtruth. The uses of column-wise softmax could cope this issue but also results in sacrifying the F1-score, which is the distinguishable difference between Model C and Model D. However, by the tapping line inference using box cropping, Hausdorff distance and F1-scores cannot catch the irregular predicted pixels that are outside the predicted box, which the final result may yield a small Hausdorff distance by the pixels inside the box.
 
 \begin{figure}[!h]%
 \centering
@@ -417,29 +422,33 @@ Eventually, this effect is invalid in the models with three Pxl Headers (model A
 \caption{Detection samples from model C (top) and model D (bottom) from same test image. The predicted polyline is in the blue box, and the polyline within the red dashed box is the groundtruth. The magnified views in the right side are for better visualization. The upper predicted tapping line has $\mathrm{d_{H}}=4.47$ and $D=0.5203$, and the lower predicted tapping line has $\mathrm{d_{H}}=48.7$ and $D=0.5230$.}\label{fig-sampleHausdorffDice}
 \end{figure}
 
-What does the tapping line detection that result in a high Hausdorff distance with also high F1-scores of Model D imply? An example in Fig \ref{fig-sampleHausdorffDice} displays the actual results on a test image that come from Model C and Model D trained by the Focal pixel clasification loss. Model C gives a tapping line with $\mathrm{d_{H}}=4.47$ and $D=0.5203$. And, the tapping line from Model D has $\mathrm{d_{H}}=48.7$ and $D=0.5230$. The example informs the posibility that the predicted tapping line with high F1-scores and also high Hausdorff distance may have small fraction of sorely mis-positioned pixels, while the pixels in large fraction are aligned to the groundtruth. The uses of column-wise softmax could cope this issue but also results in sacrifying the F1-score, which is the distinguishable difference between Model C and Model D. However, by the tapping line inference using box cropping, Hausdorff distance and F1-scores cannot catch the irregular predicted pixels that are outside the predicted box, which the final result may yield a small Hausdorff distance by the pixels inside the box.
-
 \subsection{Multiple Pixel Prediction Heads with activation function $\mathrm{g}(x)$}
-Adding the pixel prediction reslience to the model by parallel multiple pixel prediction branches as in Model A and Model B, the redundant top-level learnable layers are freely mapped their weights to the satisfy values that specified by individual loss function.
+Adding the pixel prediction reslience to the model by parallel multiple pixel prediction branches as in Model A and Model B, the redundant top-level learnable layers are freely mapped their weights to the satisfy values that specified by a particular loss function. To be precise, with the gradient back-propagating path, this technique allows the network to learn some common features that are shared among pixel classification branches (Pxl Header). And, the learnable layers in pixel classification branches learn the loss-specificed features to predict the tapping line's pixels. This technique also applied in two YOLO detection branches which they have thier own private weights.
 
-\section{Conclusion}
-Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
+To train and construct Model A and Model B, that uses three different loss on three Pxl Headers and with and without using the columnwise softmax, chronologically comes from the basis of results in Model C and Model D. Depicting the Model C, Dice's coefficient and Tversky loss noticeably produce results with high F1-scores while the results from Dice, Focal and Tversky loss are in par by the Hausdorff distance metric. Besides the basis that the column-wise softmax can enchance the tapping line results in Hausdorff distances. 
 
-In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
+Aggregation for the final output from three binary mask of three Pxl Headers, function $\mathrm{g}(x)$ on Model A and Model B demonstates a voting strategy. Two of three pixel coincidence are expected from three Pxl Headers with an assumption that voting can clear out outlier pixel that cause large Hausdorff distances. Results in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} confirm the assumption. Model A and Model B outperform all single pixel classification branch (Pxl Header) variants in both Hausdorff distance and F1-scores metrics. Nonetheless, tapping line pixel's accuracy on model A that using column-wise softmax on Pxl Headers lacks behind the non-column-wise softmax Model B by a significant margin.
+
+Moreover, expanding the number of Pxl Header in accord to the model design could make the aggregation function on $\mathrm{g}(x)$ not trivial. Network designers have to examine the behaviour of thier model on thier dataset and responsible for the loss function.
+
+\section{Conclusion}\label{sec-conclude}
+Summarizing contributions proposed in this paper, this paper have established the deep convolutional neural object detection networks for the tappine line detection in near-range images. The network design adepts the bounding box prediciton method of YOLO network with down-sampling to up-sampling path as usual in many segmentation networks, particularly for the U-Net architecture in our design. 
+
+The design adds multiple learnable layers in the top level for boxes and pixel predictions. Based on the tapping line's vertices annotation, the operations like column-wise softmax and argmax for the pixel position are presented for the pixel prediciton. Multi-branch pixel predictions proof that they have the ability to empower the pixel prediction accuracy through the voting operation which supports different loss calculations at the branch's end. The implementation details on all network layers are also provided
+
+The paper present the tapping line inferencing method using bounding boxes and pixels with an analysis on two evaluation metrics, Hausdorff distance and F1-score, for the unwanted artifacts of a predicted tapping line. Results show that the proposed network design archieves the highest prediction rate at 98.2 percents on box accuracy with 9.16 Hausdorff distance error or 2.89 percent to the image size ($=9.16/(224\sqrt2)\times100\%$).
+
+Additionally for the next development stage, we will turn to the 3D tapping path construction which is based on the works of this paper and the use of depth information.
 
 \backmatter
 
 \bmhead{Acknowledgments}
-
-Acknowledgments are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+Giving acknowledgements to Computer Engineering Department at Prince of Songkla University for computing infrastructure. Especially for the rubber latex farmers, Mr.Jan and Mrs.Ree, in rubber trees provision. Unfortunately for Mrs.Ree that she's experiencing the amnesia from her accident which made us sympathize and wish special thanks to her.
 
 \section*{Declarations}
-
-Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
-
 \begin{itemize}
-\item Availability of data and materials
-\item Code availability 
+\item Availability of near-range tapping line image dataset: please send an inquiry to coresponding author Mr.Thanate Khaorapapong
+\item Source code is made avaiable at \url{https://github.com/rwttr/NearcamTaplineDetector}, all implementation is done on Julia Language with Flux.jl ML libray \cite{innes2018}.
 \end{itemize}
 
 \bibliographystyle{bst/sn-basic}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.11.1)  3 NOV 2021 12:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.11.1)  5 NOV 2021 03:16
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -792,7 +792,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [2]
-<sample_annotation.pdf, id=168, 521.69907pt x 233.37187pt>
+<sample_annotation.pdf, id=172, 521.69907pt x 233.37187pt>
 File: sample_annotation.pdf Graphic file (type pdf)
 <use sample_annotation.pdf>
 Package pdftex.def Info: sample_annotation.pdf  used on input line 68.
@@ -829,7 +829,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
-<fig1.pdf, id=265, 713.2951pt x 356.94891pt>
+<fig1.pdf, id=269, 713.2951pt x 356.94891pt>
 File: fig1.pdf Graphic file (type pdf)
 <use fig1.pdf>
 Package pdftex.def Info: fig1.pdf  used on input line 108.
@@ -915,12 +915,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [7]
-<fig2.pdf, id=319, 190.05997pt x 227.04855pt>
+<fig2.pdf, id=323, 190.05997pt x 227.04855pt>
 File: fig2.pdf Graphic file (type pdf)
 <use fig2.pdf>
 Package pdftex.def Info: fig2.pdf  used on input line 240.
 (pdftex.def)             Requested size: 54.06023pt x 64.58131pt.
-<fig3.pdf, id=322, 139.27534pt x 96.10123pt>
+<fig3.pdf, id=326, 139.27534pt x 96.10123pt>
 File: fig3.pdf Graphic file (type pdf)
 <use fig3.pdf>
 Package pdftex.def Info: fig3.pdf  used on input line 258.
@@ -948,7 +948,7 @@ age group included in a single page
 LaTeX Warning: Reference `sampleagreement' on page 9 undefined on input line 27
 2.
 
-<sample_tapline_box_agreement.pdf, id=340, 191.85915pt x 210.8438pt>
+<sample_tapline_box_agreement.pdf, id=344, 191.85915pt x 210.8438pt>
 File: sample_tapline_box_agreement.pdf Graphic file (type pdf)
 <use sample_tapline_box_agreement.pdf>
 Package pdftex.def Info: sample_tapline_box_agreement.pdf  used on input line 2
@@ -959,7 +959,7 @@ Underfull \hbox (badness 1789) in paragraph at lines 272--280
 []\OT1/cmr/m/n/10 Accomplishing the mean-ing-ful result from
  []
 
-<fig4.pdf, id=343, 130.21483pt x 99.28758pt>
+<fig4.pdf, id=347, 130.21483pt x 99.28758pt>
 File: fig4.pdf Graphic file (type pdf)
 <use fig4.pdf>
 Package pdftex.def Info: fig4.pdf  used on input line 288.
@@ -981,7 +981,7 @@ Underfull \hbox (badness 1303) in paragraph at lines 310--311
 \OT1/cmr/m/n/10 The design of the model in section [][]4.1[][] fol-
  []
 
-<fig5.pdf, id=364, 142.64238pt x 137.04709pt>
+<fig5.pdf, id=368, 142.64238pt x 137.04709pt>
 File: fig5.pdf Graphic file (type pdf)
 <use fig5.pdf>
 Package pdftex.def Info: fig5.pdf  used on input line 314.
@@ -1004,7 +1004,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 328--329
 
  []
 
-<fig6.pdf, id=370, 141.74184pt x 137.04709pt>
+<fig6.pdf, id=374, 141.74184pt x 137.04709pt>
 File: fig6.pdf Graphic file (type pdf)
 <use fig6.pdf>
 Package pdftex.def Info: fig6.pdf  used on input line 342.
@@ -1012,14 +1012,15 @@ Package pdftex.def Info: fig6.pdf  used on input line 342.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<sample_detection.pdf, id=371, 1099.10625pt x 767.86874pt>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 349.
+
+<sample_detection.pdf, id=376, 1099.10625pt x 767.86874pt>
 File: sample_detection.pdf Graphic file (type pdf)
 <use sample_detection.pdf>
-Package pdftex.def Info: sample_detection.pdf  used on input line 348.
+Package pdftex.def Info: sample_detection.pdf  used on input line 351.
 (pdftex.def)             Requested size: 455.24408pt x 318.0386pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1033,25 +1034,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<sampleHausdorffDice.pdf, id=398, 450.23073pt x 449.53505pt>
-File: sampleHausdorffDice.pdf Graphic file (type pdf)
-<use sampleHausdorffDice.pdf>
-Package pdftex.def Info: sampleHausdorffDice.pdf  used on input line 416.
-(pdftex.def)             Requested size: 216.24094pt x 215.91154pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 422.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 422.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1060,6 +1042,24 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [11 <./fig6.pdf>]
+<sampleHausdorffDice.pdf, id=418, 450.23073pt x 449.53505pt>
+File: sampleHausdorffDice.pdf Graphic file (type pdf)
+<use sampleHausdorffDice.pdf>
+Package pdftex.def Info: sampleHausdorffDice.pdf  used on input line 421.
+(pdftex.def)             Requested size: 216.24094pt x 215.91154pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 425.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 425.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1068,9 +1068,31 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [12 <./sample_detection.pdf>]
+Underfull \hbox (badness 3229) in paragraph at lines 432--433
+[]\OT1/cmr/m/n/10 Moreover, expand-ing the num-ber of Pxl
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[13 <./sampleHausdorffDice.pdf>]
+Underfull \hbox (badness 4846) in paragraph at lines 435--436
+\OT1/cmr/m/n/10 Summarizing con-tri-bu-tions pro-posed in this
+ []
+
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 434.
+(hyperref)                than one, level fixed on input line 446.
+
+
+Underfull \hbox (badness 1024) in paragraph at lines 451--452
+\OT1/cmr/m/n/10 men-ta-tion is done on Julia Lan-guage with
+ []
 
 (sn-article.bbl
 Underfull \hbox (badness 7558) in paragraph at lines 10--11
@@ -1103,14 +1125,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--26
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]| []
- []
-
-[13 <./sampleHausdorffDice.pdf>]
 Underfull \hbox (badness 2443) in paragraph at lines 28--31
 \OT1/cmr/m/n/10 Yolov4: Opti-mal speed and accu-racy of
  []
@@ -1151,6 +1165,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--51
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]| []
+ []
+
+[14]
 Underfull \hbox (badness 7704) in paragraph at lines 53--56
 []\OT1/cmr/m/n/10 He K, Gkioxari G, Dollar P, et al
  []
@@ -1171,124 +1193,144 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 75--78
+Underfull \hbox (badness 3780) in paragraph at lines 79--82
 \OT1/cmr/m/n/10 processing for apple detec-tion in fruit-
  []
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 80--82
+Underfull \hbox (badness 2671) in paragraph at lines 84--86
 \OT1/cmr/m/n/10 on mod-i-fied YOLOv3 frame-work. Sci-en-
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 89--92
+Underfull \hbox (badness 1132) in paragraph at lines 93--96
 \OT1/cmr/m/n/10 Agri-cul-ture 180. [][]$https : / / doi . org / 10 . 1016 / j .
 
  []
 
 
-Underfull \hbox (badness 5388) in paragraph at lines 95--98
+Underfull \hbox (badness 5388) in paragraph at lines 99--102
 []\OT1/cmr/m/n/10 Lin T, Goyal P, Gir-shick RB, et al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--98
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
 \OT1/cmr/m/n/10 (2017) Focal loss for dense object
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--98
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
 \OT1/cmr/m/n/10 detec-tion. CoRR abs/1708.02002.
  []
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 100--104
+Underfull \hbox (badness 5359) in paragraph at lines 104--108
 []\OT1/cmr/m/n/10 Liu G, Nouaze JC, Touko Mbouembe
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 100--104
+Underfull \hbox (badness 1365) in paragraph at lines 104--108
 \OT1/cmr/m/n/10 PL, et al (2020) Yolo-tomato: A robust
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 100--104
+Underfull \hbox (badness 1112) in paragraph at lines 104--108
 \OT1/cmr/m/n/10 algo-rithm for tomato detec-tion based on
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 100--104
+Underfull \hbox (badness 2221) in paragraph at lines 104--108
 \OT1/cmr/m/n/10 yolov3. Sen-sors 20(7). [][]$https : / / doi . org / 10 .
  []
 
 
-Underfull \hbox (badness 4001) in paragraph at lines 100--104
+Underfull \hbox (badness 4001) in paragraph at lines 104--108
 \OT1/cmr/m/n/10 3390 / s20072145$[][], URL [][]$https : / / www . mdpi .
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 106--109
+Underfull \hbox (badness 1215) in paragraph at lines 110--113
 []\OT1/cmr/m/n/10 Milletari F, Navab N, Ahmadi S (2016)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
 \OT1/cmr/m/n/10 V-net: Fully con-vo-lu-tional neu-ral net-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
 \OT1/cmr/m/n/10 works for vol-u-met-ric med-i-cal image
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
 \OT1/cmr/m/n/10 seg-men-ta-tion. CoRR abs/1606.04797.
  []
 
 
-Underfull \hbox (badness 4492) in paragraph at lines 111--114
+Underfull \hbox (badness 4492) in paragraph at lines 115--118
 []\OT1/cmr/m/n/10 Misra D (2019) Mish: A self reg-u-lar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
 \OT1/cmr/m/n/10 ized non-monotonic neu-ral acti-va-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
 \OT1/cmr/m/n/10 func-tion. CoRR abs/1908.08681.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 120--123
 []\OT1/cmr/m/n/10 Redmon J, Farhadi A (2016)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 120--123
 \OT1/cmr/m/n/10 YOLO9000: bet-ter, faster,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 120--123
 \OT1/cmr/m/n/10 stronger. CoRR abs/1612.08242.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--128
 []\OT1/cmr/m/n/10 Redmon J, Farhadi A (2018)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--128
 \OT1/cmr/m/n/10 Yolov3: An incre-men-tal improve-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--128
 \OT1/cmr/m/n/10 ment. CoRR abs/1804.02767.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+[]\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 136--139
+\OT1/cmr/m/n/10 (2015) Faster R-CNN: towards real-time
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+\OT1/cmr/m/n/10 object detec-tion with region pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+\OT1/cmr/m/n/10 posal net-works. CoRR abs/1506.01497.
  []
 
 
@@ -1299,78 +1341,58 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
-[]\OT1/cmr/m/n/10 Ren S, He K, Gir-shick RB, et al
- []
-
-
-Underfull \hbox (badness 2343) in paragraph at lines 132--135
-\OT1/cmr/m/n/10 (2015) Faster R-CNN: towards real-time
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
-\OT1/cmr/m/n/10 object detec-tion with region pro-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
-\OT1/cmr/m/n/10 posal net-works. CoRR abs/1506.01497.
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 143--146
+[15]
+Underfull \hbox (badness 2334) in paragraph at lines 147--150
 []\OT1/cmr/m/n/10 Salehi SSM, Erdog-mus D, Gholipour A
  []
 
 
-Underfull \hbox (badness 3439) in paragraph at lines 143--146
+Underfull \hbox (badness 3439) in paragraph at lines 147--150
 \OT1/cmr/m/n/10 (2017) Tver-sky loss func-tion for image
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--146
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 \OT1/cmr/m/n/10 deep net-works. CoRR abs/1706.05721.
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 149--153
+Underfull \hbox (badness 1590) in paragraph at lines 153--157
 []\OT1/cmr/m/n/10 Sudre CH, Li W, Ver-cauteren T, et al
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 149--153
+Underfull \hbox (badness 3058) in paragraph at lines 153--157
 \OT1/cmr/m/n/10 learn-ing loss func-tion for highly unbal-
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 155--157
+Underfull \hbox (badness 1406) in paragraph at lines 159--161
 []\OT1/cmr/m/n/10 Tong K, Wu Y, Zhou F (2020) Recent
  []
 
 
-Underfull \hbox (badness 6332) in paragraph at lines 160--163
+Underfull \hbox (badness 6332) in paragraph at lines 164--167
 \OT1/cmr/m/n/10 Design, devel-op-ment and eval-u-a-tion of
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 160--163
+Underfull \hbox (badness 5893) in paragraph at lines 164--167
 \OT1/cmr/m/n/10 latex har-vest-ing robot based on flex-i-
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 165--168
+Underfull \hbox (badness 2837) in paragraph at lines 169--172
 \OT1/cmr/m/n/10 Night-time rub-ber tap-ping line detec-tion
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 165--168
+Underfull \hbox (badness 3536) in paragraph at lines 169--172
 \OT1/cmr/m/n/10 in near-range images. Mul-ti-me-dia Tools
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 165--168
+Underfull \hbox (badness 2689) in paragraph at lines 169--172
 \OT1/cmr/m/n/10 and Appli-ca-tions [][]$https : / / doi . org / 10 . 1007 /
  []
 
@@ -1382,7 +1404,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []| []
  []
 
-[15] (sn-article.aux)
+[16] (sn-article.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1391,16 +1413,16 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: EE1DDC401D651034A16FF0AFF1863D1F;5275.
+(rerunfilecheck)             Checksum: D3F0E90290F1AE6CE7BD0127D576BAD5;5379.
  ) 
 Here is how much of TeX's memory you used:
- 14234 strings out of 478907
- 201102 string characters out of 2861737
- 561762 words of memory out of 3000000
- 31738 multiletter control sequences out of 15000+600000
+ 14240 strings out of 478907
+ 201188 string characters out of 2861737
+ 561101 words of memory out of 3000000
+ 31742 multiletter control sequences out of 15000+600000
  432221 words of font info for 142 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 75i,18n,80p,1346b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,18n,80p,1324b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Rattachai\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8
 .pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
@@ -1426,9 +1448,9 @@ lic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
 10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on sn-article.pdf (15 pages, 2256267 bytes).
+Output written on sn-article.pdf (16 pages, 2262894 bytes).
 PDF statistics:
- 712 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
+ 729 PDF objects out of 1000 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
  283 words of extra memory for PDF output out of 10000 (max. 10000000)
 

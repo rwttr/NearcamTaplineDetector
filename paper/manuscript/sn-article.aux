@@ -26,10 +26,10 @@
 \citation{vnet}
 \citation{redmonyolov2}
 \citation{Wongtanawijit_2021}
-\citation{abraham1992tapping}
-\citation{patent1,patent2,patent3}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background and Motivation}{2}{section.2}\protected@file@percent }
 \newlabel{sec-background}{{2}{2}{Background and Motivation}{section.2}{}}
+\citation{abraham1992tapping}
+\citation{patent1,patent2,patent3}
 \citation{Wongtanawijit_2021}
 \citation{fasterrcnn}
 \citation{redmonyolov1}
@@ -74,8 +74,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Computer Vision for Rubber Latex Harvesting}{5}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{5}{section.4}\protected@file@percent }
 \newlabel{sec-methodology}{{4}{5}{Methodology}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Model}{5}{subsection.4.1}\protected@file@percent }
-\newlabel{subsec-model}{{4.1}{5}{Model}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Model Design}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{subsec-model}{{4.1}{5}{Model Design}{subsection.4.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Downsampling Network}{5}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Box Detection Branches}{5}{subsubsection.4.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Upsampling Path}{5}{subsubsection.4.1.3}\protected@file@percent }
@@ -108,12 +108,12 @@
 \citation{Huttenlocher1993ComparingIU}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A drawing shows a polyline and a box that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. The red box represents the NMS-processed box with a plolyline (top). The result that the polyline are cropped and re-locate vectices to the box's corners is in bottom. }}{9}{figure.5}\protected@file@percent }
 \newlabel{fig4-sampleagreement}{{5}{9}{A drawing shows a polyline and a box that are locating in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. The red box represents the NMS-processed box with a plolyline (top). The result that the polyline are cropped and re-locate vectices to the box's corners is in bottom}{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evaluation Method}{9}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Taping Line Evaluation Method}{9}{subsection.4.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A drawing of two polylines in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}}{9}{figure.6}\protected@file@percent }
 \newlabel{fig4-polyline}{{6}{9}{A drawing of two polylines in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped}{figure.6}{}}
-\newlabel{eq-dice}{{1}{9}{Evaluation Method}{equation.4.1}{}}
-\newlabel{eq-hausdorff}{{2}{9}{Evaluation Method}{equation.4.2}{}}
-\newlabel{eq-endpoint}{{3}{10}{Evaluation Method}{equation.4.3}{}}
+\newlabel{eq-dice}{{1}{9}{Taping Line Evaluation Method}{equation.4.1}{}}
+\newlabel{eq-hausdorff}{{2}{9}{Taping Line Evaluation Method}{equation.4.2}{}}
+\newlabel{eq-endpoint}{{3}{10}{Taping Line Evaluation Method}{equation.4.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Experiment Setup}{10}{section.5}\protected@file@percent }
 \newlabel{sec-exp}{{5}{10}{Experiment Setup}{section.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pixel classification branch of the proposed model}}{10}{figure.7}\protected@file@percent }
@@ -125,53 +125,56 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Box Detection}{11}{subsection.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Pixel Detection}{11}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Effects of Column-wise Softmax on Tapping Line's Vectices Detection}{11}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Multiple Pixel Prediction Heads with activation function $\mathrm  {g}(x)$}{11}{subsection.6.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}}{12}{figure.9}\protected@file@percent }
 \newlabel{fig-sampledetection}{{9}{12}{Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}{figure.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}}{12}{table.5}\protected@file@percent }
 \newlabel{tab-results-ap50}{{5}{12}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.5 IoU}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}}{13}{table.6}\protected@file@percent }
+\newlabel{tab-results-ap75}{{6}{13}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Detection samples from model C (top) and model D (bottom) from same test image. The predicted polyline is in the blue box, and the polyline within the red dashed box is the groundtruth. The magnified views in the right side are for better visualization. The upper predicted tapping line has $\mathrm  {d_{H}}=4.47$ and $D=0.5203$, and the lower predicted tapping line has $\mathrm  {d_{H}}=48.7$ and $D=0.5230$.}}{13}{figure.10}\protected@file@percent }
+\newlabel{fig-sampleHausdorffDice}{{10}{13}{Detection samples from model C (top) and model D (bottom) from same test image. The predicted polyline is in the blue box, and the polyline within the red dashed box is the groundtruth. The magnified views in the right side are for better visualization. The upper predicted tapping line has $\mathrm {d_{H}}=4.47$ and $D=0.5203$, and the lower predicted tapping line has $\mathrm {d_{H}}=48.7$ and $D=0.5230$}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Multiple Pixel Prediction Heads with activation function $\mathrm  {g}(x)$}{13}{subsection.6.4}\protected@file@percent }
+\citation{innes2018}
 \bibstyle{bst/sn-basic}
 \bibdata{sn-bibliography}
 \bibcite{abraham1992tapping}{{1}{1992}{{Abraham}}{{}}}
 \bibcite{patent1}{{2}{2018{}}{{An~Feng}}{{}}}
 \bibcite{patent2}{{3}{2018{}}{{An~Feng}}{{}}}
 \bibcite{segnet}{{4}{2015}{{Badrinarayanan et~al}}{{Badrinarayanan, Kendall, and Cipolla}}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}}{13}{table.6}\protected@file@percent }
-\newlabel{tab-results-ap75}{{6}{13}{Detection results on the proposed model and baseline models at various settings. All metrics are averaged on the box-detected samples at 0.75 IoU}{table.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Detection samples from model C (top) and model D (bottom) from same test image. The predicted polyline is in the blue box, and the polyline within the red dashed box is the groundtruth. The magnified views in the right side are for better visualization. The upper predicted tapping line has $\mathrm  {d_{H}}=4.47$ and $D=0.5203$, and the lower predicted tapping line has $\mathrm  {d_{H}}=48.7$ and $D=0.5230$.}}{13}{figure.10}\protected@file@percent }
-\newlabel{fig-sampleHausdorffDice}{{10}{13}{Detection samples from model C (top) and model D (bottom) from same test image. The predicted polyline is in the blue box, and the polyline within the red dashed box is the groundtruth. The magnified views in the right side are for better visualization. The upper predicted tapping line has $\mathrm {d_{H}}=4.47$ and $D=0.5203$, and the lower predicted tapping line has $\mathrm {d_{H}}=48.7$ and $D=0.5230$}{figure.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Acknowledgments}{13}{section*.2}\protected@file@percent }
 \bibcite{alexyyolov4}{{5}{2020}{{Bochkovskiy et~al}}{{Bochkovskiy, Wang, and Liao}}}
 \bibcite{chentomato}{{6}{2021}{{Chen et~al}}{{Chen, Wang, Wu, Hu, Zhao, Tan, Teng, and Luo}}}
 \bibcite{Chu2021apple}{{7}{2021}{{Chu et~al}}{{Chu, Li, Lammers, Lu, and Liu}}}
 \bibcite{fastrcnn}{{8}{2015}{{Girshick}}{{}}}
 \bibcite{resnet}{{9}{2015}{{He et~al}}{{He, Zhang, Ren, and Sun}}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}\protected@file@percent }
+\newlabel{sec-conclude}{{7}{14}{Conclusion}{section.7}{}}
+\@writefile{toc}{\contentsline {subparagraph}{Acknowledgments}{14}{section*.2}\protected@file@percent }
 \bibcite{maskrcnn}{{10}{2017}{{He et~al}}{{He, Gkioxari, Doll{\'{a}}r, and Girshick}}}
 \bibcite{densenet}{{11}{2016}{{Huang et~al}}{{Huang, Liu, and Weinberger}}}
 \bibcite{Huttenlocher1993ComparingIU}{{12}{1993}{{Huttenlocher et~al}}{{Huttenlocher, Klanderman, and Rucklidge}}}
-\bibcite{Jia2020apple}{{13}{2020}{{Jia et~al}}{{Jia, Tian, Luo, Zhang, Lian, and Zheng}}}
-\bibcite{Kuznetsova2020apple}{{14}{2020}{{Kuznetsova et~al}}{{Kuznetsova, Maleva, and Soloviev}}}
-\bibcite{Lawal_2021}{{15}{2021{}}{{Lawal}}{{}}}
-\bibcite{Lawal2021tomato}{{16}{2021{}}{{Lawal}}{{}}}
-\bibcite{Li2021apple}{{17}{2021}{{Li et~al}}{{Li, Jia, Sun, Hou, and Zheng}}}
-\bibcite{focalloss1}{{18}{2017}{{Lin et~al}}{{Lin, Goyal, Girshick, He, and Doll{\'{a}}r}}}
-\bibcite{s20072145}{{19}{2020}{{Liu et~al}}{{Liu, Nouaze, Touko~Mbouembe, and Kim}}}
-\bibcite{vnet}{{20}{2016}{{Milletari et~al}}{{Milletari, Navab, and Ahmadi}}}
-\bibcite{misra2019mish}{{21}{2019}{{Misra}}{{}}}
-\bibcite{redmonyolov2}{{22}{2016}{{Redmon and Farhadi}}{{}}}
-\bibcite{redmonyolov3}{{23}{2018}{{Redmon and Farhadi}}{{}}}
-\bibcite{redmonyolov1}{{24}{2015}{{Redmon et~al}}{{Redmon, Divvala, Girshick, and Farhadi}}}
-\bibcite{fasterrcnn}{{25}{2015}{{Ren et~al}}{{Ren, He, Girshick, and Sun}}}
-\bibcite{unet}{{26}{2015}{{Ronneberger et~al}}{{Ronneberger, Fischer, and Brox}}}
-\bibcite{tverskyloss}{{27}{2017}{{Salehi et~al}}{{Salehi, Erdogmus, and Gholipour}}}
-\bibcite{gendice}{{28}{2017}{{Sudre et~al}}{{Sudre, Li, Vercauteren, Ourselin, and Cardoso}}}
-\bibcite{Tong2020}{{29}{2020}{{Tong et~al}}{{Tong, Wu, and Zhou}}}
-\bibcite{WANG2022103906}{{30}{2022}{{Wang et~al}}{{Wang, Zhou, Zhang, Ge, Li, Yuan, Zhang, and Zhang}}}
-\bibcite{Wongtanawijit_2021}{{31}{2021}{{Wongtanawijit and Khaorapapong}}{{}}}
-\bibcite{Yu2019strawberry}{{32}{2019}{{Yu et~al}}{{Yu, Zhang, Yang, and Zhang}}}
-\bibcite{casenet}{{33}{2017}{{Yu et~al}}{{Yu, Feng, Liu, and Ramalingam}}}
-\bibcite{zhang2019rubber}{{34}{2019}{{Zhang et~al}}{{Zhang, Yong, Chen, Zhang, Ge, Wang, and Li}}}
-\bibcite{patent3}{{35}{2017}{{Zhang~Bin}}{{}}}
-\bibcite{Zhou2021rubber}{{36}{2021}{{Zhou et~al}}{{Zhou, Zhang, Zhang, Zhang, Wang, Zhai, and Li}}}
-\gdef \@abspage@last{15}
+\bibcite{innes2018}{{13}{2018}{{Innes}}{{}}}
+\bibcite{Jia2020apple}{{14}{2020}{{Jia et~al}}{{Jia, Tian, Luo, Zhang, Lian, and Zheng}}}
+\bibcite{Kuznetsova2020apple}{{15}{2020}{{Kuznetsova et~al}}{{Kuznetsova, Maleva, and Soloviev}}}
+\bibcite{Lawal_2021}{{16}{2021{}}{{Lawal}}{{}}}
+\bibcite{Lawal2021tomato}{{17}{2021{}}{{Lawal}}{{}}}
+\bibcite{Li2021apple}{{18}{2021}{{Li et~al}}{{Li, Jia, Sun, Hou, and Zheng}}}
+\bibcite{focalloss1}{{19}{2017}{{Lin et~al}}{{Lin, Goyal, Girshick, He, and Doll{\'{a}}r}}}
+\bibcite{s20072145}{{20}{2020}{{Liu et~al}}{{Liu, Nouaze, Touko~Mbouembe, and Kim}}}
+\bibcite{vnet}{{21}{2016}{{Milletari et~al}}{{Milletari, Navab, and Ahmadi}}}
+\bibcite{misra2019mish}{{22}{2019}{{Misra}}{{}}}
+\bibcite{redmonyolov2}{{23}{2016}{{Redmon and Farhadi}}{{}}}
+\bibcite{redmonyolov3}{{24}{2018}{{Redmon and Farhadi}}{{}}}
+\bibcite{redmonyolov1}{{25}{2015}{{Redmon et~al}}{{Redmon, Divvala, Girshick, and Farhadi}}}
+\bibcite{fasterrcnn}{{26}{2015}{{Ren et~al}}{{Ren, He, Girshick, and Sun}}}
+\bibcite{unet}{{27}{2015}{{Ronneberger et~al}}{{Ronneberger, Fischer, and Brox}}}
+\bibcite{tverskyloss}{{28}{2017}{{Salehi et~al}}{{Salehi, Erdogmus, and Gholipour}}}
+\bibcite{gendice}{{29}{2017}{{Sudre et~al}}{{Sudre, Li, Vercauteren, Ourselin, and Cardoso}}}
+\bibcite{Tong2020}{{30}{2020}{{Tong et~al}}{{Tong, Wu, and Zhou}}}
+\bibcite{WANG2022103906}{{31}{2022}{{Wang et~al}}{{Wang, Zhou, Zhang, Ge, Li, Yuan, Zhang, and Zhang}}}
+\bibcite{Wongtanawijit_2021}{{32}{2021}{{Wongtanawijit and Khaorapapong}}{{}}}
+\bibcite{Yu2019strawberry}{{33}{2019}{{Yu et~al}}{{Yu, Zhang, Yang, and Zhang}}}
+\bibcite{casenet}{{34}{2017}{{Yu et~al}}{{Yu, Feng, Liu, and Ramalingam}}}
+\bibcite{zhang2019rubber}{{35}{2019}{{Zhang et~al}}{{Zhang, Yong, Chen, Zhang, Ge, Wang, and Li}}}
+\bibcite{patent3}{{36}{2017}{{Zhang~Bin}}{{}}}
+\bibcite{Zhou2021rubber}{{37}{2021}{{Zhou et~al}}{{Zhou, Zhang, Zhang, Zhang, Wang, Zhai, and Li}}}
+\gdef \@abspage@last{16}

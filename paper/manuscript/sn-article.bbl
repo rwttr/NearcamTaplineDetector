@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -63,6 +63,10 @@ Huang G, Liu Z, Weinberger KQ (2016) Densely connected convolutional networks.
   Rucklidge}]{Huttenlocher1993ComparingIU}
 Huttenlocher DP, Klanderman GA, Rucklidge W (1993) Comparing images using the
   hausdorff distance. IEEE Trans Pattern Anal Mach Intell 15:850--863
+
+\bibitem[{Innes(2018)}]{innes2018}
+Innes M (2018) Flux: Elegant machine learning with julia. Journal of Open
+  Source Software \doi{10.21105/joss.00602}
 
 \bibitem[{Jia et~al(2020)Jia, Tian, Luo, Zhang, Lian, and Zheng}]{Jia2020apple}
 Jia W, Tian Y, Luo R, et~al (2020) Detection and segmentation of overlapped
