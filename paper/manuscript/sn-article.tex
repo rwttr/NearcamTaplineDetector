@@ -101,7 +101,7 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 
 
 \subsection{Model Design}\label{subsec-model}
-Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable.
+Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable. As a result, the following model construction has 5.53 million trainable parameters in approximate.
 
 \begin{figure*}[]%
 \centering
@@ -171,8 +171,8 @@ obj		& Conv2d       & 3          & $1\times1$             & $\sigma$        & $w
 \end{minipage}
 \end{table}
 
-\subsubsection{Upsampling Path}
-Upsampling path employs U-Net structure that low resoultion tensors are enlarged by transpose convolutions whose inputs are taken from same previous layers, shown in Fig \ref{fig1-modelA}. Following the U-Net convension, tensors in every spatial changes in backbone layers are gathered, by depth-concatenation operation, with one from previous transpose convolution for the next transpose convolution step. Activation functions for all layers of upsampling path are LeakyReLU as well as in the backbone network. Explaination in details is in Table \ref{tab-unetpath}.
+\subsubsection{Upsampling Network}
+Network's upsampling path employs the U-Net structure that low resoultion tensors are enlarged by transpose convolutions whose inputs are taken from same previous layers, shown in Fig \ref{fig1-modelA}. Following the U-Net convension, tensors in every spatial changes in backbone layers are gathered, by depth-concatenation operation, with one from previous transpose convolution for the next transpose convolution step. Activation functions for all layers of upsampling path are LeakyReLU as well as in the backbone network. Explaination in details is in Table \ref{tab-unetpath}.
 
 \begin{table}[]
 \centering
@@ -225,7 +225,7 @@ For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three opera
 \item binarizes the majority locations (set one for majority pixels, otherwise set to zeros)
 \end{enumerate}
 
-In the network traning phase, pixel classification losses are computed on each outputs of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute in the calculations. Learnable weights of pointwise convolution in a particular Pxl Header combine low-level and high-level features via any mapping function, which can be arbitary specified in network traning phase. Sigmoid function bounds the values in between 0 and 1, which controls the numerical stability on the neurons and enhances the training convergence.
+In the network traning phase, pixel classification losses are computed on each output of pixel prediction blocks, which means function $\mathrm{g}(x)$ and beyonds are not contribute for the loss calculation. Learnable weights in a particular Pxl Header combine low-level of high resolution tensor from early-stage layers and high-level features extracted from down-sampling to up-sampling layers via any mapping function, which can be arbitary specified in network traning phase. Sigmoid function bounds the values in between 0 and 1 representing the valid pixl existence probability, which also controls the numerical stability on the neurons and enhances the training convergence.
 
 \subsection{Model Training}
 Dataset for this paper contains 1,425 tapping line images, only RGB1 version \cite{Wongtanawijit_2021} is used. Complying K-fold cross validation scheme with k=5, image data are divided into five clusters (folds). In each fold, there are 285 samples for evaluation and 1,140 samples for training the model.
@@ -233,7 +233,7 @@ Dataset for this paper contains 1,425 tapping line images, only RGB1 version \ci
 \subsubsection{Dataset Priors and Statistics}
 All images in the dataset is collected within the nighttimes using artificial light souces. The camera produces tapping panel images with the dark background. And, an tapping panel image contains only one tapping line.
 
-All RGB image are resized to network's input size, $224\times224\times3$ pixels with not preserving their original aspect ratios. An averaged size of annotated tapping line bounding boxes, with respected to the resized image, is 59.2 width and 70.6 height. Therefore, the values estimates for anchors' sizes are (59.2, 70.6), (50.2, 79.6), and (66.6, 60.0). These anchors will be constantly used across all the models.
+All RGB image are resized to network's input size, $224\times224\times3$ pixels with not preserving their original aspect ratios. An averaged size of annotated tapping line bounding boxes, with respected to the resized image, is 59.2 width and 70.6 height. Therefore, the values estimates for anchors' sizes are (59.2, 70.6), (50.2, 79.6), and (66.6, 60.0). These anchors will be constantly used across all models.
 
 \begin{figure}[h]%
 \centering
@@ -260,16 +260,16 @@ Unit-rescaling and z-score transformation normalize the pixel values of an input
 \end{figure}
 
 \subsubsection{Generalization}
-Training the model adopts a couple of tools, such as weight regularization, image augmentation, weight drop-out, etc., to prevent the model from overfitting. L2 regularization\footnote[2]{Concerning the stabillity of training dynamics with single precision unit (fp32), the regularization factor is set to $2/m$ where $m$ is the number of learnable weights} is used on the learnable weights in all network's layers. Random rotations within $\pm20^\circ$ and the magnifications within $\pm20\%$ are applied on the input images for the augmentation purpose. Another tool is checking the box predictions of YOLO outputs. If the box predictions reach 0.75 IoU or highers with the groundtruth, then the box's loss calculations in that paricular spatial position on YOLO feature maps will be skipped.
+Training the model adopts a couple of tools, such as weight regularization, image augmentation, weight drop-out, etc., to prevent the model from overfitting. L2 regularization\footnote[2]{Concerning the stabillity of training dynamics with single precision unit (fp32), the regularization factor is set to $2/m$ where $m$ is the number of learnable weights} is used on the learnable weights in all network's layers. For the data generalization, the image processings like the random rotation within $\pm20^\circ$ and the magnification within $\pm20\%$ are applied on the input images for the augmentation purpose. Another tool is checking the box predictions of YOLO outputs. If the box predictions reach 0.75 IoU or highers with the groundtruth, then the box's loss calculations will omit in that paricular spatial location on YOLO attention maps.
 
 \subsection{Model Inferencing}
-Box detection branches and the pixel classification branch separately produce the outputs. Pixel classification end predicts a binary image that the valid pixels (1's) may be outside the predicted box from YOLO branch. To connect them together with agrees to the dataset that an image has only one tapping line, the network is going to produce one final bounding box as well.
+Box detection branches and the pixel classification branch separately produce the outputs. Pixel classification end predicts a binary image that the valid pixels (1's) may be outside the predicted box from YOLO branches. To connect them together with agrees to the dataset that an image has only one tapping line, the network is going to produce one bounding box as well.
 
 For producing bounding box prediction, the network selects only one strongest prediction for an anchor size per YOLO branches, which means there are 3 predictions at a YOLO branch. Six predictions from 2 YOLO branches are therefore reduced to one final result by Non-maximal suppression (NMS).
 
-At the pixel classication branch, function $\mathrm{g}(x)$ creates a binary image that contains one valid pixel (1's) per column. Some valid pixels may aligned with the tapping line while some are not. So, the prediction is to crop the binary image by the mentioned bounding box from NMS to filter out the unwanted pixels (boundary condition dominated by the box, valid pixels on the box's boderline are removed).
+At the pixel classication branch, function $\mathrm{g}(x)$ creates a binary image that contains one valid pixel (1's) per column. Some valid pixels may aligned with the tapping line while some are not. So, the prediction is to crop the binary image by the final bounding box from NMS to filter out the unwanted pixels. Boundary condition in box cropping is dominated by the box, valid pixels on the box's boderline are removed.
 
-Accomplishing the meaningful result from both annotations, the final polyline will have the first vertex at box's top-left corner as a tapping line starting point, and the terminate vertex at box's bottom-right corner. Fig \ref{fig-sampleagreement} illustrates an example of the process. This agreement is for inferencing a tapping line from the model.
+Accomplishing the meaningful result from both annotations, the final polyline will have the first vertex at box's top-left corner as the tapping line starting point, and the terminate vertex at box's bottom-right corner for the tapping line terminating point. Fig \ref{fig-sampleagreement} illustrates an example of the process. This agreement is for inferencing a tapping line from the model.
 % sample_tapline_box_agreement
 \begin{figure}[h]%
 \centering
@@ -289,17 +289,17 @@ The bounding box overlapping ratios with 0.5 and 0.75 IoU levels determine avera
 \caption{A drawing of two polylines in a discrete unit grid. Assuming that a intersection on the grid represents a pixel location in an image. A detected tapping line (dashed line) merely distances to the groundtruth (solid line) with 1 pixel is the exact overlapped.}\label{fig4-polyline}
 \end{figure}
 
-To clearify the calculation of both metrics, let any polygonal lines where thier vertices are on a discrete grid (positive integers grid, $\mathbb{I^+}\times \mathbb{I^+}$), which also known as the ``discrete curve". So, let $\textbf{A}$ and $\textbf{B}$ respectively represent the set of vertices of a predicted tapping line and its corresponding groundtruth. Dice's coefficient ($D$) is obtained in equation \ref{eq-dice}
+To clearify the calculation of both metrics, let any polygonal lines where thier vertices are on a discrete grid (positive integers grid, $\mathbb{I^+}\times \mathbb{I^+}$), which also known as the ``discrete curve". So, let $\textbf{A}$ and $\textbf{B}$ respectively represent the set of vertices of a predicted tapping line and its corresponding groundtruth. Dice's coefficient or F1-score ($D$) is obtained in equation \ref{eq-dice}
 \begin{equation}
 D = \frac{2 \lvert \textbf{A} \cap \textbf{B} \rvert }{\lvert\textbf{A}\rvert+\lvert\textbf{B}\rvert}\label{eq-dice}
 \end{equation}
-Hausdorff distance ($\mathrm{d_H}$), measures for similarity between two curves, is defined by equation \ref{eq-hausdorff} \cite{Huttenlocher1993ComparingIU}, where $a \in \textbf{A}$ and $b \in \textbf{B}$. Function $\mathrm{d}(\textbf{A},\textbf{B})$ denotes for the directed Hausdorff distance (one-way) from curve \textbf{A} to curve \textbf{B}.
+Hausdorff distance ($\mathrm{d_H}$), measures the similarity between two curves, is defined by equation \ref{eq-hausdorff} \cite{Huttenlocher1993ComparingIU}, where $a \in \textbf{A}$ and $b \in \textbf{B}$. Function $\mathrm{d}(\textbf{A},\textbf{B})$ denotes for the directed Hausdorff distance (one-way) from curve \textbf{A} to curve \textbf{B}.
 \begin{align}
 \mathrm{d}(\textbf{A},\textbf{B}) &= \max_{a\in\textbf{A}} \min_{b\in\textbf{B}} \| a-b \|  \nonumber \\
 \mathrm{d_H}(\textbf{A},\textbf{B}) &= \max (\mathrm{d}(\textbf{A},\textbf{B}), \mathrm{d}(\textbf{B},\textbf{A})) \label{eq-hausdorff}
 \end{align}
 
-In addition to the mentioned box and polyline evaluation metrics, this paper also includes the L2-distance ($\mathrm{d_{ep}}$) of tapping endpoints where two the tapping endpoints locate at the top-left and bottom-right corners of the box. This measurement adds more details on the box's location over IoU ratios. Let a predicted box is in a form of $[x_p, y_p, w_p, h_p]$ and the groundtruth box is $[x_g, y_g, w_g, h_g]$. Then, the predicted tapping endpoints are $ep_{p1} = (x_p, y_p)$ and $ep_{p2} = (x_p+w_p, y_p+h_p)$. Likewise, the groundtruth tapping endpoints are $ep_{g1} = (x_g, y_g)$ and $ep_{g2} = (x_g+w_g, y_g+h_g)$. The average endpoint distance is defined by equation \ref{eq-endpoint}.
+In addition to the mentioned box and polyline evaluation metrics, this paper also includes the L2-distance ($\mathrm{d_{ep}}$) of tapping endpoints where two tapping endpoints locate at the top-left and bottom-right corners of the box. This measurement adds more details on the box's location over IoU ratios. Let a bounding box is in a form [x, y, width, height]. The predicted box is $[x_p, y_p, w_p, h_p]$ and the groundtruth box is $[x_g, y_g, w_g, h_g]$. Then, the predicted tapping endpoints are $ep_{p1} = (x_p, y_p)$ and $ep_{p2} = (x_p+w_p, y_p+h_p)$. Likewise, the groundtruth tapping endpoints are $ep_{g1} = (x_g, y_g)$ and $ep_{g2} = (x_g+w_g, y_g+h_g)$. The average endpoint distance is defined by equation \ref{eq-endpoint}.
 \begin{equation}
 \mathrm{d_{ep}} = \frac{1}{2} (\| ep_{p1}- ep_{g1} \| + \| ep_{p2}  - ep_{g2} \|) \label{eq-endpoint}
 \end{equation}
@@ -352,7 +352,7 @@ Fig \ref{fig-sampledetection} presents some detection results that the original 
 \caption{Some detection samples from various models. A pair of two images presents a tapping panel image with the original size to scale (left) beside its magnified view (right). Detected or the predicted boxes with polyline insides are displayed in yellow. The dashed box with a polyline in red is the groundtruth}\label{fig-sampledetection}
 \end{figure*}
 
-The following results in this section are averaged from the models that tests with all testing data folds in K-fold cross-validaton fashion. Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and the discrete Hausdorff distances (calculation manipulate the distance between polylines by distance between pixel vertices) that are averaged from the box-detected samples.
+The following results in this section are averaged from the models that test with all testing data folds of K-fold cross-validaton partition. Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} present average precisions of tapping line bounding box detection with 0.5 IoU ($\mathrm{AP}_{50}$) and 0.75 IoU ($\mathrm{AP}_{75}$) alongside distance errors of tapping endpoints, F1-scores, and discrete Hausdorff distances that are averaged from the box-detected samples. Note that the calculation of dthe discrete Hausdorff distance manipulates the distance between polylines by distance between thier pixel vertices. 
 
 \begin{table*}[!ht]
 \centering
@@ -405,9 +405,9 @@ D 	& Tversky					& - 				& 0.6059	&	9.22		&	19.60		&	0.5876	\\
 \subsection{Box Detection}
 Results in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75} clearly show that all models can detect tapping line boxes with high average precisions of 0.95 and aboves for 0.5 box IoU ($\mathrm{AP_{50}}$). Even in the more precise localization criterion, results with 0.75 box IoU ($\mathrm{AP_{75}}$) also confirm that all models also consistently produce tapping line bounding box at similar rates about 0.4 to 0.6 average precision. These IoU-based results correlate to tapping endpoints errors that measure the distance between boxes' corners. 
 \subsection{Pixel Detection}
-Results in Fig \ref{fig-sampledetection}, all model produces closely results on the visual. The fact that there are some differences in pixel level that can be expressed by Hausdorff distance and F1-scores in the result tables. Among proposed model variants, model B achieves highest averaged F1-scores, 0.57$@$0.5 box IoU and 0.59$@$0.75 box IoU, with small averaged Hausdorff distances, 9.16 pixels$@$0.5 box IoU and 6.99$@$0.75 box IoU within the $224 \times 224$ image resolution. These values indicate the predicted tapping line is in a very close proximity and the strong similarity to the groundtruth.
+Results in Fig \ref{fig-sampledetection}, all model produces closely results on the visual. The fact that there are some differences in pixel level that can be expressed by discrete Hausdorff distance and F1-scores in the result tables. Among proposed model variants, model B achieves highest averaged F1-scores, 0.57$@$0.5 box IoU and 0.59$@$0.75 box IoU, with small averaged discrete Hausdorff distances, 9.16 pixels$@$0.5 box IoU and 6.99$@$0.75 box IoU within the $224 \times 224$ image resolution. These values indicate the predicted tapping line is in a very close proximity and the strong similarity to the groundtruth.
 
-The key operation of tapping line's pixel prediction is in the function $\mathrm{g}(x)$. Checking on every column where is the highest probability pixel location (mathematical equivalence is the argmax for the row position on every column in an image) agrees to the tapping line pixel-level annotation and it is helpful to produce the final pixel classification output in a binary mask. 
+The key operation of tapping line's pixel prediction is in the function $\mathrm{g}(x)$. Checking on every column where is the highest probability pixel location (mathematical equivalence to the argmax for the row position on every column in an image) agrees to the tapping line pixel-level annotation and it is helpful to produce the final pixel classification output in a binary mask. 
 
 \subsection{Effects of Column-wise Softmax on Tapping Line's Vectices Detection}
 Results from single Pxl Header networks, model C and model D, show the effects of column-wise softmax in the pixel classification. Comparing two models with one Pxl Header that using the same pixel classificaion loss, the model with no columnwise softmax produce tapping lines with higher F1-scores but also slightly raise Hausdorff distances. Inversely, models with column-wise softmax can predict tapping lines with lower Hausdorff distances but slightly decline the F1-scores. This is clearly noticeable in Table \ref{tab-results-ap50} and Table \ref{tab-results-ap75}, in the cases of model C and model D that using Dice's cofficient and Tversky's index as their pixel classification loss function.

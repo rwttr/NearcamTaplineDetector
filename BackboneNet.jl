@@ -484,6 +484,40 @@ function buildDarknetLight(;input_channel=3)
     return darknetlayers
 end
 
+function buildDarknetLight2(;input_channel=3)
+    
+    darknetlayers = Chain(
+        Conv((3, 3), input_channel => 32, pad=SamePad()),
+        BatchNorm(32, leakyrelu),
+        
+        Conv((3, 3), 32 => 64, pad=SamePad(), stride=2),
+        BatchNorm(64, leakyrelu),
+        
+        darknetResBlock(ind=64, selfrep=1),
+        
+        Conv((3, 3), 64 => 128, pad=SamePad(), stride=2),
+        BatchNorm(128, leakyrelu),
+        
+        darknetResBlock(ind=128, selfrep=1),
+        
+        Conv((3, 3), 128 => 256, pad=SamePad(), stride=2),
+        BatchNorm(256, leakyrelu),
+        
+        darknetResBlock(ind=256, selfrep=2),
 
+        Conv((3, 3), 256 => 320, pad=SamePad(), stride=2),
+        BatchNorm(320, leakyrelu),
+
+        darknetResBlock(ind=320, selfrep=2),
+
+        Conv((3, 3), 320 => 384, pad=SamePad(), stride=2),
+        BatchNorm(384, leakyrelu),
+
+        darknetResBlock(ind=384, selfrep=1)
+    )
+
+    return darknetlayers
 
 end
+
+end #module
