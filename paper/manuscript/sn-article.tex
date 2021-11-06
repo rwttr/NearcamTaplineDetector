@@ -202,7 +202,7 @@ Three pixel prediction blocks (Pxl Header) are proposed, named ``Pxl Header1", `
 \label{tab-pxlheader}
 \begin{minipage}{\linewidth}
 \begin{center}
-\begin{tabular}{@{}clcc@{}}%{p{0.1\linewidth}p{0.2\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
+\begin{tabular}{@{}clcc@{}}
 \toprule
 Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footnotemark[1]	\\ \midrule
 1	& Pointwise Conv2d	& 64  & 1 \\
@@ -214,7 +214,7 @@ Order 	& ops 	& \textbf{input} $d$\footnotemark[1]  & \textbf{output} $d$\footno
 \end{minipage}
 \end{table}
 
-Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then let the Sigmoid activation modifies the values. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position correlation within the image's columns, which means it suppressed others while boosting one another. This process can be compared to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
+Two-dimension convolution with filter size of $1\times1$ (also known as pointwise convolution) with filter's depth of 64 transforms the size of input tensor to $224\times 224\times 1$. Then let the Sigmoid activation modifies the values. Pxl Header introduces the Column-wise Softmax layers. According to the tapping line definition that only one pixel in a column contains a tapping line's pixel, so applying a standard unit Softmax function on each image's column conforms such annotations. Sum-to-one property of Softmax adds the row-position correlation within the image's columns, which means it suppressed others while boosting one another. This process can be a reminiscence to an edge-thinning algorithm of image-processing, and also helps the model's training to be more likely converged faster. 
 
 For inferencing a tapping line, function $\mathrm{g}(x)$ composed of three operations, that run in the order by,
 \begin{enumerate}
