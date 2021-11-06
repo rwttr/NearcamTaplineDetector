@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.11.1)  5 NOV 2021 17:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.11.1)  6 NOV 2021 15:39
 entering extended mode
 **./sn-article.tex
 (sn-article.tex
@@ -798,6 +798,10 @@ File: sample_annotation.pdf Graphic file (type pdf)
 Package pdftex.def Info: sample_annotation.pdf  used on input line 68.
 (pdftex.def)             Requested size: 216.24094pt x 96.73pt.
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -829,48 +833,47 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 106.
-
 <fig1.pdf, id=269, 713.2951pt x 356.94891pt>
 File: fig1.pdf Graphic file (type pdf)
 <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf  used on input line 108.
+Package pdftex.def Info: fig1.pdf  used on input line 106.
 (pdftex.def)             Requested size: 455.24408pt x 227.81471pt.
 
-Underfull \hbox (badness 2865) in paragraph at lines 113--114
+Underfull \hbox (badness 2865) in paragraph at lines 111--112
 \OT1/cmr/m/n/10 The down-sam-pling net-work bor-rows resid-ual
  []
 
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 117.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 115.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 117.
+(Font)              size <5> substituted on input line 115.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.015> not available
-(Font)              size <5> substituted on input line 117.
+(Font)              size <5> substituted on input line 115.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 117.
+(Font)              size <5> substituted on input line 115.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 117.
+(Font)              size <5> substituted on input line 115.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 154.
+               Default added (so using `tbp') on input line 152.
 
 
-Overfull \hbox (8.62277pt too wide) in paragraph at lines 159--171
+Overfull \hbox (8.62277pt too wide) in paragraph at lines 157--169
 [][] 
  []
+
+
+Overfull \vbox (2.8214pt too high) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -883,11 +886,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [5]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 177.
+               Default added (so using `tbp') on input line 175.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 201.
+               Default added (so using `tbp') on input line 199.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -909,15 +912,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <fig2.pdf, id=323, 190.05997pt x 227.04855pt>
 File: fig2.pdf Graphic file (type pdf)
 <use fig2.pdf>
-Package pdftex.def Info: fig2.pdf  used on input line 240.
+Package pdftex.def Info: fig2.pdf  used on input line 238.
 (pdftex.def)             Requested size: 54.06023pt x 64.58131pt.
 <fig3.pdf, id=326, 139.27534pt x 96.10123pt>
 File: fig3.pdf Graphic file (type pdf)
 <use fig3.pdf>
-Package pdftex.def Info: fig3.pdf  used on input line 258.
+Package pdftex.def Info: fig3.pdf  used on input line 256.
 (pdftex.def)             Requested size: 142.7198pt x 98.48386pt.
 
-Underfull \hbox (badness 1082) in paragraph at lines 259--259
+Underfull \hbox (badness 1082) in paragraph at lines 257--257
 []\OT1/cmr/bx/n/8 Fig. 4 []\OT1/cmr/m/n/8 WarmUp-Steady-Decay Learn-ing Rate Pr
 o-file.
  []
@@ -939,10 +942,10 @@ age group included in a single page
 File: sample_tapline_box_agreement.pdf Graphic file (type pdf)
 <use sample_tapline_box_agreement.pdf>
 Package pdftex.def Info: sample_tapline_box_agreement.pdf  used on input line 2
-76.
+74.
 (pdftex.def)             Requested size: 112.4462pt x 123.57637pt.
 
-Underfull \hbox (badness 1789) in paragraph at lines 272--280
+Underfull \hbox (badness 1789) in paragraph at lines 270--278
 []\OT1/cmr/m/n/10 Accomplishing the mean-ing-ful result from
  []
 
@@ -952,7 +955,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <fig4.pdf, id=348, 130.21483pt x 99.28758pt>
 File: fig4.pdf Graphic file (type pdf)
 <use fig4.pdf>
-Package pdftex.def Info: fig4.pdf  used on input line 288.
+Package pdftex.def Info: fig4.pdf  used on input line 286.
 (pdftex.def)             Requested size: 86.49504pt x 65.95268pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -967,27 +970,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 pdfTeX warning: pdflatex (file ./fig4.pdf): PDF inclusion: multiple pdfs with p
 age group included in a single page
 >]
-Underfull \hbox (badness 1303) in paragraph at lines 310--311
+Underfull \hbox (badness 1303) in paragraph at lines 308--309
 \OT1/cmr/m/n/10 The design of the model in section [][]4.1[][] fol-
  []
 
 <fig5.pdf, id=365, 142.64238pt x 137.04709pt>
 File: fig5.pdf Graphic file (type pdf)
 <use fig5.pdf>
-Package pdftex.def Info: fig5.pdf  used on input line 314.
+Package pdftex.def Info: fig5.pdf  used on input line 312.
 (pdftex.def)             Requested size: 118.93317pt x 114.26764pt.
 
-Underfull \hbox (badness 1194) in paragraph at lines 322--323
+Underfull \hbox (badness 1194) in paragraph at lines 320--321
 []\OT1/cmr/m/n/10 Multiple seg-men-ta-tion loss for train-ing the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
@@ -1003,17 +1006,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <fig6.pdf, id=392, 141.74184pt x 137.04709pt>
 File: fig6.pdf Graphic file (type pdf)
 <use fig6.pdf>
-Package pdftex.def Info: fig6.pdf  used on input line 342.
+Package pdftex.def Info: fig6.pdf  used on input line 340.
 (pdftex.def)             Requested size: 118.93317pt x 114.99956pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 349.
+               Default added (so using `tbp') on input line 347.
 
 <sample_detection.pdf, id=394, 1099.10625pt x 767.86874pt>
 File: sample_detection.pdf Graphic file (type pdf)
 <use sample_detection.pdf>
-Package pdftex.def Info: sample_detection.pdf  used on input line 351.
+Package pdftex.def Info: sample_detection.pdf  used on input line 349.
 (pdftex.def)             Requested size: 455.24408pt x 318.0386pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1038,7 +1041,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <sampleHausdorffDice.pdf, id=501, 450.23073pt x 449.53505pt>
 File: sampleHausdorffDice.pdf Graphic file (type pdf)
 <use sampleHausdorffDice.pdf>
-Package pdftex.def Info: sampleHausdorffDice.pdf  used on input line 421.
+Package pdftex.def Info: sampleHausdorffDice.pdf  used on input line 419.
 (pdftex.def)             Requested size: 216.24094pt x 215.91154pt.
 
 
@@ -1046,11 +1049,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 425.
+(hyperref)                removing `math shift' on input line 423.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 425.
+(hyperref)                removing `math shift' on input line 423.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1061,21 +1064,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [13 <./sampleHausdorffDice.pdf>]
-Underfull \hbox (badness 3229) in paragraph at lines 432--433
+Underfull \hbox (badness 3229) in paragraph at lines 430--431
 []\OT1/cmr/m/n/10 Moreover, expand-ing the num-ber of Pxl
  []
 
 
-Underfull \hbox (badness 4846) in paragraph at lines 435--436
+Underfull \hbox (badness 4846) in paragraph at lines 433--434
 \OT1/cmr/m/n/10 Summarizing con-tri-bu-tions pro-posed in this
  []
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 446.
+(hyperref)                than one, level fixed on input line 444.
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 451--452
+Underfull \hbox (badness 1024) in paragraph at lines 449--450
 \OT1/cmr/m/n/10 men-ta-tion is done on Julia Lan-guage with
  []
 
@@ -1400,7 +1403,7 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 Here is how much of TeX's memory you used:
  14239 strings out of 478907
  201170 string characters out of 2861737
- 561222 words of memory out of 3000000
+ 561551 words of memory out of 3000000
  31741 multiletter control sequences out of 15000+600000
  432221 words of font info for 142 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
@@ -1430,7 +1433,7 @@ lic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmti8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
 10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on sn-article.pdf (16 pages, 2263367 bytes).
+Output written on sn-article.pdf (16 pages, 2267461 bytes).
 PDF statistics:
  730 PDF objects out of 1000 (max. 8388607)
  110 named destinations out of 1000 (max. 500000)

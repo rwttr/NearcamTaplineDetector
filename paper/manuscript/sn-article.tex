@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title[Article Title]{Nearcam Tapline Detection 2}
+\title[Article Title]{Rubber Tapping Line Detection in Near-Range Images Using Box and Polyline via Multibranch Convolutional Neural Network}
 
 \author[]{\fnm{Rattachai} \sur{Wongtanawijit}}\email{rattachai.gov@gmail.com}
 \equalcont{These authors contributed equally to this work.}
@@ -98,12 +98,10 @@ Maneuvering a robot approaches a rubber tree in a near-range, likewise in \cite{
 
 %% Section
 \section{Methodology}\label{sec-methodology}
-
-
 \subsection{Model Design}\label{subsec-model}
 Fig \ref{fig1-modelA} illustrates the overview of the tapping line detection network in a block diagram. The computational graph consists of a downsampling backbone network for extracting features, two box detection heads at different spatial resolutions for object size coverages, a upsampling path that enlarges tensors' size back to the input's size, and a pixel classification head for the detection of tapping line's pixels. This one-staged design facilitates the end-to-end training. Since, tapping line detection is a one-class object detection problem and likely to be deployed on a mobile robot. Hence, a small or compact network, in term of numbers of weights and data's sizes, is favourable. As a result, the following model construction has 5.53 million trainable parameters in approximate.
 
-\begin{figure*}[]%
+\begin{figure*}[!ht]%
 \centering
 \includegraphics[width=\textwidth]{fig1.pdf}
 \caption{The proposed tapping line detection network, visualized in a directed grpah with blocks. Network composes of four parts, from left-to-right are Downsampling network, two YOLO detection branches, Upsampling network, and Pixel classification branch.}\label{fig1-modelA}
@@ -299,7 +297,7 @@ Hausdorff distance ($\mathrm{d_H}$), measures the similarity between two curves,
 \mathrm{d_H}(\textbf{A},\textbf{B}) &= \max (\mathrm{d}(\textbf{A},\textbf{B}), \mathrm{d}(\textbf{B},\textbf{A})) \label{eq-hausdorff}
 \end{align}
 
-In addition to the mentioned box and polyline evaluation metrics, this paper also includes the L2-distance ($\mathrm{d_{ep}}$) of tapping endpoints where two tapping endpoints locate at the top-left and bottom-right corners of the box. This measurement adds more details on the box's location over IoU ratios. Let a bounding box is in a form [x, y, width, height]. The predicted box is $[x_p, y_p, w_p, h_p]$ and the groundtruth box is $[x_g, y_g, w_g, h_g]$. Then, the predicted tapping endpoints are $ep_{p1} = (x_p, y_p)$ and $ep_{p2} = (x_p+w_p, y_p+h_p)$. Likewise, the groundtruth tapping endpoints are $ep_{g1} = (x_g, y_g)$ and $ep_{g2} = (x_g+w_g, y_g+h_g)$. The average endpoint distance is defined by equation \ref{eq-endpoint}.
+In addition to the mentioned box and polyline evaluation metrics, this paper also includes the L2-distance ($\mathrm{d_{ep}}$) of tapping endpoints where two tapping endpoints locate at the top-left and bottom-right corners of the box. This measurement adds more details on the box's location over IoU ratios. Let a bounding box is in a form of [x, y, width, height]. Denote that the predicted box is $[x_p, y_p, w_p, h_p]$ and the groundtruth box is $[x_g, y_g, w_g, h_g]$. The predicted tapping endpoints are $ep_{p1} = (x_p, y_p)$ and $ep_{p2} = (x_p+w_p, y_p+h_p)$. Likewise, the groundtruth tapping endpoints are $ep_{g1} = (x_g, y_g)$ and $ep_{g2} = (x_g+w_g, y_g+h_g)$. So, the average endpoint distance is defined by equation \ref{eq-endpoint}.
 \begin{equation}
 \mathrm{d_{ep}} = \frac{1}{2} (\| ep_{p1}- ep_{g1} \| + \| ep_{p2}  - ep_{g2} \|) \label{eq-endpoint}
 \end{equation}
@@ -448,7 +446,7 @@ Giving acknowledgements to Computer Engineering Department at Prince of Songkla 
 \section*{Declarations}
 \begin{itemize}
 \item Availability of near-range tapping line image dataset: please send an inquiry to coresponding author Mr.Thanate Khaorapapong
-\item Source code is made avaiable at \url{https://github.com/rwttr/NearcamTaplineDetector}, all implementation is done on Julia Language with Flux.jl ML libray \cite{innes2018}.
+\item Source code is made avaiable at \url{https://github.com/rwttr/NearcamTaplineDetector}, all implementation is done on Julia Language with Flux.jl ML library \cite{innes2018}.
 \end{itemize}
 
 \bibliographystyle{bst/sn-basic}
