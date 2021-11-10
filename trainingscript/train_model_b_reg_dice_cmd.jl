@@ -63,7 +63,7 @@ model_name = "model_1v1_std_std_all"
 model = model_1v1;
 
 # save / model checkpoint enable
-chkpoint_enable = true
+chkpoint_enable = false
 
 # resume training
 resume_training = false

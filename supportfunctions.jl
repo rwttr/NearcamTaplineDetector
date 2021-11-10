@@ -904,8 +904,9 @@ function (x::StateScheduler)(iteration_no, epoch_no)
 end
 
 # L2 Regularisation on Generic model m
-L2reg(m) = sum(sum(p.^2) for p in Flux.params(m))
-L2reg(m::Flux.Params) = sum(sum(p.^2) for p in m)
+# L2reg(m) = sum(sum(p.^2) for p in Flux.params(m))
+# L2reg(m::Flux.Params) = sum(sum(p.^2) for p in m)
+L2reg(m::Flux.Params) = mean(mean(p.^2) for p in m)
 
 # Image Visualizer
 function convert2RGB(x::Array{Float32,3})
