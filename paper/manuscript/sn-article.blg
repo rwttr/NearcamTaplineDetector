@@ -8,45 +8,45 @@ Database file #1: sn-bibliography.bib
 Warning--entry type for "Tong2020" isn't style-file defined
 --line 450 of file sn-bibliography.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 37 entries,
+You've used 38 entries,
             3546 wiz_defined-function locations,
-            948 strings with 12619 characters,
-and the built_in function-call counts, 31009 in all, are:
-= -- 3193
-> -- 1224
+            956 strings with 12830 characters,
+and the built_in function-call counts, 32196 in all, are:
+= -- 3335
+> -- 1265
 < -- 15
-+ -- 538
-- -- 362
-* -- 2365
-:= -- 4278
-add.period$ -- 61
-call.type$ -- 37
-change.case$ -- 315
-chr.to.int$ -- 35
-cite$ -- 37
-duplicate$ -- 2581
-empty$ -- 2168
-format.name$ -- 462
-if$ -- 6412
++ -- 558
+- -- 374
+* -- 2444
+:= -- 4415
+add.period$ -- 63
+call.type$ -- 38
+change.case$ -- 324
+chr.to.int$ -- 36
+cite$ -- 38
+duplicate$ -- 2692
+empty$ -- 2237
+format.name$ -- 477
+if$ -- 6655
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 254
-newline$ -- 120
-num.names$ -- 150
-pop$ -- 979
+missing$ -- 262
+newline$ -- 123
+num.names$ -- 154
+pop$ -- 1027
 preamble$ -- 1
-purify$ -- 274
+purify$ -- 282
 quote$ -- 0
-skip$ -- 1176
+skip$ -- 1229
 stack$ -- 0
-substring$ -- 1830
-swap$ -- 1199
+substring$ -- 1900
+swap$ -- 1281
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 333
+type$ -- 342
 warning$ -- 0
-while$ -- 166
+while$ -- 173
 width$ -- 0
-write$ -- 437
+write$ -- 449
 (There was 1 warning)
