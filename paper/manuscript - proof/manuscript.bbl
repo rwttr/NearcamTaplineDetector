@@ -1,0 +1,204 @@
+\begin{thebibliography}{37}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\providecommand{\eprint}[2][]{\url{#2}}
+ \bibcommenthead
+
+\bibitem[{ABRAHAM(1992)}]{abraham1992tapping}
+ABRAHAM P (1992) Chapter 12 - tapping of hevea brasiliensis. In: Sethuraj M,
+  Mathew N (eds) Natural Rubber, Developments in Crop Science, vol~23.
+  Elsevier, p 263--281, \doi{10.1016/B978-0-444-88329-2.50018-0},
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/B9780444883292500180}
+
+\bibitem[{An~Feng(2018{\natexlab{a}})}]{patent1}
+An~Feng LW (2018{\natexlab{a}}) Automatic integrated rubber tapping and
+  collecting method based on image identification and automatic integrated
+  rubber tapping and collecting device based on image identification
+
+\bibitem[{An~Feng(2018{\natexlab{b}})}]{patent2}
+An~Feng LW (2018{\natexlab{b}}) A kind of integrated automatic rubber tapping
+  receipts gluing method and device based on image recognition
+
+\bibitem[{Badrinarayanan et~al(2015)Badrinarayanan, Kendall, and
+  Cipolla}]{segnet}
+Badrinarayanan V, Kendall A, Cipolla R (2015) Segnet: {A} deep convolutional
+  encoder-decoder architecture for image segmentation. CoRR abs/1511.00561.
+  {\href{https://arxiv.org/abs/1511.00561}{{https://arxiv.org/abs/1511.00561}}}
+
+\bibitem[{Bochkovskiy et~al(2020)Bochkovskiy, Wang, and Liao}]{alexyyolov4}
+Bochkovskiy A, Wang C, Liao HM (2020) Yolov4: Optimal speed and accuracy of
+  object detection. CoRR abs/2004.10934.
+  {\href{https://arxiv.org/abs/2004.10934}{{https://arxiv.org/abs/2004.10934}}}
+
+\bibitem[{Chen et~al(2021)Chen, Wang, Wu, Hu, Zhao, Tan, Teng, and
+  Luo}]{chentomato}
+Chen J, Wang Z, Wu J, et~al (2021) An improved yolov3 based on dual path
+  network for cherry tomatoes detection. Journal of Food Process Engineering
+  44(10):e13,803. \doi{10.1111/jfpe.13803}
+
+\bibitem[{Chu et~al(2021)Chu, Li, Lammers, Lu, and Liu}]{Chu2021apple}
+Chu P, Li Z, Lammers K, et~al (2021) Deep learning-based apple detection using
+  a suppression mask r-cnn. Pattern Recognition Letters 147:206--211.
+  \doi{10.1016/j.patrec.2021.04.022}
+
+\bibitem[{Girshick(2015)}]{fastrcnn}
+Girshick RB (2015) Fast {R-CNN}. CoRR abs/1504.08083.
+  {\href{https://arxiv.org/abs/1504.08083}{{https://arxiv.org/abs/1504.08083}}}
+
+\bibitem[{He et~al(2015)He, Zhang, Ren, and Sun}]{resnet}
+He K, Zhang X, Ren S, et~al (2015) Deep residual learning for image
+  recognition. CoRR abs/1512.03385.
+  {\href{https://arxiv.org/abs/1512.03385}{{https://arxiv.org/abs/1512.03385}}}
+
+\bibitem[{He et~al(2017)He, Gkioxari, Doll{\'{a}}r, and Girshick}]{maskrcnn}
+He K, Gkioxari G, Doll{\'{a}}r P, et~al (2017) Mask {R-CNN}. CoRR
+  abs/1703.06870.
+  {\href{https://arxiv.org/abs/1703.06870}{{https://arxiv.org/abs/1703.06870}}}
+
+\bibitem[{Huang et~al(2016)Huang, Liu, and Weinberger}]{densenet}
+Huang G, Liu Z, Weinberger KQ (2016) Densely connected convolutional networks.
+  CoRR abs/1608.06993.
+  {\href{https://arxiv.org/abs/1608.06993}{{https://arxiv.org/abs/1608.06993}}}
+
+\bibitem[{Huttenlocher et~al(1993)Huttenlocher, Klanderman, and
+  Rucklidge}]{Huttenlocher1993ComparingIU}
+Huttenlocher D, Klanderman G, Rucklidge W (1993) Comparing images using the
+  hausdorff distance. IEEE Transactions on Pattern Analysis and Machine
+  Intelligence 15(9):850--863. \doi{10.1109/34.232073}
+
+\bibitem[{Innes(2018)}]{innes2018}
+Innes M (2018) Flux: Elegant machine learning with julia. Journal of Open
+  Source Software \doi{10.21105/joss.00602}
+
+\bibitem[{Jia et~al(2020)Jia, Tian, Luo, Zhang, Lian, and Zheng}]{Jia2020apple}
+Jia W, Tian Y, Luo R, et~al (2020) Detection and segmentation of overlapped
+  fruits based on optimized mask r-cnn application in apple harvesting robot.
+  Computers and Electronics in Agriculture 172.
+  \doi{10.1016/j.compag.2020.105380}
+
+\bibitem[{Kuznetsova et~al(2020)Kuznetsova, Maleva, and
+  Soloviev}]{Kuznetsova2020apple}
+Kuznetsova A, Maleva T, Soloviev V (2020) Using yolov3 algorithm with pre- and
+  post-processing for apple detection in fruit-harvesting robot. Agronomy 10.
+  \doi{10.3390/agronomy10071016}
+
+\bibitem[{Lawal(2021{\natexlab{a}})}]{Lawal_2021}
+Lawal MO (2021{\natexlab{a}}) Tomato detection based on modified {YOLOv}3
+  framework. Scientific Reports 11(1). \doi{10.1038/s41598-021-81216-5}
+
+\bibitem[{Lawal(2021{\natexlab{b}})}]{Lawal2021tomato}
+Lawal OM (2021{\natexlab{b}}) Development of tomato detection model for robotic
+  platform using deep learning. Multimedia Tools and Applications
+  80(17):26,751--26,772. \doi{10.1007/s11042-021-10933-w}
+
+\bibitem[{Li et~al(2021)Li, Jia, Sun, Hou, and Zheng}]{Li2021apple}
+Li Q, Jia W, Sun M, et~al (2021) A novel green apple segmentation algorithm
+  based on ensemble u-net under complex orchard environment. Computers and
+  Electronics in Agriculture 180. \doi{10.1016/j.compag.2020.105900}
+
+\bibitem[{Lin et~al(2017)Lin, Goyal, Girshick, He, and
+  Doll{\'{a}}r}]{focalloss1}
+Lin T, Goyal P, Girshick RB, et~al (2017) Focal loss for dense object
+  detection. CoRR abs/1708.02002.
+  {\href{https://arxiv.org/abs/1708.02002}{{https://arxiv.org/abs/1708.02002}}}
+
+\bibitem[{Liu et~al(2020)Liu, Nouaze, Touko~Mbouembe, and Kim}]{s20072145}
+Liu G, Nouaze JC, Touko~Mbouembe PL, et~al (2020) Yolo-tomato: A robust
+  algorithm for tomato detection based on yolov3. Sensors 20(7).
+  \doi{10.3390/s20072145},
+  \urlprefix\url{https://www.mdpi.com/1424-8220/20/7/2145}
+
+\bibitem[{Milletari et~al(2016)Milletari, Navab, and Ahmadi}]{vnet}
+Milletari F, Navab N, Ahmadi S (2016) V-net: Fully convolutional neural
+  networks for volumetric medical image segmentation. CoRR abs/1606.04797.
+  {\href{https://arxiv.org/abs/1606.04797}{{https://arxiv.org/abs/1606.04797}}}
+
+\bibitem[{Misra(2019)}]{misra2019mish}
+Misra D (2019) Mish: {A} self regularized non-monotonic neural activation
+  function. CoRR abs/1908.08681.
+  {\href{https://arxiv.org/abs/1908.08681}{{https://arxiv.org/abs/1908.08681}}}
+
+\bibitem[{Redmon and Farhadi(2016)}]{redmonyolov2}
+Redmon J, Farhadi A (2016) {YOLO9000:} better, faster, stronger. CoRR
+  abs/1612.08242.
+  {\href{https://arxiv.org/abs/1612.08242}{{https://arxiv.org/abs/1612.08242}}}
+
+\bibitem[{Redmon and Farhadi(2018)}]{redmonyolov3}
+Redmon J, Farhadi A (2018) Yolov3: An incremental improvement. CoRR
+  abs/1804.02767.
+  {\href{https://arxiv.org/abs/1804.02767}{{https://arxiv.org/abs/1804.02767}}}
+
+\bibitem[{Redmon et~al(2015)Redmon, Divvala, Girshick, and
+  Farhadi}]{redmonyolov1}
+Redmon J, Divvala SK, Girshick RB, et~al (2015) You only look once: Unified,
+  real-time object detection. CoRR abs/1506.02640.
+  {\href{https://arxiv.org/abs/1506.02640}{{https://arxiv.org/abs/1506.02640}}}
+
+\bibitem[{Ren et~al(2015)Ren, He, Girshick, and Sun}]{fasterrcnn}
+Ren S, He K, Girshick RB, et~al (2015) Faster {R-CNN:} towards real-time object
+  detection with region proposal networks. CoRR abs/1506.01497.
+  {\href{https://arxiv.org/abs/1506.01497}{{https://arxiv.org/abs/1506.01497}}}
+
+\bibitem[{Ronneberger et~al(2015)Ronneberger, Fischer, and Brox}]{unet}
+Ronneberger O, Fischer P, Brox T (2015) U-net: Convolutional networks for
+  biomedical image segmentation. In: Navab N, Hornegger J, Wells WM, et~al
+  (eds) Medical Image Computing and Computer-Assisted Intervention -- MICCAI
+  2015. Springer International Publishing, Cham, pp 234--241,
+  \doi{10.1007/978-3-319-24574-4_28}
+
+\bibitem[{Salehi et~al(2017)Salehi, Erdogmus, and Gholipour}]{tverskyloss}
+Salehi SSM, Erdogmus D, Gholipour A (2017) Tversky loss function for image
+  segmentation using 3d fully convolutional deep networks. CoRR abs/1706.05721.
+  {\href{https://arxiv.org/abs/1706.05721}{{https://arxiv.org/abs/1706.05721}}}
+
+\bibitem[{Sudre et~al(2017)Sudre, Li, Vercauteren, Ourselin, and
+  Cardoso}]{gendice}
+Sudre CH, Li W, Vercauteren T, et~al (2017) Generalised dice overlap as a deep
+  learning loss function for highly unbalanced segmentations. CoRR
+  abs/1707.03237.
+  {\href{https://arxiv.org/abs/1707.03237}{{https://arxiv.org/abs/1707.03237}}}
+
+\bibitem[{Tong et~al(2020)Tong, Wu, and Zhou}]{Tong2020}
+Tong K, Wu Y, Zhou F (2020) Recent advances in small object detection based on
+  deep learning: A review. \doi{10.1016/j.imavis.2020.103910}
+
+\bibitem[{Wang et~al(2022)Wang, Zhou, Zhang, Ge, Li, Yuan, Zhang, and
+  Zhang}]{WANG2022103906}
+Wang S, Zhou H, Zhang C, et~al (2022) Design, development and evaluation of
+  latex harvesting robot based on flexible toggle. Robotics and Autonomous
+  Systems 147:103,906. \doi{10.1016/j.robot.2021.103906}
+
+\bibitem[{Wongtanawijit and Khaorapapong(2021)}]{Wongtanawijit_2021}
+Wongtanawijit R, Khaorapapong T (2021) Nighttime rubber tapping line detection
+  in near-range images. Multimedia Tools and Applications
+  \doi{10.1007/s11042-021-11140-3}
+
+\bibitem[{Yu et~al(2019)Yu, Zhang, Yang, and Zhang}]{Yu2019strawberry}
+Yu Y, Zhang K, Yang L, et~al (2019) Fruit detection for strawberry harvesting
+  robot in non-structural environment based on mask-rcnn. Computers and
+  Electronics in Agriculture 163:104,846. \doi{10.1016/j.compag.2019.06.001}
+
+\bibitem[{Yu et~al(2017)Yu, Feng, Liu, and Ramalingam}]{casenet}
+Yu Z, Feng C, Liu M, et~al (2017) Casenet: Deep category-aware semantic edge
+  detection. In: 2017 {IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR} 2017, Honolulu, HI, USA, July 21-26, 2017. {IEEE}
+  Computer Society, pp 1761--1770, \doi{10.1109/CVPR.2017.191}
+
+\bibitem[{Zhang et~al(2019)Zhang, Yong, Chen, Zhang, Ge, Wang, and
+  Li}]{zhang2019rubber}
+Zhang C, Yong L, Chen Y, et~al (2019) A rubber-tapping robot forest navigation
+  and information collection system based on 2d lidar and a gyroscope. Sensors
+  (Basel, Switzerland) 19(9):2136. \doi{10.3390/s19092136}
+
+\bibitem[{Zhang~Bin(2017)}]{patent3}
+Zhang~Bin WX (2017) One kind rubber tapping robot
+
+\bibitem[{Zhou et~al(2021)Zhou, Zhang, Zhang, Zhang, Wang, Zhai, and
+  Li}]{Zhou2021rubber}
+Zhou H, Zhang S, Zhang J, et~al (2021) Design, development, and field
+  evaluation of a rubber tapping robot. Journal of Field Robotics
+  \doi{10.1002/rob.22036}
+
+\end{thebibliography}
