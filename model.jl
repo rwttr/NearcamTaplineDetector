@@ -321,7 +321,7 @@ end
 model_1v2 = NNModel_v2(basenet_darknetlight, (yololayer_layer1, yololayer_layer2))
 
 # Model_A
-""" Model_A: parallel-supervised layers + col-wise softmax """
+""" Model_A: parallel-supervised layers (+ then col-wise softmax) """
 
 # Model_A
 struct NNModelA
@@ -355,7 +355,7 @@ function (u::NNModelA)(x::AbstractArray)
     pxsup_2 = u.pxpredhead_block[2](up_x1)
     pxsup_3 = u.pxpredhead_block[3](up_x1)
 
-    pxout = softmax(pxsup_1 + pxsup_2 + pxsup_3, dims=1)
+    pxout = softmax(pxsup_1 + pxsup_2 + pxsup_3, dims=1) # not used
 
     #return boxout1, boxout2, pxsup_1, pxsup_2, pxsup_3, pxout
     return boxout1, boxout2, pxout, pxsup_1, pxsup_2, pxsup_3

@@ -185,3 +185,165 @@ plot!(dtpxl_px,
 # @show taplineHausdorffDist(imgA, imgB)
 # @show dicef1score(imgA, imgB)
 
+""" Col-Softmax Anaylysis and Visualization """
+#data rescale
+function rawdatarescale(x)
+    temp = x.-minimum(x)
+    return temp./(maximum(temp))
+end
+
+## plot attention map
+# for sample1 - model b (model C for paper)
+# const rawimg1 = output_branch3[:,:,1,1];
+rawdata1 = rawimg1[:,125];
+sum(rawdata1);
+
+rawimg1_gray = convert(Array{N0f8,2},rawimg1) |> rawdatarescale
+Gray.(rawimg1_gray) # show in vscode plot pane
+plot(Gray.(rawimg1_gray) ,size=(400, 400))
+
+
+
+# sample 2 - model_c (model D for paper)
+# const rawimg2 = output_branch3[:,:,1,1];
+rawdata2 = rawimg2[:,125];
+sum(rawdata2);
+
+rawimg2_gray = convert(Array{N0f8,2},rawimg2) |> rawdatarescale
+Gray.(rawimg2_gray) # show in vscode plot pane
+plot(Gray.(rawimg2_gray) ,size=(400, 400))
+
+
+
+""" Column data plot """
+col_no1 = 104
+col_no2 = 125 
+
+colgt_104 = gtpxl[:,col_no1]
+colgt_125 = gtpxl[:,col_no2]
+
+rowgt_104 = Bool.(colgt_104) |> findall
+rowgt_125 = Bool.(colgt_125) |> findall
+
+coldata1_104 = rawdatarescale(rawimg1[:,col_no1])
+coldata1_125 = rawdatarescale(rawimg1[:,col_no2])
+
+coldata2_104 = rawdatarescale(rawimg2[:,col_no1])
+coldata2_125 = rawdatarescale(rawimg2[:,col_no2])
+
+plot(;size=(600,400),
+    legend = :bottom,
+    xlabel = "Row Number",
+    ylabel ="Rescaled Output",
+    xlim = (1,230),
+    xtick = [1,56,112,168,224],
+    ylim = (0,1.01)
+)
+plot!(coldata1_104, 
+    markersize=0,
+    markerstrokestyle=:line,# :dot
+    linewidth=1.5,
+    #linealpha=0.75,
+    #linecolor=:yellow,
+    labels ="Model C",
+    legend = :bottom
+)
+plot!(coldata2_104, 
+    markersize=0,
+    markerstrokestyle=:line,# :dot
+    linewidth=1.5,
+    #linecolor=:red,
+    #linealpha=0.75,
+    labels ="Model D",
+    legend = :bottom
+)
+vline!(rowgt_104,
+    linewidth=1.25,
+    linecolor=:black,
+    linealpha=0.75,
+    linestyle=:dot,
+    labels ="Pixel GroundTruth",
+)
+
+# col_no2
+plot(;size=(600,400),
+    legend = :bottom,
+    xlabel = "Row Number",
+    ylabel ="Rescaled Output",
+    xlim = (1,230),
+    xtick = [1,56,112,168,224],
+    ylim = (0,1.01)
+)
+plot!(coldata1_125, 
+    markersize=0,
+    markerstrokestyle=:line,# :dot
+    linewidth=1.5,
+    #linealpha=0.75,
+    #linecolor=:yellow,
+    labels ="Model C",
+    legend = :bottom
+)
+plot!(coldata2_125, 
+    markersize=0,
+    markerstrokestyle=:line,# :dot
+    linewidth=1.5,
+    #linecolor=:red,
+    #linealpha=0.75,
+    labels ="Model D",
+    legend = :bottom
+)
+vline!(rowgt_125,
+    linewidth=1.25,
+    linecolor=:black,
+    linealpha=0.75,
+    linestyle=:dot,
+    labels ="Pixel GroundTruth",
+)
+
+
+# gtbox =  92.225  142.178  64.4  62.5333, col = 143-205
+
+""" Column-line plot on segmentation output map """
+# column 104
+colline1 = map(repeat([104],outer=224),1:224) do a,b
+    (a,b)    
+end
+
+# column 125
+colline2 = map(repeat([125],outer=224),1:224) do a,b
+    (a,b)    
+end
+
+plot!(colline1, 
+    markersize=0,
+    markerstrokestyle=:line,# :dot
+    linewidth=1.25,
+    linealpha=0.75,
+    linecolor=:yellow,
+    legend=false
+)
+
+plot!(colline2, 
+    markersize=0,
+    markerstrokestyle=:line,# :dot
+    linewidth=1.25,
+    linealpha=0.75,
+    linecolor=:green,
+    legend=false
+)
+
+# gt-box
+plot!(gtboxplot,  
+    linewidth=1.25,
+    linestyle=:dot,
+    linecolor=:red, 
+    fillalpha=0, 
+    legend=false
+)
+# dt-box
+plot!(dtboxplot,  
+    linewidth=1.25,
+    linecolor=:blue, 
+    fillalpha=0, 
+    legend=false
+)
